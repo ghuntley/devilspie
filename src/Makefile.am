@@ -1,8 +1,8 @@
 # We only install devilspie at the moment
 bin_PROGRAMS = devilspie
 
-# Don't install the parser test and the (incomplete/not working) editor
-noinst_PROGRAMS = parser-test editor
+# Don't install the parser test
+noinst_PROGRAMS = parser-test
 
 devilspie_SOURCES = \
 	${BUILT_SOURCES} \
@@ -20,14 +20,6 @@ parser_test_SOURCES = \
 	devilspie.h \
 	parser-test.c
 
-editor_SOURCES = \
-	${BUILT_SOURCES} \
-	config-parser.c \
-	flurb.h \
-	flurb.c \
-	devilspie.h \
-	editor.c
-
 CFLAGS = -Wall -g
 INCLUDES = \
 	$(EXTRA_GNOME_CFLAGS) \
@@ -37,9 +29,6 @@ INCLUDES = \
 	-DGTK_DISABLE_DEPRECATED -DGNOME_DISABLE_DEPRECATED
 
 LDADD = ${EXTRA_GNOME_LIBS}
-# The editor needs this flag so that libglade can do its
-# auto-connection magic.
-editor_LDFLAGS = -export-dynamic
 
 # The long list of sources which are generated from .gob files.
 BUILT_SOURCES = \

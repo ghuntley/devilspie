@@ -46,6 +46,8 @@ BUILT_SOURCES = \
 	devilspie-action.h \
 	devilspie-action-debug.c \
 	devilspie-action-debug.h \
+	devilspie-action-exec.c \
+	devilspie-action-exec.h \
 	devilspie-action-layer.c \
 	devilspie-action-layer.h \
 	devilspie-action-decorate.c \
@@ -73,6 +75,7 @@ devilspie_GOBS = \
 	devilspie-matcher-always \
 	devilspie-action \
 	devilspie-action-debug \
+	devilspie-action-exec \
 	devilspie-action-layer \
 	devilspie-action-decorate \
 	devilspie-action-savegeometry \

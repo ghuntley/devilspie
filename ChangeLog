@@ -1,5 +1,12 @@
 2004-10-01  Ross Burton  <ross@burtonini.com>
 
+	* src/devilspie-action-exec.gob:
+	* src/flurb.c:
+	* src/Makefile.am:
+	Add command execution action by John Russell.
+
+2004-10-01  Ross Burton  <ross@burtonini.com>
+
 	* src/devilspie-action-resize.gob:
 	* README:
 	Add maximized_horizontally and maximized_vertically, patch from

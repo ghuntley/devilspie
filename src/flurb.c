@@ -4,6 +4,7 @@
 /* Not good in the slightest */
 #include "devilspie-matcher-always.h"
 #include "devilspie-matcher-windowname.h"
+#include "devilspie-action-exec.h"
 #include "devilspie-action-hide.h"
 #include "devilspie-action-layer.h"
 #include "devilspie-action-decorate.h"

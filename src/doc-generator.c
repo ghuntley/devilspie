@@ -17,6 +17,8 @@ static void handle_properties(xmlTextWriterPtr writer, GType t) {
       xmlTextWriterStartElement (writer, "property");
       xmlTextWriterWriteAttribute (writer, "name", props[i]->name);
       xmlTextWriterWriteAttribute (writer, "nick", g_param_spec_get_nick (props[i]));
+      /* TODO: transform type names to Tristate/Boolean/Integer/String/etc */
+      xmlTextWriterWriteAttribute (writer, "type", g_type_name (props[i]->value_type));
       xmlTextWriterWriteCDATA (writer, g_param_spec_get_blurb (props[i]));
       xmlTextWriterEndElement (writer);
     }

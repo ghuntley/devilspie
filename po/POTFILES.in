@@ -1,7 +1,5 @@
 devilspie.glade
-src/devilspie.c
 src/config-parser.c
-src/devilspie-action-hide.gob
 src/devilspie-action-debug.gob
 src/devilspie-action-hide.gob
 src/devilspie-action-layer.gob
@@ -10,3 +8,4 @@ src/devilspie-action-savegeometry.gob
 src/devilspie-action-setworkspace.gob
 src/devilspie-matcher-always.gob
 src/devilspie-matcher-windowname.gob
+src/devilspie.c

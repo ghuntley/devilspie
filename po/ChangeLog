@@ -1,0 +1,6 @@
+2002-12-29  Christian Neumair  <chris@gnome-de.org>
+
+	* .cvsignore: Added missing files.
+	* ChangeLog: Added.
+	* POTFILES.in: Added missing files.
+	* de.po: Added German translation.

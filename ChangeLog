@@ -1,3 +1,8 @@
+2002-12-29  Christian Neumair  <chris@gnome-de.org>
+
+	* .cvsignore: Added stamp-h1.
+	* configure.in (ALL_LINGUAS): Added German (de).
+
 2002-12-17  Ross Burton  <ross@burtonini.com>
 
 	* configure.in: Find GConf.

@@ -16,7 +16,6 @@
     <actions>
       <!-- this action prints out the window and application name -->
       <action name="DevilsPieActionDebug"/>
-      <action name="DevilsPieActionSaveGeometry"/>
     </actions>
   </flurb>
 
@@ -50,8 +49,8 @@
     </actions>
   </flurb>
   <!--
-  This will put all GNOME Calculators on the second workspace,
-  maxmized. Note that the workspace number is a 1-based index, not a
+  This will put all GNOME Calculators on the second workspace.
+  Note that the workspace number is a 1-based index, not a
   0-based index.
   -->
   <flurb>

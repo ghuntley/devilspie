@@ -1,3 +1,11 @@
+2004-09-07  Ross Burton  <ross@burtonini.com>
+
+	* README:
+	* sample-config.xml:
+	* src/devilspie-action-decorate.gob:
+	Set the Motif decoration hint aswell as the OpenBox one.  Patch
+	from Vaclav Lorenc.
+
 2004-08-19  Ross Burton  <ross@burtonini.com>
 
 	* src/devilspie-action-resize.gob:

@@ -8,6 +8,26 @@
 
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
+#include <gdk/gdkx.h>
+
+/* MWM decorations */
+#define PROP_MOTIF_WM_HINTS_ELEMENTS    5
+#define MWM_HINTS_DECORATIONS   (1L << 1)
+#define MWM_DECOR_NONE          0
+#define MWM_DECOR_ALL           (1L << 0)
+
+typedef unsigned int uint32;
+typedef signed int sint32;
+
+typedef struct
+{
+        uint32 flags;
+        uint32 functions;
+        uint32 decorations;
+        sint32 inputMode;
+        uint32 status;
+} PropMotifWmHints;
+
 Screen *_wnck_screen_get_xscreen (WnckScreen *screen);
 Atom _wnck_atom_get (const char *atom_name);
 void _wnck_change_state (Screen  *screen,
@@ -21,26 +41,56 @@ class DevilsPie:Action:Decorate from DevilsPie:Action {
 
   public DevilsPieTriState decorated;
   property ENUM decorated
-  (nick = _("Decorated windows (OpenBox)"),
-   blurb = _("Window is decorated (OpenBox specific)"),
+  (nick = _("Decorated windows (OpenBox + Motif WM hints)"),
+   blurb = _("Window is decorated (OpenBox + Motif WM hints)"),
    enum_type = DevilsPie:TriState, default_value = TRI_UNSET, link);
 
+
+  /* (un)sets Motif WM decorations */
+  /*  -- thanks rentar for rdesktop & motif_wm_hints hint */
+  private void mwm_set_decorations(Wnck:Window *window, int decors) {
+    PropMotifWmHints motif_hints;
+    Atom hintsatom;
+
+    /* setup the property */
+    motif_hints.flags = MWM_HINTS_DECORATIONS;
+    motif_hints.decorations = decors;
+
+    /* get the atom for the property */
+    hintsatom = _wnck_atom_get("_MOTIF_WM_HINTS");
+    if (!hintsatom) {       
+      g_warning("Failed to get atom _MOTIF_WM_HINTS: probably your window manager does not support MWM hints\n"); 
+      return ;
+    }       
+    XChangeProperty(GDK_DISPLAY(), 
+		    wnck_window_get_xid(window), 
+		    hintsatom, 
+		    hintsatom, 32, PropModeReplace,
+		    (unsigned char *) &motif_hints, 
+		    PROP_MOTIF_WM_HINTS_ELEMENTS);
+    }
+
+  /* Main action... */
   override (DevilsPie:Action) gboolean run(DevilsPie:Action *self (check null type), Wnck:Window *window (check null type)) {
     DevilsPieActionDecorate *a = (DevilsPieActionDecorate*)self;
     /* TRUE = decorated, FALSE = undecorated */
     if (a->decorated == TRI_TRUE) {
       _wnck_change_state (_wnck_screen_get_xscreen(wnck_window_get_screen(window)),
-                          wnck_window_get_xid(window),
-                          FALSE,
-                          _wnck_atom_get ("_OB_WM_STATE_UNDECORATED"),
-                          0);
+			  wnck_window_get_xid(window),
+			  FALSE,
+			  _wnck_atom_get ("_OB_WM_STATE_UNDECORATED"),
+			  0);
+      /* workaround for other WMs: it seems that many WMs are able to handle Motif WM hints */
+      self_mwm_set_decorations(window, MWM_DECOR_ALL); 
     }
     if (a->decorated == TRI_FALSE) {
       _wnck_change_state (_wnck_screen_get_xscreen(wnck_window_get_screen(window)),
-                          wnck_window_get_xid(window),
-                          TRUE,
-                          _wnck_atom_get ("_OB_WM_STATE_UNDECORATED"),
-                          0);
+			  wnck_window_get_xid(window),
+			  TRUE,
+			  _wnck_atom_get ("_OB_WM_STATE_UNDECORATED"),
+			  0);
+      /* workaround for other WMs: it seems that many WMs are able to handle Motif WM hints */
+      self_mwm_set_decorations(window, MWM_DECOR_NONE);  
     }
     return TRUE;
   }

@@ -94,6 +94,11 @@ TRUE, FALSE, or UNSET.
                       SPLASHSCREEN, UTILITY, DOCK, DESKTOP.
                       (cf. gtk_window_set_type_hint() )
 
+  * DevilsPieActionDecorate
+
+      decorated       The window is decorated (works with OpenBox & some
+                      other WMs able to handle _MOTIF_WM_HINTS)
+
   * DevilsPieActionSetGeometry
 
       width           The width of the window (integer value)

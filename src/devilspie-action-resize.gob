@@ -20,6 +20,12 @@ class DevilsPie:Action:Resize from DevilsPie:Action {
    blurb = _("Window is minimized"),
    enum_type = DevilsPie:TriState, default_value = TRI_UNSET, link);
 
+  public DevilsPieTriState fullscreen;
+  property ENUM fullscreen
+  (nick = _("Full screen"),
+   blurb = _("Window fills the screen"),
+   enum_type = DevilsPie:TriState, default_value = TRI_UNSET, link);
+
   override (DevilsPie:Action) gboolean run(DevilsPie:Action *self (check null type), Wnck:Window *window (check null type)) {
     DevilsPieActionResize *a = (DevilsPieActionResize*)self;
     /* Assume that a true/false tristate in a boolean context is correct */
@@ -37,6 +43,10 @@ class DevilsPie:Action:Resize from DevilsPie:Action {
       wnck_window_minimize(window);
     else if (a->minimized == TRI_FALSE)
       wnck_window_unminimize(window);
+
+    /* Handle full screen */
+    if (a->fullscreen != TRI_UNSET)
+      wnck_window_set_fullscreen(window, a->fullscreen);
 
     return TRUE;
   }

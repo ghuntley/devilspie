@@ -1,3 +1,8 @@
+2003-05-06  Ross Burton  <ross@burtonini.com>
+
+	* src/devilspie-action-resize.gob: Add a "fullscreen" property,
+	requires a really really new wnck.
+
 2003-05-02  Frederic Crozat  <fcrozat@mandrakesoft.com>
 
 	* devilspie.spec.in: package locale files.

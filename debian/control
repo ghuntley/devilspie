@@ -3,7 +3,7 @@ Section: gnome
 Priority: optional
 Maintainer: Ross Burton <ross@debian.org>
 Build-Depends: debhelper (>= 4.1.0), cdbs, autotools-dev, libpopt-dev (>> 1.5), libgtk2.0-dev, libwnck-dev (>> 0.17), libglade2-dev
-Standards-Version: 3.6.0
+Standards-Version: 3.6.1
 
 Package: devilspie
 Architecture: any

@@ -1,6 +1,0 @@
-* fix the prerm mess. Other packages seem to remove
-  /etc/sgml/devilspie.cat in the purge phase, but I don't have a
-  purge as I don't have any config files (I guess). Unless you could
-  the catalogues as config files... which I'm not sure about. Other
-  packages don't list the catalogues as conf files.
-* patch the same config file so that it uses the system catalogue

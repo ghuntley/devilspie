@@ -1,4 +1,3 @@
-devilspie.glade
 src/config-parser.c
 src/devilspie-action-debug.gob
 src/devilspie-action-hide.gob

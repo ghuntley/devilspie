@@ -60,7 +60,8 @@ all of these properties contain a tristate value which can either be
 TRUE, FALSE, or UNSET.
 
   * DevilsPieActionDebug        Dump debug info: window name,
-                                application name, and window role
+                                application name, window role and
+                                geometry
 
   * DevilsPieActionHide
 
@@ -92,6 +93,16 @@ TRUE, FALSE, or UNSET.
       wintype         value is one of NORMAL, DIALOG, MENU, TOOLBAR, 
                       SPLASHSCREEN, UTILITY, DOCK, DESKTOP.
                       (cf. gtk_window_set_type_hint() )
+
+  * DevilsPieActionSetGeometry
+
+      width           The width of the window (integer value)
+      height          The height of the window (integer value)
+      xoffset         The horizontal offset of the window (integer value)
+      yoffset         The vertical offset of the window (integer value)
+
+                      Any of the above values can be left out to use the
+                      initial geometry value as set by the window manager.
 
 You might want to have a look at the included configuration file
 example (sample-config.xml).

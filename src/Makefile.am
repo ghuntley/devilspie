@@ -52,6 +52,8 @@ BUILT_SOURCES = \
 	devilspie-action-resize.h \
 	devilspie-action-savegeometry.c \
 	devilspie-action-savegeometry.h \
+	devilspie-action-setgeometry.c \
+	devilspie-action-setgeometry.h \
 	devilspie-action-setworkspace.c \
 	devilspie-action-setworkspace.h \
 	devilspie-action-hide.c \
@@ -71,6 +73,7 @@ devilspie_GOBS = \
 	devilspie-action-debug \
 	devilspie-action-layer \
 	devilspie-action-decorate \
+	devilspie-action-savegeometry \
 	devilspie-action-savegeometry \
 	devilspie-action-setworkspace \
 	devilspie-action-resize \

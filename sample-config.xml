@@ -48,6 +48,7 @@
       </action>
     </actions>
   </flurb>
+
   <!--
   This will put all GNOME Calculators on the second workspace.
   Note that the workspace number is a 1-based index, not a
@@ -65,6 +66,25 @@
       </action>
       <action name="DevilsPieActionHide">
         <property name="skip_tasklist" value="TRUE"/>
+      </action>
+    </actions>
+  </flurb>
+
+  <!--
+  Move all GNOME Dictionary windows to 200x200, 100 px wide and 50 px high.
+  -->
+  <flurb>
+    <matchers>
+      <matcher name="DevilsPieMatcherWindowName">
+        <property name="application_name" value="gnome-dictionary"/>
+      </matcher>
+    </matchers>
+    <actions>
+      <action name="DevilsPieActionSetGeometry">
+        <property name="xoffset" value="200"/>
+        <property name="yoffset" value="200"/>
+        <property name="width" value="100"/>
+        <property name="height" value="50"/>
       </action>
     </actions>
   </flurb>

@@ -1,3 +1,24 @@
+2004-08-16  Ross Burton  <ross@burtonini.com>
+
+	* src/devilspie-action-setgeometry.gob:
+	* src/Makefile.am:
+	* src/flurb.c:
+	* README:
+	Action to set the geometry of a window. Thanks to Henrik Brix
+	Andersen <brix@gimp.org> for the patch.
+
+	* src/devilspie-action-debug.gob:
+	Print the geometry of the window (HBA).
+
+	* sample-config.xml:
+	Demonstrate the new action.
+	
+2004-06-13  Ross Burton  <ross@burtonini.com>
+
+	* configure.in:
+	* NEWS:
+	Version 0.4.1
+
 2004-06-11  Ross Burton  <ross@burtonini.com>
 
 	* Makefile.am:

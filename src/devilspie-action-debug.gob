@@ -17,11 +17,19 @@ class DevilsPie:Action:Debug from DevilsPie:Action {
   override (DevilsPie:Action) gboolean run(DevilsPie:Action *self (check null type), Wnck:Window *window (check null type)) {
     const char *role = _wnck_get_string_property_latin1 (
       wnck_window_get_xid (window), _wnck_atom_get("WM_WINDOW_ROLE"));
+
+    gint xoffset, yoffset, width, height;
+    wnck_window_get_geometry(window, &xoffset, &yoffset, &width, &height);
+
     if (role == 0) role = "(none)";
-    printf(_("Window title: \"%s\"; Application name: \"%s\"; Role: \"%s\"\n"),
+    printf(_("Window title: \"%s\"; Application name: \"%s\"; Role: \"%s\"; Geometry: \"%dx%d+%d+%d\"\n"),
            wnck_window_get_name(window),
            wnck_application_get_name(wnck_window_get_application(window)),
-           role);
+           role,
+           width,
+           height,
+           xoffset,
+           yoffset);
     return TRUE;
   }
 

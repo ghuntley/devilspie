@@ -3,7 +3,6 @@ SUBDIRS = po src
 man_MANS = devilspie.1
 
 EXTRA_DIST = \
-	debian \
 	devilspie.spec.in \
 	devilspie.spec \
 	autogen.sh \

@@ -13,6 +13,8 @@ devilspie-action-layer.c
 devilspie-action-layer.h
 devilspie-action-resize.c
 devilspie-action-resize.h
+devilspie-action-opacity.c
+devilspie-action-opacity.h
 devilspie-action-savegeometry.c
 devilspie-action-savegeometry.h
 devilspie-action-setgeometry.c

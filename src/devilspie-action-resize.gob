@@ -17,30 +17,35 @@ class DevilsPie:Action:Resize from DevilsPie:Action {
   property ENUM maximized
   (nick = _("Maximized"),
    blurb = _("Window is maximized on the screen"),
+   flags = CONSTRUCT,
    enum_type = DevilsPie:TriState, default_value = TRI_UNSET, link);
 
 public DevilsPieTriState maximized_horizontally;
   property ENUM maximized_horizontally
   (nick = _("Maximized Horizontally"),
    blurb = _("Window is maximized horizontally on the screen"),
+   flags = CONSTRUCT,
    enum_type = DevilsPie:TriState, default_value = TRI_UNSET, link);
 
   public DevilsPieTriState maximized_vertically;
   property ENUM maximized_vertically
   (nick = _("Minimized Vertically"),
    blurb = _("Window is minimized vertically on the screen"),
+   flags = CONSTRUCT,
    enum_type = DevilsPie:TriState, default_value = TRI_UNSET, link);
 
   public DevilsPieTriState minimized;
   property ENUM minimized
   (nick = _("Minimized"),
    blurb = _("Window is minimized"),
+   flags = CONSTRUCT,
    enum_type = DevilsPie:TriState, default_value = TRI_UNSET, link);
 
   public DevilsPieTriState fullscreen;
   property ENUM fullscreen
   (nick = _("Full screen"),
    blurb = _("Window fills the screen"),
+   flags = CONSTRUCT,
    enum_type = DevilsPie:TriState, default_value = TRI_UNSET, link);
 
   override (DevilsPie:Action) gboolean run(DevilsPie:Action *self (check null type), Wnck:Window *window (check null type)) {

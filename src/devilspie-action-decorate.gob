@@ -43,6 +43,7 @@ class DevilsPie:Action:Decorate from DevilsPie:Action {
   property ENUM decorated
   (nick = _("Decorated windows"),
    blurb = _("Window is decorated (OpenBox + Motif WM hints)"),
+   flags = CONSTRUCT,
    enum_type = DevilsPie:TriState, default_value = TRI_UNSET, link);
 
 

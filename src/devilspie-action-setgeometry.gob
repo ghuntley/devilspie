@@ -13,24 +13,28 @@ class DevilsPie:Action:SetGeometry from DevilsPie:Action {
   property INT xoffset
   (nick = _("X offset"),
    blurb = _("Horizontal offset of the window"),
+   flags = CONSTRUCT,
    default_value = DEVILSPIE_ACTION_SETGEOMETRY_NOT_SET, link);
 
   public gint yoffset = DEVILSPIE_ACTION_SETGEOMETRY_NOT_SET;
   property INT yoffset
   (nick = _("Y offset"),
    blurb = _("Vertical offset of the window"),
+   flags = CONSTRUCT,
    default_value = DEVILSPIE_ACTION_SETGEOMETRY_NOT_SET, link);
 
   public gint width = DEVILSPIE_ACTION_SETGEOMETRY_NOT_SET;
   property INT width
   (nick = _("Width"),
    blurb = _("Width of the window"),
+   flags = CONSTRUCT,
    default_value = DEVILSPIE_ACTION_SETGEOMETRY_NOT_SET, link);
 
   public gint height = DEVILSPIE_ACTION_SETGEOMETRY_NOT_SET;
   property INT height
   (nick = _("Height"),
    blurb = _("Height of the window"),
+   flags = CONSTRUCT,
    default_value = DEVILSPIE_ACTION_SETGEOMETRY_NOT_SET, link);
 
   override (DevilsPie:Action) gboolean run(DevilsPie:Action *self (check null type), Wnck:Window *window (check null type)) {

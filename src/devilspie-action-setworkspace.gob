@@ -14,12 +14,14 @@ class DevilsPie:Action:SetWorkspace from DevilsPie:Action {
   property ENUM pinned
   (nick = _("Pinned"),
    blurb = _("Window is pinned on all workspaces, aka sticky"),
+   flags = CONSTRUCT,
    enum_type = DevilsPie:TriState, default_value = TRI_UNSET, link);
 
   public int workspace_index = -1;
   property INT workspace_index
   (nick = _("Workspace"),
    blurb = _("Which workspace to move this window to (numbered)"),
+   flags = CONSTRUCT,
    default_value = -1, link);
 
   override (DevilsPie:Action) gboolean run(DevilsPie:Action *self (check null type), Wnck:Window *window (check null type)) {

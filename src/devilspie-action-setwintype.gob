@@ -73,6 +73,7 @@ class DevilsPie:Action:SetWintype from DevilsPie:Action {
   property STRING wintype
   (nick = _("Window type hint"),
    blurb = _("The window type hint"),
+   flags = CONSTRUCT,
    default_value = NULL)
     set
       {

@@ -31,6 +31,7 @@ class DevilsPie:Action:Exec from DevilsPie:Action {
     (nick = _("Command to execute"),
      blurb = _("This command and any arguments will be run.  The title of the window and the window ID will be passed to the command as the first and second arguments"),
      default_value = NULL,
+     flags = CONSTRUCT,
      link);
   
   override (DevilsPie:Action) gboolean run(DevilsPie:Action *self (check null type), Wnck:Window *window (check null type)) {

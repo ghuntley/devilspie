@@ -26,6 +26,7 @@ class DevilsPie:Action:Opacity from DevilsPie:Action {
 	property DOUBLE opacity
 		(nick = _("Opacity of window"),
 		blurb = _("Window is transparent (xcompmgr w/ Composite Extensions in xorg)"),
+		flags = CONSTRUCT,
 		default_value = 0.75, link);
 
 	/* sets opacity of window. */

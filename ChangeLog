@@ -1,3 +1,18 @@
+2005-02-03  Ross Burton  <ross@burtonini.com>
+
+	* src/devilspie-action-decorate.gob:
+	* src/devilspie-action-exec.gob:
+	* src/devilspie-action-hide.gob:
+	* src/devilspie-action-layer.gob:
+	* src/devilspie-action-opacity.gob:
+	* src/devilspie-action-resize.gob:
+	* src/devilspie-action-setgeometry.gob:
+	* src/devilspie-action-setwintype.gob:
+	* src/devilspie-action-setworkspace.gob:
+	* src/devilspie-matcher-windowname.gob:
+	Add CONSTRUCT flag to properties.  Thanks to Jean-Yves Lefort for
+	the patch.
+
 2005-01-23  Ross Burton  <ross@burtonini.com>
 
 	* configure.in:

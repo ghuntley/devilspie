@@ -64,6 +64,7 @@ class DevilsPie:Matcher:WindowName from DevilsPie:Matcher {
   property STRING window_title
   (nick = _("Window title regexp"),
    blurb = _("The regular expression that should match the window title"),
+   flags = CONSTRUCT,
    default_value = NULL)
     set
       {
@@ -75,6 +76,7 @@ class DevilsPie:Matcher:WindowName from DevilsPie:Matcher {
   property STRING application_name
   (nick = _("Application name regexp"),
    blurb = _("The regular expression that should match the name of the application (as determined by libwnck)"),
+   flags = CONSTRUCT,
    default_value = NULL)
     set
       {
@@ -87,6 +89,7 @@ class DevilsPie:Matcher:WindowName from DevilsPie:Matcher {
   property STRING window_role
   (nick = _("Window role regexp"),
    blurb = _("The regular expression that should match the role of the window (set by WM_WINDOW_ROLE atom)"),
+   flags = CONSTRUCT,
    default_value = NULL)
     set
       {

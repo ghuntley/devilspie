@@ -23,6 +23,7 @@ class DevilsPie:Action:Layer from DevilsPie:Action {
   property ENUM above
   (nick = _("Above windows?"),
    blurb = _("Window is above all others"),
+   flags = CONSTRUCT,
    enum_type = DevilsPie:TriState, default_value = TRI_UNSET, link);
 
   override (DevilsPie:Action) gboolean run(DevilsPie:Action *self (check null type), Wnck:Window *window (check null type)) {

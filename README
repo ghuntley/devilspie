@@ -1,0 +1,81 @@
+Devil's Pie
+Copyright (C) 2002, Ross Burton <ross@burtonini.com>
+
+
+A window-matching utility, inspired by Sawfish's "Matched Windows"
+option and the lack of the functionality in Metacity. Metacity lacking
+window matching is not a bad thing -- Metacity is a lean window
+manager, and window manipulation does not have to be a window manager
+task.
+
+Devil's Pie can be configured to detect windows as they are created,
+and match the window to a set of rules. If the window matches the
+rules, it can perform a series of actions on that window. For example,
+I make all windows created by X-Chat appear on all workspaces, and the
+main Gkrellm1 window does not appear in the pager or task list.
+
+
+Building
+
+To build devilspie, follow the usual configure ; make ; make install
+steps. If this confuses you, read INSTALL. I do build Debian packages
+of the latest release version, available from:
+
+  http://www.burtonini.com/debian/
+
+If someone wants to write a good RPM .spec file (portable between
+RH7x, RH8, and MDK9 would be nice) you're welcome.
+
+
+Configuration
+
+The default configuration file to read is ~/.devilspie.xml. However,
+if there are arguments to devilspie then that file will be opened
+instead.
+
+The format of this file is simple, see comments embedded in
+sample-config.xml.  The DTD will make creating valid files much easier
+in SGML editors, such as XEmacs+psgml (this DTD is installed correctly
+on Debian). A GUI builder is planned, if I can think of a good
+interface for it.
+
+
+Status
+
+The following Matchers are working:
+
+  * Always
+  * Window name
+  * libwnck "application" name
+  * Window "role" (as set by gtk_window_set_role() or the
+    WM_WINDOW_ROLE hint)
+
+The following Actions are working:
+
+  * Debug (dump window name, application name, and window role)
+  * Skip pager
+  * Skip task list
+  * Move above/below normal windows
+  * Set workspace (pinned or a specific workspace)
+  * Maximize/Minimize
+
+
+Architecture
+
+After the configuration file has been read and parsed, devilspie sits
+in a GLib main loop waiting on libwnck to notify itself about window
+creation. When a window is created, devilspie iterates through every
+"Flurb" (a set of matches and actions) and executes every matcher. If
+they all return true, then all of the actions are executed.
+
+Matchers and Actions are GObjects, subclasses of DevilsPieMatcher and
+DevilsPieAction. They must export any properties they support via
+GObject properties.  I recommend using GOB to write these, as it makes
+it much easier!  When GOB supports it, the Matcher and Action classes
+will become pure interfaces, but for now they are abstract classes.
+
+Many properties use a tristate variable type called DevilsPieTriState,
+which supports TRUE, FALSE, and UNSET. The declaration of this is a
+bit hacky at the moment as GOB doesn't allow a .gob file without a
+class. I could be a real man and write this class manually... but I'm
+lazy.

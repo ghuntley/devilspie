@@ -5,6 +5,7 @@ man_MANS = devilspie.1
 EXTRA_DIST = \
 	debian \
 	devilspie.spec.in \
+	devilspie.spec \
 	autogen.sh \
 	intltool-extract.in \
 	intltool-merge.in \

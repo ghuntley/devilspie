@@ -1,3 +1,8 @@
+2003-05-07  Ross Burton  <ross@burtonini.com>
+
+	* Makefile.am (EXTRA_DIST): Include the generated spec file in the
+	build (noticed by Dag Wieers <dag@wieers.com>)
+
 2003-05-06  Ross Burton  <ross@burtonini.com>
 
 	* src/devilspie-action-resize.gob: Add a "fullscreen" property,

@@ -271,6 +271,12 @@ set_property_with_data(GObject *object, const char *property_name, const char *d
     i = strtol(data, (char**)NULL, 10); /* if I put 0 is it clever? */
     g_value_set_int(value, i);
     g_object_set_property(object, property_name, value);
+  } else if (g_type_is_a(property_spec->value_type, G_TYPE_DOUBLE)) {
+    double d;
+    g_value_init (value, G_TYPE_DOUBLE);
+    d = strtod(data, (char**)NULL);
+    g_value_set_double(value, d);
+    g_object_set_property(object, property_name, value);
   } else if (g_type_is_a(property_spec->value_type, G_TYPE_BOOLEAN)) {
     /*
      * TODO: decide whether we want a 0/1 representation of boolean,

@@ -35,14 +35,14 @@ static void run_flurb(Flurb * flurb, WnckWindow *window) {
   GList *l;
 
   /* If there are no matchers, abort the Flurb */
-  if (g_list_first (flurb->matchers) == NULL) return;
+  if (flurb->matchers == NULL) return;
   /* First, run all matchers. If any return false, abort this Flurb */
-  for (l = g_list_first (flurb->matchers); l != NULL; l = g_list_next(l)) {
+  for (l = flurb->matchers; l != NULL; l = g_list_next(l)) {
     DevilsPieMatcher *m = l->data;
     if (!devilspie_matcher_test(m, window)) return;
   }
   /* If we got here, this is a matching Flurb. Run all actions. */
-  for (l = g_list_first (flurb->actions); l != NULL; l = g_list_next(l)) {
+  for (l = flurb->actions; l != NULL; l = g_list_next(l)) {
     DevilsPieAction *a = (DevilsPieAction*)l->data;
     devilspie_action_run(a, window);
   }

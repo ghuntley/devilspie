@@ -1,3 +1,11 @@
+2005-01-12  Ross Burton  <ross@burtonini.com>
+
+	* src/devilspie-action-opacity.gob:
+	* src/flurb.c:
+	* src/Makefile.am:
+	Added action to set the opacity of a window. Thanks to Guido Boehm
+	<lenix@unixuni.org>.
+
 2004-11-24  Ross Burton  <ross@burtonini.com>
 
 	* configure.in:

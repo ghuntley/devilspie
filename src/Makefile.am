@@ -56,24 +56,26 @@ BUILT_SOURCES = \
 	devilspie-action.h \
 	devilspie-action-debug.c \
 	devilspie-action-debug.h \
-	devilspie-action-exec.c \
-	devilspie-action-exec.h \
-	devilspie-action-layer.c \
-	devilspie-action-layer.h \
 	devilspie-action-decorate.c \
 	devilspie-action-decorate.h \
+	devilspie-action-exec.c \
+	devilspie-action-exec.h \
+	devilspie-action-hide.c \
+	devilspie-action-hide.h \
+	devilspie-action-layer.c \
+	devilspie-action-layer.h \
+	devilspie-action-opacity.c \
+	devilspie-action-opacity.h \
 	devilspie-action-resize.c \
 	devilspie-action-resize.h \
 	devilspie-action-savegeometry.c \
 	devilspie-action-savegeometry.h \
 	devilspie-action-setgeometry.c \
 	devilspie-action-setgeometry.h \
-	devilspie-action-setworkspace.c \
-	devilspie-action-setworkspace.h \
-	devilspie-action-hide.c \
-	devilspie-action-hide.h \
 	devilspie-action-setwintype.c \
-	devilspie-action-setwintype.h
+	devilspie-action-setwintype.h \
+	devilspie-action-setworkspace.c \
+	devilspie-action-setworkspace.h
 
 # Leaving this list in as a reminder that some day most of this file
 # should involve $(addprefix) functions, if only automake suported
@@ -85,15 +87,16 @@ devilspie_GOBS = \
 	devilspie-matcher-always \
 	devilspie-action \
 	devilspie-action-debug \
-	devilspie-action-exec \
-	devilspie-action-layer \
 	devilspie-action-decorate \
+	devilspie-action-exec \
+	devilspie-action-hide \
+	devilspie-action-layer \
+	devilspie-action-opacity \
+	devilspie-action-resize \
 	devilspie-action-savegeometry \
 	devilspie-action-setgeometry \
-	devilspie-action-setworkspace \
-	devilspie-action-resize \
-	devilspie-action-hide \
-	devilspie-action-setwintype
+	devilspie-action-setwintype \
+	devilspie-action-setworkspace
 
 # Must distribute the gob files!
 EXTRA_DIST = $(addsuffix .gob, ${devilspie_GOBS})

@@ -14,6 +14,7 @@
 #include "devilspie-action-resize.h"
 #include "devilspie-action-debug.h"
 #include "devilspie-action-setwintype.h"
+#include "devilspie-action-opacity.h"
 
 /* Equally foul */
 void flurb_init(void) {
@@ -28,6 +29,7 @@ void flurb_init(void) {
   devilspie_action_resize_get_type();
   devilspie_action_debug_get_type();
   devilspie_action_setwintype_get_type();
+  devilspie_action_opacity_get_type();
 }
 
 /**

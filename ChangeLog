@@ -1,3 +1,18 @@
+2003-09-17  Ross Burton  <ross@burtonini.com>
+
+	* src/devilspie-action-debug.gob:
+	* src/devilspie-matcher-windowname.gob:
+	Don't crash on a NULL properties. Thanks to Rob Mayoff
+	<mayoff@dqd.com> for the patch.
+
+	* src/config-parser.c:
+	Don't crash on unknown properties, just tell the user. Far more
+	sane. Thanks to Rob again.
+	
+	* configure.in:
+	* NEWS:
+	Version 0.3.1.
+
 2003-08-14  Ross Burton  <ross@burtonini.com>
 
 	* README:

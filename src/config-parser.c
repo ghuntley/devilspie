@@ -257,8 +257,8 @@ set_property_with_data(GObject *object, const char *property_name, const char *d
 
   property_spec = g_object_class_find_property(G_OBJECT_GET_CLASS(object), property_name);
   if (property_spec == NULL) {
-    g_message("fuck");
-    /* TODO: output something sane */
+    g_warning("ignoring unknown property \"%s\"\n", property_name);
+    return;
   }
   value = g_new0(GValue, 1);
   if (g_type_is_a(property_spec->value_type, G_TYPE_STRING)) {

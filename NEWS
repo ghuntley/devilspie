@@ -1,3 +1,11 @@
+Devil's Pie "David Blaine has smelly socks" 0.3.1
+=================================================
+
+* Don't crash when a window role is null in various places (Rob Mayoff)
+* Don't crash on unknown properties (RM)
+* Being very slow at applying patches (me)
+
+
 Devil's Pie "Floating Skulls" 0.3
 =================================
 

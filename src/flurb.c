@@ -6,6 +6,7 @@
 #include "devilspie-matcher-windowname.h"
 #include "devilspie-action-hide.h"
 #include "devilspie-action-layer.h"
+#include "devilspie-action-decorate.h"
 #include "devilspie-action-savegeometry.h"
 #include "devilspie-action-setworkspace.h"
 #include "devilspie-action-resize.h"
@@ -17,6 +18,7 @@ void flurb_init(void) {
   devilspie_matcher_always_get_type();
   devilspie_matcher_windowname_get_type();
   devilspie_action_hide_get_type();
+  devilspie_action_decorate_get_type();
   devilspie_action_layer_get_type();
   devilspie_action_savegeometry_get_type();
   devilspie_action_setworkspace_get_type();

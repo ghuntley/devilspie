@@ -1,3 +1,8 @@
+2004-06-06  Ross Burton  <ross@burtonini.com>
+
+	* src/devilspie-action-decorate.gob:
+	Set the OpenBox "decorate window" hint.  Patch from Vaclav Lorenc.
+
 2004-02-04  Ross Burton  <ross@burtonini.com>
 
 	* src/devilspie-action-setwintype.gob:

@@ -22,6 +22,10 @@
  * The list of flurbs to execute
  */
 GList *flurbs = NULL;
+
+/*
+ * TODO: use popt
+ */
 gboolean apply_to_existing = TRUE;
 
 /**
@@ -52,11 +56,27 @@ void window_opened_cb(WnckScreen *screen, WnckWindow *window) {
   return;
 }
 
+static void init_screens(void) {
+  GdkDisplay *display;
+  int i, num_screens;
+
+  display = gdk_display_get_default();
+  g_assert (display != NULL);
+  num_screens = gdk_display_get_n_screens (display);
+  for (i = 0 ; i < num_screens; ++i) {
+    WnckScreen *screen;
+    screen = wnck_screen_get (i);
+    if (apply_to_existing) wnck_screen_force_update (screen);
+    /* Connect a callback to the window opened event in libwnck */
+    g_signal_connect (screen, "window_opened", (GCallback)window_opened_cb, NULL);
+  }
+
+}
+
 /*
  * Dedicated to Vicky.
  */
 int main(int argc, char **argv) {
-  WnckScreen *screen;
   gchar *filename;
 
   /* i18n init */
@@ -89,14 +109,7 @@ int main(int argc, char **argv) {
   load_configuration(filename);
   g_free(filename);
 
-  /* Get the default screen from libwnck. Obviously needs work here
-     for multi screen systems */
-  screen = wnck_screen_get_default ();
-  /* TODO: use popt to parse arguments and set this if --apply-to-all | -a is set */
-  if (!apply_to_existing) wnck_screen_force_update(screen);
-
-  /* Connect a callback to the window opened event in libwnck */
-  g_signal_connect (screen, "window_opened", (GCallback)window_opened_cb, NULL);
+  init_screens();
 
   /* Go go go! */
   gtk_main();

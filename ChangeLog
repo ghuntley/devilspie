@@ -4,7 +4,7 @@
 	* src/flurb.c:
 	* src/Makefile.am:
 	Added action to set the opacity of a window. Thanks to Guido Boehm
-	<lenix@unixuni.org>.
+	<devilspie@lenix.de>.
 
 2004-11-24  Ross Burton  <ross@burtonini.com>
 

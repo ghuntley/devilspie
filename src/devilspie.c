@@ -8,25 +8,42 @@
  * crack-free.
  */
 
+#ifdef HAVE_CONFIG_H
 #include "config.h"
+#endif
+
+#include <gtk/gtk.h>
+#include <glib/glist.h>
+#include <popt.h>
+#include <stdlib.h>
 #include "devilspie.h"
+#include <libwnck/libwnck.h>
 #include "flurb.h"
 #include "devilspie-matcher.h"
 #include "devilspie-action.h"
 
-#include "gtk/gtk.h"
-#include "glib/glist.h"
-#include "libwnck/libwnck.h"
-
-/*
- * The list of flurbs to execute
+/**
+ * The list of flurbs to execute.
  */
 GList *flurbs = NULL;
 
-/*
- * TODO: use popt
+/**
+ * If we apply to existing windows or not.
  */
-gboolean apply_to_existing = TRUE;
+gboolean apply_to_existing = FALSE;
+
+/**
+ * The popt argument list.
+ */
+static struct poptOption options[] = {
+  {
+    "apply-to-existing", 'a', POPT_ARG_NONE, &apply_to_existing, 0,
+    "Apply to all existing windows instead of just new windows.", NULL
+  },
+  POPT_AUTOHELP
+  { NULL }
+};
+
 
 /**
  * Run a flurb. Called by the window_opened handler
@@ -66,9 +83,9 @@ static void init_screens(void) {
   for (i = 0 ; i < num_screens; ++i) {
     WnckScreen *screen;
     screen = wnck_screen_get (i);
-    if (apply_to_existing) wnck_screen_force_update (screen);
     /* Connect a callback to the window opened event in libwnck */
     g_signal_connect (screen, "window_opened", (GCallback)window_opened_cb, NULL);
+    if (apply_to_existing) wnck_screen_force_update (screen);
   }
 
 }
@@ -77,37 +94,42 @@ static void init_screens(void) {
  * Dedicated to Vicky.
  */
 int main(int argc, char **argv) {
-  gchar *filename;
+  poptContext popt;
+  int rc;
 
-  /* i18n init */
+  /* Initialise i18n */
   bindtextdomain (GETTEXT_PACKAGE, DEVILSPIE_LOCALEDIR);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 
-  /* Initialize GTK+ and the Flurb type system */
+  /* Initialise GTK+ */
   gtk_init(&argc, &argv);
+
+  /* Now parse the rest of the arguments */
+  popt = poptGetContext(NULL, argc, (const char**)argv, options, 0);
+  while ((rc = poptGetNextOpt(popt)) > 0) {}
+  if (rc != -1) {
+    fprintf(stderr, "%s: %s\n", poptBadOption(popt, 0), poptStrerror(rc));
+    exit (1);
+  }
+
+  /* And finally do the flurb type initialisation */
   flurb_init();
 
-  /* if no arguments, look for ~/.devilspie.xml. If 1 argument, open
-     that filename. Otherwise, bitch */
-  if (argc == 2 ) {
-    filename = g_strdup(argv[1]);
-  } else if (argc == 1) {
+  /* If there are no more options, use $HOME/.devilspie.xml */
+  if (poptPeekArg (popt) == NULL) {
+    char *filename;
     filename = g_strdup_printf("%s/%s", g_get_home_dir(), ".devilspie.xml");
+    load_configuration(filename);
+    g_free(filename);
   } else {
-    g_print(_("Usage: devilspie [configuration file]\n"
-            "If no configuration file is specified, ~/.devilspie.xml is used.\n"));
-    return 1;
+    const char *filename;
+    /* Otherwise parse every remaining argument on the command line as configuration file */
+    while ((filename = poptGetArg(popt)) != NULL) {
+      load_configuration(filename);
+    }
   }
-  /* Check if the file exists. A bit crap but works. Should I use
-     access() instead? */
-  if (!g_file_test(filename, G_FILE_TEST_EXISTS)) {
-    g_print(_("File %s does not exist\n"), filename);
-    return 1;
-  }
-  /* Load the configuration file */
-  load_configuration(filename);
-  g_free(filename);
+  poptFreeContext (popt);
 
   init_screens();
 

@@ -1,3 +1,16 @@
+2004-11-24  Ross Burton  <ross@burtonini.com>
+
+	* configure.in:
+	Look for popt
+	
+	* src/devilspie.c:
+	Use popt to parse arguments, and as a result allow multiple
+	configuration files to be loaded and make --apply-to-existing
+	work.
+
+	* src/config-parser.c:
+	Use g_warning()
+
 2004-11-14  Ross Burton  <ross@burtonini.com>
 
 	* src/devilspie-matcher-windowname.gob:

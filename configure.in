@@ -22,32 +22,25 @@ AC_HEADER_STDC
 GNOME_COMPILE_WARNINGS(yes)
 AC_PROG_INTLTOOL([0.20])
 
+# We really need gob2 to build.
+GOB2_CHECK(2.0.3)
+dnl TODO: say something if GOB2 is not found
+
 # Check that we actually have the libraries required to
 # build. Versioned dependancy on libwnck as essential API additions
 # were made in 0.17.
-PKG_CHECK_MODULES(EXTRA_GNOME,
+PKG_CHECK_MODULES(WNCK,
         gtk+-2.0
         libwnck-1.0 >= 0.17
-dnl        gconf-2.0
-        libglade-2.0)
-AC_SUBST(EXTRA_GNOME_CFLAGS)
-AC_SUBST(EXTRA_GNOME_LIBS)
+dnl TODO: make libxml conditional and don't build docs if it isn't present
+        libxml-2.0)
+AC_SUBST(WNCK_CFLAGS)
+AC_SUBST(WNCK_LIBS)
 
 # Now check if we have the set_fullscreen function
 AC_CHECK_LIB(wnck-1, wnck_window_set_fullscreen,
             have_fullscreen=1, have_fullscreen=0)
 AC_DEFINE_UNQUOTED(HAVE_FULLSCREEN, $have_fullscreen, [set_fullscreen is available])
-
-dnl Find how and where to put the GConf schemas
-dnl AC_PATH_PROG(GCONFTOOL, gconftool-2, no)
-dnl if test x"$GCONFTOOL" = xno; then
-dnl        AC_MSG_ERROR([gconftool-2 executable not found in your path - should be installed with GConf])
-dnl fi
-dnl AM_GCONF_SOURCE_2
-
-# We really need gob2 to build.
-GOB2_CHECK(2.0.3)
-dnl TODO: say something if GOB2 is not found
 
 # Check for the POSIX regexpr functions and headers
 AC_CHECK_FUNCS([regcomp regexec regfree])

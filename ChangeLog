@@ -1,3 +1,12 @@
+2004-10-02  Ross Burton  <ross@burtonini.com>
+
+	* configure.in:
+	Remove unused GNOME library checks, and look for libxml.
+
+	* src/doc-generator.c:
+	* src/Makefile.am:
+	New program, generate documentation for the matchers and actions.
+
 2004-10-01  Ross Burton  <ross@burtonini.com>
 
 	* src/devilspie-action-exec.gob:

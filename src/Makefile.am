@@ -2,7 +2,7 @@
 bin_PROGRAMS = devilspie
 
 # Don't install the parser test
-noinst_PROGRAMS = parser-test
+noinst_PROGRAMS = parser-test doc-generator
 
 devilspie_SOURCES = \
 	${BUILT_SOURCES} \
@@ -11,6 +11,12 @@ devilspie_SOURCES = \
 	flurb.c \
 	devilspie.h \
 	devilspie.c
+
+doc_generator_SOURCES = \
+	${BUILT_SOURCES} \
+	flurb.h \
+	flurb.c \
+	doc-generator.c
 
 parser_test_SOURCES = \
 	${BUILT_SOURCES} \
@@ -21,7 +27,7 @@ parser_test_SOURCES = \
 	parser-test.c
 
 INCLUDES = \
-	$(EXTRA_GNOME_CFLAGS) \
+	$(WNCK_CFLAGS) \
 	-DDEVILSPIE_LOCALEDIR=\""$(datadir)/locale"\" \
 	-DDATADIR=\""$(datadir)"\" \
 	-DG_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED \
@@ -29,7 +35,7 @@ INCLUDES = \
 
 AM_CFLAGS = -Wall
 
-LDADD = ${EXTRA_GNOME_LIBS}
+LDADD = ${WNCK_LIBS}
 
 # The long list of sources which are generated from .gob files.
 BUILT_SOURCES = \

@@ -6,6 +6,10 @@
 	* src/devilspie.c:
 	Stop using g_list_first() for no good reason.
 
+	* configure.in:
+	* NEWS:
+	Version 0.6.
+
 2004-08-17  Ross Burton  <ross@burtonini.com>
 
 	* src/Makefile.am:

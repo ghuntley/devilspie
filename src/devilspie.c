@@ -8,6 +8,7 @@
  * crack-free.
  */
 
+#include "config.h"
 #include "devilspie.h"
 #include "flurb.h"
 #include "devilspie-matcher.h"
@@ -58,6 +59,11 @@ int main(int argc, char **argv) {
   WnckScreen *screen;
   gchar *filename;
 
+  /* i18n init */
+  bindtextdomain (GETTEXT_PACKAGE, DEVILSPIE_LOCALEDIR);
+  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+  textdomain (GETTEXT_PACKAGE);
+
   /* Initialize GTK+ and the Flurb type system */
   gtk_init(&argc, &argv);
   flurb_init();
@@ -69,14 +75,14 @@ int main(int argc, char **argv) {
   } else if (argc == 1) {
     filename = g_strdup_printf("%s/%s", g_get_home_dir(), ".devilspie.xml");
   } else {
-    g_print("Usage: devilspie [configuration file]\n"
-            "If no configuration file is specified, ~/.devilspie.xml is used.\n");
+    g_print(_("Usage: devilspie [configuration file]\n"
+            "If no configuration file is specified, ~/.devilspie.xml is used.\n"));
     return 1;
   }
   /* Check if the file exists. A bit crap but works. Should I use
      access() instead? */
   if (!g_file_test(filename, G_FILE_TEST_EXISTS)) {
-    g_print("File %s does not exist\n", filename);
+    g_print(_("File %s does not exist\n"), filename);
     return 1;
   }
   /* Load the configuration file */

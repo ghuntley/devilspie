@@ -26,4 +26,19 @@ typedef enum {
 } tristate;
 #endif
 
+/* I18n mojo */
+#ifdef ENABLE_NLS
+#  include <libintl.h>
+#  define _(String) gettext (String)
+#define N_(String) (String)
+#else
+#  define textdomain(String) (String)
+#  define gettext(String) (String)
+#  define dgettext(Domain,Message) (Message)
+#  define dcgettext(Domain,Message,Type) (Message)
+#  define bindtextdomain(Domain,Directory) (Domain)
+#  define _(String) (String)
+#  define N_(String) (String)
+#endif
+
 #endif /* DEVILSPIE_H */

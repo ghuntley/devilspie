@@ -6,9 +6,6 @@
 #include "devilspie-action.h"
 #include "devilspie.h"
 
-/* TODO: remove when gettext is used */
-#define _(x) x
-
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 Screen *_wnck_screen_get_xscreen (WnckScreen *screen);

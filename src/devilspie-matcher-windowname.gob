@@ -1,13 +1,11 @@
 %h{
 #include <sys/types.h>
 #include <regex.h>
+#include "devilspie.h"
 #define WNCK_I_KNOW_THIS_IS_UNSTABLE
 #include "libwnck/window.h"
 #include "libwnck/application.h"
 #include "devilspie-matcher.h"
-
-/* TODO: remove when gettext is used */
-#define _(x) x
 
 /* Borrow this function from libwnck */
 #include "X11/X.h"

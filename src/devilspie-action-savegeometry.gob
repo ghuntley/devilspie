@@ -1,8 +1,9 @@
 %h{
+#include <stdio.h>
 #define WNCK_I_KNOW_THIS_IS_UNSTABLE
 #include "libwnck/window.h"
 #include "devilspie-action.h"
-#include <stdio.h>
+#include "devilspie.h"
 %}
 
 /**
@@ -20,18 +21,18 @@ class DevilsPie:Action:SaveGeometry from DevilsPie:Action {
    * This callback is called when the geometry of the window changes.
    */
   private void geometry_changed_cb (WnckWindow *window) {
-    g_message ("Window %s geometry changed", wnck_window_get_name (window));
+    g_message (_("Window %s geometry changed"), wnck_window_get_name (window));
   }
 
   /**
    * This callback is called when a window on a screen is closed.
    */
   private void window_closed_cb (WnckScreen *screen, WnckWindow *window) {
-    g_message ("Window %s closed", wnck_window_get_name (window));
+    g_message (_("Window %s closed"), wnck_window_get_name (window));
   }
 
   override (DevilsPie:Action) gboolean run(DevilsPie:Action *self (check null type), Wnck:Window *window (check null type)) {
-    puts("Starting SaveGeometry action");
+    puts(_("Starting SaveGeometry action"));
     /* Find the window in the geometry maps, and apply if found */
     /* TODO */
     /* Hook up the geometry changes signal so we can store future changes */

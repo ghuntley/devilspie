@@ -1,3 +1,21 @@
+2002-12-02  Ross Burton  <ross@burtonini.com>
+
+	* configure.in: Added gettext support.
+
+	* src/devilspie.h: Added i18n macros.
+
+	* src/Makefile.am: Use DEVILSPIE_LOCALDIR instead of
+	GNOMELOCALDIR.
+
+	* config-parser.c, devilspie-action-debug.gob,
+	devilspie-action-hide.gob,devilspie-action-layer.gob,
+	devilspie-action-resize.gob, devilspie-action-savegeometry.gob,
+	devilspie-action-setworkspace.gob,
+	devilspie-matcher-windowname.gob, devilspie.c: Mark all sensible
+	strings for i18n.
+
+	* po/POTFILES.in: Updated.
+
 2002-11-22  Ross Burton  <ross@burtonini.com>
 
 	* configure.in: Cleaned up, and added the compiler checks.

@@ -5,6 +5,14 @@ AC_CONFIG_SRCDIR(src/devilspie.c)
 AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
 AM_CONFIG_HEADER(config.h)
 
+# Honor aclocal flags
+ACLOCAL="$ACLOCAL $ACLOCAL_FLAGS"
+
+dnl Do the gettext/i18n stuff
+GETTEXT_PACKAGE=devilspie
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [The name of the gettext package.])
+AC_SUBST(GETTEXT_PACKAGE)
+
 AM_MAINTAINER_MODE
 
 AC_ISC_POSIX
@@ -32,11 +40,7 @@ dnl Check for the POSIX regexpr functions and headers
 AC_CHECK_FUNCS([regcomp regexec regfree])
 AC_CHECK_HEADERS([sys/types.h regex.h])
 
-dnl Do the gettext/i18n stuff
 ALL_LINGUAS=""
-GETTEXT_PACKAGE=devilspie
-AC_PROG_INTLTOOL([0.20])
-AC_SUBST(GETTEXT_PACKAGE)
 AM_GLIB_GNU_GETTEXT
 
 AC_OUTPUT([

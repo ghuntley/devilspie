@@ -6,9 +6,6 @@
 #include "tristate-dummy.h"
 #include "devilspie-action.h"
 #include "devilspie.h"
-
-/* Sucky. Use gettext */
-#define _(x) x
 %}
 
 class DevilsPie:Action:SetWorkspace from DevilsPie:Action {

@@ -7,7 +7,6 @@
 #include "devilspie-action.h"
 #include "tristate-dummy.h"
 #include "flurb.h"
-#define _(x) x
 
 extern GList *flurbs;
 

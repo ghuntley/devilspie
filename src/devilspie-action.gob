@@ -6,7 +6,8 @@
 typedef enum {
   DebugActionType,
   ExecuteActionType,
-  WorkspaceActionType
+  WorkspaceActionType,
+  WindowTypeActionType
 } ActionType;
 %}
 

@@ -1,3 +1,13 @@
+2004-02-04  Ross Burton  <ross@burtonini.com>
+
+	* src/devilspie-action-setwintype.gob:
+	* src/devilspie-action.gob:
+	* src/flurb.c:
+	* src/Makefile.am:
+	* README:
+	Added an action to set the type of a window. Thanks, Olivier
+	Andrie!
+	
 2003-09-17  Ross Burton  <ross@burtonini.com>
 
 	* src/devilspie-action-debug.gob:

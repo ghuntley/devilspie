@@ -87,6 +87,12 @@ TRUE, FALSE, or UNSET.
                       on. Note that the workspace number is a 1-based
                       index, not a 0-based index.
                                   
+  * DevilsPieActionSetWintype
+
+      wintype         value is one of NORMAL, DIALOG, MENU, TOOLBAR, 
+                      SPLASHSCREEN, UTILITY, DOCK, DESKTOP.
+                      (cf. gtk_window_set_type_hint() )
+
 You might want to have a look at the included configuration file
 example (sample-config.xml).
 

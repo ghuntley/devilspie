@@ -53,7 +53,9 @@ BUILT_SOURCES = \
 	devilspie-action-setworkspace.c \
 	devilspie-action-setworkspace.h \
 	devilspie-action-hide.c \
-	devilspie-action-hide.h
+	devilspie-action-hide.h \
+	devilspie-action-setwintype.c \
+	devilspie-action-setwintype.h
 
 # Leaving this list in as a reminder that some day most of this file
 # should involve $(addprefix) functions, if only automake suported
@@ -69,7 +71,8 @@ devilspie_GOBS = \
 	devilspie-action-savegeometry \
 	devilspie-action-setworkspace \
 	devilspie-action-resize \
-	devilspie-action-hide
+	devilspie-action-hide \
+	devilspie-action-setwintype
 
 # Must distribute the gob files!
 EXTRA_DIST = $(addsuffix .gob, ${devilspie_GOBS})

@@ -1,146 +1,78 @@
 Devil's Pie
-Copyright (C) 2002-3, Ross Burton <ross@burtonini.com>
+===========
+
+Copyright (C) 2002-4, Ross Burton <ross@burtonini.com>
 
 
-A window-matching utility, inspired by Sawfish's "Matched Windows"
-option and the lack of the functionality in Metacity. Metacity lacking
-window matching is not a bad thing -- Metacity is a lean window
-manager, and window manipulation does not have to be a window manager
-task.
+A window-matching utility, inspired by Sawfish's "Matched Windows" option and
+the lack such functionality in Metacity. Metacity lacking window matching is not
+a bad thing -- Metacity is a lean window manager, and window manipulation does
+not have to be a window manager task.
 
-Devil's Pie can be configured to detect windows as they are created,
-and match the window to a set of rules. If the window matches the
-rules, it can perform a series of actions on that window. For example,
-I make all windows created by X-Chat appear on all workspaces, and the
-main Gkrellm1 window does not appear in the pager or task list.
+Devil's Pie can be configured to detect windows as they are created, and match
+the window to a set of rules. If the window matches the rules, it can perform a
+series of actions on that window. For example, I can make X-Chat appear on all
+workspaces, and make a particular xterm not appear in the pager or task list.
 
 
 Building
+--------
 
-To build devilspie, follow the usual configure ; make ; make install
-steps. If this confuses you, read INSTALL. I do build Debian packages
-of the latest release version, available from:
+To build devilspie, follow the usual configure ; make ; make install steps. If
+this confuses you, read INSTALL. Packages are in Debian Sarge, and I build
+Debian packages of the latest released version.  These are available from
+http://www.burtonini.com/debian/
 
-  http://www.burtonini.com/debian/
-
-If someone wants to write a good RPM .spec file (portable between
-RH7x, RH8, and MDK9 would be nice) you're welcome.
+A .spec file is provided for RPM-based distributions, but I didn't write it and
+don't support it.
 
 
 Configuration
+-------------
 
-The default configuration file to read is ~/.devilspie.xml. However,
-if there are arguments to devilspie then that file will be opened
-instead.
+The default configuration file to read is ~/.devilspie.xml. However, if there
+are arguments to devilspie then that file will be opened instead.
 
-The format of this file is simple. It's a collection of 'flurbs'. Each
-flurb contains one or several matchers and one or several
-actions. Each matcher or action may contain one or several
-properties. You should have a look at the included DTD for more
-details. The DTD will make creating valid files much easier in SGML
-editors, such as XEmacs+psgml (this DTD is installed correctly on
-Debian). A GUI builder is planned, if I can think of a good interface
-for it.
+The format of this file is simple. It's a collection of 'flurbs'. Each flurb
+contains one or several matchers and one or several actions. Each matcher or
+action may contain one or several properties. You should have a look at the
+included DTD for more details. The DTD will make creating valid files much
+easier in SGML editors, such as XEmacs+psgml (this DTD is installed correctly on
+Debian). A GUI builder is planned, if I can think of a good interface for it.
 
-Here is the list of the available Matchers (with their respective list
-of valid properties) :
+See devilspie-reference.html for a complete list of matchers and actions. This is
+generated from the source so should be totally up to date. Unless otherwise
+stated, all properties contain a tristate value which can either be TRUE, FALSE,
+or UNSET.
 
-  * DevilsPieMatcherAlways      Match all windows
-
-  * DevilsPieMatcherWindowName
-
-      window_title      Match on the window name
-      application_name  Match on the libwnck "application" name
-      window_role       Match on the window "role" (as set by
-                        gtk_window_set_role() or the WM_WINDOW_ROLE
-                        hint)
-  
-Following is the list of the valid actions. Unless otherwise stated,
-all of these properties contain a tristate value which can either be
-TRUE, FALSE, or UNSET.
-
-  * DevilsPieActionDebug        Dump debug info: window name,
-                                application name, window role and
-                                geometry
-
-  * DevilsPieActionHide
-
-      skip_pager      The window does not appear on the workspace 
-                      pager
-      skip_tasklist   The application is not listed in the tasklist
-
-  * DevilsPieActionLayer
-
-      above           The window is moved above/below normal windows
-
-  * DevilsPieActionResize
-
-      maximized       The window is maximized
-
-      maximized_vertically  The window is maximized vertically, width remaining
-                            the same
-      maximized_horizontally  The window is maximized horizontally, height
-                              remaining the same
-      minimized       The window is minimized
-      fullscreen      The window takes the full screen (only available
-                      with libwnck 2.3)
-        
-  * DevilsPieActionSetWorkspace
-
-      pinned          The window appears on all workspaces
-      workspace_index This is an integer value, representing the
-                      number of the workspace the window should appear
-                      on. Note that the workspace number is a 1-based
-                      index, not a 0-based index.
-                                  
-  * DevilsPieActionSetWintype
-
-      wintype         value is one of NORMAL, DIALOG, MENU, TOOLBAR, 
-                      SPLASHSCREEN, UTILITY, DOCK, DESKTOP.
-                      (cf. gtk_window_set_type_hint() )
-
-  * DevilsPieActionDecorate
-
-      decorated       The window is decorated (works with OpenBox & some
-                      other WMs able to handle _MOTIF_WM_HINTS)
-
-  * DevilsPieActionSetGeometry
-
-      width           The width of the window (integer value)
-      height          The height of the window (integer value)
-      xoffset         The horizontal offset of the window (integer value)
-      yoffset         The vertical offset of the window (integer value)
-
-                      Any of the above values can be left out to use the
-                      initial geometry value as set by the window manager.
-
-You might want to have a look at the included configuration file
-example (sample-config.xml).
+There is a working example configuration file in sample-config.xml.
 
 
 Running
+-------
 
-Just run devilspie as a normal user. The best way is to run it in your
-session (for example in Desktop Preferences -> Advanced -> Sessions ->
-Startup Programs).
+Just run devilspie as a normal user. The best way is to run it in your session
+(for example in Desktop Preferences -> Advanced -> Sessions -> Startup
+Programs).  If you don't wish to use ~/.devilspie.xml as the configuration file,
+specify it as an argument (i.e. devilspie /home/share/devilspie-common.xml).
 
 
 Architecture
+------------
 
-After the configuration file has been read and parsed, devilspie sits
-in a GLib main loop waiting on libwnck to notify itself about window
-creation. When a window is created, devilspie iterates through every
-"Flurb" (a set of matches and actions) and executes every matcher. If
-they all return true, then all of the actions are executed.
+After the configuration file has been read and parsed, devilspie sits in a GLib
+main loop waiting on libwnck to notify itself about window creation. When a
+window is created, devilspie iterates through every "Flurb" (a set of matches
+and actions) and executes every matcher. If they all return true, then all of
+the actions are executed.
 
 Matchers and Actions are GObjects, subclasses of DevilsPieMatcher and
-DevilsPieAction. They must export any properties they support via
-GObject properties.  I recommend using GOB to write these, as it makes
-it much easier!  When GOB supports it, the Matcher and Action classes
-will become pure interfaces, but for now they are abstract classes.
+DevilsPieAction. They must export any properties they support via GObject
+properties.  I recommend using GOB to write these, as it makes it much easier.
+When GOB supports it, the Matcher and Action classes will become pure
+interfaces, but for now they are abstract classes.
 
-Many properties use a tristate variable type called DevilsPieTriState,
-which supports TRUE, FALSE, and UNSET. The declaration of this is a
-bit hacky at the moment as GOB doesn't allow a .gob file without a
-class. I could be a real man and write this class manually... but I'm
-lazy.
+Many properties use a tristate variable type called DevilsPieTriState, which
+supports TRUE, FALSE, and UNSET. The declaration of this is a bit hacky at the
+moment as GOB doesn't allow a .gob file without a class. I could be a real man
+and write this class manually... but I'm lazy.

@@ -1,5 +1,6 @@
 %h{
 #define WNCK_I_KNOW_THIS_IS_UNSTABLE
+#include "config.h"
 #include "libwnck/window.h"
 #include "tristate-dummy.h"
 #include "devilspie-action.h"
@@ -43,11 +44,15 @@ class DevilsPie:Action:Resize from DevilsPie:Action {
       wnck_window_minimize(window);
     else if (a->minimized == TRI_FALSE)
       wnck_window_unminimize(window);
-#if HAVE_FULLSCREEN
     /* Handle full screen */
-    if (a->fullscreen != TRI_UNSET)
+    if (a->fullscreen != TRI_UNSET) {
+        g_print("fullscreen\n");
+#if HAVE_FULLSCREEN
       wnck_window_set_fullscreen(window, a->fullscreen);
+#else
+      g_warning("fullscreen property set but not supported by this libwnck");
 #endif
+    }
     return TRUE;
   }
   

@@ -3,6 +3,8 @@ Makefile.in
 devilspie
 devilspie-action-debug.c
 devilspie-action-debug.h
+devilspie-action-decorate.c
+devilspie-action-decorate.h
 devilspie-action-hide.c
 devilspie-action-hide.h
 devilspie-action-layer.c
@@ -11,6 +13,8 @@ devilspie-action-resize.c
 devilspie-action-resize.h
 devilspie-action-savegeometry.c
 devilspie-action-savegeometry.h
+devilspie-action-setwintype.c
+devilspie-action-setwintype.h
 devilspie-action-setworkspace.c
 devilspie-action-setworkspace.h
 devilspie-action.c

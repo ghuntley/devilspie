@@ -13,6 +13,8 @@ devilspie-action-resize.c
 devilspie-action-resize.h
 devilspie-action-savegeometry.c
 devilspie-action-savegeometry.h
+devilspie-action-setgeometry.c
+devilspie-action-setgeometry.h
 devilspie-action-setwintype.c
 devilspie-action-setwintype.h
 devilspie-action-setworkspace.c

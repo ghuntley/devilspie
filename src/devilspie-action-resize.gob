@@ -43,11 +43,11 @@ class DevilsPie:Action:Resize from DevilsPie:Action {
       wnck_window_minimize(window);
     else if (a->minimized == TRI_FALSE)
       wnck_window_unminimize(window);
-
+#if HAVE_FULLSCREEN
     /* Handle full screen */
     if (a->fullscreen != TRI_UNSET)
       wnck_window_set_fullscreen(window, a->fullscreen);
-
+#endif
     return TRUE;
   }
   

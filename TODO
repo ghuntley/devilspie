@@ -3,7 +3,6 @@ TODO for Devil's Pie
 A nearly-ordered list:
 * More matchers (can't think of any though)
 * More actions (set size, set position)
-* Debian packages
 * SGML catalogue entry
 * Catch events on window move and resize too
 * Clean up and order the souce tree. devilspie and the editor should

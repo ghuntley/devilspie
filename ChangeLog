@@ -1,3 +1,23 @@
+2003-08-14  Ross Burton  <ross@burtonini.com>
+
+	* README:
+	Update the documentation.
+
+	* NEWS:
+	* configure.in:
+	Version 0.3.
+
+	* debian/*
+	Using CDBS now.
+
+	* configure.in:
+	Check for wnck_window_set_fullscreen, as its only in libwnck
+	2.3.x.
+
+	* src/devilspie-action-resize.gob:
+	Wrap the fullscreen code in #if HAVE_FULLSCREEN. This hack will go
+	once libwnck 2.4 is released.
+
 2003-07-31  Ross Burton  <ross@burtonini.com>
 
 	* README:

@@ -1,3 +1,15 @@
+Devil's Pie "Floating Skulls" 0.3
+=================================
+
+* Vastly improved documentation (Gaetan de Menten)
+* Add a "fullscreen" property (requires libwnck 2.3.something)
+* Added a RPM .spec file (me, Michael Raab, Lars R. Damerow)
+* Many bug fixes (Patrick Aussems)
+
+Translations:
+* de (Christian Neumair)
+
+
 Devil's Pie "Long Time Coming" 0.2.4
 ====================================
 

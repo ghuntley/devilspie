@@ -1,3 +1,11 @@
+devilspie (0.3-1) unstable; urgency=low
+
+  * New upstream release
+  * First release into Debian
+  * Rewrite debian/rules to use CDBS
+
+ -- Ross Burton <ross@debian.org>  Thu, 14 Aug 2003 08:17:44 +0100
+
 devilspie (0.2.4-1) unstable; urgency=low
 
   * New release.

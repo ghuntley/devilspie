@@ -62,9 +62,6 @@ TRUE, FALSE, or UNSET.
   * DevilsPieActionDebug        Dump debug info: window name,
                                 application name, and window role
 
-  * DevilsPieActionSaveGeometry Display a message whenever a window 
-                                geometry is changed
-
   * DevilsPieActionHide
 
       skip_pager      The window does not appear on the workspace 
@@ -79,6 +76,8 @@ TRUE, FALSE, or UNSET.
 
       maximized       The window is maximized
       minimized       The window is minimized
+      fullscreen      The window takes the full screen (only available
+                      with libwnck 2.3)
         
   * DevilsPieActionSetWorkspace
 
@@ -95,7 +94,8 @@ example (sample-config.xml).
 Running
 
 Just run devilspie as a normal user. The best way is to run it in your
-session.
+session (for example in Desktop Preferences -> Advanced -> Sessions ->
+Startup Programs).
 
 
 Architecture

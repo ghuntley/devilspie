@@ -1,3 +1,8 @@
+2003-07-31  Ross Burton  <ross@burtonini.com>
+
+	* README:
+	Updated the readme, thanks to Gaetan de Menten.
+
 2003-06-25  Ross Burton  <ross@burtonini.com>
 
 	* devilspie.1: Fix a typo spotted by Gaetan de Menten

@@ -1,5 +1,5 @@
 Devil's Pie
-Copyright (C) 2002, Ross Burton <ross@burtonini.com>
+Copyright (C) 2002-3, Ross Burton <ross@burtonini.com>
 
 
 A window-matching utility, inspired by Sawfish's "Matched Windows"
@@ -33,31 +33,69 @@ The default configuration file to read is ~/.devilspie.xml. However,
 if there are arguments to devilspie then that file will be opened
 instead.
 
-The format of this file is simple, see comments embedded in
-sample-config.xml.  The DTD will make creating valid files much easier
-in SGML editors, such as XEmacs+psgml (this DTD is installed correctly
-on Debian). A GUI builder is planned, if I can think of a good
-interface for it.
+The format of this file is simple. It's a collection of 'flurbs'. Each
+flurb contains one or several matchers and one or several
+actions. Each matcher or action may contain one or several
+properties. You should have a look at the included DTD for more
+details. The DTD will make creating valid files much easier in SGML
+editors, such as XEmacs+psgml (this DTD is installed correctly on
+Debian). A GUI builder is planned, if I can think of a good interface
+for it.
+
+Here is the list of the available Matchers (with their respective list
+of valid properties) :
+
+  * DevilsPieMatcherAlways      Match all windows
+
+  * DevilsPieMatcherWindowName
+
+      window_title      Match on the window name
+      application_name  Match on the libwnck "application" name
+      window_role       Match on the window "role" (as set by
+                        gtk_window_set_role() or the WM_WINDOW_ROLE
+                        hint)
+  
+Following is the list of the valid actions. Unless otherwise stated,
+all of these properties contain a tristate value which can either be
+TRUE, FALSE, or UNSET.
+
+  * DevilsPieActionDebug        Dump debug info: window name,
+                                application name, and window role
+
+  * DevilsPieActionSaveGeometry Display a message whenever a window 
+                                geometry is changed
+
+  * DevilsPieActionHide
+
+      skip_pager      The window does not appear on the workspace 
+                      pager
+      skip_tasklist   The application is not listed in the tasklist
+
+  * DevilsPieActionLayer
+
+      above           The window is moved above/below normal windows
+
+  * DevilsPieActionResize
+
+      maximized       The window is maximized
+      minimized       The window is minimized
+        
+  * DevilsPieActionSetWorkspace
+
+      pinned          The window appears on all workspaces
+      workspace_index This is an integer value, representing the
+                      number of the workspace the window should appear
+                      on. Note that the workspace number is a 1-based
+                      index, not a 0-based index.
+                                  
+You might want to have a look at the included configuration file
+example (sample-config.xml).
 
 
-Status
+Running
 
-The following Matchers are working:
-
-  * Always
-  * Window name
-  * libwnck "application" name
-  * Window "role" (as set by gtk_window_set_role() or the
-    WM_WINDOW_ROLE hint)
-
-The following Actions are working:
-
-  * Debug (dump window name, application name, and window role)
-  * Skip pager
-  * Skip task list
-  * Move above/below normal windows
-  * Set workspace (pinned or a specific workspace)
-  * Maximize/Minimize
+Just run devilspie as a normal user. The best way is to run it in your
+session.
 
 
 Architecture

@@ -5,6 +5,8 @@ devilspie-action-debug.c
 devilspie-action-debug.h
 devilspie-action-decorate.c
 devilspie-action-decorate.h
+devilspie-action-exec.c
+devilspie-action-exec.h
 devilspie-action-hide.c
 devilspie-action-hide.h
 devilspie-action-layer.c
@@ -28,6 +30,7 @@ devilspie-matcher-windowname.c
 devilspie-matcher-windowname.h
 devilspie-matcher.c
 devilspie-matcher.h
+doc-generator
 parser-test
 tristate-dummy.c
 tristate-dummy.h

@@ -14,4 +14,5 @@ src/devilspie-matcher-always.gob
 src/devilspie-matcher.gob
 src/devilspie-matcher-windowname.gob
 src/devilspie.c
+src/flurb.c
 src/tristate-dummy.gob

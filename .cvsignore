@@ -4,9 +4,13 @@ aclocal.m4
 autom4te.cache
 config.h
 config.h.in
+config.guess
 config.log
 config.status
+config.sub
 configure
+devilspie-reference.html
+devilspie.spec
 intltool-extract
 intltool-extract.in
 intltool-merge

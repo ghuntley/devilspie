@@ -74,7 +74,7 @@ devilspie_GOBS = \
 	devilspie-action-layer \
 	devilspie-action-decorate \
 	devilspie-action-savegeometry \
-	devilspie-action-savegeometry \
+	devilspie-action-setgeometry \
 	devilspie-action-setworkspace \
 	devilspie-action-resize \
 	devilspie-action-hide \

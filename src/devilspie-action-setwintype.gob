@@ -1,14 +1,15 @@
 %h{
+#include <string.h>
+#include <X11/X.h>
+#include <X11/Xatom.h>
+#include <gdk/gdkx.h>
+
 #define WNCK_I_KNOW_THIS_IS_UNSTABLE
 #include "libwnck/window.h"
 #include "libwnck/screen.h"
 #include "devilspie-action.h"
 #include "devilspie.h"
 
-#include <gdk/gdkx.h>
-
-#include <X11/X.h>
-#include <X11/Xatom.h>
 Atom _wnck_atom_get (const char *atom_name);
 void _wnck_error_trap_push();
 int  _wnck_error_trap_pop();

@@ -27,6 +27,8 @@ INCLUDES = \
 	-DG_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED \
 	-DGTK_DISABLE_DEPRECATED -DGNOME_DISABLE_DEPRECATED
 
+AM_CFLAGS = -Wall
+
 LDADD = ${EXTRA_GNOME_LIBS}
 
 # The long list of sources which are generated from .gob files.

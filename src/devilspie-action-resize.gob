@@ -5,6 +5,10 @@
 #include "tristate-dummy.h"
 #include "devilspie-action.h"
 #include "devilspie.h"
+
+/* Eww, the wnck headers don't declare this */
+void wnck_window_set_fullscreen(WnckWindow *window, gboolean fullscreen);
+
 %}
 
 class DevilsPie:Action:Resize from DevilsPie:Action {

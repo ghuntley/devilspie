@@ -93,6 +93,7 @@ class DevilsPie:Matcher:WindowName from DevilsPie:Matcher {
     PARENT_HANDLER(self, window);
 
     matching_window = matching_application = matching_role = FALSE;
+    matched_window = matched_application = matched_role = FALSE;
 
     if (m->_priv->window_title_regexpr) {
       const char *window_name;

@@ -1,3 +1,7 @@
+2002-12-17  Ross Burton  <ross@burtonini.com>
+
+	* configure.in: Find GConf.
+
 2002-12-02  Ross Burton  <ross@burtonini.com>
 
 	* configure.in: Added gettext support.

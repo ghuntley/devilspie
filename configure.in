@@ -28,9 +28,17 @@ dnl were made in 0.17.
 PKG_CHECK_MODULES(EXTRA_GNOME,
         gtk+-2.0
         libwnck-1.0 >= 0.17
+        gconf-2.0
         libglade-2.0)
 AC_SUBST(EXTRA_GNOME_CFLAGS)
 AC_SUBST(EXTRA_GNOME_LIBS)
+
+dnl Find how and where to put the GConf schemas
+AC_PATH_PROG(GCONFTOOL, gconftool-2, no)
+if test x"$GCONFTOOL" = xno; then
+        AC_MSG_ERROR([gconftool-2 executable not found in your path - should be installed with GConf])
+fi
+AM_GCONF_SOURCE_2
 
 dnl We really need gob2 to build.
 GOB2_CHECK(2.0.3)

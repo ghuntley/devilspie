@@ -28,6 +28,9 @@ gboolean apply_to_existing = TRUE;
  */
 static void run_flurb(Flurb * flurb, WnckWindow *window) {
   GList *l;
+
+  /* If there are no matchers, abort the Flurb */
+  if (g_list_first (flurb->matchers) == NULL) return;
   /* First, run all matchers. If any return false, abort this Flurb */
   for (l = g_list_first (flurb->matchers); l != NULL; l = g_list_next(l)) {
     DevilsPieMatcher *m = l->data;

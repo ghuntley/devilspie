@@ -16,21 +16,29 @@ char* _wnck_get_string_property_latin1 (Window xwindow, Atom atom);
 %}
 
 %{
-void regexpr_init(regex_t **reg_expr, const GValue *str_val)
-{
-  if (!*reg_expr) {
-    *reg_expr = g_new(regex_t, 1);
-  } else {
-    regfree(*reg_expr);
-  }
-  regcomp(*reg_expr, g_value_get_string(str_val), REG_EXTENDED|REG_NOSUB);
-}
-
 void regexpr_free(regex_t *reg_expr)
 {
   if (reg_expr) {
     regfree(reg_expr);
     g_free(reg_expr);
+  }
+}
+  
+void regexpr_init(regex_t **reg_expr, const GValue *str_val)
+{
+  const gchar *str;
+
+  str = g_value_get_string(str_val);
+  if (!str) {
+    regexpr_free(*reg_expr);
+    *reg_expr = NULL;
+  } else {
+    if (!*reg_expr) {
+      *reg_expr = g_new(regex_t, 1);
+    } else {
+      regfree(*reg_expr);
+    }
+    regcomp(*reg_expr, str, REG_EXTENDED|REG_NOSUB);
   }
 }
 

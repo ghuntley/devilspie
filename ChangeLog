@@ -1,3 +1,15 @@
+2002-11-15  Ross Burton  <ross@burtonini.com>
+
+	* src/devilspie.c: Abort the Flurb if there are no matchers. Patch
+	from Patrick Aussems <zyk@bugfactory.org>.
+
+	* src/devilspie-matcher-windowname.gob: Fix a segfault when
+	passing in NULL pointers as strings. Patch from Patrick Aussems
+	<zyk@bugfactory.org>.
+
+	* .cvsignore, src/.cvsignore, po/.cvsignore: Added CVS ignore
+	files, from Patrick Aussems.
+	
 2002-11-14  Ross Burton  <ross@burtonini.com>
 
 	* configure.in: Add GNOME_COMPILE_WARNINGS, defaulting to "yes".

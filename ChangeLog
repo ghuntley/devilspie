@@ -1,3 +1,9 @@
+2005-01-23  Ross Burton  <ross@burtonini.com>
+
+	* configure.in:
+	* NEWS:
+	Version 0.8.
+
 2005-01-12  Ross Burton  <ross@burtonini.com>
 
 	* src/devilspie-action-opacity.gob:

@@ -1,3 +1,15 @@
+Devil's Pie "Mystery Boxes" 0.8
+===============================
+
+* Bring back --apply-to-existing, so you can work on existing windows
+* Add maximized_horizontally and _vertically to the resize action (John Russell)
+* Add an execute action (John Russell)
+* Add an opacity setting action (Guido Boehm)
+* Generate decent matcher/action documentation at build-time from the source
+* Check that regular expressions parsed correctly, fixing a common bug
+* Less compile warnings
+
+
 Devil's Pie "Stumpy" 0.7
 ===============================
 

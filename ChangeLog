@@ -1,3 +1,17 @@
+2004-08-17  Ross Burton  <ross@burtonini.com>
+
+	* src/Makefile.am:
+	Fix a typo.
+	
+	* configure.in:
+	Version 0.5.1.
+
+2004-08-17  Ross Burton  <ross@burtonini.com>
+
+	* configure.in:
+	* NEWS:
+	Version 0.5.
+
 2004-08-16  Ross Burton  <ross@burtonini.com>
 
 	* src/devilspie-action-setgeometry.gob:

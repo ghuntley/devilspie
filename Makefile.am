@@ -18,7 +18,7 @@ docs.xml:
 
 devilspie-reference.html: docs2html.xsl docs.xml
 	xsltproc -o $@ $^
-CLEANFILES += docs.xml devilspie.html
+CLEANFILES += docs.xml devilspie-reference.html
 
 #
 # The rest

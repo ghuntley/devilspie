@@ -1,3 +1,20 @@
+2004-10-01  Ross Burton  <ross@burtonini.com>
+
+	* src/devilspie-action-resize.gob:
+	* README:
+	Add maximized_horizontally and maximized_vertically, patch from
+	John Russell.
+
+2004-09-20  Ross Burton  <ross@burtonini.com>
+
+	* src/devilspie-action-resize.gob:
+	* src/devilspie-action-setwintype.gob:
+	* src/devilspie-matcher-windowname.gob:
+	Various fixes for compile warnings.
+
+	* src/Makefile.am:
+	Add -Wall to CFLAGS.
+
 2004-09-14  Ross Burton  <ross@burtonini.com>
 
 	* configure.in:

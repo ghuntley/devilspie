@@ -76,6 +76,11 @@ TRUE, FALSE, or UNSET.
   * DevilsPieActionResize
 
       maximized       The window is maximized
+
+      maximized_vertically  The window is maximized vertically, width remaining
+                            the same
+      maximized_horizontally  The window is maximized horizontally, height
+                              remaining the same
       minimized       The window is minimized
       fullscreen      The window takes the full screen (only available
                       with libwnck 2.3)

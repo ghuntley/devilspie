@@ -19,6 +19,18 @@ class DevilsPie:Action:Resize from DevilsPie:Action {
    blurb = _("Window is maximized on the screen"),
    enum_type = DevilsPie:TriState, default_value = TRI_UNSET, link);
 
+public DevilsPieTriState maximized_horizontally;
+  property ENUM maximized_horizontally
+  (nick = _("Maximized Horizontally"),
+   blurb = _("Window is maximized horizontally on the screen"),
+   enum_type = DevilsPie:TriState, default_value = TRI_UNSET, link);
+
+  public DevilsPieTriState maximized_vertically;
+  property ENUM maximized_vertically
+  (nick = _("Minimized Vertically"),
+   blurb = _("Window is minimized vertically on the screen"),
+   enum_type = DevilsPie:TriState, default_value = TRI_UNSET, link);
+
   public DevilsPieTriState minimized;
   property ENUM minimized
   (nick = _("Minimized"),
@@ -43,7 +55,19 @@ class DevilsPie:Action:Resize from DevilsPie:Action {
     else if (a->maximized == TRI_FALSE)
       wnck_window_unmaximize(window);
 
-    /* Handle minimized */
+    /* Handle maximized horizontally */
+    if (a->maximized_horizontally == TRI_TRUE)
+      wnck_window_maximize_horizontally(window);
+    else if (a->maximized_horizontally == TRI_FALSE)
+      wnck_window_unmaximize_horizontally(window);
+
+    /* Handle maximized vertically*/
+    if (a->maximized_vertically == TRI_TRUE)
+         wnck_window_maximize_vertically(window);
+    else if (a->maximized_vertically == TRI_FALSE)
+      wnck_window_unmaximize_vertically(window);
+
+       /* Handle minimized */
     if (a->minimized == TRI_TRUE)
       wnck_window_minimize(window);
     else if (a->minimized == TRI_FALSE)

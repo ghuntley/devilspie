@@ -587,7 +587,7 @@ void load_configuration(const char *filename) {
   
   error = NULL;
   if (!g_file_get_contents(filename, &text, &length, &error)) {
-    g_message("Could not load theme: %s", error->message);
+    g_warning("Could not load theme: %s", error->message);
     exit(1);
   }
   /* Sanity check */
@@ -603,7 +603,7 @@ void load_configuration(const char *filename) {
   g_free (text);
 
   if (error) {
-    g_message("Could not parse configuration: %s", error->message);
+    g_warning("Could not parse configuration: %s", error->message);
     exit(1);
   }
 

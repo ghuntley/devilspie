@@ -13,3 +13,10 @@ EXTRA_DIST =			\
 	devilspie.glade	\
 	devilspie.gladep	\
 	$(man_MANS)
+
+INTLTOOL_BUILT = \
+	intltool-extract \
+	intltool-merge \
+	intltool-update
+
+CLEANFILES = $(INTLTOOL_BUILT)

@@ -20,7 +20,6 @@ parser_test_SOURCES = \
 	devilspie.h \
 	parser-test.c
 
-CFLAGS = -Wall -g
 INCLUDES = \
 	$(EXTRA_GNOME_CFLAGS) \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \

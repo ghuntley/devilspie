@@ -1,3 +1,10 @@
+2002-11-14  Ross Burton  <ross@burtonini.com>
+
+	* configure.in: Add GNOME_COMPILE_WARNINGS, defaulting to "yes".
+
+	* src/Makefile.am: Remove the definition of CFLAGS as that was the
+	Wrong Thing To Do. The above change sets the warning flags now.
+
 2002-11-12  Ross Burton  <ross@burtonini.com>
 
 	* Makefile.am: Try and remove the intltool-* files which are

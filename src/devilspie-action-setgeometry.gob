@@ -11,13 +11,13 @@ class DevilsPie:Action:SetGeometry from DevilsPie:Action {
 
   public gint xoffset = DEVILSPIE_ACTION_SETGEOMETRY_NOT_SET;
   property INT xoffset
-  (nick = _("Xoffset"),
+  (nick = _("X offset"),
    blurb = _("Horizontal offset of the window"),
    default_value = DEVILSPIE_ACTION_SETGEOMETRY_NOT_SET, link);
 
   public gint yoffset = DEVILSPIE_ACTION_SETGEOMETRY_NOT_SET;
   property INT yoffset
-  (nick = _("Yoffset"),
+  (nick = _("Y offset"),
    blurb = _("Vertical offset of the window"),
    default_value = DEVILSPIE_ACTION_SETGEOMETRY_NOT_SET, link);
 

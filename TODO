@@ -1,0 +1,28 @@
+TODO for Devil's Pie
+
+A nearly-ordered list:
+* More matchers (can't think of any though)
+* More actions (set size, set position)
+* Debian packages
+* SGML catalogue entry
+* Catch events on window move and resize too
+* Clean up and order the souce tree. devilspie and the editor should
+  be seperate directories, and the sample configuration file (etc)
+  should not be in the top-level directory.
+* Add ability to insert self into session on startup
+* GUI builder
+* RedHat packages
+* Remove dependency on gnome-common, as using it breaks builds on RH8
+  (they forgot to package it) and this program only requires GTK+ and
+  libwnck.
+* Use gnome-vfs to monitor the configuration file, and re-read it when
+  it is changed. This is fairly trivial, props to the gnome-vfs guys.
+
+The position of GUI builder is not a reflection of how much I want
+one, but a reflection of how long I think a good config tool will take
+to write.
+
+My previous GUI builders have been rather advanced... maybe it should
+be more wizard like. Allow the user to select one of a series of
+common options, such as 'make this window not appear in the task list'
+or 'move this window to workspace "Foo"'.

@@ -1,0 +1,26 @@
+Devil's Pie 0.2.4
+
+* Use regular expressions instead of literal string compares when
+  matching window names, application names, or roles.
+* More documentation!
+
+Devil's Pie 0.2.3
+
+* Re-generated the .c and .h files using GOB 2.0.3, fixing a terrible bug
+  with devilspie when using GCC 3.
+
+Devil's Pie 0.2.2
+
+* Have decent command line argument parsing
+* Added a layer action so that windows can be below or above the
+  normal windows
+
+Devil's Pie 0.2.1
+
+* Check the number of command line arguments, so we don't segfault any
+  more.
+
+Devil's Pie 0.2
+
+* The first real release -- 0.1 was actually released, but I didn't
+  really like it so I didn't tell many people...

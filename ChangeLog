@@ -1,0 +1,62 @@
+2002-11-10  Ross Burton  <ross@burtonini.com>
+
+	* configure.in: Bump version up to 0.2.4. Also check for the
+	regular expression POSIX headers, for...
+
+	* src/devilspie-matcher-windowname.gob: Use regular expression
+	matching instead of literal string compares. Thanks to Patrick
+	Aussems <zyk@bugfactory.org> for this kick-arse patch.
+
+2002-10-30  Ross Burton  <ross@burtonini.com>
+
+	* src/devilspie-action-savegeometry.gob: Connect to the
+	window_closed signal of the WnckScreen in the constructor.
+
+	* README: Documentation is always a good thing. I was bored so I
+	fleshed this out a little.
+
+2002-10-24  Ross Burton  <ross@burtonini.com>
+
+	* src/devilspie-action-debug.gob: Print out the window Role.
+
+	* src/devilspie-action-savegeometry.gob: Started on a Save Window
+	Geometry action. Doesn't do anything at the moment apart from
+	printing messages at the right moments.
+
+	* src/devilspie-matcher-windowname.gob: Re-wrote the return logic
+	to be much clearer, and started on a window role (WM_WINDOW_ROLE)
+	matcher, which also doesn't work.
+
+2002-10-17  Ross Burton  <ross@burtonini.com>
+
+	* src/devilspie-action-layer.gob: Added an Action which can set
+	the ABOVE and BELOW layer hints on windows. Panel-below heaven is
+	here! :)
+
+	* src/devilspie.c: Parse the command line arguments
+	correctly. Open the file specified, if no file is specified try to
+	open ~/.devilspie.xml.
+
+	* configure.in: Bump version to 0.2.2.
+
+2002-09-08  Ross Burton  <ross@burtonini.com>
+
+	* src/devilspie.c (main): Actually check the number of arguments,
+	so that we don't coredump if no configuration file is
+	specified. Fixes a segfault pointed out by jdub. As usual, IRC is
+	a great way of finding bugs in code.
+
+	* configure.in: Bump version to 0.2.1.
+
+2002-09-03  Ross Burton  <ross@burtonini.com>
+
+	* src/*: Many, many changes. In fact this entry is totally
+	redundant, except for...
+
+	* configure.in: Bump version up to 0.2.
+
+2002-08-14  Ross Burton  <ross@burtonini.com>
+
+	* src/*: Finally managed to make enough work for an alpha
+	release. Release 0.1!
+

@@ -1,0 +1,54 @@
+%h{
+#define WNCK_I_KNOW_THIS_IS_UNSTABLE
+#include "libwnck/window.h"
+#include "libwnck/screen.h"
+#include "tristate-dummy.h"
+#include "devilspie-action.h"
+#include "devilspie.h"
+
+/* TODO: remove when gettext is used */
+#define _(x) x
+
+#include <X11/Xlib.h>
+#include <X11/Xatom.h>
+Screen *_wnck_screen_get_xscreen (WnckScreen *screen);
+Atom _wnck_atom_get (const char *atom_name);
+void _wnck_change_state (Screen  *screen,
+                         Window   xwindow,
+                         gboolean add,
+                         Atom     state1,
+                         Atom     state2);
+%}
+
+class DevilsPie:Action:Layer from DevilsPie:Action {
+
+  public DevilsPieTriState above;
+  property ENUM above
+  (nick = _("Above windows?"),
+   blurb = _("Window is above all others"),
+   enum_type = DevilsPie:TriState, default_value = TRI_UNSET, link);
+
+  override (DevilsPie:Action) gboolean run(DevilsPie:Action *self (check null type), Wnck:Window *window (check null type)) {
+    DevilsPieActionLayer *a = (DevilsPieActionLayer*)self;
+    /* TRUE = above, FALSE = below */
+    if (a->above == TRI_TRUE) {
+      _wnck_change_state (_wnck_screen_get_xscreen(wnck_window_get_screen(window)),
+                          wnck_window_get_xid(window),
+                          TRUE,
+                          _wnck_atom_get ("_NET_WM_STATE_ABOVE"),
+                          0);
+    }
+    if (a->above == TRI_FALSE) {
+      _wnck_change_state (_wnck_screen_get_xscreen(wnck_window_get_screen(window)),
+                          wnck_window_get_xid(window),
+                          TRUE,
+                          _wnck_atom_get ("_NET_WM_STATE_BELOW"),
+                          0);
+    }
+    return TRUE;
+  }
+  
+  public GObject *new(void) {
+    return (GObject*)GET_NEW;
+  }
+}

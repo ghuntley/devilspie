@@ -1,0 +1,41 @@
+dnl Initial blurb
+AC_PREREQ(2.52)
+AC_INIT(devilspie, 0.2.4, http://www.burtonini.com/)
+AC_CONFIG_SRCDIR(src/devilspie.c)
+AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
+AM_CONFIG_HEADER(config.h)
+
+AM_MAINTAINER_MODE
+
+dnl Do the gettext/i18n stuff
+AC_DEFINE(PACKAGE, AC_PACKAGE_NAME)
+AC_DEFINE(VERSION, AC_PACKAGE_VERSION)
+AC_DEFINE(GETTEXT_PACKAGE, "AC_PACKAGE_NAME", [foo])
+GETTEXT_PACKAGE=AC_PACKAGE_NAME
+AC_SUBST(GETTEXT_PACKAGE)
+AC_PROG_INTLTOOL([0.20])
+ALL_LINGUAS=""
+AM_GLIB_GNU_GETTEXT
+
+dnl Check for the POSIX regexpr functions and headers
+AC_CHECK_FUNCS([regcomp regexec regfree])
+AC_CHECK_HEADERS([sys/types.h regex.h])
+
+dnl Check that we actually have the libraries required to
+dnl build. Versioned dependancy on libwnck as essential API additions
+dnl were made in 0.17.
+PKG_CHECK_MODULES(EXTRA_GNOME,
+        gtk+-2.0
+        libwnck-1.0 >= 0.17
+        libglade-2.0)
+AC_SUBST(EXTRA_GNOME_CFLAGS)
+AC_SUBST(EXTRA_GNOME_LIBS)
+
+dnl We really need gob2 to build.
+GOB2_CHECK(2.0.3)
+
+AC_OUTPUT([
+Makefile
+src/Makefile
+po/Makefile.in
+])

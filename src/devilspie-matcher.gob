@@ -1,0 +1,22 @@
+%h{
+#define WNCK_I_KNOW_THIS_IS_UNSTABLE
+#include "libwnck/window.h"
+
+typedef enum {
+  MatchWindowNameType,
+  MatchApplicationNameType,
+  MatchAlways
+} MatcherType;
+%}
+
+/* TODO: make this an interface when GOB supports it */
+class DevilsPie:Matcher from G:Object {
+  
+  public MatcherType type;
+  
+  virtual gboolean test(self, WnckWindow *window) ;
+  
+  public GObject *new(void) {
+    return (GObject*)GET_NEW;
+  }
+}

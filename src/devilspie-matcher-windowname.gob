@@ -1,0 +1,128 @@
+%h{
+#include <sys/types.h>
+#include <regex.h>
+#define WNCK_I_KNOW_THIS_IS_UNSTABLE
+#include "libwnck/window.h"
+#include "libwnck/application.h"
+#include "devilspie-matcher.h"
+
+/* TODO: remove when gettext is used */
+#define _(x) x
+
+/* Borrow this function from libwnck */
+#include "X11/X.h"
+Atom _wnck_atom_get (const char *atom_name);
+char* _wnck_get_string_property_latin1 (Window xwindow, Atom atom);
+%}
+
+%{
+void regexpr_init(regex_t **reg_expr, const GValue *str_val)
+{
+  if (!*reg_expr) {
+    *reg_expr = g_new(regex_t, 1);
+  } else {
+    regfree(*reg_expr);
+  }
+  regcomp(*reg_expr, g_value_get_string(str_val), REG_EXTENDED|REG_NOSUB);
+}
+
+void regexpr_free(regex_t *reg_expr)
+{
+  if (reg_expr) {
+    regfree(reg_expr);
+    g_free(reg_expr);
+  }
+}
+
+gboolean regexpr_match(regex_t *reg_expr, const gchar *str)
+{
+  return (regexec(reg_expr, str, 0, NULL, 0) == 0) ? TRUE : FALSE;
+}
+%}
+
+class DevilsPie:Matcher:WindowName from DevilsPie:Matcher {
+
+  /* Is it worth having this as a private variable? Why not make it
+     public, remove the accessors, and let access be either directly
+     or via GObject properties... */
+
+  /* The title on the window */
+  private regex_t * window_title_regexpr destroywith regexpr_free;
+  property STRING window_title
+  (nick = _("Window title regexp"),
+   blurb = _("The regular expression that should match the window title"),
+   default_value = NULL)
+    set
+      {
+	regexpr_init(&self->_priv->window_title_regexpr, VAL);
+      };
+
+  /* The name of the "application" as determined by libwnck. */
+  private regex_t * application_name_regexpr destroywith regexpr_free;
+  property STRING application_name
+  (nick = _("Application name regexp"),
+   blurb = _("The regular expression that should match the name of the application (as determined by libwnck)"),
+   default_value = NULL)
+    set
+      {
+	regexpr_init(&self->_priv->application_name_regexpr, VAL);
+      };
+
+  /* TODO: The role of the window, as set by the WM_WINDOW_ROLE
+     Atom */
+  private regex_t * window_role_regexpr destroywith regexpr_free;
+  property STRING window_role
+  (nick = _("Window role regexp"),
+   blurb = _("The regular expression that should match the role of the window (set by WM_WINDOW_ROLE atom)"),
+   default_value = NULL)
+    set
+      {
+	regexpr_init(&self->_priv->window_role_regexpr, VAL);
+      };
+
+  override (DevilsPie:Matcher) gboolean test(DevilsPie:Matcher *self (check null type), Wnck:Window *window (check null type)) {
+    gboolean matching_window, matching_application, matching_role;
+    gboolean matched_window, matched_application, matched_role;
+    DevilsPieMatcherWindowName *m = (DevilsPieMatcherWindowName*)self;
+    PARENT_HANDLER(self, window);
+
+    matching_window = matching_application = matching_role = FALSE;
+
+    if (m->_priv->window_title_regexpr) {
+      const char *window_name;
+      window_name = wnck_window_get_name(window);
+      matching_window = TRUE;
+      matched_window = regexpr_match(m->_priv->window_title_regexpr, window_name);
+    }
+    if (m->_priv->application_name_regexpr) {
+      WnckApplication *app;
+      const char *app_name;
+      app = wnck_window_get_application(window);
+      app_name = wnck_application_get_name(app);
+      matching_application = TRUE;
+      matched_application = regexpr_match(m->_priv->application_name_regexpr, app_name);
+    }
+    if (m->_priv->window_role_regexpr) {
+      const char *role;
+      role = _wnck_get_string_property_latin1 (wnck_window_get_xid (window), _wnck_atom_get("WM_WINDOW_ROLE"));
+      matching_role = TRUE;
+      matched_role = regexpr_match(m->_priv->window_role_regexpr, role);
+    }
+    
+    if ((!matching_window || matched_window) &&
+        (!matching_application || matched_application) &&
+        (!matching_role || matched_role)) {
+      return TRUE;
+    } else {
+      return FALSE;
+    }
+  }
+
+  init(self) {
+    DEVILSPIE_MATCHER(self)->type = MatchWindowNameType;
+  }
+
+  public GObject *new(void) {
+    return (GObject*)GET_NEW;
+  }
+}

@@ -1,0 +1,24 @@
+%h{
+#define WNCK_I_KNOW_THIS_IS_UNSTABLE
+#include "libwnck/window.h"
+
+/* Little bit hacky. Using GType here would be nice */
+typedef enum {
+  DebugActionType,
+  ExecuteActionType,
+  WorkspaceActionType
+} ActionType;
+%}
+
+/* TODO: make this an interface when GOB supports it */
+class DevilsPie:Action from G:Object {
+
+  public ActionType type;
+
+  /* TODO: gboolean or void? */
+  virtual gboolean run(self, WnckWindow *window) defreturn TRUE;
+  
+  public GObject *new(void) {
+    return (GObject*)GET_NEW;
+  }
+}

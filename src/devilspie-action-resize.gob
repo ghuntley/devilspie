@@ -1,0 +1,50 @@
+%h{
+#define WNCK_I_KNOW_THIS_IS_UNSTABLE
+#include "libwnck/window.h"
+#include "tristate-dummy.h"
+#include "devilspie-action.h"
+#include "devilspie.h"
+
+/* TODO: remove when gettext is used */
+#define _(x) x
+%}
+
+class DevilsPie:Action:Resize from DevilsPie:Action {
+
+  public DevilsPieTriState maximized;
+  property ENUM maximized
+  (nick = _("Maximized"),
+   blurb = _("Window is maximized on the screen"),
+   enum_type = DevilsPie:TriState, default_value = TRI_UNSET, link);
+
+  public DevilsPieTriState minimized;
+  property ENUM minimized
+  (nick = _("Minimized"),
+   blurb = _("Window is minimized"),
+   enum_type = DevilsPie:TriState, default_value = TRI_UNSET, link);
+
+  override (DevilsPie:Action) gboolean run(DevilsPie:Action *self (check null type), Wnck:Window *window (check null type)) {
+    DevilsPieActionResize *a = (DevilsPieActionResize*)self;
+    /* Assume that a true/false tristate in a boolean context is correct */
+    /* Assume the user is not totally stupid and has not set both
+    maximize and minimize */
+
+    /* Handle maximized */
+    if (a->maximized == TRI_TRUE)
+      wnck_window_maximize(window);
+    else if (a->maximized == TRI_FALSE)
+      wnck_window_unmaximize(window);
+
+    /* Handle minimized */
+    if (a->minimized == TRI_TRUE)
+      wnck_window_minimize(window);
+    else if (a->minimized == TRI_FALSE)
+      wnck_window_unminimize(window);
+
+    return TRUE;
+  }
+  
+  public GObject *new(void) {
+    return (GObject*)GET_NEW;
+  }
+}

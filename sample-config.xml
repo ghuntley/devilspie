@@ -70,6 +70,26 @@
     </actions>
   </flurb>
 
+
+  <!--
+   Start Galeon browser without window decorations on 3rd workspace
+  -->
+  <flurb>
+    <matchers>
+      <matcher name="DevilsPieMatcherWindowName">
+        <property name="application_name" value="Galeon"/>
+      </matcher>
+    </matchers>
+    <actions>
+      <action name="DevilsPieActionDecorate">
+        <property name="decorated" value="FALSE"/>
+      </action>
+      <action name="DevilsPieActionSetWorkspace">
+        <property name="workspace_index" value="3"/>
+      </action>
+    </actions>
+  </flurb>
+
   <!--
   Move all GNOME Dictionary windows to 200x200, 100 px wide and 50 px high.
   -->

@@ -1,3 +1,12 @@
+2004-10-03  Ross Burton  <ross@burtonini.com>
+
+	* src/Makefile.am:
+	Run parser-test as a proper test, and build parser-test only when
+	doing tests.
+	
+	* src/parser-test.c:
+	Load a hard-coded configuration file as Automake tests are flawed.
+
 2004-10-02  Ross Burton  <ross@burtonini.com>
 
 	* configure.in:

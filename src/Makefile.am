@@ -1,8 +1,12 @@
 # We only install devilspie at the moment
 bin_PROGRAMS = devilspie
 
-# Don't install the parser test
-noinst_PROGRAMS = parser-test doc-generator
+# Build but don't install the doc generator
+noinst_PROGRAMS = doc-generator
+
+# Build the parser test if we are running tests
+check_PROGRAMS = parser-test
+TESTS = parser-test
 
 devilspie_SOURCES = \
 	${BUILT_SOURCES} \

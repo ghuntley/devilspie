@@ -1,3 +1,7 @@
+2002-11-22  Ross Burton  <ross@burtonini.com>
+
+	* configure.in: Cleaned up, and added the compiler checks.
+
 2002-11-15  Ross Burton  <ross@burtonini.com>
 
 	* src/devilspie.c: Abort the Flurb if there are no matchers. Patch

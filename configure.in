@@ -7,21 +7,12 @@ AM_CONFIG_HEADER(config.h)
 
 AM_MAINTAINER_MODE
 
+AC_ISC_POSIX
+AC_PROG_CC
+AM_PROG_CC_STDC
+AC_HEADER_STDC
 GNOME_COMPILE_WARNINGS(yes)
-
-dnl Do the gettext/i18n stuff
-AC_DEFINE(PACKAGE, AC_PACKAGE_NAME)
-AC_DEFINE(VERSION, AC_PACKAGE_VERSION)
-AC_DEFINE(GETTEXT_PACKAGE, "AC_PACKAGE_NAME", [foo])
-GETTEXT_PACKAGE=AC_PACKAGE_NAME
-AC_SUBST(GETTEXT_PACKAGE)
 AC_PROG_INTLTOOL([0.20])
-ALL_LINGUAS=""
-AM_GLIB_GNU_GETTEXT
-
-dnl Check for the POSIX regexpr functions and headers
-AC_CHECK_FUNCS([regcomp regexec regfree])
-AC_CHECK_HEADERS([sys/types.h regex.h])
 
 dnl Check that we actually have the libraries required to
 dnl build. Versioned dependancy on libwnck as essential API additions
@@ -35,6 +26,18 @@ AC_SUBST(EXTRA_GNOME_LIBS)
 
 dnl We really need gob2 to build.
 GOB2_CHECK(2.0.3)
+dnl TODO: say something if GOB2 is not found
+
+dnl Check for the POSIX regexpr functions and headers
+AC_CHECK_FUNCS([regcomp regexec regfree])
+AC_CHECK_HEADERS([sys/types.h regex.h])
+
+dnl Do the gettext/i18n stuff
+ALL_LINGUAS=""
+GETTEXT_PACKAGE=devilspie
+AC_PROG_INTLTOOL([0.20])
+AC_SUBST(GETTEXT_PACKAGE)
+AM_GLIB_GNU_GETTEXT
 
 AC_OUTPUT([
 Makefile

@@ -1,5 +1,11 @@
 2004-06-06  Ross Burton  <ross@burtonini.com>
 
+	* configure.in:
+	* NEWS:
+	Version 0.4
+
+2004-06-06  Ross Burton  <ross@burtonini.com>
+
 	* src/devilspie.c:
 	Watch all screens instead of just the default.  Hopefully this is
 	the right thing to do, and people don't run a devilspie for each

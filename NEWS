@@ -1,3 +1,11 @@
+Devil's Pie "Derren Brown Is A Witch" 0.4
+=========================================
+
+* Add an action to set the window type atom (Olivier Andrieu)
+* Add an action to set the decorate window hint in OpenBox (Vaclav Lorenc)
+* Watch all screens for events, instead of just the default
+
+
 Devil's Pie "David Blaine has smelly socks" 0.3.1
 =================================================
 

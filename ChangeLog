@@ -1,5 +1,18 @@
 2005-03-08  Ross Burton  <ross@burtonini.com>
 
+	* src/xutils.[ch]:
+	Copy and paste some private functions from wnck.
+	
+	* src/devilspie-action-debug.gob:
+	* src/devilspie-action-decorate.gob:
+	* src/devilspie-action-layer.gob:
+	* src/devilspie-action-opacity.gob:
+	* src/devilspie-action-setwintype.gob:
+	* src/devilspie-matcher-windowname.gob:
+	Port to use xutils.c.	
+	
+2005-03-08  Ross Burton  <ross@burtonini.com>
+
 	* src/config-parser.c:
 	Handle double property types.
 

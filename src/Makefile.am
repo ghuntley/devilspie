@@ -14,7 +14,9 @@ devilspie_SOURCES = \
 	flurb.h \
 	flurb.c \
 	devilspie.h \
-	devilspie.c
+	devilspie.c \
+	xutils.h \
+	xutils.c
 
 doc_generator_SOURCES = \
 	${BUILT_SOURCES} \

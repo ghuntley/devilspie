@@ -5,6 +5,7 @@
 #include "tristate-dummy.h"
 #include "devilspie-action.h"
 #include "devilspie.h"
+#include "xutils.h"
 
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
@@ -29,12 +30,6 @@ typedef struct
 } PropMotifWmHints;
 
 Screen *_wnck_screen_get_xscreen (WnckScreen *screen);
-Atom _wnck_atom_get (const char *atom_name);
-void _wnck_change_state (Screen  *screen,
-                         Window   xwindow,
-                         gboolean add,
-                         Atom     state1,
-                         Atom     state2);
 %}
 
 class DevilsPie:Action:Decorate from DevilsPie:Action {
@@ -58,7 +53,7 @@ class DevilsPie:Action:Decorate from DevilsPie:Action {
     motif_hints.decorations = decors;
 
     /* get the atom for the property */
-    hintsatom = _wnck_atom_get("_MOTIF_WM_HINTS");
+    hintsatom = my_wnck_atom_get("_MOTIF_WM_HINTS");
     if (!hintsatom) {       
       g_warning("Failed to get atom _MOTIF_WM_HINTS: probably your window manager does not support MWM hints\n"); 
       return ;
@@ -76,19 +71,19 @@ class DevilsPie:Action:Decorate from DevilsPie:Action {
     DevilsPieActionDecorate *a = (DevilsPieActionDecorate*)self;
     /* TRUE = decorated, FALSE = undecorated */
     if (a->decorated == TRI_TRUE) {
-      _wnck_change_state (_wnck_screen_get_xscreen(wnck_window_get_screen(window)),
+      my_wnck_change_state (_wnck_screen_get_xscreen(wnck_window_get_screen(window)),
 			  wnck_window_get_xid(window),
 			  FALSE,
-			  _wnck_atom_get ("_OB_WM_STATE_UNDECORATED"),
+			  my_wnck_atom_get ("_OB_WM_STATE_UNDECORATED"),
 			  0);
       /* workaround for other WMs: it seems that many WMs are able to handle Motif WM hints */
       self_mwm_set_decorations(window, MWM_DECOR_ALL); 
     }
     if (a->decorated == TRI_FALSE) {
-      _wnck_change_state (_wnck_screen_get_xscreen(wnck_window_get_screen(window)),
+      my_wnck_change_state (_wnck_screen_get_xscreen(wnck_window_get_screen(window)),
 			  wnck_window_get_xid(window),
 			  TRUE,
-			  _wnck_atom_get ("_OB_WM_STATE_UNDECORATED"),
+			  my_wnck_atom_get ("_OB_WM_STATE_UNDECORATED"),
 			  0);
       /* workaround for other WMs: it seems that many WMs are able to handle Motif WM hints */
       self_mwm_set_decorations(window, MWM_DECOR_NONE);  

@@ -2,6 +2,7 @@
 #include <sys/types.h>
 #include <regex.h>
 #include "devilspie.h"
+#include "xutils.h"
 #define WNCK_I_KNOW_THIS_IS_UNSTABLE
 #include "libwnck/window.h"
 #include "libwnck/application.h"
@@ -9,7 +10,6 @@
 
 /* Borrow this function from libwnck */
 #include "X11/X.h"
-Atom _wnck_atom_get (const char *atom_name);
 char* _wnck_get_string_property_latin1 (Window xwindow, Atom atom);
 %}
 
@@ -121,7 +121,7 @@ class DevilsPie:Matcher:WindowName from DevilsPie:Matcher {
     }
     if (m->_priv->window_role_regexpr) {
       const char *role;
-      role = _wnck_get_string_property_latin1 (wnck_window_get_xid (window), _wnck_atom_get("WM_WINDOW_ROLE"));
+      role = _wnck_get_string_property_latin1 (wnck_window_get_xid (window), my_wnck_atom_get("WM_WINDOW_ROLE"));
       matching_role = TRUE;
       matched_role = role == 0 ? FALSE : regexpr_match(m->_priv->window_role_regexpr, role);
     }

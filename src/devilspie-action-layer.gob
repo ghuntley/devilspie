@@ -5,16 +5,11 @@
 #include "tristate-dummy.h"
 #include "devilspie-action.h"
 #include "devilspie.h"
+#include "xutils.h"
 
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 Screen *_wnck_screen_get_xscreen (WnckScreen *screen);
-Atom _wnck_atom_get (const char *atom_name);
-void _wnck_change_state (Screen  *screen,
-                         Window   xwindow,
-                         gboolean add,
-                         Atom     state1,
-                         Atom     state2);
 %}
 
 class DevilsPie:Action:Layer from DevilsPie:Action {
@@ -30,17 +25,17 @@ class DevilsPie:Action:Layer from DevilsPie:Action {
     DevilsPieActionLayer *a = (DevilsPieActionLayer*)self;
     /* TRUE = above, FALSE = below */
     if (a->above == TRI_TRUE) {
-      _wnck_change_state (_wnck_screen_get_xscreen(wnck_window_get_screen(window)),
+      my_wnck_change_state (_wnck_screen_get_xscreen(wnck_window_get_screen(window)),
                           wnck_window_get_xid(window),
                           TRUE,
-                          _wnck_atom_get ("_NET_WM_STATE_ABOVE"),
+                          my_wnck_atom_get ("_NET_WM_STATE_ABOVE"),
                           0);
     }
     if (a->above == TRI_FALSE) {
-      _wnck_change_state (_wnck_screen_get_xscreen(wnck_window_get_screen(window)),
+      my_wnck_change_state (_wnck_screen_get_xscreen(wnck_window_get_screen(window)),
                           wnck_window_get_xid(window),
                           TRUE,
-                          _wnck_atom_get ("_NET_WM_STATE_BELOW"),
+                          my_wnck_atom_get ("_NET_WM_STATE_BELOW"),
                           0);
     }
     return TRUE;

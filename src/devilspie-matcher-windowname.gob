@@ -25,7 +25,8 @@ void regexpr_free(regex_t *reg_expr)
 void regexpr_init(regex_t **reg_expr, const GValue *str_val)
 {
   const gchar *str;
-
+  int res;
+        
   str = g_value_get_string(str_val);
   if (!str) {
     regexpr_free(*reg_expr);
@@ -36,7 +37,13 @@ void regexpr_init(regex_t **reg_expr, const GValue *str_val)
     } else {
       regfree(*reg_expr);
     }
-    regcomp(*reg_expr, str, REG_EXTENDED|REG_NOSUB);
+    res = regcomp(*reg_expr, str, REG_EXTENDED|REG_NOSUB);
+    if (res != 0) {
+      char buffer[255];
+      regerror (res, *reg_expr, buffer, 255);
+      g_warning ("Invalid regular expression '%s': %s", str, buffer);
+      *reg_expr = NULL;
+    }
   }
 }
 
@@ -113,8 +120,7 @@ class DevilsPie:Matcher:WindowName from DevilsPie:Matcher {
       const char *role;
       role = _wnck_get_string_property_latin1 (wnck_window_get_xid (window), _wnck_atom_get("WM_WINDOW_ROLE"));
       matching_role = TRUE;
-      matched_role = role == 0 ? FALSE :
-       regexpr_match(m->_priv->window_role_regexpr, role);
+      matched_role = role == 0 ? FALSE : regexpr_match(m->_priv->window_role_regexpr, role);
     }
     
     if ((!matching_window || matched_window) &&

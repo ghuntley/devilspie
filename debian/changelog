@@ -1,3 +1,9 @@
+devilspie (0.2.4-1) unstable; urgency=low
+
+  * New release.
+
+ -- Ross Burton <ross@debian.org>  Thu, 01 May 2003 18:49:28 +0100
+
 devilspie (0.2.3-1) unstable; urgency=low
 
   * Initial packages.

@@ -2,17 +2,20 @@ SUBDIRS = po src
 
 man_MANS = devilspie.1
 
-EXTRA_DIST =			\
-	debian			\
-	autogen.sh		\
-	intltool-extract.in	\
-	intltool-merge.in	\
-	intltool-update.in	\
-	sample-config.xml	\
-	devilspie.dtd		\
-	devilspie.glade	\
-	devilspie.gladep	\
+EXTRA_DIST = \
+	debian \
+	devilspie.spec.in \
+	autogen.sh \
+	intltool-extract.in \
+	intltool-merge.in \
+	intltool-update.in \
+	sample-config.xml \
+	devilspie.dtd \
+	devilspie.glade \
+	devilspie.gladep \
 	$(man_MANS)
+#	$(schema_DATA) \
+#	$(schema_in_files)
 
 INTLTOOL_BUILT = \
 	intltool-extract \

@@ -1,3 +1,16 @@
+2003-05-01  Ross Burton  <ross@burtonini.com>
+
+	* devilspie.spec.in: Added a RPM spec file, based on spec files by
+	Michael Raab <mraab@macbyte.info> and Lars R. Damerow
+	<lars@oddment.org>
+
+	* Makefile.am: Include the spec file in the dist.
+
+	* configure.in: Generate the spec file. Also comment out the GConf
+	code for now.
+
+	* debian/*: Updated
+
 2002-12-29  Christian Neumair  <chris@gnome-de.org>
 
 	* .cvsignore: Added stamp-h1.

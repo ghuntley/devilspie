@@ -22,6 +22,8 @@ doc_generator_SOURCES = \
 	${BUILT_SOURCES} \
 	flurb.h \
 	flurb.c \
+	xutils.h \
+	xutils.c \
 	doc-generator.c
 
 parser_test_SOURCES = \

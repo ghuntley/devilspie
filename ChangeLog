@@ -1,3 +1,8 @@
+2005-04-08  Ross Burton  <ross@burtonini.com>
+
+	* src/Makefile.am:
+	Add xutils.c to the doc-generator build.
+
 2005-03-08  Ross Burton  <ross@burtonini.com>
 
 	* src/xutils.[ch]:

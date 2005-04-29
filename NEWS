@@ -1,3 +1,12 @@
+Devil's Pie "Missing Gifts" 0.9
+===============================
+
+* Check for libwnck 2.9.92 and pass timestamps if required
+* Handle properties containing doubles, so the opacity action works
+* Add CONSTRUCT flag to properties (Jean-Yves Lefort)
+* Start a private copy of various private wnck functions we need
+
+
 Devil's Pie "Mystery Boxes" 0.8
 ===============================
 

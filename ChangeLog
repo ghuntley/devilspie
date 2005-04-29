@@ -1,6 +1,12 @@
 2005-04-29  Ross Burton  <ross@burtonini.com>
 
 	* configure.in:
+	* NEWS:
+	Version 0.9.
+
+2005-04-29  Ross Burton  <ross@burtonini.com>
+
+	* configure.in:
 	Check for wnck >= 2.9.92, as they need timestamps.
 
 	* src/devilspie-action-resize.gob:

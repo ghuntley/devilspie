@@ -76,7 +76,11 @@ public DevilsPieTriState maximized_horizontally;
     if (a->minimized == TRI_TRUE)
       wnck_window_minimize(window);
     else if (a->minimized == TRI_FALSE)
+#if NEED_TIMESTAMPS
+      wnck_window_unminimize(window, gtk_get_current_event_time ());
+#else
       wnck_window_unminimize(window);
+#endif
     /* Handle full screen */
     if (a->fullscreen != TRI_UNSET) {
         g_print("fullscreen\n");

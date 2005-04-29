@@ -26,18 +26,25 @@ AC_PROG_INTLTOOL([0.20])
 GOB2_CHECK(2.0.3)
 dnl TODO: say something if GOB2 is not found
 
+PKG_CHECK_MODULES(TMP_WNCK, libwnck-1.0 >= 2.9.92,
+		 wnck_new="yes", wnck_new="no")
+if test "x$wnck_new" = "xyes"; then
+        AC_DEFINE(NEED_TIMESTAMPS,1,[Define to 1 if timestamps are needed to wnck functions])
+fi
+
 # Check that we actually have the libraries required to
 # build. Versioned dependancy on libwnck as essential API additions
 # were made in 0.17.
+dnl TODO: make libxml conditional and don't build docs if it isn't present
 PKG_CHECK_MODULES(WNCK,
         gtk+-2.0
         libwnck-1.0 >= 0.17
-dnl TODO: make libxml conditional and don't build docs if it isn't present
         libxml-2.0)
 AC_SUBST(WNCK_CFLAGS)
 AC_SUBST(WNCK_LIBS)
 
-# Now check if we have the set_fullscreen function
+# Now check if we have the set_fullscreen function. At some point we can support
+# only wnck >= 2.8.0.1 and this test can go.
 AC_CHECK_LIB(wnck-1, wnck_window_set_fullscreen,
             have_fullscreen=1, have_fullscreen=0)
 AC_DEFINE_UNQUOTED(HAVE_FULLSCREEN, $have_fullscreen, [set_fullscreen is available])

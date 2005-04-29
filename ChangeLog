@@ -1,3 +1,11 @@
+2005-04-29  Ross Burton  <ross@burtonini.com>
+
+	* configure.in:
+	Check for wnck >= 2.9.92, as they need timestamps.
+
+	* src/devilspie-action-resize.gob:
+	If wnck >= 2.9.92, pass a timestamp when minimising.
+
 2005-04-08  Ross Burton  <ross@burtonini.com>
 
 	* src/Makefile.am:

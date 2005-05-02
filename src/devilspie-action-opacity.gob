@@ -25,13 +25,15 @@ class DevilsPie:Action:Opacity from DevilsPie:Action {
 	public double opacity = 0.75;
 	property DOUBLE opacity
 		(nick = _("Opacity of window"),
-		blurb = _("Window is transparent (xcompmgr w/ Composite Extensions in xorg)"),
+		blurb = _("Window is transparent (requires a Composite Manager)"),
 		flags = CONSTRUCT,
-		default_value = 0.75, link);
+		default_value = 0.75,
+		minimum=0.0,
+		maximum=1.0,
+		link);
 
 	/* sets opacity of window. */
-	/* if (opacity < 0 || opacity > 1) toggles opacity between none and default */
-	private void composite_set_opacity( Wnck:Window *window, double opacity ) {
+	private void composite_set_opacity(Wnck:Window *window, double opacity) {
 		Window Real, Parent, Root;
 		Window *Buf0;
 		unsigned int Value;
@@ -41,60 +43,52 @@ class DevilsPie:Action:Opacity from DevilsPie:Action {
 
 		/* from our window-id, find the last window-id up the tree before the   */
 		/* root-window. xcompmgr works only with this id.                       */
-		Real = wnck_window_get_xid( window );
+		Real = wnck_window_get_xid (window);
 		Root = 0;
-		/* printf( "got original window-id: 0x%08x\n", Real ); */
-		while(
-			   XQueryTree( GDK_DISPLAY( ), Real, &Root, &Parent, &Buf0, &Value )
-			&& (Real   != Root)
-			&& (Parent != Root)
-		) Real = Parent;
-		/* printf( "got real window-id: 0x%08x\n", Real ); */
-		usleep( 100 ); /* don't know why, but without this i had windows where  */
-		               /* transparency didn't work, although the atom got set.  */
+		while (XQueryTree (GDK_DISPLAY (), Real, &Root, &Parent, &Buf0, &Value)
+		       && (Real   != Root) && (Parent != Root))
+			Real = Parent;
+		usleep (100); /* TODO: race condition, fix this */
 
 		/* if opacity-value is not valid then toggle between OPAQUE_DEF or not set */
-		if( (opacity < 0) || (opacity > 1) ) {
-			XGetWindowProperty( GDK_DISPLAY( ), Real,       /* Display *, Window,               */
-			                    my_wnck_atom_get( OPACITY ),  /* Atom property,                   */
+		if ((opacity < 0) || (opacity > 1)) {
+			XGetWindowProperty (GDK_DISPLAY (), Real,       /* Display *, Window,               */
+			                    my_wnck_atom_get (OPACITY),  /* Atom property,                   */
 			                    0L, 1L, False, XA_CARDINAL, /* offset, length, delete, req_type */
-			                    &ActualReturnType, &Value, &Buf1, &Buf2, &Data );
+			                    &ActualReturnType, &Value, &Buf1, &Buf2, &Data);
 			/* check if there was any value read from window */
-			if( Data != None ) {
-				memcpy( &Value, Data, sizeof( unsigned int ) );
-				XFree( (void *)Data );
-				/* printf("found opacity %g for window-id 0x%08x\n", (double)(Value / OPAQUE), Real ); */
+			if (Data != None) {
+				memcpy (&Value, Data, sizeof (unsigned int));
+				XFree ((void *)Data);
 			} else {
 				Value = OPAQUE;
 			}
 
 			/* finally toggle, depending on current value */
-			Value = ( Value != OPAQUE ) ? OPAQUE : OPAQUE_DEF;
+			Value =  (Value != OPAQUE) ? OPAQUE : OPAQUE_DEF;
 		} else {
 			/* opacity within valid range */
 			Value = (unsigned int)(opacity * OPAQUE);
 		}
 
-		/* printf( "setting opacity to 0x%08x for window 0x%08x\n", Value, Real ); */
-		if( Value == OPAQUE ) {
-			XDeleteProperty( GDK_DISPLAY( ), Real, my_wnck_atom_get( OPACITY ) );
+		if (Value == OPAQUE) {
+			XDeleteProperty (GDK_DISPLAY (), Real, my_wnck_atom_get (OPACITY));
 		} else {
-			XChangeProperty( GDK_DISPLAY( ), Real, my_wnck_atom_get( OPACITY ),
+			XChangeProperty (GDK_DISPLAY (), Real, my_wnck_atom_get (OPACITY),
 			                 XA_CARDINAL, 32, PropModeReplace,
-			                 (unsigned char *)&Value, 1L );
+			                 (unsigned char *)&Value, 1L);
 		}
-		XSync( GDK_DISPLAY( ), False );
+		XSync (GDK_DISPLAY (), False);
 	}
 
-	/* Main action... */
-	override (DevilsPie:Action) gboolean run( DevilsPie:Action *self (check null type), Wnck:Window *window (check null type) ) {
+	override (DevilsPie:Action) gboolean run (DevilsPie:Action *self (check null type), Wnck:Window *window (check null type) ) {
 		DevilsPieActionOpacity *a = (DevilsPieActionOpacity*)self;
 
-		self_composite_set_opacity( window, a->opacity );
+		self_composite_set_opacity (window, a->opacity );
 		return TRUE;
 	}
   
-	public GObject *new( void ) {
+	public GObject *new (void ) {
 		return (GObject*)GET_NEW;
 	}
 }

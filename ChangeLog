@@ -1,3 +1,8 @@
+2005-05-02  Ross Burton  <ross@burtonini.com>
+
+	* src/devilspie-action-opacity.gob:
+	Add minimum and maximum value hints, and fix formatiing.
+
 2005-04-29  Ross Burton  <ross@burtonini.com>
 
 	* configure.in:

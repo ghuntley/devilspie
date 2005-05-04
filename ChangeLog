@@ -1,5 +1,11 @@
 2005-05-04  Ross Burton  <ross@burtonini.com>
 
+	* configure.in:
+	* NEWS:
+	Version 0.10.
+
+2005-05-04  Ross Burton  <ross@burtonini.com>
+
 	* src/doc-generator.c:
 	Add the GParam minimum and maximum values to the XML.
 

@@ -1,5 +1,13 @@
 2005-05-04  Ross Burton  <ross@burtonini.com>
 
+	* src/doc-generator.c:
+	Add the GParam minimum and maximum values to the XML.
+
+	* docs2html.xsl:
+	Display the minimum and maximum values.
+
+2005-05-04  Ross Burton  <ross@burtonini.com>
+
 	* src/xutils.c:
 	* src/xutils.h:
 	Add copy-and-paste implementations of the private functions

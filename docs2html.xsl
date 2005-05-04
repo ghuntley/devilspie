@@ -35,6 +35,10 @@
     <p>
       <tt><xsl:value-of select="@name"/> (<xsl:value-of select="@type"/>)</tt>: <xsl:value-of select="@nick"/>
       <br/>
+      <xsl:if test="@minimum">
+        Range: <xsl:value-of select="@minimum"/> to <xsl:value-of select="@maximum"/>
+        <br/>
+      </xsl:if>
       <xsl:apply-templates/>
     </p>
   </xsl:template>

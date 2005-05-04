@@ -1,3 +1,17 @@
+2005-05-04  Ross Burton  <ross@burtonini.com>
+
+	* src/xutils.c:
+	* src/xutils.h:
+	Add copy-and-paste implementations of the private functions
+	_wnck_get_string_property_latin1() and _wnck_window_get_xscreen().
+	
+	* src/devilspie-action-debug.gob:
+	* src/devilspie-action-decorate.gob:
+	* src/devilspie-action-layer.gob:
+	* src/devilspie-matcher-windowname.gob:
+	Update to use above API calls.  Now works on GNOME 2.10! Many
+	thanks to Crispin Flowerday <gnome@flowerday.cx> for the patch.
+
 2005-05-02  Ross Burton  <ross@burtonini.com>
 
 	* src/devilspie-action-opacity.gob:

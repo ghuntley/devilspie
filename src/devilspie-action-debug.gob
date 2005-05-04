@@ -15,7 +15,7 @@ char* _wnck_get_string_property_latin1 (Window xwindow, Atom atom);
 class DevilsPie:Action:Debug from DevilsPie:Action {
 
   override (DevilsPie:Action) gboolean run(DevilsPie:Action *self (check null type), Wnck:Window *window (check null type)) {
-    const char *role = _wnck_get_string_property_latin1 (
+    const char *role = my_wnck_get_string_property_latin1 (
       wnck_window_get_xid (window), my_wnck_atom_get("WM_WINDOW_ROLE"));
 
     gint xoffset, yoffset, width, height;

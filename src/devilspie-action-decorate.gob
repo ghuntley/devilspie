@@ -71,7 +71,7 @@ class DevilsPie:Action:Decorate from DevilsPie:Action {
     DevilsPieActionDecorate *a = (DevilsPieActionDecorate*)self;
     /* TRUE = decorated, FALSE = undecorated */
     if (a->decorated == TRI_TRUE) {
-      my_wnck_change_state (_wnck_screen_get_xscreen(wnck_window_get_screen(window)),
+      my_wnck_change_state (my_wnck_window_get_xscreen(window),
 			  wnck_window_get_xid(window),
 			  FALSE,
 			  my_wnck_atom_get ("_OB_WM_STATE_UNDECORATED"),
@@ -80,7 +80,7 @@ class DevilsPie:Action:Decorate from DevilsPie:Action {
       self_mwm_set_decorations(window, MWM_DECOR_ALL); 
     }
     if (a->decorated == TRI_FALSE) {
-      my_wnck_change_state (_wnck_screen_get_xscreen(wnck_window_get_screen(window)),
+      my_wnck_change_state (my_wnck_window_get_xscreen(window),
 			  wnck_window_get_xid(window),
 			  TRUE,
 			  my_wnck_atom_get ("_OB_WM_STATE_UNDECORATED"),

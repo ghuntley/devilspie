@@ -28,6 +28,9 @@
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
 
+#define WNCK_I_KNOW_THIS_IS_UNSTABLE
+#include "libwnck/window.h"
+
 G_BEGIN_DECLS
 
 Atom my_wnck_atom_get  (const char *atom_name);
@@ -36,6 +39,10 @@ void my_wnck_change_state (Screen *screen, Window xwindow, gboolean add, Atom st
 
 void my_wnck_error_trap_push (void);
 int my_wnck_error_trap_pop (void);
+
+char* my_wnck_get_string_property_latin1 (Window  xwindow, Atom atom);
+
+Screen* my_wnck_window_get_xscreen (WnckWindow *window);
 
 G_END_DECLS
 

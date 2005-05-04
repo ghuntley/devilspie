@@ -108,3 +108,53 @@ my_wnck_error_trap_pop (void)
   XSync (gdk_display, False);
   return gdk_error_trap_pop ();
 }
+
+char*
+my_wnck_get_string_property_latin1 (Window  xwindow,
+                                    Atom    atom)
+{
+  Atom type;
+  int format;
+  gulong nitems;
+  gulong bytes_after;
+  guchar *str;
+  int err, result;
+  char *retval;
+  
+  my_wnck_error_trap_push ();
+  str = NULL;
+  result = XGetWindowProperty (gdk_display,
+			       xwindow, atom,
+			       0, G_MAXLONG,
+			       False, XA_STRING, &type, &format, &nitems,
+			       &bytes_after, (guchar **)&str);  
+
+  err = my_wnck_error_trap_pop ();
+  if (err != Success ||
+      result != Success)
+    return NULL;
+  
+  if (type != XA_STRING)
+    {
+      XFree (str);
+      return NULL;
+    }
+
+  retval = g_strdup (str);
+  
+  XFree (str);
+  
+  return retval;
+}
+
+Screen*
+my_wnck_window_get_xscreen (WnckWindow *window)
+{
+   Window   xid;
+   XWindowAttributes attrs;
+
+   xid = wnck_window_get_xid (window);
+   XGetWindowAttributes(gdk_display, xid, &attrs);
+
+   return attrs.screen;
+}

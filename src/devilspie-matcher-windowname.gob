@@ -121,7 +121,7 @@ class DevilsPie:Matcher:WindowName from DevilsPie:Matcher {
     }
     if (m->_priv->window_role_regexpr) {
       const char *role;
-      role = _wnck_get_string_property_latin1 (wnck_window_get_xid (window), my_wnck_atom_get("WM_WINDOW_ROLE"));
+      role = my_wnck_get_string_property_latin1 (wnck_window_get_xid (window), my_wnck_atom_get("WM_WINDOW_ROLE"));
       matching_role = TRUE;
       matched_role = role == 0 ? FALSE : regexpr_match(m->_priv->window_role_regexpr, role);
     }

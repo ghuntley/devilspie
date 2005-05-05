@@ -2,7 +2,7 @@ Devil's Pie "Can't Join Them? Beat Them" 0.10
 =============================================
 
 * Re-implement the required private wnck functions, now builds with G2.10
-  (Chrispin Flowerday rocks)
+  (Crispin Flowerday rocks)
 * Add min/max hints to the opacity action property
 * Display the min/max hints in the generated documentation.
 

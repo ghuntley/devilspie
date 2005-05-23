@@ -20,16 +20,18 @@
 void flurb_init(void) {
   devilspie_matcher_always_get_type();
   devilspie_matcher_windowname_get_type();
-  devilspie_action_hide_get_type();
+  
+  devilspie_action_debug_get_type();
   devilspie_action_decorate_get_type();
+  devilspie_action_exec_get_type();
+  devilspie_action_hide_get_type();
   devilspie_action_layer_get_type();
+  devilspie_action_opacity_get_type();
+  devilspie_action_resize_get_type();
   devilspie_action_savegeometry_get_type();
   devilspie_action_setgeometry_get_type();
-  devilspie_action_setworkspace_get_type();
-  devilspie_action_resize_get_type();
-  devilspie_action_debug_get_type();
   devilspie_action_setwintype_get_type();
-  devilspie_action_opacity_get_type();
+  devilspie_action_setworkspace_get_type();
 }
 
 /**

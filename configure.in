@@ -55,6 +55,11 @@ AC_CHECK_HEADERS([sys/types.h regex.h])
 
 AC_CHECK_LIB(popt, poptStrippedArgv,, AC_MSG_ERROR([popt is needed to build]))
 
+AC_CHECK_PROG(HAVE_XSLTPROC,xsltproc, yes)
+if test "x$HAVE_XSLTPROC" != "xyes"; then
+        AC_MSG_ERROR([Cannot find xsltproc.  This is needed to build the reference documentation.])
+fi
+
 ALL_LINGUAS="de"
 AM_GLIB_GNU_GETTEXT
 

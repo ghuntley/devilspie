@@ -1,3 +1,8 @@
+2005-06-08  Ross Burton  <ross@burtonini.com>
+
+	* configure.in:
+	Check for xsltproc.
+
 2005-05-23  Ross Burton  <ross@burtonini.com>
 
 	* src/flurb.c:

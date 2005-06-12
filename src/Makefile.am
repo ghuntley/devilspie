@@ -31,6 +31,8 @@ parser_test_SOURCES = \
 	config-parser.c \
 	flurb.h \
 	flurb.c \
+	xutils.h \
+	xutils.c \
 	devilspie.h \
 	parser-test.c
 

@@ -9,306 +9,376 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: devilspie CVS (HEAD)\n"
-"POT-Creation-Date: 2003-01-05 17:31+0100\n"
-"PO-Revision-Date: 2002-12-29 02:00+0100\n"
-"Last-Translator: Christian Neumair <chris@gnome-de.org>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-06-15 13:57+0200\n"
+"PO-Revision-Date: 2005-06-15 13:53+0200\n"
+"Last-Translator: Frank Arnold <frank@scirocco-5v-turbo.de>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: devilspie.glade.h:1
-msgid "*"
-msgstr "*"
-
-#: devilspie.glade.h:2
-msgid "Add a new window action"
-msgstr "Eine neue Fensteraktion hinzufgen"
-
-#: devilspie.glade.h:3
-msgid "Edit Window Action"
-msgstr "Fensteraktion bearbeiten"
-
-#: devilspie.glade.h:4
-msgid "Edit the selected window action"
-msgstr "Die ausgewhlte Fensteraktion bearbeiten"
-
-#: devilspie.glade.h:5
-msgid "Remove the selected window action"
-msgstr "Die ausgewhlte Fensteraktion entfernen"
-
-#: devilspie.glade.h:6
-msgid "Window Actions"
-msgstr "Fensteraktionen"
-
-#: devilspie.glade.h:7
-msgid "Window _Actions:"
-msgstr "Fenster_aktionen:"
-
-#: devilspie.glade.h:8
-msgid "_Actions (rename)"
-msgstr "A_ktionen (umbenennen)"
-
-#: devilspie.glade.h:9
-msgid "_Actions:"
-msgstr "A_ktionen:"
-
-#: devilspie.glade.h:10
-msgid "_Add..."
-msgstr "_Hinzufgen..."
-
-#: devilspie.glade.h:11
-msgid "_Edit..."
-msgstr "_Bearbeiten"
-
-#: devilspie.glade.h:12
-msgid "_Matchers (rename)"
-msgstr "_Bedingungen (umbenennen)"
-
-#: devilspie.glade.h:13
-msgid "_Matchers:"
-msgstr "_Bedingungen"
-
-#: devilspie.glade.h:14
-msgid "_Name:"
-msgstr "_Name:"
-
-#: devilspie.glade.h:15
-msgid "treeview_matchers"
-msgstr "Baumansicht_Bedingungen"
-
-#: src/config-parser.c:171
+#: ../src/config-parser.c:171
 #, c-format
 msgid "Attribute \"%s\" repeated twice on the same <%s> element"
 msgstr "Das Attribut »%s« wurde im selben <%s>-Element mehrfach wiederholt"
 
-#: src/config-parser.c:189
+#: ../src/config-parser.c:189
 #, c-format
 msgid "Attribute \"%s\" is invalid on <%s> element in this context"
 msgstr ""
 "Das Attribut »%s« ist in diesem Zusammenhang ungültig, darf also nicht auf "
 "das <%s>-Element angewandt werden"
 
-#: src/config-parser.c:215
+#: ../src/config-parser.c:215
 #, c-format
 msgid "Line %d character %d: %s"
 msgstr "Zeile %d, Zeichen %d: %s"
 
-#: src/config-parser.c:320 src/config-parser.c:359 src/config-parser.c:398
+#: ../src/config-parser.c:326 ../src/config-parser.c:365
+#: ../src/config-parser.c:404
 #, c-format
 msgid "No \"name\" attribute on element <%s>"
 msgstr "Kein »name«-Attribut im Element <%s>"
 
-#: src/config-parser.c:325
+#: ../src/config-parser.c:331
 #, c-format
 msgid "No \"value\" attribute on element <%s>"
 msgstr "Kein »value«-Attribut im Element <%s>"
 
-#: src/config-parser.c:366
+#: ../src/config-parser.c:372
 #, c-format
 msgid "Requested type %s is not a known Matcher"
 msgstr "Der angeforderte Typ %s ist keine bekannte Bedingung"
 
-#: src/config-parser.c:392
+#: ../src/config-parser.c:398
 #, c-format
 msgid "Could not parse attributes of <%s>"
 msgstr "Die Attribute von »%s« konnten nicht verarbeitet werden"
 
-#: src/config-parser.c:405
+#: ../src/config-parser.c:411
 #, c-format
 msgid "Requested type %s is not a known Action"
 msgstr "Der angeforderte Typ %s ist keine bekannte Aktion"
 
-#: src/config-parser.c:430
+#: ../src/config-parser.c:436
 #, c-format
 msgid "Outermost element in config files must be <devilspie> not <%s>"
 msgstr ""
 "Das äußerste Element in Konfigurationsdateien muss <devilspie> sein, nicht <%"
 "s>"
 
-#: src/config-parser.c:446
+#: ../src/config-parser.c:452
 #, c-format
 msgid "Only <flurb> elements are allowed inside <devilspie> not <%s>"
 msgstr ""
-"In <devilspie>-Elementen sind ausschlielich <flurb>-Elemente erlaubt, keine <"
-"%s>-Elemente"
+"In <devilspie>-Elementen sind ausschließlich <flurb>-Elemente erlaubt, keine "
+"<%s>-Elemente"
 
-#: src/config-parser.c:457
+#: ../src/config-parser.c:463
 #, c-format
 msgid ""
 "Only <matchers> and <actions> elements are allowed inside <blurb> not <%s>"
 msgstr ""
-"In <blurb>-Elementen sind ausschlielich <matchers>- und <actions>-Elemente "
+"In <blurb>-Elementen sind ausschließlich <matchers>- und <actions>-Elemente "
 "erlaubt, keine <%s>-Elemente"
 
-#: src/config-parser.c:468
+#: ../src/config-parser.c:474
 #, c-format
 msgid "Only <matcher> elements are allowed inside <matchers> not <%s>"
 msgstr ""
-"In <matchers>-Elementen sind ausschlielich <matcher>-Elemente erlaubt, keine "
-"<%s>-Elemente"
+"In <matchers>-Elementen sind ausschließlich <matcher>-Elemente erlaubt, "
+"keine <%s>-Elemente"
 
-#: src/config-parser.c:479
+#: ../src/config-parser.c:485
 #, c-format
 msgid "Only <property> elements are allowed inside <matcher> not <%s>"
 msgstr ""
-"In <matcher>-Elementen sind ausschlielich <property>-Elemente erlaubt, keine "
-"<%s>-Elemente"
+"In <matcher>-Elementen sind ausschließlich <property>-Elemente erlaubt, "
+"keine <%s>-Elemente"
 
-#: src/config-parser.c:485 src/config-parser.c:512
+#: ../src/config-parser.c:491 ../src/config-parser.c:518
 #, c-format
 msgid "Element <%s> is not allowed inside <property>"
 msgstr "Im <property>-Element ist das <%s>-Element nicht erlaubt"
 
-#: src/config-parser.c:495
+#: ../src/config-parser.c:501
 #, c-format
 msgid "Only <action> elements are allowed inside <actions> not <%s>"
 msgstr ""
 "Im <actions>-Element sind ausschließlich <action>-Elemente erlaubt, keine <%"
 "s>-Elemente"
 
-#: src/config-parser.c:506
+#: ../src/config-parser.c:512
 #, c-format
 msgid "Only <property> elements are allowed inside <action> not <%s>"
 msgstr ""
 "Im <action>-Element sind ausschließlich <property>-Elemente erlaubt, keine <%"
 "s>-Elemente"
 
-#: src/config-parser.c:527
+#: ../src/config-parser.c:533
 #, c-format
 msgid "Can not close element <%s> outside of the root element"
 msgstr ""
-"Element <%s> darf nicht auserhalb des Wurzelelements geschlossen werden"
+"Element <%s> darf nicht außerhalb des Wurzelelements geschlossen werden"
 
-#: src/config-parser.c:576
+#: ../src/config-parser.c:582
 #, c-format
 msgid "No text is allowed inside element <%d>"
 msgstr "Im Element <%d> ist kein Text erlaubt"
 
-#: src/devilspie-action-debug.gob:18
+#: ../src/devilspie-action-debug.gob:25
 #, c-format
-msgid "Window title: \"%s\"; Application name: \"%s\"; Role: \"%s\"\n"
-msgstr "Fenstertitel: %s; Anwendungsname: %s; Rolle: %s\n"
+msgid ""
+"Window title: \"%s\"; Application name: \"%s\"; Role: \"%s\"; Geometry: \"%dx"
+"%d+%d+%d\"\n"
+msgstr ""
+"Fenstertitel: »%s«; Anwendungsname: »%s«; Rolle: »%s«; Geometrie: »%dx%d+%d+%"
+"d«\n"
 
-#: src/devilspie-action-hide.gob:14
+#: ../src/devilspie-action-decorate.gob:39
+msgid "Decorated windows"
+msgstr "Dekorierte Fenster"
+
+#: ../src/devilspie-action-decorate.gob:40
+msgid "Window is decorated (OpenBox + Motif WM hints)"
+msgstr "Fenster ist dekoriert (OpenBox + Motif WM Hinweise)"
+
+#: ../src/devilspie-action-exec.gob:31
+msgid "Command to execute"
+msgstr "Auszuführender Befehl"
+
+#: ../src/devilspie-action-exec.gob:32
+msgid ""
+"This command and any arguments will be run.  The title of the window and the "
+"window ID will be passed to the command as the first and second arguments"
+msgstr ""
+"Dieser Befehl wird mit allen Argumenten ausgeführt. Der Titel des Fensters "
+"und die Fensterkennung werden dem Befehl als erstes und zweites Argument "
+"übergeben."
+
+#: ../src/devilspie-action-hide.gob:14
 msgid "Skip Pager"
-msgstr "Umschalter bergehen"
+msgstr "Umschalter übergehen"
 
-#: src/devilspie-action-hide.gob:15
+#: ../src/devilspie-action-hide.gob:15
 msgid "Window does not appear in the pager"
-msgstr "Fenster erscheint nicht im Arbeitsflchen-Umschalter"
+msgstr "Fenster erscheint nicht im Arbeitsflächen-Umschalter"
 
-#: src/devilspie-action-hide.gob:20
+#: ../src/devilspie-action-hide.gob:21
 msgid "Skip Task List"
-msgstr "Fensterliste bergehen"
+msgstr "Fensterliste übergehen"
 
-#: src/devilspie-action-hide.gob:21
+#: ../src/devilspie-action-hide.gob:22
 msgid "Window does not appear in the task list"
 msgstr "Fenster erscheint nicht in der Fensterliste"
 
-#: src/devilspie-action-layer.gob:24
+#: ../src/devilspie-action-layer.gob:19
 msgid "Above windows?"
 msgstr "Vor den Fenstern?"
 
-#: src/devilspie-action-layer.gob:25
+#: ../src/devilspie-action-layer.gob:20
 msgid "Window is above all others"
 msgstr "Fenster befindet sich vor allen anderen"
 
-#: src/devilspie-action-resize.gob:13
+#: ../src/devilspie-action-resize.gob:18
 msgid "Maximized"
 msgstr "Maximiert"
 
-#: src/devilspie-action-resize.gob:14
+#: ../src/devilspie-action-resize.gob:19
 msgid "Window is maximized on the screen"
 msgstr "Fenster wird auf dem Bildschirm maximiert"
 
-#: src/devilspie-action-resize.gob:19
+#: ../src/devilspie-action-resize.gob:25
+msgid "Maximized Horizontally"
+msgstr "Horizontal maximiert"
+
+#: ../src/devilspie-action-resize.gob:26
+msgid "Window is maximized horizontally on the screen"
+msgstr "Fenster wird auf dem Bildschirm horizontal maximiert"
+
+#: ../src/devilspie-action-resize.gob:32
+msgid "Minimized Vertically"
+msgstr "Vertikal minimiert"
+
+#: ../src/devilspie-action-resize.gob:33
+msgid "Window is minimized vertically on the screen"
+msgstr "Fenster wird auf dem Bildschirm vertikal minimiert"
+
+#: ../src/devilspie-action-resize.gob:39
 msgid "Minimized"
 msgstr "Minimiert"
 
-#: src/devilspie-action-resize.gob:20
+#: ../src/devilspie-action-resize.gob:40
 msgid "Window is minimized"
 msgstr "Fenster wird minimiert"
 
-#: src/devilspie-action-savegeometry.gob:24
+#: ../src/devilspie-action-resize.gob:46
+msgid "Full screen"
+msgstr "Vollständiger Bildschirm"
+
+#: ../src/devilspie-action-resize.gob:47
+msgid "Window fills the screen"
+msgstr "Fenster füllt den ganzen Bildschirm"
+
+#: ../src/devilspie-action-savegeometry.gob:24
 #, c-format
 msgid "Window %s geometry changed"
 msgstr "Geometrie des Fensters %s geändert"
 
-#: src/devilspie-action-savegeometry.gob:31
+#: ../src/devilspie-action-savegeometry.gob:31
 #, c-format
 msgid "Window %s closed"
 msgstr "Fenster %s geschlossen"
 
-#: src/devilspie-action-savegeometry.gob:35
+#: ../src/devilspie-action-savegeometry.gob:35
 msgid "Starting SaveGeometry action"
 msgstr "Aktion »SaveGeometry« wird gestartet"
 
-#: src/devilspie-action-setworkspace.gob:15
-msgid "Pinned"
-msgstr "Auf allen Arbeitflächen"
+#: ../src/devilspie-action-setgeometry.gob:14
+msgid "X offset"
+msgstr "X-Versatz"
 
-#: src/devilspie-action-setworkspace.gob:16
+#: ../src/devilspie-action-setgeometry.gob:15
+msgid "Horizontal offset of the window"
+msgstr "Horizontaler Versatz des Fensters"
+
+#: ../src/devilspie-action-setgeometry.gob:21
+msgid "Y offset"
+msgstr "Y-Versatz"
+
+#: ../src/devilspie-action-setgeometry.gob:22
+msgid "Vertical offset of the window"
+msgstr "Vertikaler Versatz des Fensters"
+
+#: ../src/devilspie-action-setgeometry.gob:28
+msgid "Width"
+msgstr "Breite"
+
+#: ../src/devilspie-action-setgeometry.gob:29
+msgid "Width of the window"
+msgstr "Breite des Fensters"
+
+#: ../src/devilspie-action-setgeometry.gob:35
+msgid "Height"
+msgstr "Höhe"
+
+#: ../src/devilspie-action-setgeometry.gob:36
+msgid "Height of the window"
+msgstr "Höhe des Fensters"
+
+#: ../src/devilspie-action-setwintype.gob:71
+msgid "Window type hint"
+msgstr "Fenstertyp-Hinweis"
+
+#: ../src/devilspie-action-setwintype.gob:72
+msgid "The window type hint"
+msgstr "Der Fenstertyp-Hinweis"
+
+#: ../src/devilspie-action-setworkspace.gob:15
+msgid "Pinned"
+msgstr "Auf allen Arbeitsflächen"
+
+#: ../src/devilspie-action-setworkspace.gob:16
 msgid "Window is pinned on all workspaces, aka sticky"
 msgstr "Fenster wird auf alle Arbeitsflächen gelegt"
 
-#: src/devilspie-action-setworkspace.gob:21
+#: ../src/devilspie-action-setworkspace.gob:22
 msgid "Workspace"
-msgstr "Arbeitsflche"
+msgstr "Arbeitsfläche"
 
-#: src/devilspie-action-setworkspace.gob:22
+#: ../src/devilspie-action-setworkspace.gob:23
 msgid "Which workspace to move this window to (numbered)"
 msgstr ""
 "Auf welche Arbeitsfläche soll dieses Fenster verschoben werden "
 "(durchgezählt)?"
 
-#: src/devilspie-action-setworkspace.gob:36
+#: ../src/devilspie-action-setworkspace.gob:38
 #, c-format
 msgid "Workspace number %d does not exist"
-msgstr "Arbeitsflchennummer %d existiert nicht"
+msgstr "Arbeitsflächennummer %d existiert nicht"
 
-#: src/devilspie-matcher-windowname.gob:58
+#: ../src/devilspie-matcher-windowname.gob:65
 msgid "Window title regexp"
-msgstr "Regulrer Ausdruck im Fenstertitel"
+msgstr "Regulärer Ausdruck im Fenstertitel"
 
-#: src/devilspie-matcher-windowname.gob:59
+#: ../src/devilspie-matcher-windowname.gob:66
 msgid "The regular expression that should match the window title"
-msgstr "Der regulre Ausdruck, der im Fenstertitel vorkommen muss"
+msgstr "Der reguläre Ausdruck, der im Fenstertitel vorkommen muss"
 
-#: src/devilspie-matcher-windowname.gob:69
+#: ../src/devilspie-matcher-windowname.gob:77
 msgid "Application name regexp"
-msgstr "Regulrer Ausdruck im Anwendungnamen"
+msgstr "Regulärer Ausdruck im Anwendungsnamen"
 
-#: src/devilspie-matcher-windowname.gob:70
+#: ../src/devilspie-matcher-windowname.gob:78
 msgid ""
 "The regular expression that should match the name of the application (as "
 "determined by libwnck)"
 msgstr ""
-"Der regulre Ausdruck, der im Namen der Anwendung vorkommen muss (dieser wird "
-"von libwnck ermittelt)"
+"Der reguläre Ausdruck, der im Namen der Anwendung vorkommen muss (dieser "
+"wird von libwnck ermittelt)"
 
-#: src/devilspie-matcher-windowname.gob:81
+#: ../src/devilspie-matcher-windowname.gob:90
 msgid "Window role regexp"
-msgstr "Regulrer Ausdruck in der Fensterrolle"
+msgstr "Regulärer Ausdruck in der Fensterrolle"
 
-#: src/devilspie-matcher-windowname.gob:82
+#: ../src/devilspie-matcher-windowname.gob:91
 msgid ""
 "The regular expression that should match the role of the window (set by "
 "WM_WINDOW_ROLE atom)"
 msgstr ""
-"Der Regulre Ausdruck, der in der Rolle des Fensters vorkommen muss (diese "
+"Der Reguläre Ausdruck, der in der Rolle des Fensters vorkommen muss (diese "
 "wird mittels des WM_WINDOW_ROLE-Atoms festgelegt)"
 
-#: src/devilspie.c:78
-msgid ""
-"Usage: devilspie [configuration file]\n"
-"If no configuration file is specified, ~/.devilspie.xml is used.\n"
-msgstr ""
-"Verwendung: devilspie [Konfigurationsdatei]\n"
-"Falls Sie keine Konfigurationsdatei übergeben, wird ~/.devilspie.xml "
-"verwendet.\n"
+#~ msgid "*"
+#~ msgstr "*"
 
-#: src/devilspie.c:85
-#, c-format
-msgid "File %s does not exist\n"
-msgstr "Die Datei %s existiert nicht\n"
+#~ msgid "Add a new window action"
+#~ msgstr "Eine neue Fensteraktion hinzufgen"
+
+#~ msgid "Edit Window Action"
+#~ msgstr "Fensteraktion bearbeiten"
+
+#~ msgid "Edit the selected window action"
+#~ msgstr "Die ausgewhlte Fensteraktion bearbeiten"
+
+#~ msgid "Remove the selected window action"
+#~ msgstr "Die ausgewhlte Fensteraktion entfernen"
+
+#~ msgid "Window _Actions:"
+#~ msgstr "Fenster_aktionen:"
+
+#~ msgid "_Actions (rename)"
+#~ msgstr "A_ktionen (umbenennen)"
+
+#~ msgid "_Actions:"
+#~ msgstr "A_ktionen:"
+
+#~ msgid "_Add..."
+#~ msgstr "_Hinzufgen..."
+
+#~ msgid "_Edit..."
+#~ msgstr "_Bearbeiten"
+
+#~ msgid "_Matchers (rename)"
+#~ msgstr "_Bedingungen (umbenennen)"
+
+#~ msgid "_Matchers:"
+#~ msgstr "_Bedingungen"
+
+#~ msgid "_Name:"
+#~ msgstr "_Name:"
+
+#~ msgid "treeview_matchers"
+#~ msgstr "Baumansicht_Bedingungen"
+
+#~ msgid ""
+#~ "Usage: devilspie [configuration file]\n"
+#~ "If no configuration file is specified, ~/.devilspie.xml is used.\n"
+#~ msgstr ""
+#~ "Verwendung: devilspie [Konfigurationsdatei]\n"
+#~ "Falls Sie keine Konfigurationsdatei übergeben, wird ~/.devilspie.xml "
+#~ "verwendet.\n"
+
+#~ msgid "File %s does not exist\n"
+#~ msgstr "Die Datei %s existiert nicht\n"

@@ -1,3 +1,8 @@
+2005-06-15  Frank Arnold  <farnold@cvs.gnome.org>
+
+	* de.po: Fixed typos noticed by Jens Seidel (Debian bug 313688) and
+	some additional ones. Updated translation. 
+
 2002-12-29  Christian Neumair  <chris@gnome-de.org>
 
 	* .cvsignore: Added missing files.

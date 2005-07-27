@@ -18,7 +18,7 @@ docs.xml:
 
 devilspie-reference.html: docs2html.xsl docs.xml
 	xsltproc -o $@ $^
-CLEANFILES += docs.xml devilspie-reference.html
+CLEANFILES = docs.xml devilspie-reference.html
 
 #
 # The rest
@@ -38,5 +38,4 @@ INTLTOOL_BUILT = \
 	intltool-extract \
 	intltool-merge \
 	intltool-update
-
 CLEANFILES += $(INTLTOOL_BUILT)

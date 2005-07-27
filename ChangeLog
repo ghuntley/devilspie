@@ -1,3 +1,9 @@
+2005-07-27  Ross Burton  <ross@burtonini.com>
+
+	* autogen.sh:
+	* Makefile.am:
+	Use Automake 1.6 instead of the ancient 1.4.
+
 2005-06-12  Ross Burton  <ross@burtonini.com>
 
 	* src/Makefile.am:

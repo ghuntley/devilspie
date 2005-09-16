@@ -1,5 +1,11 @@
 2005-09-16  Ross Burton  <ross@burtonini.com>
 
+	* configure.in:
+	* NEWS:
+	Version 0.11.
+
+2005-09-16  Ross Burton  <ross@burtonini.com>
+
 	* src/Makefile.am:
 	* src/flurb.c:
 	* src/devilspie-action-shade.gob:

@@ -1,3 +1,13 @@
+Devil's Pie "Used To Love You" 0.11
+===================================
+
+* Add an action to shade windows by Anonymous.  I didn't write it but I've lost
+  the mail the patch came in...
+* Fix the window type action
+* Fix the execute action
+* Check for xsltproc in configure, as it's required
+
+
 Devil's Pie "Can't Join Them? Beat Them" 0.10
 =============================================
 

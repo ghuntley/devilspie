@@ -74,8 +74,12 @@ class DevilsPie:Action:SetWintype from DevilsPie:Action {
    default_value = NULL)
     set
       {
-	const gchar *str = g_value_get_string(VAL);
-	if (strcmp(str, "NORMAL") == 0)
+	const gchar *str;
+	g_return_if_fail (G_VALUE_HOLDS(VAL, G_TYPE_STRING));
+	str = g_value_get_string(VAL);
+	if (str == NULL)
+	  self->wnck_wintype = -1;
+	else if (strcmp(str, "NORMAL") == 0)
  	  self->wnck_wintype = WNCK_WINDOW_NORMAL;
 	else if (strcmp(str, "DIALOG") == 0)
  	  self->wnck_wintype = WNCK_WINDOW_DIALOG;
@@ -91,7 +95,7 @@ class DevilsPie:Action:SetWintype from DevilsPie:Action {
  	  self->wnck_wintype = WNCK_WINDOW_DOCK;
 	else if (strcmp(str, "DESKTOP") == 0)
  	  self->wnck_wintype = WNCK_WINDOW_DESKTOP;
-        else self->wnck_wintype = -1;
+	else self->wnck_wintype = -1;
       };
 
   override (DevilsPie:Action) gboolean run(DevilsPie:Action *self   (check null type), 

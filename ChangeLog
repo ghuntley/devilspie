@@ -1,3 +1,8 @@
+2005-09-16  Ross Burton  <ross@burtonini.com>
+
+	* src/devilspie-action-setwintype.gob:
+	Handle the value being NULL, which happens on construction.
+
 2005-07-27  Ross Burton  <ross@burtonini.com>
 
 	* autogen.sh:

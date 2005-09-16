@@ -1,5 +1,13 @@
 2005-09-16  Ross Burton  <ross@burtonini.com>
 
+	* src/Makefile.am:
+	* src/flurb.c:
+	* src/devilspie-action-shade.gob:
+	Add shading action.  I can't remember who this is by as I've lost
+	the original mail, but thank you!
+	
+2005-09-16  Ross Burton  <ross@burtonini.com>
+
 	* src/devilspie-action-setwintype.gob:
 	Handle the value being NULL, which happens on construction.
 

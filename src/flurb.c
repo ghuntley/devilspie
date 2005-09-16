@@ -12,6 +12,7 @@
 #include "devilspie-action-setgeometry.h"
 #include "devilspie-action-setworkspace.h"
 #include "devilspie-action-resize.h"
+#include "devilspie-action-shade.h"
 #include "devilspie-action-debug.h"
 #include "devilspie-action-setwintype.h"
 #include "devilspie-action-opacity.h"
@@ -28,6 +29,7 @@ void flurb_init(void) {
   devilspie_action_layer_get_type();
   devilspie_action_opacity_get_type();
   devilspie_action_resize_get_type();
+  devilspie_action_shade_get_type();
   devilspie_action_savegeometry_get_type();
   devilspie_action_setgeometry_get_type();
   devilspie_action_setwintype_get_type();

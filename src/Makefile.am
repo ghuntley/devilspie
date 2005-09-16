@@ -74,6 +74,8 @@ BUILT_SOURCES = \
 	devilspie-action-opacity.h \
 	devilspie-action-resize.c \
 	devilspie-action-resize.h \
+	devilspie-action-shade.c \
+	devilspie-action-shade.h \
 	devilspie-action-savegeometry.c \
 	devilspie-action-savegeometry.h \
 	devilspie-action-setgeometry.c \
@@ -99,6 +101,7 @@ devilspie_GOBS = \
 	devilspie-action-layer \
 	devilspie-action-opacity \
 	devilspie-action-resize \
+	devilspie-action-shade \
 	devilspie-action-savegeometry \
 	devilspie-action-setgeometry \
 	devilspie-action-setwintype \

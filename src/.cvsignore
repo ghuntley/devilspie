@@ -23,6 +23,8 @@ devilspie-action-setwintype.c
 devilspie-action-setwintype.h
 devilspie-action-setworkspace.c
 devilspie-action-setworkspace.h
+devilspie-action-shade.c
+devilspie-action-shade.h
 devilspie-action.c
 devilspie-action.h
 devilspie-matcher-always.c

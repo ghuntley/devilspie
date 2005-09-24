@@ -1,6 +1,5 @@
 TODO for Devil's Pie
 
-* Replace popt with GOption
 * Catch events on window move and resize too
 * Add ability to insert self into session on startup
 * Use gnome-vfs to monitor the configuration file, and re-read it when

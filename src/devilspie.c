@@ -15,7 +15,6 @@
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include <glib/glist.h>
-#include <popt.h>
 #include <stdlib.h>
 #include <libwnck/libwnck.h>
 #include "flurb.h"
@@ -32,19 +31,6 @@ GList *flurbs = NULL;
  * If we apply to existing windows or not.
  */
 gboolean apply_to_existing = FALSE;
-
-/**
- * The popt argument list.
- */
-static struct poptOption options[] = {
-  {
-    "apply-to-existing", 'a', POPT_ARG_NONE, &apply_to_existing, 0,
-    "Apply to all existing windows instead of just new windows.", NULL
-  },
-  POPT_AUTOHELP
-  { NULL }
-};
-
 
 /**
  * This callback is called whenever a window is opened on a screen.
@@ -75,8 +61,12 @@ static void init_screens(void) {
  * Dedicated to Vicky.
  */
 int main(int argc, char **argv) {
-  poptContext popt;
-  int rc;
+  const GOptionEntry options[] = {
+    { "apply-to-existing", 'a', 0, G_OPTION_ARG_NONE, &apply_to_existing, N_("Apply to all existing windows instead of just new windows."), NULL },
+    { NULL }
+  };
+  GError *error = NULL;
+  GOptionContext *context;
 
   /* Initialise i18n */
   bindtextdomain (GETTEXT_PACKAGE, DEVILSPIE_LOCALEDIR);
@@ -86,31 +76,27 @@ int main(int argc, char **argv) {
   /* Initialise GTK+ */
   gtk_init(&argc, &argv);
 
-  /* Now parse the rest of the arguments */
-  popt = poptGetContext(NULL, argc, (const char**)argv, options, 0);
-  while ((rc = poptGetNextOpt(popt)) > 0) {}
-  if (rc != -1) {
-    g_printerr("%s: %s\n", poptBadOption(popt, 0), poptStrerror(rc));
-    return 1;
-  }
+  /* Parse the arguments */
+  context = g_option_context_new ("- Devil's Pie");
+  g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
+  g_option_context_add_group (context, gtk_get_option_group (TRUE));
+  g_option_context_parse (context, &argc, &argv, &error);
 
   /* And finally do the flurb type initialisation */
   flurb_init();
 
   /* If there are no more options, use $HOME/.devilspie.xml */
-  if (poptPeekArg (popt) == NULL) {
+  if (argc == 1) {
     char *filename;
-    filename = g_strdup_printf("%s/%s", g_get_home_dir(), ".devilspie.xml");
+    filename = g_build_filename (g_get_home_dir(), ".devilspie.xml", NULL);
     load_configuration(filename);
     g_free(filename);
+  } else if (argc == 2) {
+    load_configuration(argv[1]);
   } else {
-    const char *filename;
-    /* Otherwise parse every remaining argument on the command line as configuration file */
-    while ((filename = poptGetArg(popt)) != NULL) {
-      load_configuration(filename);
-    }
+    g_printerr("Too many arguments");
+    return 1;
   }
-  poptFreeContext (popt);
 
   init_screens();
 

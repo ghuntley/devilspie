@@ -37,6 +37,7 @@ fi
 # were made in 0.17.
 dnl TODO: make libxml conditional and don't build docs if it isn't present
 PKG_CHECK_MODULES(WNCK,
+        glib-2.0 >= 2.6
         gtk+-2.0
         libwnck-1.0 >= 0.17
         libxml-2.0)
@@ -52,8 +53,6 @@ AC_DEFINE_UNQUOTED(HAVE_FULLSCREEN, $have_fullscreen, [set_fullscreen is availab
 # Check for the POSIX regexpr functions and headers
 AC_CHECK_FUNCS([regcomp regexec regfree])
 AC_CHECK_HEADERS([sys/types.h regex.h])
-
-AC_CHECK_LIB(popt, poptStrippedArgv,, AC_MSG_ERROR([popt is needed to build]))
 
 AC_CHECK_PROG(HAVE_XSLTPROC,xsltproc, yes)
 if test "x$HAVE_XSLTPROC" != "xyes"; then

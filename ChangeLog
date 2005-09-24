@@ -1,5 +1,12 @@
 2005-09-24  Ross Burton  <ross@burtonini.com>
-:
+
+	* configure.in:
+	* src/config-parser.c:
+	* src/devilspie.c:
+	Use GOption rather than popt.
+
+2005-09-24  Ross Burton  <ross@burtonini.com>
+
 	* src/config-parser.c:
 	* src/config-parser.h:
 	* src/devilspie-action-debug.gob:

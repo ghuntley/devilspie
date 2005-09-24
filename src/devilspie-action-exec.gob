@@ -1,9 +1,9 @@
 %h{
+#include <glib/gi18n.h>
 #include <libwnck/window.h>
 
 #include "tristate-dummy.h"
 #include "devilspie-action.h"
-#include "devilspie.h"
 
 #define WINDOW_TITLE_TOK "$TITLE"
 #define WINDOW_ID_TOK   "$ID"

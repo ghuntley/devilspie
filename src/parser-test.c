@@ -8,7 +8,6 @@
  * crack-free.
  */
 
-#include "devilspie.h"
 #include "flurb.h"
 #include "devilspie-matcher.h"
 #include "devilspie-action.h"

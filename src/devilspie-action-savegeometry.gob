@@ -1,7 +1,7 @@
 %h{
+#include <glib/gi18n.h>
 #include <libwnck/window.h>
 #include "devilspie-action.h"
-#include "devilspie.h"
 %}
 
 /**

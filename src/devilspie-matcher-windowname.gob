@@ -1,9 +1,9 @@
 %h{
+#include <glib/gi18n.h>
 #include <sys/types.h>
 #include <regex.h>
 #include <libwnck/window.h>
 #include <libwnck/application.h>
-#include "devilspie.h"
 #include "xutils.h"
 #include "devilspie-matcher.h"
 

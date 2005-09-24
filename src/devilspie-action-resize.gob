@@ -1,10 +1,10 @@
 %h{
 #include "config.h"
+#include <glib/gi18n.h>
 #include <libwnck/window.h>
 #include <gtk/gtkmain.h>
 #include "tristate-dummy.h"
 #include "devilspie-action.h"
-#include "devilspie.h"
 
 /* Eww, the wnck headers don't declare this */
 void wnck_window_set_fullscreen(WnckWindow *window, gboolean fullscreen);

@@ -1,8 +1,8 @@
 %h{
+#include <glib/gi18n.h>
 #include <libwnck/application.h>
 #include <libwnck/window.h>
 
-#include "devilspie.h"
 #include "devilspie-action.h"
 #include "xutils.h"
 %}

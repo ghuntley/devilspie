@@ -1,9 +1,9 @@
 %h{
+#include <glib/gi18n.h>
 #include <libwnck/window.h>
 #include <libwnck/screen.h>
 #include "tristate-dummy.h"
 #include "devilspie-action.h"
-#include "devilspie.h"
 #include "xutils.h"
 
 #include <X11/Xlib.h>

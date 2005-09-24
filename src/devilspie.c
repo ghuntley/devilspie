@@ -12,13 +12,14 @@
 #include "config.h"
 #endif
 
+#include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include <glib/glist.h>
 #include <popt.h>
 #include <stdlib.h>
-#include "devilspie.h"
 #include <libwnck/libwnck.h>
 #include "flurb.h"
+#include "config-parser.h"
 #include "devilspie-matcher.h"
 #include "devilspie-action.h"
 
@@ -90,7 +91,7 @@ int main(int argc, char **argv) {
   while ((rc = poptGetNextOpt(popt)) > 0) {}
   if (rc != -1) {
     g_printerr("%s: %s\n", poptBadOption(popt, 0), poptStrerror(rc));
-    exit (1);
+    return 1;
   }
 
   /* And finally do the flurb type initialisation */

@@ -1,10 +1,10 @@
 %h{
+#include <glib/gi18n.h>
 #include <libwnck/screen.h>
 #include <libwnck/window.h>
 #include <libwnck/workspace.h>
 #include "tristate-dummy.h"
 #include "devilspie-action.h"
-#include "devilspie.h"
 %}
 
 class DevilsPie:Action:SetWorkspace from DevilsPie:Action {

@@ -46,26 +46,6 @@ static struct poptOption options[] = {
 
 
 /**
- * Run a flurb. Called by the window_opened handler
- */
-static void run_flurb(Flurb * flurb, WnckWindow *window) {
-  GList *l;
-
-  /* If there are no matchers, abort the Flurb */
-  if (flurb->matchers == NULL) return;
-  /* First, run all matchers. If any return false, abort this Flurb */
-  for (l = flurb->matchers; l != NULL; l = g_list_next(l)) {
-    DevilsPieMatcher *m = l->data;
-    if (!devilspie_matcher_test(m, window)) return;
-  }
-  /* If we got here, this is a matching Flurb. Run all actions. */
-  for (l = flurb->actions; l != NULL; l = g_list_next(l)) {
-    DevilsPieAction *a = (DevilsPieAction*)l->data;
-    devilspie_action_run(a, window);
-  }
-}
-
-/**
  * This callback is called whenever a window is opened on a screen.
  */
 void window_opened_cb(WnckScreen *screen, WnckWindow *window) {

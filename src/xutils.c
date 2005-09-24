@@ -117,7 +117,7 @@ my_wnck_get_string_property_latin1 (Window  xwindow,
   int format;
   gulong nitems;
   gulong bytes_after;
-  guchar *str;
+  gchar *str;
   int err, result;
   char *retval;
   
@@ -127,7 +127,7 @@ my_wnck_get_string_property_latin1 (Window  xwindow,
 			       xwindow, atom,
 			       0, G_MAXLONG,
 			       False, XA_STRING, &type, &format, &nitems,
-			       &bytes_after, (guchar **)&str);  
+			       &bytes_after, (unsigned char **)&str);
 
   err = my_wnck_error_trap_pop ();
   if (err != Success ||

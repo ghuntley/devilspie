@@ -28,7 +28,6 @@
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
 
-#define WNCK_I_KNOW_THIS_IS_UNSTABLE
 #include "libwnck/window.h"
 
 G_BEGIN_DECLS

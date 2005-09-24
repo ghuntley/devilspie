@@ -1,6 +1,23 @@
-#include "glib-object.h"
-#include "glib.h"
+/*
+ * Devil's Pie -- a window matching tool.
+ * Copyright (C) 2002 Ross Burton <ross@burtonini.com>
+ * Licensed under the GPL (2.0 or above)
+ * 
+ * Inspired by the Matched Windows feature in Sawfish, and implemented
+ * as a seperate program so that Metacity can remain clean, lean, and
+ * crack-free.
+ */
+
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#include <libwnck/libwnck.h>
+#include <glib.h>
+#include <glib-object.h>
+
 #include "flurb.h"
+
 /* Not good in the slightest */
 #include "devilspie-matcher-always.h"
 #include "devilspie-matcher-windowname.h"
@@ -34,6 +51,26 @@ void flurb_init(void) {
   devilspie_action_setgeometry_get_type();
   devilspie_action_setwintype_get_type();
   devilspie_action_setworkspace_get_type();
+}
+
+/**
+ * Run a flurb. Called by the window_opened handler
+ */
+void run_flurb(Flurb * flurb, WnckWindow *window) {
+  GList *l;
+
+  /* If there are no matchers, abort the Flurb */
+  if (flurb->matchers == NULL) return;
+  /* First, run all matchers. If any return false, abort this Flurb */
+  for (l = flurb->matchers; l != NULL; l = g_list_next(l)) {
+    DevilsPieMatcher *m = l->data;
+    if (!devilspie_matcher_test(m, window)) return;
+  }
+  /* If we got here, this is a matching Flurb. Run all actions. */
+  for (l = flurb->actions; l != NULL; l = g_list_next(l)) {
+    DevilsPieAction *a = (DevilsPieAction*)l->data;
+    devilspie_action_run(a, window);
+  }
 }
 
 /**

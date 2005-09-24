@@ -1,4 +1,5 @@
-#include "glib/glist.h"
+#include <glib/glist.h>
+#include <libwnck/window.h>
 
 /* A Flurb is a list of predicates, and a list of actions */
 
@@ -10,4 +11,5 @@ struct _Flurb {
 };
 
 void flurb_init(void);
+void run_flurb(Flurb * flurb, WnckWindow *window);
 void flurb_free(Flurb *flurb);

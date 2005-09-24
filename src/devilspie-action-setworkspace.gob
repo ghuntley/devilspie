@@ -1,8 +1,7 @@
 %h{
-#define WNCK_I_KNOW_THIS_IS_UNSTABLE
-#include "libwnck/screen.h"
-#include "libwnck/window.h"
-#include "libwnck/workspace.h"
+#include <libwnck/screen.h>
+#include <libwnck/window.h>
+#include <libwnck/workspace.h>
 #include "tristate-dummy.h"
 #include "devilspie-action.h"
 #include "devilspie.h"

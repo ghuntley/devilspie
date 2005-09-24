@@ -1,15 +1,10 @@
 %h{
-#include <stdio.h>
-#define WNCK_I_KNOW_THIS_IS_UNSTABLE
-#include "libwnck/application.h"
-#include "libwnck/window.h"
+#include <libwnck/application.h>
+#include <libwnck/window.h>
+
 #include "devilspie.h"
 #include "devilspie-action.h"
 #include "xutils.h"
-
-/* Borrow this function from libwnck */
-#include "X11/X.h"
-char* _wnck_get_string_property_latin1 (Window xwindow, Atom atom);
 %}
 
 class DevilsPie:Action:Debug from DevilsPie:Action {
@@ -22,7 +17,7 @@ class DevilsPie:Action:Debug from DevilsPie:Action {
     wnck_window_get_geometry(window, &xoffset, &yoffset, &width, &height);
 
     if (role == 0) role = "(none)";
-    printf(_("Window title: \"%s\"; Application name: \"%s\"; Role: \"%s\"; Geometry: \"%dx%d+%d+%d\"\n"),
+    g_print(_("Window title: \"%s\"; Application name: \"%s\"; Role: \"%s\"; Geometry: \"%dx%d+%d+%d\"\n"),
            wnck_window_get_name(window),
            wnck_application_get_name(wnck_window_get_application(window)),
            role,

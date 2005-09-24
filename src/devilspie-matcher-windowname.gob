@@ -1,11 +1,10 @@
 %h{
 #include <sys/types.h>
 #include <regex.h>
+#include <libwnck/window.h>
+#include <libwnck/application.h>
 #include "devilspie.h"
 #include "xutils.h"
-#define WNCK_I_KNOW_THIS_IS_UNSTABLE
-#include "libwnck/window.h"
-#include "libwnck/application.h"
 #include "devilspie-matcher.h"
 
 /* Borrow this function from libwnck */

@@ -1,3 +1,31 @@
+2005-09-24  Ross Burton  <ross@burtonini.com>
+:
+	* src/Makefile.am:
+	* src/devilspie-action-debug.gob:
+	* src/devilspie-action-decorate.gob:
+	* src/devilspie-action-exec.gob:
+	* src/devilspie-action-hide.gob:
+	* src/devilspie-action-layer.gob:
+	* src/devilspie-action-opacity.gob:
+	* src/devilspie-action-resize.gob:
+	* src/devilspie-action-savegeometry.gob:
+	* src/devilspie-action-setgeometry.gob:
+	* src/devilspie-action-setwintype.gob:
+	* src/devilspie-action-setworkspace.gob:
+	* src/devilspie-action-shade.gob:
+	* src/devilspie-action.gob:
+	* src/devilspie-matcher-always.gob:
+	* src/devilspie-matcher-windowname.gob:
+	* src/devilspie-matcher.gob:
+	* src/devilspie.c:
+	* src/devilspie.h:
+	* src/flurb.c:
+	* src/flurb.h:
+	* src/xutils.c:
+	* src/xutils.h:
+	Clean up includes, move the wnck define into Makefile.am, clean up
+	code slightly.
+
 2005-09-16  Ross Burton  <ross@burtonini.com>
 
 	* configure.in:

@@ -1,8 +1,8 @@
 %h{
+#include <gdk/gdkx.h>
+
 #include "devilspie.h"
 #include "devilspie-action.h"
-
-#include "gdk/gdkx.h"
 
 #define DEVILSPIE_ACTION_SETGEOMETRY_NOT_SET G_MININT
 %}

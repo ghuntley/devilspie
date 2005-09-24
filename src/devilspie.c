@@ -89,7 +89,7 @@ int main(int argc, char **argv) {
   popt = poptGetContext(NULL, argc, (const char**)argv, options, 0);
   while ((rc = poptGetNextOpt(popt)) > 0) {}
   if (rc != -1) {
-    fprintf(stderr, "%s: %s\n", poptBadOption(popt, 0), poptStrerror(rc));
+    g_printerr("%s: %s\n", poptBadOption(popt, 0), poptStrerror(rc));
     exit (1);
   }
 

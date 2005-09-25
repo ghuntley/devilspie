@@ -54,7 +54,6 @@ static void init_screens(void) {
     g_signal_connect (screen, "window_opened", (GCallback)window_opened_cb, NULL);
     if (apply_to_existing) wnck_screen_force_update (screen);
   }
-
 }
 
 /*

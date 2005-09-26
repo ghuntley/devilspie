@@ -14,8 +14,8 @@ static void output_range(xmlTextWriterPtr writer, GParamSpec *param) {
 #define OUTPUT_RANGE(t, T, format) \
        if (type == G_TYPE_PARAM_##T) { \
          GParamSpec##t *p = G_PARAM_SPEC_##T (param); \
-         if (p->minimum != G_MIN##T) xmlTextWriterWriteAttribute (writer, "minimum", g_strdup_printf(format, p->minimum)); \
-         if (p->maximum != G_MAX##T) xmlTextWriterWriteAttribute (writer, "maximum", g_strdup_printf(format, p->maximum)); \
+         if (p->minimum != G_MIN##T) xmlTextWriterWriteAttribute (writer, (xmlChar*)"minimum", (xmlChar*)g_strdup_printf(format, p->minimum)); \
+         if (p->maximum != G_MAX##T) xmlTextWriterWriteAttribute (writer, (xmlChar*)"maximum", (xmlChar*)g_strdup_printf(format, p->maximum)); \
        }
   OUTPUT_RANGE(Float, FLOAT, "%.2f");
   OUTPUT_RANGE(Double, DOUBLE, "%.2f");
@@ -40,13 +40,13 @@ static void handle_properties(xmlTextWriterPtr writer, GType t) {
   if (props != NULL && props[0] != NULL) {
     for (i = 0; props[i] != NULL; ++i) {
       GParamSpec *param = props[i];
-      xmlTextWriterStartElement (writer, "property");
-      xmlTextWriterWriteAttribute (writer, "name", param->name);
-      xmlTextWriterWriteAttribute (writer, "nick", g_param_spec_get_nick (param));
+      xmlTextWriterStartElement (writer, (xmlChar*)"property");
+      xmlTextWriterWriteAttribute (writer, (xmlChar*)"name", (xmlChar*)param->name);
+      xmlTextWriterWriteAttribute (writer, (xmlChar*)"nick", (xmlChar*)g_param_spec_get_nick (param));
       /* TODO: transform type names to Tristate/Boolean/Integer/String/etc */
-      xmlTextWriterWriteAttribute (writer, "type", g_type_name (param->value_type));
+      xmlTextWriterWriteAttribute (writer, (xmlChar*)"type", (xmlChar*)g_type_name (param->value_type));
       output_range (writer, param);
-      xmlTextWriterWriteCDATA (writer, g_param_spec_get_blurb (param));
+      xmlTextWriterWriteCDATA (writer, (xmlChar*)g_param_spec_get_blurb (param));
       xmlTextWriterEndElement (writer);
     }
   }
@@ -54,13 +54,13 @@ static void handle_properties(xmlTextWriterPtr writer, GType t) {
   g_type_class_unref (class);
 }
 
-static void handle_objects(xmlTextWriterPtr writer, const char* name, GType t) {
+static void handle_objects(xmlTextWriterPtr writer, const xmlChar* name, GType t) {
   int i;
   GType *children;
   children = g_type_children (t, NULL);
   for (i = 0; children[i] != 0; ++i) {
     xmlTextWriterStartElement (writer, name);
-    xmlTextWriterWriteAttribute (writer, "name", g_type_name (children[i]));
+    xmlTextWriterWriteAttribute (writer, (xmlChar*)"name", (xmlChar*)g_type_name (children[i]));
     handle_properties (writer, children[i]);
     xmlTextWriterEndElement (writer);
   }
@@ -82,14 +82,14 @@ int main(int argc, char **argv) {
 
   xmlTextWriterStartDocument (writer, "1.0", "UTF-8", "yes");
 
-  xmlTextWriterStartElement (writer, "devilspie");
+  xmlTextWriterStartElement (writer, (xmlChar*)"devilspie");
 
-  xmlTextWriterStartElement (writer, "matchers");
-  handle_objects (writer, "matcher", devilspie_matcher_get_type());
+  xmlTextWriterStartElement (writer, (xmlChar*)"matchers");
+  handle_objects (writer, (xmlChar*)"matcher", devilspie_matcher_get_type());
   xmlTextWriterEndElement (writer);
 
-  xmlTextWriterStartElement (writer, "actions");
-  handle_objects (writer, "action", devilspie_action_get_type());
+  xmlTextWriterStartElement (writer, (xmlChar*)"actions");
+  handle_objects (writer, (xmlChar*)"action", devilspie_action_get_type());
   xmlTextWriterEndElement (writer);
 
   xmlTextWriterEndElement (writer);

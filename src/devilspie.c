@@ -68,7 +68,7 @@ int main(int argc, char **argv) {
   GOptionContext *context;
 
   /* Initialise i18n */
-  bindtextdomain (GETTEXT_PACKAGE, DEVILSPIE_LOCALEDIR);
+  bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 

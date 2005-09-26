@@ -1,5 +1,11 @@
 2005-09-26  Ross Burton  <ross@burtonini.com>
 
+	* src/Makefile.am:
+	* src/devilspie.c:
+	Re-arrange defines, rename LOCALEDIR.
+
+2005-09-26  Ross Burton  <ross@burtonini.com>
+
 	* src/devilspie.c:
 	Don't start if no configuration was loaded.
 

@@ -1,5 +1,10 @@
 2005-09-26  Ross Burton  <ross@burtonini.com>
 
+	* src/devilspie.c:
+	Don't start if no configuration was loaded.
+
+2005-09-26  Ross Burton  <ross@burtonini.com>
+
 	* src/doc-generator.c:
 	Cast strings to xmlChar*.
 

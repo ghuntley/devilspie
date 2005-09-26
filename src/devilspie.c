@@ -97,6 +97,11 @@ int main(int argc, char **argv) {
     return 1;
   }
 
+  if (g_list_length (flurbs) == 0) {
+    g_printerr("No flurbs loaded, quiting\n");
+    return 1;
+  }
+
   init_screens();
 
   /* Go go go! */

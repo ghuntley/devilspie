@@ -6,10 +6,6 @@
 #include <libwnck/application.h>
 #include "xutils.h"
 #include "devilspie-matcher.h"
-
-/* Borrow this function from libwnck */
-#include "X11/X.h"
-char* _wnck_get_string_property_latin1 (Window xwindow, Atom atom);
 %}
 
 %{

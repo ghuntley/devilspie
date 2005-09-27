@@ -1,5 +1,13 @@
 2005-09-27  Ross Burton  <ross@burtonini.com>
 
+	* src/parser.h:
+	* src/parser.c:
+	* src/devilspie.c:
+	Make load_configuration_file() return an ESExp, instead of adding
+	it to the list itself.
+	
+2005-09-27  Ross Burton  <ross@burtonini.com>
+
 	* */*:
 	Utter, complete, and total rewrite from scratch. XML is dead, long
 	live s-expressions with logical operations! This rewrite was

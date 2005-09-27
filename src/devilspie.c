@@ -43,7 +43,7 @@ gboolean debug = FALSE;
 /**
  * Matching context
  */
-Context context;
+Context context = {NULL,};
 
 /* Private state */
 
@@ -121,7 +121,9 @@ int main(int argc, char **argv) {
   /* If there were files specified use those, otherwise load the default configuration */
   if (files) {
     while (*files) {
-      load_configuration_file (*files++);
+      ESExp *s;
+      s = load_configuration_file (*files++);
+      if (s) sexps = g_list_prepend (sexps, s);
     }
   } else {
     load_configuration ();

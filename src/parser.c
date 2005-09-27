@@ -67,26 +67,26 @@ static const struct {
 /**
  * Load a single configuration file.
  */
-void load_configuration_file (const char *path)
+ESExp *load_configuration_file (const char *path)
 {
   /* TODO: GError argument */
   ESExp *sexp = NULL;
   size_t i;
   FILE *f;
 
-  g_return_if_fail (path != NULL);
+  g_return_val_if_fail (path != NULL, NULL);
 
   if (debug) g_printerr(_("Loading %s\n"), path);
 
   if (!g_file_test (path, G_FILE_TEST_EXISTS | G_FILE_TEST_IS_REGULAR)) {
     if (debug) g_printerr(_("%s is not a normal file, skipping\n"), path);
-    return;
+    return NULL;
   }
 
   f = fopen(path, "r");
   if (!f) {
     g_printerr(_("Cannot open %s\n"), path);
-    return;
+    return NULL;
   }
 
   sexp = e_sexp_new ();
@@ -104,12 +104,12 @@ void load_configuration_file (const char *path)
     g_printerr(_("Cannot parse %s: %s\n"), path, e_sexp_error (sexp));
     g_object_unref (sexp);
     fclose(f);
-    return;
+    return NULL;
   }
 
   fclose(f);
 
-  sexps = g_list_append (sexps, sexp);
+  return sexp;
 }
 
 /**
@@ -145,12 +145,14 @@ static void load_dir (const char *path)
 
   while ((name = g_dir_read_name (dir)) != NULL) {
     char *filepath;
+    ESExp *s;
 
     if (!g_str_has_suffix (name, ".ds"))
       continue;
     
     filepath = g_build_filename (path, name, NULL);
-    load_configuration_file (filepath);
+    s = load_configuration_file (filepath);
+    if (s) sexps = g_list_prepend (sexps, s);
     g_free (filepath);
   }
 

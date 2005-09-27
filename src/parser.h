@@ -19,7 +19,9 @@
 #ifndef CONFIG_PARSER_H
 #define CONFIG_PARSER_H
 
+#include "e-sexp.h"
+
 void load_configuration(void);
-void load_configuration_file (const char *path);
+ESExp *load_configuration_file (const char *path);
 
 #endif /* CONFIG_PARSER_H */

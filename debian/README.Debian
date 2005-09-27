@@ -1,9 +1,0 @@
-devilspie
----------
-
-As the XML configuration file has a DTD, it is installed and
-registered with the SGML system catalogue. This allows SGML editors to
-use it when creating configuration files. When the XML catalogue
-infrastructure is available, it will be moved there instead.
-
- -- Ross Burton <ross@burtonini.com>, Wed,  4 Sep 2002 08:35:39 +0100

@@ -1,4 +1,4 @@
-SUBDIRS = po src
+SUBDIRS = po src tests
 
 man_MANS = devilspie.1
 
@@ -12,4 +12,4 @@ INTLTOOL_BUILT = \
 	intltool-extract \
 	intltool-merge \
 	intltool-update
-CLEANFILES = $(INTLTOOL_BUILT)
+DISTCLEANFILES = $(INTLTOOL_BUILT)

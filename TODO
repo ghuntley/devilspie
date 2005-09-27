@@ -4,7 +4,6 @@ S-Exp Port:
 * Execute command
 * Set opacity
 * Documentation generator
-* Test suite to verify logical ops at least
 * Parse multiple expressions in files
 
 General Improvements:

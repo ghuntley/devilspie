@@ -17,6 +17,23 @@ devilspie_SOURCES = \
 	actions.h \
 	actions.c
 
+TESTS = sexp-test
+check_PROGRAMS = sexp-test
+sexp_test_SOURCES = \
+	sexp-test.c \
+	xutils.h \
+	xutils.c \
+	e-sexp.h \
+	e-sexp.c \
+	parser.h \
+	parser.c \
+	logical.h \
+	logical.c \
+	matchers.h \
+	matchers.c \
+	actions.h \
+	actions.c
+
 AM_CPPFLAGS = \
 	$(WNCK_CFLAGS) \
 	-DLOCALEDIR=\""$(datadir)/locale"\" \

@@ -1,5 +1,16 @@
 2005-09-27  Ross Burton  <ross@burtonini.com>
 
+	* configure.in:
+	* tests/Makefile.am:
+	* tests/*.ds:
+	Add test files.
+
+	* src/Makefile.am:
+	* src/sexp-test.c:
+	Add test framework.
+
+2005-09-27  Ross Burton  <ross@burtonini.com>
+
 	* src/parser.h:
 	* src/parser.c:
 	* src/devilspie.c:

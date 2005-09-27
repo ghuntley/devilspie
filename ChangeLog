@@ -1,5 +1,10 @@
 2005-09-27  Ross Burton  <ross@burtonini.com>
 
+	* NEWS:
+	Version 0.13.
+
+2005-09-27  Ross Burton  <ross@burtonini.com>
+
 	* devilspie.spec.in:
 	Update for 0.13, from Lars Damerow <lars@pixar.com>.
 

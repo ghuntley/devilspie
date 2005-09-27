@@ -1,3 +1,17 @@
+Devil's Pie "Wind The Frog" 0.13
+================================
+
+* Total rewrite.
+* No, really.  A complete rewrite, no file left untouched.  Many thanks to Pixar
+  Animation Studios for sponsoring this work.
+* Use s-expressions instead of XML as the configuration file format, allowing
+  matches to be combined in new and exciting ways with (and) (or) and (not)
+  operators.
+* Read configuration from both the users home directory and /etc, allowing
+  centralised configuration.
+* Add the beginnings of a test suite.
+
+
 Devil's Pie "Trying To Make Their Paper" 0.12
 =============================================
 

@@ -3,6 +3,7 @@ TODO for Devil's Pie
 S-Exp Port:
 * Execute command
 * Set opacity
+* Set geometry
 * Documentation generator
 * Parse multiple expressions in files
 

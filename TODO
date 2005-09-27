@@ -1,6 +1,14 @@
 TODO for Devil's Pie
 
-* Catch events on window move and resize too
+S-Exp Port:
+* Execute command
+* Set opacity
+* Documentation generator
+* Test suite to verify logical ops at least
+* Parse multiple expressions in files
+
+General Improvements:
+* Catch events on window move and resize too?
 * Add ability to insert self into session on startup
-* Use gnome-vfs to monitor the configuration file, and re-read it when
-  it is changed. This is fairly trivial, props to the gnome-vfs guys.
+* Use gnome-vfs to monitor the configuration file
+* UTF-8 safe string comparison functions

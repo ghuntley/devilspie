@@ -1,9 +1,9 @@
 # Initial blurb
 AC_PREREQ(2.52)
-AC_INIT(devilspie, 0.11 , http://www.burtonini.com/)
+AC_INIT(devilspie, 0.13 , http://www.burtonini.com/)
 AC_CONFIG_SRCDIR(src/devilspie.c)
 AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
-AM_CONFIG_HEADER(config.h)
+AM_CONFIG_HEADER(src/config.h)
 
 # Honor aclocal flags
 ACLOCAL="$ACLOCAL $ACLOCAL_FLAGS"
@@ -20,47 +20,38 @@ AC_PROG_CC
 AM_PROG_CC_STDC
 AC_HEADER_STDC
 GNOME_COMPILE_WARNINGS(yes)
+
 AC_PROG_INTLTOOL([0.20])
+ALL_LINGUAS="de"
+AM_GLIB_GNU_GETTEXT
 
-# We really need gob2 to build.
-GOB2_CHECK(2.0.3)
-dnl TODO: say something if GOB2 is not found
+# Check that we actually have the libraries required to build
+PKG_CHECK_MODULES(WNCK,
+        glib-2.0 >= 2.6
+        gdk-2.0
+        libwnck-1.0 >= 0.17)
+AC_SUBST(WNCK_CFLAGS)
+AC_SUBST(WNCK_LIBS)
 
-PKG_CHECK_MODULES(TMP_WNCK, libwnck-1.0 >= 2.9.92,
+# See if we have new libwnck with timestamp arguments
+PKG_CHECK_MODULES(WNCK_VER, libwnck-1.0 >= 2.9.92,
 		 wnck_new="yes", wnck_new="no")
 if test "x$wnck_new" = "xyes"; then
         AC_DEFINE(NEED_TIMESTAMPS,1,[Define to 1 if timestamps are needed to wnck functions])
 fi
 
-# Check that we actually have the libraries required to
-# build. Versioned dependancy on libwnck as essential API additions
-# were made in 0.17.
-dnl TODO: make libxml conditional and don't build docs if it isn't present
-PKG_CHECK_MODULES(WNCK,
-        glib-2.0 >= 2.6
-        gtk+-2.0
-        libwnck-1.0 >= 0.17
-        libxml-2.0)
-AC_SUBST(WNCK_CFLAGS)
-AC_SUBST(WNCK_LIBS)
-
-# Now check if we have the set_fullscreen function. At some point we can support
-# only wnck >= 2.8.0.1 and this test can go.
+# Check if we have the set_fullscreen function
 AC_CHECK_LIB(wnck-1, wnck_window_set_fullscreen,
             have_fullscreen=1, have_fullscreen=0)
 AC_DEFINE_UNQUOTED(HAVE_FULLSCREEN, $have_fullscreen, [set_fullscreen is available])
 
+AC_CHECK_LIB(wnck-1, wnck_window_set_window_type,
+            have_set_wintype=1, have_set_wintype=0)
+AC_DEFINE_UNQUOTED(HAVE_SET_WINDOW_TYPE, $have_set_wintype, [set_window_type is available])
+
 # Check for the POSIX regexpr functions and headers
 AC_CHECK_FUNCS([regcomp regexec regfree])
 AC_CHECK_HEADERS([sys/types.h regex.h])
-
-AC_CHECK_PROG(HAVE_XSLTPROC,xsltproc, yes)
-if test "x$HAVE_XSLTPROC" != "xyes"; then
-        AC_MSG_ERROR([Cannot find xsltproc.  This is needed to build the reference documentation.])
-fi
-
-ALL_LINGUAS="de"
-AM_GLIB_GNU_GETTEXT
 
 AC_OUTPUT([
 devilspie.spec

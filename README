@@ -1,7 +1,7 @@
 Devil's Pie
 ===========
 
-Copyright (C) 2002-4, Ross Burton <ross@burtonini.com>
+Copyright (C) 2002-5, Ross Burton <ross@burtonini.com>
 
 
 A window-matching utility, inspired by Sawfish's "Matched Windows" option and
@@ -24,28 +24,60 @@ Debian packages of the latest released version.  These are available from
 http://www.burtonini.com/debian/
 
 A .spec file is provided for RPM-based distributions, but I didn't write it and
-don't support it.
+don't support it.  It may or may not work.
 
 
 Configuration
 -------------
 
-The default configuration file to read is ~/.devilspie.xml. However, if there
-are arguments to devilspie then that file will be opened instead.
+Devil's Pie 0.13 was a complete redesign and rewrite, so everything you knew
+about it is probably wrong.
 
-The format of this file is simple. It's a collection of 'flurbs'. Each flurb
-contains one or several matchers and one or several actions. Each matcher or
-action may contain one or several properties. You should have a look at the
-included DTD for more details. The DTD will make creating valid files much
-easier in SGML editors, such as XEmacs+psgml (this DTD is installed correctly on
-Debian). A GUI builder is planned, if I can think of a good interface for it.
+Devi's Pie is configured by reading a number of files from two locations:
+$HOME/.devilspie/ and $SYSCONFDIR/devilspie (typically /etc/devilspie).  Devil's
+Pie will read s-expressions from every .ds file in those paths.  Note that
+currently only the first s-expressions is parsed, but this will be fixed
+shortly. S-expressions are familiar to most Emacs users and in the limited use
+they have in Devil's Pie are trivially learnt by example.
 
-See devilspie-reference.html for a complete list of matchers and actions. This is
-generated from the source so should be totally up to date. Unless otherwise
-stated, all properties contain a tristate value which can either be TRUE, FALSE,
-or UNSET.
+The basic model is that every time a window is created, the s-expressions are
+evaluated.  The window is available to the functions you call as an implicit
+argument, so you can concentrate on defining the logic.
 
-There is a working example configuration file in sample-config.xml.
+If you want to see information about every window when it is created, in
+~/.devilspies/test.ds put:
+
+  (debug)
+
+When this is evaluated, the "debug" function is called and it outputs the window
+title, geometry, etc.
+
+Of course performing the same action to every window is no fun.  What if you
+want XMMS to start on the second workspace?
+
+  (if (is (application_name) "XMMS") (set_workspace 2))
+
+The "if" function evaluates the first argument as a true/false value, and if it
+is true then it evaluates the second argument, and if false it evaluates the
+third argument (which can be omitted).  The "is" function compares two strings
+for equality, returning true if they are identical.  The "application_name"
+function returns the name of the application which created the window, and
+"XMMS" is a literal string.  So if the application name is "XMMS", then the
+second argument will be evaluated.  This is a call to "set_workspace" with the
+integer argument 2, which moves the current window onto the second workspace.
+
+To perform multiple actions use (begin ...):
+
+  (if (matches (window_name) "^Character.+") (begin maximize (set_workspace 2)))
+
+Here "matches" interprets the second argument as a regular expression and
+evaulates that against the first argument.  "window_name" is the title of the
+current window, and "maximize" simply maximises the current window.  So this
+s-expression puts the window on workspace 2, maximised, if the window name
+begins with "Character" and has more characters in (note .+ rather than .*).
+
+I will write more documentation in the future but for now you'll have to look at
+the "symbols" array in src/parser.c to see what functions are available.
 
 
 Running
@@ -53,26 +85,8 @@ Running
 
 Just run devilspie as a normal user. The best way is to run it in your session
 (for example in Desktop Preferences -> Advanced -> Sessions -> Startup
-Programs).  If you don't wish to use ~/.devilspie.xml as the configuration file,
-specify it as an argument (i.e. devilspie /home/share/devilspie-common.xml).
+Programs).
 
-
-Architecture
-------------
-
-After the configuration file has been read and parsed, devilspie sits in a GLib
-main loop waiting on libwnck to notify itself about window creation. When a
-window is created, devilspie iterates through every "Flurb" (a set of matches
-and actions) and executes every matcher. If they all return true, then all of
-the actions are executed.
-
-Matchers and Actions are GObjects, subclasses of DevilsPieMatcher and
-DevilsPieAction. They must export any properties they support via GObject
-properties.  I recommend using GOB to write these, as it makes it much easier.
-When GOB supports it, the Matcher and Action classes will become pure
-interfaces, but for now they are abstract classes.
-
-Many properties use a tristate variable type called DevilsPieTriState, which
-supports TRUE, FALSE, and UNSET. The declaration of this is a bit hacky at the
-moment as GOB doesn't allow a .gob file without a class. I could be a real man
-and write this class manually... but I'm lazy.
+If you are testing some s-expressions, you can specify them on the command line
+to load just those files instead of the files specified above.  To turn on some
+debugging information, pass --debug.

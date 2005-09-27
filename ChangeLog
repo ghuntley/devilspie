@@ -1,3 +1,10 @@
+2005-09-27  Ross Burton  <ross@burtonini.com>
+
+	* */*:
+	Utter, complete, and total rewrite from scratch. XML is dead, long
+	live s-expressions with logical operations! This rewrite was
+	sponsored by Lars Damerow <lars@pixar.com>.
+
 2005-09-26  Ross Burton  <ross@burtonini.com>
 
 	* src/Makefile.am:

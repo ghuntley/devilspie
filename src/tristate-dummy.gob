@@ -1,7 +1,0 @@
-class Tristate:Dummy from G:Object {}
-
-enum TRI {
-  FALSE = FALSE,
-  TRUE = TRUE,
-  UNSET
-} DevilsPie:TriState;

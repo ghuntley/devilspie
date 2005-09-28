@@ -123,7 +123,7 @@ int main(int argc, char **argv) {
     while (*files) {
       ESExp *s;
       s = load_configuration_file (*files++);
-      if (s) sexps = g_list_prepend (sexps, s);
+      if (s) sexps = g_list_append (sexps, s);
     }
   } else {
     load_configuration ();

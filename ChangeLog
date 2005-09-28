@@ -1,3 +1,10 @@
+2005-09-28  Ross Burton  <ross@burtonini.com>
+
+	* src/parser.c:
+	* src/devilspie.c:
+	Append new expressions, not prepend.  This way there is some
+	pretence of user configuration overriding the system.
+
 2005-09-27  Ross Burton  <ross@burtonini.com>
 
 	* NEWS:

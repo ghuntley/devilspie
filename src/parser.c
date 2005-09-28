@@ -152,7 +152,7 @@ static void load_dir (const char *path)
     
     filepath = g_build_filename (path, name, NULL);
     s = load_configuration_file (filepath);
-    if (s) sexps = g_list_prepend (sexps, s);
+    if (s) sexps = g_list_append (sexps, s);
     g_free (filepath);
   }
 

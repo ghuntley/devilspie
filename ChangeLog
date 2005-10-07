@@ -1,3 +1,9 @@
+2005-10-07  Ross Burton  <ross@burtonini.com>
+
+	* src/actions.c:
+	When pinning windows call pin() instead of stick() (thanks to
+	Jean-Yves Lefort for noticing this bug).
+
 2005-09-28  Ross Burton  <ross@burtonini.com>
 
 	* src/parser.c:

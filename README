@@ -33,7 +33,7 @@ Configuration
 Devil's Pie 0.13 was a complete redesign and rewrite, so everything you knew
 about it is probably wrong.
 
-Devi's Pie is configured by reading a number of files from two locations:
+Devil's Pie is configured by reading a number of files from two directories:
 $HOME/.devilspie/ and $SYSCONFDIR/devilspie (typically /etc/devilspie).  Devil's
 Pie will read s-expressions from every .ds file in those paths.  Note that
 currently only the first s-expressions is parsed, but this will be fixed
@@ -45,7 +45,7 @@ evaluated.  The window is available to the functions you call as an implicit
 argument, so you can concentrate on defining the logic.
 
 If you want to see information about every window when it is created, in
-~/.devilspies/test.ds put:
+~/.devilspie/test.ds put:
 
   (debug)
 
@@ -71,7 +71,7 @@ To perform multiple actions use (begin ...):
   (if (matches (window_name) "^Character.+") (begin maximize (set_workspace 2)))
 
 Here "matches" interprets the second argument as a regular expression and
-evaulates that against the first argument.  "window_name" is the title of the
+evaluates that against the first argument.  "window_name" is the title of the
 current window, and "maximize" simply maximises the current window.  So this
 s-expression puts the window on workspace 2, maximised, if the window name
 begins with "Character" and has more characters in (note .+ rather than .*).

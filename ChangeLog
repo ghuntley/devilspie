@@ -1,3 +1,8 @@
+2005-10-14  Ross Burton  <ross@burtonini.com>
+
+	* README:
+	Fix typos noticed by Larry Virden.
+
 2005-10-07  Ross Burton  <ross@burtonini.com>
 
 	* src/actions.c:

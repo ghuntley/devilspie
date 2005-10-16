@@ -294,7 +294,7 @@ ESExpResult *func_wintype(ESExp *f, int argc, ESExpResult **argv, Context *c) {
   const char *str;
   WnckWindowType wintype;
 
-  if (argc != 1 || argv[0]->type == ESEXP_RES_STRING) {
+  if (argc != 1 || argv[0]->type != ESEXP_RES_STRING) {
     g_printerr(_("wintype expects a single string argument\n"));
     return e_sexp_result_new_bool (f, FALSE);
   }

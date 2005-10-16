@@ -1,5 +1,11 @@
 2005-10-17  Ross Burton  <ross@burtonini.com>
 
+	* configure.in:
+	* NEWS:
+	Version 0.14.
+
+2005-10-17  Ross Burton  <ross@burtonini.com>
+
 	* src/actions.c:
 	Add geometry setting action, thanks to Guido Boehm.
 

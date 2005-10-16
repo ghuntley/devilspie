@@ -50,6 +50,49 @@ ESExpResult *func_debug(ESExp *f, int argc, ESExpResult **argv, Context *c) {
 }
 
 /**
+ * Set position + size of current window.
+ */
+ESExpResult *func_geometry(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+  gint xoffset, yoffset, width, height;
+  int retmask, new_xoffset, new_yoffset;
+  unsigned int new_width, new_height;
+
+  if (argc < 1 || argv[0]->type != ESEXP_RES_STRING)
+    return e_sexp_result_new_bool (f, FALSE); 
+
+  /* read in old geom + parse param */
+  wnck_window_get_geometry (c->window,
+                            &xoffset, &yoffset, &width, &height);
+  retmask = XParseGeometry (argv[0]->value.string,
+                            &new_xoffset, &new_yoffset,
+                            &new_width, &new_height);
+
+  /* check which values to modify */
+  new_xoffset = (retmask & XValue)      ? new_xoffset : xoffset;
+  new_yoffset = (retmask & YValue)      ? new_yoffset : yoffset;
+  new_width   = (retmask & WidthValue)  ? new_width   : width;
+  new_height  = (retmask & HeightValue) ? new_height  : height;
+
+  /* try to set new position.. */
+  my_wnck_error_trap_push ();
+  XMoveResizeWindow (gdk_display,
+                     wnck_window_get_xid (c->window),
+                     new_xoffset, new_yoffset,
+                     new_width, new_height);
+
+  if (my_wnck_error_trap_pop ()) {
+    g_printerr(_("Setting geometry '%s' failed\n"),
+               argv[0]->value.string);
+    return e_sexp_result_new_bool (f, FALSE);
+  }
+
+  if (debug)
+    g_printerr(_("Setting geometry '%s'\n"), argv[0]->value.string);
+
+  return e_sexp_result_new_bool (f, TRUE);
+}
+
+/**
  * Make the current window fullscreen.
  */
 ESExpResult *func_fullscreen(ESExp *f, int argc, ESExpResult **argv, Context *c) {

@@ -1,3 +1,8 @@
+2005-10-17  Ross Burton  <ross@burtonini.com>
+
+	* src/actions.c:
+	Add geometry setting action, thanks to Guido Boehm.
+
 2005-10-16  Ross Burton  <ross@burtonini.com>
 
 	* src/actions.c:

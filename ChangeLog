@@ -1,8 +1,8 @@
 2005-10-16  Ross Burton  <ross@burtonini.com>
 
 	* src/actions.c:
-	Fix typo breaking the set wintype action, thanks to
-	stefan@bastardsaint.com for spotting this.
+	Fix typo breaking the set wintype action, thanks to Stefan van der
+	Haven for spotting this.
 
 2005-10-14  Ross Burton  <ross@burtonini.com>
 

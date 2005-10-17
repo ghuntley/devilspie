@@ -1,5 +1,12 @@
 2005-10-17  Ross Burton  <ross@burtonini.com>
 
+	* src/actions.c:
+	* src/actions.h:
+	* src/parser.c:
+	Add Close action (Ryan Koppenhaver)
+
+2005-10-17  Ross Burton  <ross@burtonini.com>
+
 	* src/sexp-test.c:
 	* tests/not-false.ds:
 	* tests/not-true.ds:

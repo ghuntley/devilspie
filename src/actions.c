@@ -159,6 +159,19 @@ ESExpResult *func_unshade(ESExp *f, int argc, ESExpResult **argv, Context *c) {
   return e_sexp_result_new_bool (f, TRUE);
 }
 
+/** 
+ * Close the current window.
+ */
+ESExpResult *func_close(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+#if NEED_TIMESTAMPS
+  wnck_window_close (c->window, GDK_CURRENT_TIME);
+#else
+  wnck_window_close (c->window);
+#endif
+  if (debug) g_printerr(_("Closed\n"));
+  return e_sexp_result_new_bool (f, TRUE);
+}
+
 /**
  * Pin the current window to all workspaces.
  */

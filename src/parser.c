@@ -54,6 +54,7 @@ static const struct {
   { "minimize", func_minimize, FALSE },
   { "shade", func_shade, FALSE },
   { "unshade", func_unshade, FALSE },
+  { "close", func_close, FALSE },
   { "pin", func_pin, FALSE },
   { "unpin", func_unpin, FALSE },
   { "set_workspace", func_set_workspace, FALSE },

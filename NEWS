@@ -1,3 +1,13 @@
+Devil's Pie "Lazy Release" 0.14
+===============================
+
+* Add Set Geometry (Guido Boehm)
+* Fix Set Window Type (Stefan van der Haven)
+* Make Pin work as expected (Jean-Yves Lefort)
+* Append new expressions, not prepend (Lars Damerow)
+* Fix typos in README (Larry Virden)
+
+
 Devil's Pie "Wind The Frog" 0.13
 ================================
 

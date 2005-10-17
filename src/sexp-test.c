@@ -60,9 +60,9 @@ int main(int argc, char **argv)
     if (g_str_has_suffix (name, "-true.ds"))
       expected = TRUE;
     else if (g_str_has_suffix (name, "-false.ds"))
-      expected = TRUE;
+      expected = FALSE;
     else {
-      g_printerr ("Cannot determin result for %s\n", name);
+      g_printerr ("Cannot determine expected result for %s\n", name);
       return 1;
     }
     
@@ -75,7 +75,11 @@ int main(int argc, char **argv)
       g_printerr("Invalid result type for test %s\n", name);
       return 1;
     }
-
+    if (result->value.bool != expected) {
+      g_printerr("Incorrect result for test %s\n", name);
+      return 1;
+    }
+    
     g_print(".");
     count++;
   }

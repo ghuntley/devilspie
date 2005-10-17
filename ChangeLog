@@ -1,5 +1,12 @@
 2005-10-17  Ross Burton  <ross@burtonini.com>
 
+	* src/sexp-test.c:
+	* tests/not-false.ds:
+	* tests/not-true.ds:
+	Fix the test suite (Ryan Koppenhaver)
+
+2005-10-17  Ross Burton  <ross@burtonini.com>
+
 	* configure.in:
 	* NEWS:
 	Version 0.14.

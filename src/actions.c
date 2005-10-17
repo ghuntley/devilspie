@@ -50,6 +50,42 @@ ESExpResult *func_debug(ESExp *f, int argc, ESExpResult **argv, Context *c) {
 }
 
 /**
+ * Print args
+ */
+ESExpResult *func_print(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+  int i;
+  for (i = 0; i < argc; i++) {
+    switch (argv[i]->type) {
+    case ESEXP_RES_ARRAY_PTR:
+      g_print (_("(array pointer: %p)\n"), argv[i]->value.ptrarray);
+      break;
+    case ESEXP_RES_BOOL:
+      g_print (argv[i]->value.bool ? _("TRUE\n") : _("FALSE\n"));
+      break;
+    case ESEXP_RES_INT:
+      g_print ("%d\n", argv[i]->value.number);
+      break;
+    case ESEXP_RES_TIME:
+      {
+        char buf[256];
+        struct tm time;
+        localtime_r(&argv[i]->value.time, &time);
+        strftime(buf, sizeof(buf), "%c", &time);
+        g_print ("time: %s", buf);
+        break;
+      }
+    case ESEXP_RES_STRING:
+      g_print ("%s\n", argv[i]->value.string);
+      break;
+    case ESEXP_RES_UNDEFINED:
+      g_print (_("(undefined)"));
+      break;
+    }
+  }
+  return e_sexp_result_new_bool (f, TRUE);
+}
+
+/**
  * Set position + size of current window.
  */
 ESExpResult *func_geometry(ESExp *f, int argc, ESExpResult **argv, Context *c) {

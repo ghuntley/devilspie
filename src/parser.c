@@ -46,6 +46,7 @@ static const struct {
   { "application_name", func_application_name, FALSE },
   /* Actions */
   { "debug", func_debug, FALSE },
+  { "print", func_print, FALSE },
   { "geometry", func_geometry, FALSE },
   { "fullscreen", func_fullscreen, FALSE },
   { "maximize", func_maximize, FALSE },

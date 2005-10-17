@@ -22,6 +22,7 @@
 #include "e-sexp.h"
 
 ESExpResult *func_debug(ESExp *f, int argc, ESExpResult **argv, Context *c);
+ESExpResult *func_print(ESExp *f, int argc, ESExpResult **argv, Context *c);
 
 ESExpResult *func_geometry(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_fullscreen(ESExp *f, int argc, ESExpResult **argv, Context *c);

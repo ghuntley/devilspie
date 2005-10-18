@@ -18,6 +18,8 @@
 
 #include <config.h>
 #include <libwnck/application.h>
+#include <libwnck/class-group.h>
+#include <libwnck/workspace.h>
 #include <libwnck/window.h>
 #include <glib.h>
 #include <glib/gi18n.h>
@@ -41,9 +43,10 @@ ESExpResult *func_debug(ESExp *f, int argc, ESExpResult **argv, Context *c) {
   if (argc == 1 && argv[0]->type == ESEXP_RES_STRING)
     g_print("%s\n", argv[0]->value.string);
 
-  g_print(_("Window Title: '%s'; Application Name: '%s'; Geometry: %dx%d+%d+%d\n"),
+  g_print(_("Window Title: '%s'; Application Name: '%s'; Class: '%s'; Geometry: %dx%d+%d+%d\n"),
           wnck_window_get_name (c->window),
           wnck_application_get_name (wnck_window_get_application (c->window)),
+          wnck_class_group_get_res_class (wnck_window_get_class_group (c->window)),
           width, height, xoffset, yoffset);
   
   return e_sexp_result_new_bool (f, TRUE);
@@ -129,11 +132,66 @@ ESExpResult *func_geometry(ESExp *f, int argc, ESExpResult **argv, Context *c) {
 }
 
 /**
+ * Center position of current window.
+ */
+ESExpResult *func_center(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+  gint xoffset, yoffset, window_width, window_height,
+    workspace_width, workspace_height;
+  int new_xoffset, new_yoffset;
+
+  /* read in window geometry */
+  wnck_window_get_geometry (c->window,
+                            &xoffset, &yoffset, &window_width, &window_height);
+
+  /* read in workspace geometry */
+  WnckScreen *screen;
+  WnckWorkspace *workspace;
+  screen           = wnck_window_get_screen (c->window);
+  workspace        = wnck_screen_get_active_workspace (screen);
+  workspace_width  = wnck_workspace_get_width  (workspace);
+  workspace_height = wnck_workspace_get_height (workspace);
+
+  /* calculate offset for upper left corner */
+  new_xoffset = (workspace_width - window_width) / 2;
+  new_yoffset = (workspace_height - window_height) / 2;
+
+  /* try to set new position.. */
+  my_wnck_error_trap_push ();
+  XMoveWindow (gdk_display,
+               wnck_window_get_xid (c->window),
+               new_xoffset, new_yoffset);
+
+  if (my_wnck_error_trap_pop ()) {
+    g_printerr (_("Centering '%s' failed\n"),
+               argv[0]->value.string);
+    return e_sexp_result_new_bool (f, FALSE);
+  }
+
+  if (debug)
+    g_printerr (_("Centering\n"));
+
+  return e_sexp_result_new_bool (f, TRUE);
+}
+
+/**
  * Make the current window fullscreen.
  */
 ESExpResult *func_fullscreen(ESExp *f, int argc, ESExpResult **argv, Context *c) {
   wnck_window_set_fullscreen (c->window, TRUE);
   if (debug) g_printerr(_("Setting fullscreen\n"));
+  return e_sexp_result_new_bool (f, TRUE);
+}
+
+/**
+ * Focus the current window.
+ */
+ESExpResult *func_focus(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+#if NEED_TIMESTAMPS
+  wnck_window_activate (c->window, GDK_CURRENT_TIME);
+#else
+  wnck_window_activate (c->window);
+#endif
+  if (debug) g_printerr (_("Focusing\n"));
   return e_sexp_result_new_bool (f, TRUE);
 }
 

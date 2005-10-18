@@ -43,12 +43,15 @@ static const struct {
   /* Matchers */
   { "window_name", func_window_name, FALSE },
   { "window_role", func_window_role, FALSE },
+  { "window_class", func_window_class, FALSE },
   { "application_name", func_application_name, FALSE },
   /* Actions */
   { "debug", func_debug, FALSE },
   { "print", func_print, FALSE },
   { "geometry", func_geometry, FALSE },
   { "fullscreen", func_fullscreen, FALSE },
+  { "focus", func_focus, FALSE },
+  { "center", func_center, FALSE },
   { "maximize", func_maximize, FALSE },
   { "maximize_vertically", func_maximize_vertically, FALSE },
   { "maximize_horizontally", func_maximize_horizontally, FALSE },

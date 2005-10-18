@@ -1,3 +1,16 @@
+2005-10-18  Ross Burton  <ross@burtonini.com>
+
+	* src/actions.c:
+	* src/actions.h:
+	Add focus and center actions.
+
+	* src/matchers.c:
+	* src/matchers.h:
+	Add window class matcher.
+	
+	* src/parser.c:
+	Update for new actions and matcher (patch from Jonas J Linde).
+
 2005-10-17  Ross Burton  <ross@burtonini.com>
 
 	* src/actions.c:

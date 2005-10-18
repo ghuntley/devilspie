@@ -17,6 +17,7 @@
  */
 
 #include <libwnck/application.h>
+#include <libwnck/class-group.h>
 #include <libwnck/window.h>
 #include <glib.h>
 #include "e-sexp.h"
@@ -60,3 +61,15 @@ ESExpResult *func_window_role(ESExp *f, int argc, ESExpResult **argv, Context *c
                                                         my_wnck_atom_get("WM_WINDOW_ROLE"));
   return r;
 }
+
+
+/**
+ * Return the class of the current window.
+ */
+ESExpResult *func_window_class(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+  ESExpResult *r;
+  r = e_sexp_result_new(f, ESEXP_RES_STRING);
+  r->value.string = g_strdup (wnck_class_group_get_res_class (wnck_window_get_class_group (c->window)));
+  return r;
+}
+

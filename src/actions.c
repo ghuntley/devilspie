@@ -371,12 +371,19 @@ ESExpResult *func_undecorate(ESExp *f, int argc, ESExpResult **argv, Context *c)
 
   hints.flags = MWM_HINTS_DECORATIONS;
   hints.decorations = 0;
-  
+
+  my_wnck_error_trap_push ();
+
   XChangeProperty(GDK_DISPLAY(), wnck_window_get_xid (c->window),
                   my_wnck_atom_get ("_MOTIF_WM_HINTS"), 
                   XA_ATOM, 32, PropModeReplace, 
                   (unsigned char *)&hints, PROP_MOTIF_WM_HINTS_ELEMENTS);
-  
+
+  if (my_wnck_error_trap_pop () != 0) {
+    g_printerr(_("Removing decorations failed"));
+    return e_sexp_result_new_bool (f, FALSE);
+  }
+
   if (debug) g_printerr(_("Removed decorations\n"));
   return e_sexp_result_new_bool (f, TRUE);
 }

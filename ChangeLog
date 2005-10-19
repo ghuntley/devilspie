@@ -1,5 +1,10 @@
 2005-10-19  Ross Burton  <ross@burtonini.com>
 
+	* src/actions.c:
+	Wrap X calls when removing decorations with error pop/push.
+
+2005-10-19  Ross Burton  <ross@burtonini.com>
+
 	* src/e-sexp.c:
 	Fix segfault when disposing (Christian Krause).
 

@@ -109,7 +109,7 @@ static ESExpTerm * parse_value(ESExp *f);
 
 static void parse_dump_term(ESExpTerm *t, int depth);
 
-static GObjectClass *parent_class;
+static GObjectClass *parent_class = NULL;
 
 static const GScannerConfig scanner_config =
 {
@@ -1089,7 +1089,7 @@ static void
 e_sexp_class_init (ESExpClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-
+	parent_class = (GObjectClass*) g_type_class_peek_parent (klass);
 	object_class->finalize = e_sexp_finalise;
 }
 

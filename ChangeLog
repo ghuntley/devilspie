@@ -1,3 +1,8 @@
+2005-10-19  Ross Burton  <ross@burtonini.com>
+
+	* src/e-sexp.c:
+	Fix segfault when disposing (Christian Krause).
+
 2005-10-18  Ross Burton  <ross@burtonini.com>
 
 	* src/actions.c:

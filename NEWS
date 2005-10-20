@@ -1,3 +1,13 @@
+Devil's Pie "Shogun's Decapitator" 0.15
+=======================================
+
+* New matcher: window class (Jonas Linde)
+* New actions: focus (JL), center (JL), print (Ryan Koppenhaver), close (RK).
+* Fix test suite (RK)
+* Don't segfault on invalid s-exp (Christian Krause)
+* Wrap X call when removing decorations with error handling
+
+
 Devil's Pie "Lazy Release" 0.14
 ===============================
 

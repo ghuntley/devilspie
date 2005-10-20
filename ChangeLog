@@ -1,5 +1,10 @@
 2005-10-20  Ross Burton  <ross@burtonini.com>
 
+	* src/actions.c:
+	Handle OpenBox specially when undecorating.
+
+2005-10-20  Ross Burton  <ross@burtonini.com>
+
 	* configure.in:
 	* NEWS:
 	Version 0.15.

@@ -37,6 +37,7 @@ ESExpResult *func_window_name(ESExp *f, int argc, ESExpResult **argv, Context *c
   ESExpResult *r;
   r = e_sexp_result_new(f, ESEXP_RES_STRING);
   r->value.string = g_strdup(wnck_window_get_name(c->window));
+  if (r->value.string == NULL) r->value.string = g_strdup("");
   return r;
 }
 
@@ -47,6 +48,7 @@ ESExpResult *func_application_name(ESExp *f, int argc, ESExpResult **argv, Conte
   ESExpResult *r;
   r = e_sexp_result_new(f, ESEXP_RES_STRING);
   r->value.string = g_strdup (wnck_application_get_name(wnck_window_get_application(c->window)));
+  if (r->value.string == NULL) r->value.string = g_strdup("");
   return r;
 }
 
@@ -59,6 +61,7 @@ ESExpResult *func_window_role(ESExp *f, int argc, ESExpResult **argv, Context *c
   r = e_sexp_result_new(f, ESEXP_RES_STRING);
   r->value.string = my_wnck_get_string_property_latin1 (wnck_window_get_xid (c->window),
                                                         my_wnck_atom_get("WM_WINDOW_ROLE"));
+  if (r->value.string == NULL) r->value.string = g_strdup("");
   return r;
 }
 
@@ -70,6 +73,7 @@ ESExpResult *func_window_class(ESExp *f, int argc, ESExpResult **argv, Context *
   ESExpResult *r;
   r = e_sexp_result_new(f, ESEXP_RES_STRING);
   r->value.string = g_strdup (wnck_class_group_get_res_class (wnck_window_get_class_group (c->window)));
+  if (r->value.string == NULL) r->value.string = g_strdup("");
   return r;
 }
 

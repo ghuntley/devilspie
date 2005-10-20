@@ -5,6 +5,7 @@ Devil's Pie "Shogun's Decapitator" 0.15
 * New actions: focus (JL), center (JL), print (Ryan Koppenhaver), close (RK).
 * Fix test suite (RK)
 * Don't segfault on invalid s-exp (Christian Krause)
+* Never return NULL from a matcher
 * Wrap X call when removing decorations with error handling
 
 

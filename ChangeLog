@@ -4,6 +4,11 @@
 	* NEWS:
 	Version 0.15.
 
+2005-10-20  Ross Burton  <ross@burtonini.com>
+
+	* src/matchers.c:
+	Protect against returning NULL, return empty string instead.
+
 2005-10-19  Ross Burton  <ross@burtonini.com>
 
 	* src/actions.c:

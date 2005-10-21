@@ -1,3 +1,8 @@
+2005-10-21  Ross Burton  <ross@burtonini.com>
+
+	* src/actions.c:
+	Fix undecorate action (Mikachu).
+
 2005-10-20  Ross Burton  <ross@burtonini.com>
 
 	* src/actions.c:

@@ -377,7 +377,7 @@ ESExpResult *func_undecorate(ESExp *f, int argc, ESExpResult **argv, Context *c)
   /* Set Motif hints, most window managers handle these */
   XChangeProperty(GDK_DISPLAY(), wnck_window_get_xid (c->window),
                   my_wnck_atom_get ("_MOTIF_WM_HINTS"), 
-                  XA_ATOM, 32, PropModeReplace, 
+                  my_wnck_atom_get ("_MOTIF_WM_HINTS"), 32, PropModeReplace, 
                   (unsigned char *)&hints, PROP_MOTIF_WM_HINTS_ELEMENTS);
 
   /* Apart from OpenBox, which doesn't respect it changing after mapping.

@@ -173,7 +173,7 @@ e_sexp_error(ESExp *f)
 ESExpResult *
 e_sexp_result_new	(ESExp *f, ESExpResultType type)
 {
-	ESExpResult *r = g_mem_chunk_alloc0(f->result_chunks);
+	ESExpResult *r = g_slice_new0 (ESExpResult);
 	r->type = type;
 	return r;
 }
@@ -208,7 +208,7 @@ e_sexp_result_free(ESExp *f, ESExpResult *t)
 	default:
 		g_assert_not_reached();
 	}
-	g_mem_chunk_free(f->result_chunks, t);
+	g_slice_free (ESExpResult, t);
 }
 
 /* used in normal functions if they have to abort, and free their arguments */
@@ -815,7 +815,7 @@ parse_dump_term(ESExpTerm *t, int depth)
 static ESExpTerm *
 parse_term_new(ESExp *f, int type)
 {
-	ESExpTerm *s = g_mem_chunk_alloc0(f->term_chunks);
+	ESExpTerm *s = g_slice_new0 (ESExpTerm);
 	s->type = type;
 	return s;
 }
@@ -851,7 +851,7 @@ parse_term_free(ESExp *f, ESExpTerm *t)
 	default:
 		g_warning("parse_term_free: unknown type: %d", t->type);
 	}
-	g_mem_chunk_free(f->term_chunks, t);
+	g_slice_free(ESExpTerm, t);
 }
 
 static ESExpTerm **
@@ -1057,9 +1057,6 @@ e_sexp_finalise(GObject *o)
 		s->tree = NULL;
 	}
 
-	g_mem_chunk_destroy(s->term_chunks);
-	g_mem_chunk_destroy(s->result_chunks);
-
 	g_scanner_scope_foreach_symbol(s->scanner, 0, free_symbol, 0);
 	g_scanner_destroy(s->scanner);
 
@@ -1072,8 +1069,6 @@ e_sexp_init (ESExp *s)
 	int i;
 
 	s->scanner = g_scanner_new(&scanner_config);
-	s->term_chunks = g_mem_chunk_create(ESExpTerm, 16, G_ALLOC_AND_FREE);
-	s->result_chunks = g_mem_chunk_create(ESExpResult, 16, G_ALLOC_AND_FREE);
 
 	/* load in builtin symbols? */
 	for(i=0;i<sizeof(symbols)/sizeof(symbols[0]);i++) {

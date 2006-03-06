@@ -99,11 +99,6 @@ struct _ESExp {
 	/* private stuff */
 	jmp_buf failenv;
 	char *error;
-	
-	/* TODO: may also need a pool allocator for term strings, so we dont lose them
-	   in error conditions? */
-	GMemChunk *term_chunks;
-	GMemChunk *result_chunks;
 };
 
 struct _ESExpClass {

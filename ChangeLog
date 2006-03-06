@@ -1,5 +1,11 @@
 2006-03-06  Ross Burton  <ross@burtonini.com>
 
+	* configure.in:
+	* NEWS:
+	Version 0.17.
+
+2006-03-06  Ross Burton  <ross@burtonini.com>
+
 	* src/e-sexp.h:
 	* src/e-sexp.c:
 	Port to use GSlice rather than GMemChunk.

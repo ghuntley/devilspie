@@ -27,7 +27,7 @@ AM_GLIB_GNU_GETTEXT
 
 # Check that we actually have the libraries required to build
 PKG_CHECK_MODULES(WNCK,
-        glib-2.0 >= 2.6
+        glib-2.0 >= 2.9.1
         gdk-2.0
         libwnck-1.0 >= 0.17)
 AC_SUBST(WNCK_CFLAGS)

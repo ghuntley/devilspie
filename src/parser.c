@@ -68,6 +68,8 @@ static const struct {
   { "below", func_below, FALSE },
   { "undecorate", func_undecorate, FALSE },
   { "wintype", func_wintype, FALSE },
+  { "opacity", func_opacity, FALSE },
+
 };
 
 /**

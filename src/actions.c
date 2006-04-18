@@ -490,3 +490,27 @@ ESExpResult *func_wintype(ESExp *f, int argc, ESExpResult **argv, Context *c) {
   if (debug) g_printerr(_("Set wintype\n"));
   return e_sexp_result_new_bool (f, TRUE);
 }
+
+ESExpResult *func_opacity(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+	int opacity;
+	unsigned int v;
+
+	if (argc!=1 || argv[0]->type != ESEXP_RES_INT) {
+		g_printerr(_("opacity expects a single integer argument\n"));
+		return e_sexp_result_new_bool (f, FALSE);
+	}
+	opacity=argv[0]->value.number;
+	if (opacity < 0 || opacity > 100) {
+		g_printerr(_("opacity expects a single integer argument between 0 and 100\n"));
+		return e_sexp_result_new_bool (f, FALSE);
+	}
+	my_wnck_error_trap_push ();
+	v=0xffffffff/100*opacity;
+	XChangeProperty (GDK_DISPLAY(), wnck_window_get_xid(c->window),
+		my_wnck_atom_get ("_NET_WM_WINDOW_OPACITY"),
+		XA_CARDINAL, 32, PropModeReplace, (guchar *)&v, 1);
+
+	my_wnck_error_trap_pop ();
+	return e_sexp_result_new_bool (f, TRUE);
+}
+

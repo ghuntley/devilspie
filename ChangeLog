@@ -1,3 +1,10 @@
+2006-04-18  Ross Burton  <ross@burtonini.com>
+
+	* src/actions.c:
+	* src/actions.h:
+	* src/parser.c:
+	Port the opacity action (thanks to Pavel Palat)
+
 2006-03-07  Ross Burton  <ross@burtonini.com>
 
 	* configure.in:

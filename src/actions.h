@@ -50,4 +50,6 @@ ESExpResult *func_undecorate(ESExp *f, int argc, ESExpResult **argv, Context *c)
 
 ESExpResult *func_wintype(ESExp *f, int argc, ESExpResult **argv, Context *c);
 
+ESExpResult *func_opacity(ESExp *f, int argc, ESExpResult **argv, Context *c);
+
 #endif /* _ACTIONS_H */

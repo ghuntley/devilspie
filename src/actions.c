@@ -199,7 +199,6 @@ ESExpResult *func_focus(ESExp *f, int argc, ESExpResult **argv, Context *c) {
  * Maximise the current window.
  */
 ESExpResult *func_maximize(ESExp *f, int argc, ESExpResult **argv, Context *c) {
-  /* TODO: take an boolean to unmaximize */
   wnck_window_maximize (c->window);
   if (debug) g_printerr(_("Maximising\n"));
   return e_sexp_result_new_bool (f, TRUE);
@@ -209,7 +208,6 @@ ESExpResult *func_maximize(ESExp *f, int argc, ESExpResult **argv, Context *c) {
  * Maximise vertically the current window.
  */
 ESExpResult *func_maximize_vertically(ESExp *f, int argc, ESExpResult **argv, Context *c) {
-  /* TODO: take an boolean to unmaximize_vertically */
   wnck_window_maximize_vertically (c->window);
   if (debug) g_printerr(_("Maximising vertically\n"));
   return e_sexp_result_new_bool (f, TRUE);
@@ -219,7 +217,6 @@ ESExpResult *func_maximize_vertically(ESExp *f, int argc, ESExpResult **argv, Co
  * Maximise horizontally the current window.
  */
 ESExpResult *func_maximize_horizontally(ESExp *f, int argc, ESExpResult **argv, Context *c) {
-  /* TODO: take an boolean to unmaximize_horizontally */
   wnck_window_maximize_horizontally (c->window);
   if (debug) g_printerr(_("Maximising horizontally\n"));
   return e_sexp_result_new_bool (f, TRUE);
@@ -229,9 +226,21 @@ ESExpResult *func_maximize_horizontally(ESExp *f, int argc, ESExpResult **argv, 
  * Minimise the current window.
  */
 ESExpResult *func_minimize(ESExp *f, int argc, ESExpResult **argv, Context *c) {
-  /* TODO: take an boolean to unminimize */
   wnck_window_minimize (c->window);
   if (debug) g_printerr(_("Minimising\n"));
+  return e_sexp_result_new_bool (f, TRUE);
+}
+
+/**
+ * Un-minimise (i.e. restore) the current window.
+ */
+ESExpResult *func_unminimize(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+#if NEED_TIMESTAMPS
+  wnck_window_unminimize (c->window, GDK_CURRENT_TIME);
+#else
+  wnck_window_unminimize (c->window);
+#endif
+  if (debug) g_printerr(_("Un-minimising\n"));
   return e_sexp_result_new_bool (f, TRUE);
 }
 

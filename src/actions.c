@@ -95,6 +95,7 @@ ESExpResult *func_geometry(ESExp *f, int argc, ESExpResult **argv, Context *c) {
   gint xoffset, yoffset, width, height;
   int retmask, new_xoffset, new_yoffset;
   unsigned int new_width, new_height;
+  WnckScreen *screen;
 
   if (argc < 1 || argv[0]->type != ESEXP_RES_STRING)
     return e_sexp_result_new_bool (f, FALSE); 
@@ -111,6 +112,12 @@ ESExpResult *func_geometry(ESExp *f, int argc, ESExpResult **argv, Context *c) {
   new_yoffset = (retmask & YValue)      ? new_yoffset : yoffset;
   new_width   = (retmask & WidthValue)  ? new_width   : width;
   new_height  = (retmask & HeightValue) ? new_height  : height;
+
+  screen      = wnck_window_get_screen (c->window);
+  if (retmask & XNegative)
+    new_xoffset = wnck_screen_get_width(screen) + new_xoffset - new_width;
+  if (retmask & YNegative)
+    new_yoffset = wnck_screen_get_height(screen) + new_yoffset - new_height;
 
   /* try to set new position.. */
   my_wnck_error_trap_push ();

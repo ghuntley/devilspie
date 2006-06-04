@@ -1,3 +1,9 @@
+2006-06-04  Ross Burton  <ross@burtonini.com>
+
+	* src/actions.c:
+	Fix (geometry) to handle negative offsets (#330067, Vincent Ho and
+	Midred)
+
 2006-05-22  Ross Burton  <ross@burtonini.com>
 
 	* src/action.[ch]:

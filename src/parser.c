@@ -62,6 +62,8 @@ static const struct {
   { "close", func_close, FALSE },
   { "pin", func_pin, FALSE },
   { "unpin", func_unpin, FALSE },
+  { "stick", func_stick, FALSE },
+  { "unstick", func_unstick, FALSE },
   { "set_workspace", func_set_workspace, FALSE },
   { "skip_pager", func_skip_pager, FALSE },
   { "skip_tasklist", func_skip_tasklist, FALSE },

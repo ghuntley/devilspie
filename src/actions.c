@@ -301,6 +301,24 @@ ESExpResult *func_unpin(ESExp *f, int argc, ESExpResult **argv, Context *c) {
 }
 
 /**
+ * Make the current window stick to all viewports
+ */
+ESExpResult *func_stick(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+  wnck_window_stick (c->window);
+  if (debug) g_printerr(_("Setting sticky\n"));
+  return e_sexp_result_new_bool (f, TRUE);
+}
+
+/**
+ * Unstick the window from viewports
+ */
+ESExpResult *func_unstick(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+  wnck_window_unstick (c->window);
+  if (debug) g_printerr(_("Unsetting sticky\n"));
+  return e_sexp_result_new_bool (f, TRUE);
+}
+
+/**
  * Move the window to a specific workspace number, counting from 1.
  */
 ESExpResult *func_set_workspace(ESExp *f, int argc, ESExpResult **argv, Context *c) {

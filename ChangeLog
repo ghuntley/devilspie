@@ -1,3 +1,9 @@
+2006-07-04  Ross Burton  <ross@burtonini.com>
+
+	* src/actions.[ch]:
+	* src/parser.c:
+	Add sticky action (#345902, Steve Leung)
+
 2006-06-04  Ross Burton  <ross@burtonini.com>
 
 	* src/actions.c:

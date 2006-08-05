@@ -39,7 +39,7 @@ msgstr "Maximiert"
 #: ../src/actions.c:62
 #, fuzzy
 msgid "Maximising vertically\n"
-msgstr "Vertikal minimiert"
+msgstr "Vertikal maximiert"
 
 #: ../src/actions.c:68
 #, fuzzy

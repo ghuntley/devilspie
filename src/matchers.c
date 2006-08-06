@@ -20,6 +20,7 @@
 #include <libwnck/class-group.h>
 #include <libwnck/window.h>
 #include <glib.h>
+#include <glib/gi18n.h>
 #include "e-sexp.h"
 #include "xutils.h"
 #include "devilspie.h"
@@ -77,3 +78,22 @@ ESExpResult *func_window_class(ESExp *f, int argc, ESExpResult **argv, Context *
   return r;
 }
 
+
+/**
+ * Returns the given property of the window, e.g. pass "_NET_WM_STATE".
+ */
+ESExpResult *func_window_property(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+  ESExpResult *r;
+  r = e_sexp_result_new(f, ESEXP_RES_STRING);
+
+  if (argc != 1 || argv[0]->type != ESEXP_RES_STRING) {
+    g_printerr(_("window_property expects one string argument\n"));
+  } else {
+    r->value.string = my_wnck_get_string_property_latin1 (wnck_window_get_xid (c->window),
+                                                          my_wnck_atom_get(argv[0]->value.string));
+  }
+
+  if (r->value.string == NULL) r->value.string = g_strdup("");
+
+  return r;
+}

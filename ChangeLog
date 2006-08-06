@@ -1,3 +1,16 @@
+2006-08-06  Ross Burton  <ross@burtonini.com>
+
+	* src/xutils.c:
+	Generalise my_wnck_get_string_property_latin1() to handle atoms,
+	and coerce them to strings as required.
+
+	* src/matchers.[ch]:
+	* src/parser.c:
+	Add window_property action to return the value of an arbitrary
+	property on the window.
+
+	Patch from Nigel Tao (#348378).
+
 2006-07-04  Ross Burton  <ross@burtonini.com>
 
 	* src/actions.[ch]:

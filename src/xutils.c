@@ -112,33 +112,63 @@ my_wnck_get_string_property_latin1 (Window  xwindow,
   int format;
   gulong nitems;
   gulong bytes_after;
-  unsigned char *str;
+  unsigned char *property;
   int err, result;
   char *retval;
+  int i;
+  long *pp;
+  char* prop_name;
+  char** prop_names;
   
   my_wnck_error_trap_push ();
-  str = NULL;
+  property = NULL;
   result = XGetWindowProperty (gdk_display,
 			       xwindow, atom,
 			       0, G_MAXLONG,
-			       False, XA_STRING, &type, &format, &nitems,
-			       &bytes_after, &str);
+			       False, AnyPropertyType, &type, &format, &nitems,
+			       &bytes_after, &property);
 
   err = my_wnck_error_trap_pop ();
   if (err != Success ||
       result != Success)
     return NULL;
   
-  if (type != XA_STRING)
+  retval = NULL;
+  
+  if (type == XA_STRING)
     {
-      XFree (str);
-      return NULL;
+      retval = g_strdup ((char*)property);
     }
-
-  retval = g_strdup ((char*)str);
+  else if (type == XA_ATOM && nitems > 0 && format == 32)
+    {
+      pp = (long *)property;  // we can assume (long *) since format == 32
+      if (nitems == 1)
+        {
+          prop_name = XGetAtomName (gdk_display, *pp);
+          if (prop_name)
+            {
+              retval = g_strdup (prop_name);
+              XFree (prop_name);
+            }
+        }
+      else
+        {
+          prop_names = g_new (char *, nitems + 1);
+          prop_names[nitems] = NULL;
+          for (i=0; i < nitems; i++)
+            {
+              prop_names[i] = XGetAtomName (gdk_display, *pp++);
+            }
+          retval = g_strjoinv (", ", prop_names);
+          for (i=0; i < nitems; i++)
+            {
+              if (prop_names[i]) XFree (prop_names[i]);
+            }
+          g_free (prop_names);
+        }
+    }
   
-  XFree (str);
-  
+  XFree (property);
   return retval;
 }
 

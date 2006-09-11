@@ -1,3 +1,9 @@
+2006-09-11  Ross Burton  <ross@burtonini.com>
+
+	* src/actions.[ch]:
+	* src/parser.c:
+	Add unmaximise action (thanks Alex Menk).
+
 2006-08-06  Ross Burton  <ross@burtonini.com>
 
 	* src/xutils.c:

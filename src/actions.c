@@ -230,6 +230,15 @@ ESExpResult *func_maximize_horizontally(ESExp *f, int argc, ESExpResult **argv, 
 }
 
 /**
+ * Un-maximise the current window.
+ */
+ESExpResult *func_unmaximize(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+  wnck_window_unmaximize (c->window);
+  if (debug) g_printerr(_("Un-maximising\n"));
+  return e_sexp_result_new_bool (f, TRUE);
+}
+
+/**
  * Minimise the current window.
  */
 ESExpResult *func_minimize(ESExp *f, int argc, ESExpResult **argv, Context *c) {

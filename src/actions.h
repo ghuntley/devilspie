@@ -31,6 +31,7 @@ ESExpResult *func_center(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_maximize(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_maximize_vertically(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_maximize_horizontally(ESExp *f, int argc, ESExpResult **argv, Context *c);
+ESExpResult *func_unmaximize(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_minimize(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_unminimize(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_shade(ESExp *f, int argc, ESExpResult **argv, Context *c);

@@ -56,6 +56,7 @@ static const struct {
   { "maximize", func_maximize, FALSE },
   { "maximize_vertically", func_maximize_vertically, FALSE },
   { "maximize_horizontally", func_maximize_horizontally, FALSE },
+  { "unmaximize", func_unmaximize, FALSE },
   { "minimize", func_minimize, FALSE },
   { "unminimize", func_unminimize, FALSE },
   { "shade", func_shade, FALSE },

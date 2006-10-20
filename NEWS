@@ -1,3 +1,15 @@
+Devil's Pie "Simmer To A Sizzle Like The Days Of Old" 0.18
+==========================================================
+
+* Add window_property matcher (Nigel Tao)
+* Add set_viewport action (James Willcox)
+* Add opacity action (Pavel Palat)
+* Add sticky action (Steve Leung)
+* Add unmaximise action (Alex Menk)
+* Add unminimise action (Richard Neill)
+* Fix negative offsets in geometry action (Vincent Ho, Midred)
+
+
 Devil's Pie "Out Of Gas, Still Burning" 0.17.1
 ==============================================
 

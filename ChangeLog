@@ -1,5 +1,11 @@
 2006-10-20  Ross Burton  <ross@burtonini.com>
 
+	* configure.in:
+	* NEWS:
+	Version 0.18.
+
+2006-10-20  Ross Burton  <ross@burtonini.com>
+
 	* src/actions.[ch]:
 	* src/parser.c:
 	Add set viewport action (thanks James Willcox).  Also remove the

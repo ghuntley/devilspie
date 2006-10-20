@@ -355,6 +355,44 @@ ESExpResult *func_set_workspace(ESExp *f, int argc, ESExpResult **argv, Context 
 }
 
 /**
+ * Move the window to a specific viewport number, counting from 1
+ */
+ESExpResult *func_set_viewport(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+  WnckScreen *screen;
+  int num, x, y, width, height, viewport_start;
+
+  if (argc != 1 || argv[0]->type != ESEXP_RES_INT) {
+    g_printerr(_("set_viewport expects a single integer argument\n"));
+    return e_sexp_result_new_bool (f, FALSE);
+  }
+
+  num = argv[0]->value.number;
+
+  if (num <= 0) {
+    g_printerr(_("set_viewport expects an integer greater than 0\n"));
+    return e_sexp_result_new_bool (f, FALSE);
+  }
+
+  screen = wnck_window_get_screen(c->window);
+
+  wnck_window_get_geometry(c->window, &x, &y, &width, &height);
+
+  viewport_start = my_wnck_get_viewport_start(c->window);
+  if (viewport_start < 0) {
+    g_printerr(_("could not find current viewport\n"));
+    return e_sexp_result_new_bool (f, FALSE);
+  }
+  
+  x = ((num - 1) * wnck_screen_get_width (screen)) - viewport_start + x;
+
+  wnck_window_set_geometry(c->window, WNCK_WINDOW_GRAVITY_CURRENT,
+                          WNCK_WINDOW_CHANGE_X, x, 0, 0, 0);
+  
+  if (debug) g_printerr(_("Changing viewport to %d\n"), num);
+  return e_sexp_result_new_bool (f, TRUE);
+}
+
+/**
  * Remove the current window from the window list.
  */
 ESExpResult *func_skip_tasklist(ESExp *f, int argc, ESExpResult **argv, Context *c) {
@@ -438,59 +476,6 @@ ESExpResult *func_undecorate(ESExp *f, int argc, ESExpResult **argv, Context *c)
   return e_sexp_result_new_bool (f, TRUE);
 }
 
-#if ! HAVE_SET_WINDOW_TYPE
-/*
- * This function is only available in recent libwncks, so include it here if it
- * isn't present.
- */
-static void my_wnck_window_set_window_type (WnckWindow *window, WnckWindowType wintype)
-{
-  Atom atom;
-
-  g_return_if_fail (WNCK_IS_WINDOW (window));
-
-  switch (wintype) {
-  case WNCK_WINDOW_NORMAL:
-    atom = my_wnck_atom_get ("_NET_WM_WINDOW_TYPE_NORMAL");
-    break;
-  case WNCK_WINDOW_DESKTOP:
-    atom = my_wnck_atom_get ("_NET_WM_WINDOW_TYPE_DESKTOP");
-    break;
-  case WNCK_WINDOW_DOCK:
-    atom = my_wnck_atom_get ("_NET_WM_WINDOW_TYPE_DOCK");
-    break;
-  case WNCK_WINDOW_DIALOG:
-    atom = my_wnck_atom_get ("_NET_WM_WINDOW_TYPE_DIALOG");
-    break;
-  case WNCK_WINDOW_MODAL_DIALOG:
-    atom = my_wnck_atom_get ("_NET_WM_WINDOW_TYPE_MODAL_DIALOG");
-    break;
-  case WNCK_WINDOW_TOOLBAR:
-    atom = my_wnck_atom_get ("_NET_WM_WINDOW_TYPE_TOOLBAR");
-    break;
-  case WNCK_WINDOW_MENU:
-    atom = my_wnck_atom_get ("_NET_WM_WINDOW_TYPE_MENU");
-    break;
-  case WNCK_WINDOW_UTILITY:
-    atom = my_wnck_atom_get ("_NET_WM_WINDOW_TYPE_UTILITY");
-    break;
-  case WNCK_WINDOW_SPLASHSCREEN:
-    atom = my_wnck_atom_get ("_NET_WM_WINDOW_TYPE_SPLASHSCREEN");
-    break;
-  default:
-    return;
-  }
-  my_wnck_error_trap_push ();
-
-  XChangeProperty (GDK_DISPLAY(), wnck_window_get_xid(window),
-                   my_wnck_atom_get ("_NET_WM_WINDOW_TYPE"),
-                   XA_ATOM, 32, PropModeReplace, (guchar *)&atom, 1);
-
-  my_wnck_error_trap_pop ();
-}
-#define wnck_window_set_window_type(a, b) my_wnck_window_set_window_type(a, b)
-#endif
-
 /**
  * Set the window type of the current window.
  *
@@ -556,4 +541,3 @@ ESExpResult *func_opacity(ESExp *f, int argc, ESExpResult **argv, Context *c) {
 	my_wnck_error_trap_pop ();
 	return e_sexp_result_new_bool (f, TRUE);
 }
-

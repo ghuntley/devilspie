@@ -1,3 +1,15 @@
+2006-10-20  Ross Burton  <ross@burtonini.com>
+
+	* src/actions.[ch]:
+	* src/parser.c:
+	Add set viewport action (thanks James Willcox).  Also remove the
+	my_wnck functions.
+
+	* src/xutils.[ch]:
+	Add my_wnck_get_cardinal_list() and my_wnck_get_viewport_start()
+	(thanks James).  Also add the my_wnck functions moved from
+	actions.c.
+
 2006-09-11  Ross Burton  <ross@burtonini.com>
 
 	* src/actions.[ch]:

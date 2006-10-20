@@ -19,6 +19,7 @@
 #ifndef WNCK_XUTILS_H
 #define WNCK_XUTILS_H
 
+#include <config.h>
 #include <glib.h>
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
@@ -39,6 +40,17 @@ int my_wnck_error_trap_pop (void);
 char* my_wnck_get_string_property_latin1 (Window  xwindow, Atom atom);
 
 Screen* my_wnck_window_get_xscreen (WnckWindow *window);
+
+gboolean my_wnck_get_cardinal_list (Window xwindow, Atom atom,
+                                   gulong **cardinals, int *len);
+
+int my_wnck_get_viewport_start (WnckWindow *win);
+
+#if ! HAVE_SET_WINDOW_TYPE
+/* Old libwnck doesn't have this, so possibly declare it */
+void my_wnck_window_set_window_type (WnckWindow *window, WnckWindowType wintype);
+#define wnck_window_set_window_type(a, b) my_wnck_window_set_window_type(a, b)
+#endif
 
 G_END_DECLS
 

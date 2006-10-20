@@ -183,3 +183,115 @@ my_wnck_window_get_xscreen (WnckWindow *window)
 
    return attrs.screen;
 }
+
+gboolean
+my_wnck_get_cardinal_list (Window   xwindow,
+                          Atom     atom,
+                          gulong **cardinals,
+                          int     *len)
+{
+  Atom type;
+  int format;
+  gulong nitems;
+  gulong bytes_after;
+  gulong *nums;
+  int err, result;
+
+  *cardinals = NULL;
+  *len = 0;
+  
+  my_wnck_error_trap_push ();
+  type = None;
+  result = XGetWindowProperty (gdk_display,
+                              xwindow,
+                              atom,
+                              0, G_MAXLONG,
+                              False, XA_CARDINAL, &type, &format, &nitems,
+                              &bytes_after, (void*)&nums);  
+  err = my_wnck_error_trap_pop ();
+  if (err != Success ||
+      result != Success)
+    return FALSE;
+  
+  if (type != XA_CARDINAL)
+    {
+      XFree (nums);
+      return FALSE;
+    }
+
+  *cardinals = g_new (gulong, nitems);
+  memcpy (*cardinals, nums, sizeof (gulong) * nitems);
+  *len = nitems;
+  
+  XFree (nums);
+
+  return TRUE;
+}
+
+int
+my_wnck_get_viewport_start (WnckWindow *win)
+{
+  gulong *list;
+  int len;
+
+  my_wnck_get_cardinal_list (RootWindowOfScreen (my_wnck_window_get_xscreen (win)),
+                            my_wnck_atom_get ("_NET_DESKTOP_VIEWPORT"), &list, &len);
+
+  if (len > 0) {
+    return list[0];
+  } else {
+    return -1;
+  }
+}
+
+#if ! HAVE_SET_WINDOW_TYPE
+/*
+ * This function is only available in recent libwncks, so define it here if it
+ * isn't present.
+ */
+void my_wnck_window_set_window_type (WnckWindow *window, WnckWindowType wintype)
+{
+  Atom atom;
+
+  g_return_if_fail (WNCK_IS_WINDOW (window));
+
+  switch (wintype) {
+  case WNCK_WINDOW_NORMAL:
+    atom = my_wnck_atom_get ("_NET_WM_WINDOW_TYPE_NORMAL");
+    break;
+  case WNCK_WINDOW_DESKTOP:
+    atom = my_wnck_atom_get ("_NET_WM_WINDOW_TYPE_DESKTOP");
+    break;
+  case WNCK_WINDOW_DOCK:
+    atom = my_wnck_atom_get ("_NET_WM_WINDOW_TYPE_DOCK");
+    break;
+  case WNCK_WINDOW_DIALOG:
+    atom = my_wnck_atom_get ("_NET_WM_WINDOW_TYPE_DIALOG");
+    break;
+  case WNCK_WINDOW_MODAL_DIALOG:
+    atom = my_wnck_atom_get ("_NET_WM_WINDOW_TYPE_MODAL_DIALOG");
+    break;
+  case WNCK_WINDOW_TOOLBAR:
+    atom = my_wnck_atom_get ("_NET_WM_WINDOW_TYPE_TOOLBAR");
+    break;
+  case WNCK_WINDOW_MENU:
+    atom = my_wnck_atom_get ("_NET_WM_WINDOW_TYPE_MENU");
+    break;
+  case WNCK_WINDOW_UTILITY:
+    atom = my_wnck_atom_get ("_NET_WM_WINDOW_TYPE_UTILITY");
+    break;
+  case WNCK_WINDOW_SPLASHSCREEN:
+    atom = my_wnck_atom_get ("_NET_WM_WINDOW_TYPE_SPLASHSCREEN");
+    break;
+  default:
+    return;
+  }
+  my_wnck_error_trap_push ();
+
+  XChangeProperty (GDK_DISPLAY(), wnck_window_get_xid(window),
+                   my_wnck_atom_get ("_NET_WM_WINDOW_TYPE"),
+                   XA_ATOM, 32, PropModeReplace, (guchar *)&atom, 1);
+
+  my_wnck_error_trap_pop ();
+}
+#endif

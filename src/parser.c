@@ -46,6 +46,7 @@ static const struct {
   { "window_class", func_window_class, FALSE },
   { "application_name", func_application_name, FALSE },
   { "window_property", func_window_property, FALSE },
+  { "window_workspace", func_window_workspace, FALSE},
   /* Actions */
   { "debug", func_debug, FALSE },
   { "print", func_print, FALSE },

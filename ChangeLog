@@ -1,3 +1,15 @@
+2006-11-20  Ross Burton  <ross@burtonini.com>
+
+	* src/xutils.[ch]:
+	Add my_wnck_get_cardinal().
+
+	* src/matchers.[ch]:
+	* src/parser.c:
+	Add window_workspace matcher, which returns the workspace number
+	for the current window.
+
+	Thanks to Andrew Yates.
+
 2006-10-20  Ross Burton  <ross@burtonini.com>
 
 	* configure.in:

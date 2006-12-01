@@ -1,3 +1,9 @@
+2006-12-01  Ross Burton  <ross@burtonini.com>
+
+	* src/actions.c:
+	Don't use wnck_window_set_geometry, that doesn't exist in GNOME
+	2.14 (#381233)
+
 2006-11-20  Ross Burton  <ross@burtonini.com>
 
 	* src/xutils.[ch]:

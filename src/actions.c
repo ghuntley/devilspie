@@ -385,8 +385,14 @@ ESExpResult *func_set_viewport(ESExp *f, int argc, ESExpResult **argv, Context *
   
   x = ((num - 1) * wnck_screen_get_width (screen)) - viewport_start + x;
 
-  wnck_window_set_geometry(c->window, WNCK_WINDOW_GRAVITY_CURRENT,
-                          WNCK_WINDOW_CHANGE_X, x, 0, 0, 0);
+  my_wnck_error_trap_push ();
+  XMoveResizeWindow (gdk_display,
+                     wnck_window_get_xid (c->window),
+                     x, y, width, height);
+  if (my_wnck_error_trap_pop ()) {
+    g_printerr(_("Setting viewport failed\n"));
+    return e_sexp_result_new_bool (f, FALSE);
+  }
   
   if (debug) g_printerr(_("Changing viewport to %d\n"), num);
   return e_sexp_result_new_bool (f, TRUE);

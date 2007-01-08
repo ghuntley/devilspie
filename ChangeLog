@@ -1,5 +1,10 @@
 2007-01-08  Ross Burton  <ross@burtonini.com>
 
+	* src/matchers.h:
+	Add missing func_window_workspace.
+
+2007-01-08  Ross Burton  <ross@burtonini.com>
+
 	* src/e-sexp.c:
 	Use gi18n.h (thanks David Decotigny)
 

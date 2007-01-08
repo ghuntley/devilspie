@@ -635,3 +635,136 @@ ESExpResult *func_opacity(ESExp *f, int argc, ESExpResult **argv, Context *c) {
 	my_wnck_error_trap_pop ();
 	return e_sexp_result_new_bool (f, TRUE);
 }
+
+/**
+ * Execute a command in the foreground (returns command output as
+ * string, or FALSE on error). Command is given as a single string, or
+ * as a series of strings (similar to execl).
+ */
+ESExpResult *func_spawn_sync(ESExp *f, int argc, ESExpResult **argv, Context *c)
+{
+  gboolean spawn_result;
+  gint exit_status = 0;
+  gchar * stdout_contents = NULL;
+  GError * errs = NULL;
+  ESExpResult *r;
+
+  if (argc < 1)
+    return e_sexp_result_new_bool (f, FALSE);
+
+  if (argc == 1) {
+    if (debug) g_printerr(_("spawn_sync(string)\n"));
+    if (argv[0]->type != ESEXP_RES_STRING) {
+      g_printerr(_("spawn_sync: Command parameter is not a string"));
+      return e_sexp_result_new_bool (f, FALSE);
+    }
+    
+    spawn_result = g_spawn_command_line_sync(argv[0]->value.string,
+					     & stdout_contents, NULL,
+					     & exit_status, & errs);
+  }
+  else {
+    /* Build spawn arguments */
+    gchar ** spawn_args = g_new(char*, argc+1);
+    int i;
+
+    if (debug) g_printerr(_("spawn_sync(list)\n"));
+
+    if (! spawn_args)
+      return e_sexp_result_new_bool (f, FALSE);
+
+    for (i = 0 ; i < argc ; i ++) {
+      if (argv[i]->type != ESEXP_RES_STRING) {
+	g_printerr(_("spawn_sync: Command parameter %d is not a string"), i);
+	g_free(spawn_args);
+	return e_sexp_result_new_bool (f, FALSE);
+      }
+      
+      spawn_args[i] = argv[i]->value.string;
+    }
+    spawn_args[i] = NULL;
+
+    spawn_result = g_spawn_sync(NULL, spawn_args, NULL, G_SPAWN_SEARCH_PATH,
+				NULL, NULL, &stdout_contents, NULL,
+				& exit_status, & errs);
+    g_free(spawn_args);
+  }
+
+  if (! spawn_result) {
+    if (errs && errs->message)
+      g_printerr(_("Error spawning child process (fg): %s\n"), errs->message);
+    else
+      g_printerr(_("Error spawning child process (fg).\n"));
+  }
+  if (exit_status)
+    g_printerr(_("Warning: child process returned %d\n"), exit_status);
+
+  if (! stdout_contents)
+      return e_sexp_result_new_bool (f, spawn_result);
+
+  r = e_sexp_result_new(f, ESEXP_RES_STRING);
+  r->value.string = stdout_contents;
+  return r;
+}
+
+/**
+ * Execute a command in the background (returns boolean). Command is
+ * given as a single string, or as a series of strings (similar to
+ * execl).
+ */
+ESExpResult *func_spawn_async(ESExp *f, int argc, ESExpResult **argv, Context *c)
+{
+  gboolean spawn_result;
+  GError * errs = NULL;
+
+  if (argc < 1)
+    return e_sexp_result_new_bool (f, FALSE);
+
+  if (argc == 1) {
+    if (debug) g_printerr(_("spawn_async(string)\n"));
+    if (argv[0]->type != ESEXP_RES_STRING) {
+      g_printerr(_("spawn_async: Command parameter is not a string"));
+      return e_sexp_result_new_bool (f, FALSE);
+    }
+    
+    spawn_result = g_spawn_command_line_async(argv[0]->value.string, & errs);
+  }
+  else {
+    /* Build spawn arguments */
+    gchar ** spawn_args = g_new(char*, argc+1);
+    int i;
+    GPid child_pid;
+
+    if (debug) g_printerr(_("spawn_async(list)\n"));
+
+    if (! spawn_args)
+      return e_sexp_result_new_bool (f, FALSE);
+
+    for (i = 0 ; i < argc ; i ++) {
+      if (argv[i]->type != ESEXP_RES_STRING) {
+	g_printerr(_("spawn_async: Command parameter %d is not a string"), i);
+	g_free(spawn_args);
+	return e_sexp_result_new_bool (f, FALSE);
+      }
+      
+      spawn_args[i] = argv[i]->value.string;
+    }
+    spawn_args[i] = NULL;
+
+    spawn_result = g_spawn_async(NULL, spawn_args, NULL, G_SPAWN_SEARCH_PATH,
+				 NULL, NULL, &child_pid, & errs);
+    g_free(spawn_args);
+
+    if (spawn_result && debug) g_printerr(_("Spawned pid %u (bg)\n"),
+					  child_pid);
+  }
+
+  if (! spawn_result) {
+    if (errs && errs->message)
+      g_printerr(_("Error spawning child process (bg): %s\n"), errs->message);
+    else
+      g_printerr(_("Error spawning child process (bg).\n"));
+  }
+  
+  return e_sexp_result_new_bool (f, spawn_result);
+}

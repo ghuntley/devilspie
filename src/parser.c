@@ -80,7 +80,8 @@ static const struct {
   { "undecorate", func_undecorate, FALSE },
   { "wintype", func_wintype, FALSE },
   { "opacity", func_opacity, FALSE },
-
+  { "spawn_sync", func_spawn_sync, FALSE },
+  { "spawn_async", func_spawn_async, FALSE },
 };
 
 /**

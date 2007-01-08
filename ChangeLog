@@ -2,6 +2,12 @@
 
 	* src/actions.[ch]:
 	* src/parser.c:
+	Add spawn_sync and spawn_async (thanks David Decotigny).
+
+2007-01-08  Ross Burton  <ross@burtonini.com>
+
+	* src/actions.[ch]:
+	* src/parser.c:
 	Add println, str, hex actions, and expand print (thanks David
 	Decotigny).
 

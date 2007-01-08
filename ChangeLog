@@ -1,3 +1,8 @@
+2007-01-08  Ross Burton  <ross@burtonini.com>
+
+	* src/e-sexp.c:
+	Use gi18n.h (thanks David Decotigny)
+
 2006-12-01  Ross Burton  <ross@burtonini.com>
 
 	* configure.in:

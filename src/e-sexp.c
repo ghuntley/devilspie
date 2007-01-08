@@ -101,6 +101,7 @@
 #include <string.h>
 
 #include <glib-object.h>
+#include <glib/gi18n.h>
 
 #include "e-sexp.h"
 
@@ -267,7 +268,7 @@ term_eval_and(ESExp *f, int argc, ESExpTerm **argv, void *data)
 			e_sexp_result_free(f, r);
 			e_sexp_result_free(f, r1);
 			g_hash_table_destroy(ht);
-			e_sexp_fatal_error(f, "Invalid types in AND");
+			e_sexp_fatal_error(f, _("Invalid types in AND"));
 		} else if (r1->type == ESEXP_RES_ARRAY_PTR) {
 			char **a1;
 			int l1, j;
@@ -323,7 +324,7 @@ term_eval_or(ESExp *f, int argc, ESExpTerm **argv, void *data)
 			e_sexp_result_free(f, r);
 			e_sexp_result_free(f, r1);
 			g_hash_table_destroy(ht);
-			e_sexp_fatal_error(f, "Invalid types in OR");
+			e_sexp_fatal_error(f, _("Invalid types in OR"));
 		} else if (r1->type == ESEXP_RES_ARRAY_PTR) {
 			char **a1;
 			int l1, j;
@@ -385,7 +386,7 @@ term_eval_lt(ESExp *f, int argc, ESExpTerm **argv, void *data)
 			e_sexp_result_free(f, r1);
 			e_sexp_result_free(f, r2);
 			e_sexp_result_free(f, r);
-			e_sexp_fatal_error(f, "Incompatible types in compare <");
+			e_sexp_fatal_error(f, _("Incompatible types in compare <"));
 		} else if (r1->type == ESEXP_RES_INT) {
 			r->type = ESEXP_RES_BOOL;
 			r->value.bool = r1->value.number < r2->value.number;
@@ -417,7 +418,7 @@ term_eval_gt(ESExp *f, int argc, ESExpTerm **argv, void *data)
 			e_sexp_result_free(f, r1);
 			e_sexp_result_free(f, r2);
 			e_sexp_result_free(f, r);
-			e_sexp_fatal_error(f, "Incompatible types in compare >");
+			e_sexp_fatal_error(f, _("Incompatible types in compare >"));
 		} else if (r1->type == ESEXP_RES_INT) {
 			r->type = ESEXP_RES_BOOL;
 			r->value.bool = r1->value.number > r2->value.number;
@@ -479,7 +480,7 @@ term_eval_plus(ESExp *f, int argc, ESExpResult **argv, void *data)
 			}
 			if (i<argc) {
 				e_sexp_resultv_free(f, argc, argv);
-				e_sexp_fatal_error(f, "Invalid types in (+ ints)");
+				e_sexp_fatal_error(f, _("Invalid types in (+ ints)"));
 			}
 			r = e_sexp_result_new(f, ESEXP_RES_INT);
 			r->value.number = total;
@@ -491,7 +492,7 @@ term_eval_plus(ESExp *f, int argc, ESExpResult **argv, void *data)
 			}
 			if (i<argc) {
 				e_sexp_resultv_free(f, argc, argv);
-				e_sexp_fatal_error(f, "Invalid types in (+ strings)");
+				e_sexp_fatal_error(f, _("Invalid types in (+ strings)"));
 			}
 			r = e_sexp_result_new(f, ESEXP_RES_STRING);
 			r->value.string = s->str;
@@ -507,7 +508,7 @@ term_eval_plus(ESExp *f, int argc, ESExpResult **argv, void *data)
 
 			if (i < argc) {
 				e_sexp_resultv_free (f, argc, argv);
-				e_sexp_fatal_error (f, "Invalid types in (+ time_t)");
+				e_sexp_fatal_error (f, _("Invalid types in (+ time_t)"));
 			}
 
 			r = e_sexp_result_new (f, ESEXP_RES_TIME);
@@ -540,7 +541,7 @@ term_eval_sub(ESExp *f, int argc, ESExpResult **argv, void *data)
 			}
 			if (i<argc) {
 				e_sexp_resultv_free(f, argc, argv);
-				e_sexp_fatal_error(f, "Invalid types in -");
+				e_sexp_fatal_error(f, _("Invalid types in -"));
 			}
 			r = e_sexp_result_new(f, ESEXP_RES_INT);
 			r->value.number = total;
@@ -555,7 +556,7 @@ term_eval_sub(ESExp *f, int argc, ESExpResult **argv, void *data)
 
 			if (i < argc) {
 				e_sexp_resultv_free (f, argc, argv);
-				e_sexp_fatal_error (f, "Invalid types in (- time_t)");
+				e_sexp_fatal_error (f, _("Invalid types in (- time_t)"));
 			}
 
 			r = e_sexp_result_new (f, ESEXP_RES_TIME);
@@ -578,7 +579,7 @@ term_eval_castint(ESExp *f, int argc, ESExpResult **argv, void *data)
 	ESExpResult *r;
 
 	if (argc != 1)
-		e_sexp_fatal_error(f, "Incorrect argument count to (int )");
+		e_sexp_fatal_error(f, _("Incorrect argument count to (int )"));
 
 	r = e_sexp_result_new(f, ESEXP_RES_INT);
 	switch (argv[0]->type) {
@@ -593,7 +594,7 @@ term_eval_castint(ESExp *f, int argc, ESExpResult **argv, void *data)
 		break;
 	default:
 		e_sexp_result_free(f, r);
-		e_sexp_fatal_error(f, "Invalid type in (cast-int )");
+		e_sexp_fatal_error(f, _("Invalid type in (cast-int )"));
 	}
 
 	return r;
@@ -606,7 +607,7 @@ term_eval_caststring(ESExp *f, int argc, ESExpResult **argv, void *data)
 	ESExpResult *r;
 
 	if (argc != 1)
-		e_sexp_fatal_error(f, "Incorrect argument count to (cast-string )");
+		e_sexp_fatal_error(f, _("Incorrect argument count to (cast-string )"));
 
 	r = e_sexp_result_new(f, ESEXP_RES_STRING);
 	switch (argv[0]->type) {
@@ -621,7 +622,7 @@ term_eval_caststring(ESExp *f, int argc, ESExpResult **argv, void *data)
 		break;
 	default:
 		e_sexp_result_free(f, r);
-		e_sexp_fatal_error(f, "Invalid type in (int )");
+		e_sexp_fatal_error(f, _("Invalid type in (int )"));
 	}
 
 	return r;
@@ -714,7 +715,7 @@ e_sexp_term_eval(ESExp *f, ESExpTerm *t)
           //return e_sexp_term_eval (f, t->value.);
           break;
 	default:
-		e_sexp_fatal_error(f, "Unknown type in parse tree: %d", t->type);
+		e_sexp_fatal_error(f, _("Unknown type in parse tree: %d"), t->type);
 	}
 
 	if (r==NULL)
@@ -904,7 +905,7 @@ parse_value(ESExp *f)
 	case '-':
 		token = g_scanner_get_next_token (gs);
 		if (token != G_TOKEN_INT) {
-			e_sexp_fatal_error (f, "Invalid format for a integer value");
+			e_sexp_fatal_error (f, _("Invalid format for a integer value"));
 			return NULL;
 		}
 		
@@ -920,7 +921,7 @@ parse_value(ESExp *f)
 		char *str;
 		token = g_scanner_get_next_token(gs);
 		if (token != G_TOKEN_IDENTIFIER) {
-			e_sexp_fatal_error (f, "Invalid format for a boolean value");
+			e_sexp_fatal_error (f, _("Invalid format for a boolean value"));
 			return NULL;
 		}
 		
@@ -928,7 +929,7 @@ parse_value(ESExp *f)
 		
 		g_assert (str != NULL);
 		if (!(strlen (str) == 1 && (str[0] == 't' || str[0] == 'f'))) {
-			e_sexp_fatal_error (f, "Invalid format for a boolean value");
+			e_sexp_fatal_error (f, _("Invalid format for a boolean value"));
 			return NULL;
 		}
 		
@@ -951,17 +952,17 @@ parse_value(ESExp *f)
 			t->value.var = s;
 			break;
 		default:
-			e_sexp_fatal_error(f, "Invalid symbol type: %s: %d", s->name, s->type);
+			e_sexp_fatal_error(f, _("Invalid symbol type: %s: %d"), s->name, s->type);
 		}
 		break;
 	case G_TOKEN_IDENTIFIER:
-		e_sexp_fatal_error(f, "Unknown identifier: %s", g_scanner_cur_value(gs).v_identifier);
+		e_sexp_fatal_error(f, _("Unknown identifier: %s"), g_scanner_cur_value(gs).v_identifier);
 		break;
         case G_TOKEN_EOF:
           g_printerr("got eof\n");
           break;
 	default:
-		e_sexp_fatal_error(f, "Unexpected token encountered: %d", token);
+		e_sexp_fatal_error(f, _("Unexpected token encountered: %d"), token);
 	}
 	return t;
 }
@@ -996,21 +997,21 @@ parse_list(ESExp *f, int gotbrace)
 				t->value.func.terms = parse_values(f, &t->value.func.termcount);
 			} else {
 				parse_term_free(f, t);
-				e_sexp_fatal_error(f, "Trying to call variable as function: %s", s->name);
+				e_sexp_fatal_error(f, _("Trying to call variable as function: %s"), s->name);
 			}
 			break; }
 		case G_TOKEN_IDENTIFIER:
-			e_sexp_fatal_error(f, "Unknown identifier: %s", g_scanner_cur_value(gs).v_identifier);
+			e_sexp_fatal_error(f, _("Unknown identifier: %s"), g_scanner_cur_value(gs).v_identifier);
 			break;
 		default:
-			e_sexp_fatal_error(f, "Unexpected token encountered: %d", token);
+			e_sexp_fatal_error(f, _("Unexpected token encountered: %d"), token);
 		}
 		token = g_scanner_get_next_token(gs);
 		if (token != ')') {
-			e_sexp_fatal_error(f, "Missing ')'");
+			e_sexp_fatal_error(f, _("Missing ')'"));
 		}
 	} else {
-		e_sexp_fatal_error(f, "Missing '('");
+		e_sexp_fatal_error(f, _("Missing '('"));
 	}
 
 	return t;

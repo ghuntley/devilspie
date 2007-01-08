@@ -99,7 +99,7 @@ ESExpResult *func_window_property(ESExp *f, int argc, ESExpResult **argv, Contex
 }
 
 /*                                                                             
- *Returns the workspace a window is on.         
+ * Returns the workspace a window is on.         
  */
 ESExpResult *func_window_workspace(ESExp *f, int argc, ESExpResult **argv, Context *c) {
  ESExpResult *r;

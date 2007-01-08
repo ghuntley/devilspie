@@ -310,7 +310,7 @@ ESExpResult *func_unpin(ESExp *f, int argc, ESExpResult **argv, Context *c) {
 }
 
 /**
- * Make the current window stick to all viewports
+ * Make the current window stick to all viewports.
  */
 ESExpResult *func_stick(ESExp *f, int argc, ESExpResult **argv, Context *c) {
   wnck_window_stick (c->window);
@@ -319,7 +319,7 @@ ESExpResult *func_stick(ESExp *f, int argc, ESExpResult **argv, Context *c) {
 }
 
 /**
- * Unstick the window from viewports
+ * Unstick the window from viewports.
  */
 ESExpResult *func_unstick(ESExp *f, int argc, ESExpResult **argv, Context *c) {
   wnck_window_unstick (c->window);
@@ -355,7 +355,7 @@ ESExpResult *func_set_workspace(ESExp *f, int argc, ESExpResult **argv, Context 
 }
 
 /**
- * Move the window to a specific viewport number, counting from 1
+ * Move the window to a specific viewport number, counting from 1.
  */
 ESExpResult *func_set_viewport(ESExp *f, int argc, ESExpResult **argv, Context *c) {
   WnckScreen *screen;
@@ -525,6 +525,10 @@ ESExpResult *func_wintype(ESExp *f, int argc, ESExpResult **argv, Context *c) {
   return e_sexp_result_new_bool (f, TRUE);
 }
 
+/**
+ * Change the opacity level (as integer in 0..100) of the current
+ * window (returns boolean).
+ */
 ESExpResult *func_opacity(ESExp *f, int argc, ESExpResult **argv, Context *c) {
 	int opacity;
 	unsigned int v;

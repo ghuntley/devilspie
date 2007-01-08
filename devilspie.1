@@ -4,7 +4,8 @@ devilspie \- perform actions on windows as they are created
 
 .SH SYNOPSIS
 .B devilspie
-.I "configuration-file"
+.I [\fIOPTION\fR]...
+.I "configuration-files..."
 
 .SH "DESCRIPTION"
 .BR devilspie
@@ -14,8 +15,156 @@ actions on them if they match as set of criteria.
 The configuration files are a set of s-expressions.  For documentation and
 examples, see /usr/share/doc/devilspie/.
 
+Command-lines options:
+.TP
+\fB\-a\fR \fB\-\-apply\-to\-existing\fR
+Apply to all existing windows instead of just new windows.
+.TP
+\fB\-d\fR \fB\-\-debug\fR
+Output debug information
+.TP
+\fB\-l\fR \fB\-\-list\-symbols\fR
+List available symbols supported in input files.
+.TP
+\fB\-s\fR \fIsymname\fR \fB\-\-symbol\-doc\fR=\fIsymname\fR
+ Get detailed help on symbol \fIsymname\fR ('all' for all symbols).
+
+.SH "ALLOWED SYMBOLS"
+In the input files, the floowing symbols are known by \fIdevilspie\fR:
+."SYMBOL HELP BEGINS HERE
+.TP
+\fBis\fR
+String equality, (is a b) means a is the same as b.
+.TP
+\fBcontains\fR
+Substring, (contains haystack needle) means haystack contains needle.
+.TP
+\fBmatches\fR
+Regexp matches, (matches str pattern) means the regexp pattern matches str.
+.TP
+\fBwindow_name\fR
+Return the title of the current window (String).
+.TP
+\fBwindow_role\fR
+Return the role (as determined by the WM_WINDOW_ROLE hint) of the current window (String).
+.TP
+\fBwindow_class\fR
+Return the class of the current window (String).
+.TP
+\fBwindow_xid\fR
+Return the X11 window id of the current woindow (Integer).
+.TP
+\fBapplication_name\fR
+Return the application name (as determined by libwnck) of the current window (String).
+.TP
+\fBwindow_property\fR
+Returns the given property of the window, e.g. pass "_NET_WM_STATE" (String).
+.TP
+\fBwindow_workspace\fR
+Returns the workspace a window is on (Integer).
+.TP
+\fBdebug\fR
+Debugging function, outputs the current window's title, name, role and geometry (Returns TRUE).
+.TP
+\fBprint\fR
+Print args (without trailing \n, returns boolean).
+.TP
+\fBprintln\fR
+Print args (with trailing \n, returns boolean).
+.TP
+\fBstr\fR
+Transform parameters into strings and concat them.
+.TP
+\fBhex\fR
+Transform the integer parameter into an unsigned hexadecimal string (with 0x prefix).
+.TP
+\fBgeometry\fR
+Set position + size (as tring) of current window (returns boolean).
+.TP
+\fBfullscreen\fR
+Make the current window fullscreen (returns TRUE).
+.TP
+\fBfocus\fR
+Focus the current window (returns TRUE).
+.TP
+\fBcenter\fR
+Center position of current window (returns boolean).
+.TP
+\fBmaximize\fR
+Maximise the current window (returns TRUE).
+.TP
+\fBmaximize_vertically\fR
+Maximise vertically the current window (returns TRUE).
+.TP
+\fBmaximize_horizontally\fR
+Maximise horizontally the current window (returns TRUE).
+.TP
+\fBunmaximize\fR
+Un-maximise the current window (returns TRUE).
+.TP
+\fBminimize\fR
+Minimise the current window (returns TRUE).
+.TP
+\fBunminimize\fR
+Un-minimise the current window (returns TRUE).
+.TP
+\fBshade\fR
+Shade ("roll up") the current window (returns TRUE).
+.TP
+\fBunshade\fR
+Un-shade ("roll down") the current window (returns TRUE).
+.TP
+\fBclose\fR
+Close the current window (returns TRUE).
+.TP
+\fBpin\fR
+Pin the current window to all workspaces (returns TRUE).
+.TP
+\fBunpin\fR
+Unpin the current window from all workspaces (returns TRUE).
+.TP
+\fBstick\fR
+Make the current window stick to all viewports (returns TRUE).
+.TP
+\fBunstick\fR
+Unstick the window from viewports (returns TRUE).
+.TP
+\fBset_workspace\fR
+Move the window to a specific workspace number, counting from 1 (returns boolean).
+.TP
+\fBset_viewport\fR
+Move the window to a specific viewport number, counting from 1 (returns boolean).
+.TP
+\fBskip_pager\fR
+Remove the current window from the window list (returns TRUE).
+.TP
+\fBskip_tasklist\fR
+Remove the current window from the pager (returns TRUE).
+.TP
+\fBabove\fR
+Set the current window to be above all normal windows (returns TRUE).
+.TP
+\fBbelow\fR
+Set the current window to be below all normal windows (returns TRUE).
+.TP
+\fBundecorate\fR
+Remove the window manager decorations from the current window (returns boolean).
+.TP
+\fBwintype\fR
+Set the window type of the current window (returns boolean). Accepted values are: normal, dialog, menu, toolbar, splashscreen, utility, dock, desktop.
+.TP
+\fBopacity\fR
+Change the opacity level (as integer in 0..100) of the current window (returns boolean).
+.TP
+\fBspawn_async\fR
+Execute a command in the background (returns boolean). Command is given as a single string, or as a series of strings (similar to execl).
+.TP
+\fBspawn_sync\fR
+Execute a command in the foreground (returns command output as string, or FALSE on error). Command is given as a single string, or as a series of strings (similar to execl).
+."SYMBOL HELP ENDS HERE
+
 .SH BUGS
-This manpage is useless, as it was thrown together on a train.
+This manpage is almost useless, as it was thrown together on a train.
 
 .SH AUTHOR
 This manual page was written by Ross Burton <ross@burtonini.com>.

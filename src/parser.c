@@ -51,6 +51,9 @@ static const struct {
   /* Actions */
   { "debug", func_debug, FALSE },
   { "print", func_print, FALSE },
+  { "println", func_println, FALSE },
+  { "str", func_str, FALSE },
+  { "hex", func_hex, FALSE },
   { "geometry", func_geometry, FALSE },
   { "fullscreen", func_fullscreen, FALSE },
   { "focus", func_focus, FALSE },

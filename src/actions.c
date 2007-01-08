@@ -53,40 +53,124 @@ ESExpResult *func_debug(ESExp *f, int argc, ESExpResult **argv, Context *c) {
 }
 
 /**
- * Print args
+ * Transform parameters into a string and concat them
  */
-ESExpResult *func_print(ESExp *f, int argc, ESExpResult **argv, Context *c) {
-  int i;
-  for (i = 0; i < argc; i++) {
-    switch (argv[i]->type) {
-    case ESEXP_RES_ARRAY_PTR:
-      g_print (_("(array pointer: %p)\n"), argv[i]->value.ptrarray);
-      break;
-    case ESEXP_RES_BOOL:
-      g_print (argv[i]->value.bool ? _("TRUE\n") : _("FALSE\n"));
-      break;
-    case ESEXP_RES_INT:
-      g_print ("%d\n", argv[i]->value.number);
-      break;
-    case ESEXP_RES_TIME:
-      {
-        char buf[256];
-        struct tm time;
-        localtime_r(&argv[i]->value.time, &time);
-        strftime(buf, sizeof(buf), "%c", &time);
-        g_print ("time: %s", buf);
-        break;
-      }
-    case ESEXP_RES_STRING:
-      g_print ("%s\n", argv[i]->value.string);
-      break;
-    case ESEXP_RES_UNDEFINED:
-      g_print (_("(undefined)"));
+static char * internal_str(ESExp *f, int argc, ESExpResult **argv,
+			   Context *c)
+{
+  char *s_arg0, *s_other_args, *result = NULL;
+
+  if (argc < 1)
+    return NULL;
+
+  switch (argv[0]->type) {
+  case ESEXP_RES_BOOL:
+    s_arg0 = g_strdup((argv[0]->value.bool ? "TRUE" : "FALSE"));
+    break;
+
+  case ESEXP_RES_INT:
+    s_arg0 = g_strdup_printf("%d", argv[0]->value.number);
+    break;
+
+  case ESEXP_RES_TIME:
+    {
+      char buf[256];
+      struct tm time;
+      localtime_r(&argv[0]->value.time, &time);
+      strftime(buf, sizeof(buf), "%c", &time);
+      s_arg0 = g_strdup(buf);
       break;
     }
+
+  case ESEXP_RES_STRING:
+    s_arg0 = g_strdup(argv[0]->value.string);
+    break;
+
+  case ESEXP_RES_ARRAY_PTR:
+    s_arg0 = g_strdup_printf(_("(array pointer: %p)"),
+			     argv[0]->value.ptrarray);
+    break;
+
+  case ESEXP_RES_UNDEFINED:
+  default:
+    g_printerr(_("Cannot convert element into a string"));
+    return NULL;
+    break;
   }
+
+  s_other_args = internal_str(f, argc-1, argv+1, c);
+
+  if (s_arg0 && s_other_args)
+    {
+      result = g_strdup_printf("%s%s", s_arg0, s_other_args);
+      g_free(s_arg0);
+      g_free(s_other_args);
+    }
+  else if (s_arg0)
+    result = s_arg0;
+  else if (s_other_args)
+    result = s_other_args;
+
+  return result;
+}
+
+/**
+ * Print args (without trailing \n).
+ */
+ESExpResult *func_print(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+  char * s = internal_str(f, argc, argv, c);
+  if (! s)
+    return e_sexp_result_new_bool (f, FALSE);
+
+  g_print("%s", s);
+  g_free(s);
+
   return e_sexp_result_new_bool (f, TRUE);
 }
+
+/**
+ * Print args (with trailing \n).
+ */
+ESExpResult *func_println(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+  char * s = internal_str(f, argc, argv, c);
+  if (! s)
+    return e_sexp_result_new_bool (f, FALSE);
+
+  g_print("%s\n", s);
+  g_free(s);
+
+  return e_sexp_result_new_bool (f, TRUE);
+}
+
+/**
+ * Transform parameters into a string and concat them.
+ */
+ESExpResult *func_str(ESExp *f, int argc, ESExpResult **argv, Context *c)
+{
+  ESExpResult *r;
+  r = e_sexp_result_new(f, ESEXP_RES_STRING);
+  r->value.string = internal_str(f, argc, argv, c);
+  if (! r->value.string)
+    r->value.string = g_strdup("");
+  return r;
+}
+
+/**
+ * Transform the integer parameter into an unsigned hexadecimal string
+ * (with 0x prefix).
+ */
+ESExpResult *func_hex(ESExp *f, int argc, ESExpResult **argv, Context *c)
+{
+  ESExpResult *r;
+
+  if (argc != 1 || argv[0]->type != ESEXP_RES_INT)
+    return e_sexp_result_new_bool (f, FALSE); 
+
+  r = e_sexp_result_new(f, ESEXP_RES_STRING);
+  r->value.string = g_strdup_printf("0x%x", (unsigned)argv[0]->value.number);
+  return r;
+}
+
 
 /**
  * Set position + size of current window.

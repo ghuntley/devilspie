@@ -28,6 +28,7 @@
 ESExpResult *func_window_name(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_window_workspace(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_application_name(ESExp *f, int argc, ESExpResult **argv, Context *c);
+ESExpResult *func_window_xid(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_window_role(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_window_class(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_window_property(ESExp *f, int argc, ESExpResult **argv, Context *c);

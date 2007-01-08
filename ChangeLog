@@ -1,5 +1,11 @@
 2007-01-08  Ross Burton  <ross@burtonini.com>
 
+	* src/matchers.[ch]:
+	* src/parser.c:
+	Add func_window_xid (thanks David Decotigny)
+
+2007-01-08  Ross Burton  <ross@burtonini.com>
+
 	* src/matchers.h:
 	Add missing func_window_workspace.
 

@@ -44,6 +44,7 @@ static const struct {
   { "window_name", func_window_name, FALSE },
   { "window_role", func_window_role, FALSE },
   { "window_class", func_window_class, FALSE },
+  { "window_xid", func_window_xid, FALSE },
   { "application_name", func_application_name, FALSE },
   { "window_property", func_window_property, FALSE },
   { "window_workspace", func_window_workspace, FALSE},

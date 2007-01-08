@@ -66,7 +66,6 @@ ESExpResult *func_window_role(ESExp *f, int argc, ESExpResult **argv, Context *c
   return r;
 }
 
-
 /**
  * Return the class of the current window.
  */
@@ -78,6 +77,16 @@ ESExpResult *func_window_class(ESExp *f, int argc, ESExpResult **argv, Context *
   return r;
 }
 
+/**
+ * Return the X11 window id of the current woindow.
+ */
+ESExpResult *func_window_xid(ESExp *f, int argc,
+			     ESExpResult **argv, Context *c)
+{
+ ESExpResult *r = e_sexp_result_new(f, ESEXP_RES_INT);
+ r->value.number = wnck_window_get_xid (c->window);
+ return r;
+}
 
 /**
  * Returns the given property of the window, e.g. pass "_NET_WM_STATE".

@@ -43,7 +43,8 @@ ESExpResult *func_window_name(ESExp *f, int argc, ESExpResult **argv, Context *c
 }
 
 /**
- * Return the application name (as determined by libwnck) of the current window.
+ * Return the application name (as determined by libwnck) of the
+ * current window.
  */
 ESExpResult *func_application_name(ESExp *f, int argc, ESExpResult **argv, Context *c) {
   ESExpResult *r;
@@ -53,9 +54,9 @@ ESExpResult *func_application_name(ESExp *f, int argc, ESExpResult **argv, Conte
   return r;
 }
 
-
 /**
- * Return the role (as determined by the WM_WINDOW_ROLE hint) of the current window.
+ * Return the role (as determined by the WM_WINDOW_ROLE hint) of the
+ * current window.
  */
 ESExpResult *func_window_role(ESExp *f, int argc, ESExpResult **argv, Context *c) {
   ESExpResult *r;

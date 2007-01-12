@@ -35,10 +35,9 @@ about it is probably wrong.
 
 Devil's Pie is configured by reading a number of files from two directories:
 $HOME/.devilspie/ and $SYSCONFDIR/devilspie (typically /etc/devilspie).  Devil's
-Pie will read s-expressions from every .ds file in those paths.  Note that
-currently only the first s-expressions is parsed, but this will be fixed
-shortly. S-expressions are familiar to most Emacs users and in the limited use
-they have in Devil's Pie are trivially learnt by example.
+Pie will read s-expressions from every .ds file in those paths.  S-expressions
+are familiar to most Emacs users and in the limited use they have in Devil's Pie
+are trivially learnt by example.
 
 The basic model is that every time a window is created, the s-expressions are
 evaluated.  The window is available to the functions you call as an implicit

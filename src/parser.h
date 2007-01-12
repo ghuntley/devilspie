@@ -22,6 +22,6 @@
 #include "e-sexp.h"
 
 void load_configuration(void);
-ESExp *load_configuration_file (const char *path);
+GList *load_configuration_file (const char *path);
 
 #endif /* CONFIG_PARSER_H */

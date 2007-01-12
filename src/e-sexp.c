@@ -1209,7 +1209,7 @@ e_sexp_parse(ESExp *f)
 
 	f->tree = parse_value (f);
 
-	return 0;
+	return g_scanner_peek_next_token(f->scanner) != G_TOKEN_EOF;
 }
 
 /* returns NULL on error */

@@ -121,13 +121,15 @@ int main(int argc, char **argv) {
   /* If there were files specified use those, otherwise load the default configuration */
   if (files) {
     while (*files) {
-      ESExp *s;
+      GList *s;
       s = load_configuration_file (*files++);
-      if (s) sexps = g_list_append (sexps, s);
+      if (s) sexps = g_list_concat (sexps, s);
     }
   } else {
     load_configuration ();
   }
+
+  if (debug) g_printerr("%d s-expressions loaded.\n", g_list_length(sexps));
 
   if (g_list_length (sexps) == 0) {
     g_printerr(_("No s-expressions loaded, quiting\n"));

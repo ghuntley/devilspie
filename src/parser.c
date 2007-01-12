@@ -87,11 +87,14 @@ static const struct {
 /**
  * Load a single configuration file.
  */
-ESExp *load_configuration_file (const char *path)
+GList *load_configuration_file (const char *path)
 {
   /* TODO: GError argument */
+  GList *exp_list = NULL;
+  GScanner *gs = NULL;
   ESExp *sexp = NULL;
   size_t i;
+  int more_left = 0;
   FILE *f;
 
   g_return_val_if_fail (path != NULL, NULL);
@@ -109,27 +112,48 @@ ESExp *load_configuration_file (const char *path)
     return NULL;
   }
 
-  sexp = e_sexp_new ();
-  for(i=0; i < sizeof(symbols)/sizeof(symbols[0]); i++) {
-    if (symbols[i].shortcut) {
-      e_sexp_add_ifunction(sexp, 0, symbols[i].name, symbols[i].func, &context);
-    } else {
-      e_sexp_add_function(sexp, 0, symbols[i].name, symbols[i].func, &context);
-    }
-  }
-  
-  e_sexp_input_file(sexp, fileno(f));
-    
-  if (e_sexp_parse(sexp) == -1) {
-    g_printerr(_("Cannot parse %s: %s\n"), path, e_sexp_error (sexp));
-    g_object_unref (sexp);
-    fclose(f);
-    return NULL;
-  }
+  do {
+      sexp = e_sexp_new ();
+
+      /* HACK: Since e-sexp doesn't seem to have a good way to share one
+         scanner reference between multiple sexps, we fake it by freeing the
+         new one it's given at instantiation and replace it with the one we
+         grab the first time around. */
+      if (gs) {
+        g_scanner_destroy(sexp->scanner);
+        sexp->scanner = gs;
+      }
+
+      /* HACK: If this is the first sexp in the file, hold on to the scanner
+         it gets at instantiation. */
+      if (NULL == gs)
+        gs = sexp->scanner;
+
+      for(i=0; i < sizeof(symbols)/sizeof(symbols[0]); i++) {
+        if (symbols[i].shortcut) {
+          e_sexp_add_ifunction(sexp, 0, symbols[i].name, symbols[i].func, &context);
+        } else {
+          e_sexp_add_function(sexp, 0, symbols[i].name, symbols[i].func, &context);
+        }
+      }
+
+      e_sexp_input_file(sexp, fileno(f));
+
+      more_left = e_sexp_parse(sexp);
+
+      if (more_left == -1) {
+        g_printerr(_("Cannot parse %s: %s\n"), path, e_sexp_error (sexp));
+        g_object_unref (sexp);
+        fclose(f);
+        return NULL;
+      }
+
+      exp_list = g_list_append(exp_list, sexp);
+  } while (more_left);
 
   fclose(f);
 
-  return sexp;
+  return exp_list;
 }
 
 /**

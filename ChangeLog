@@ -1,5 +1,11 @@
 2007-01-12  Ross Burton  <ross@burtonini.com>
 
+	* configure.in:
+	* NEWS:
+	Version 0.20.1.
+
+2007-01-12  Ross Burton  <ross@burtonini.com>
+
 	* src/parser.c:
 	Update to new API so Devil's Pie actually works (thanks Lars!)
 

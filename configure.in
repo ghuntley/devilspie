@@ -1,6 +1,6 @@
 # Initial blurb
 AC_PREREQ(2.52)
-AC_INIT(devilspie, 0.20, http://www.burtonini.com/)
+AC_INIT(devilspie, 0.20.1, http://www.burtonini.com/)
 AC_CONFIG_SRCDIR(src/devilspie.c)
 AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
 AM_CONFIG_HEADER(src/config.h)

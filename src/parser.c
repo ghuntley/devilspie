@@ -189,14 +189,14 @@ static void load_dir (const char *path)
 
   while ((name = g_dir_read_name (dir)) != NULL) {
     char *filepath;
-    ESExp *s;
+    GList *s;
 
     if (!g_str_has_suffix (name, ".ds"))
       continue;
     
     filepath = g_build_filename (path, name, NULL);
     s = load_configuration_file (filepath);
-    if (s) sexps = g_list_append (sexps, s);
+    if (s) sexps = g_list_concat (sexps, s);
     g_free (filepath);
   }
 

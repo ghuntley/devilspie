@@ -1,5 +1,10 @@
 2007-01-12  Ross Burton  <ross@burtonini.com>
 
+	* src/parser.c:
+	Update to new API so Devil's Pie actually works (thanks Lars!)
+
+2007-01-12  Ross Burton  <ross@burtonini.com>
+
 	* src/sexp-test.c:
 	Update to new API so the checks pass.
 

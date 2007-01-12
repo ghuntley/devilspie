@@ -1,3 +1,12 @@
+Devil's Pie "Wearing That Dress" 0.20
+=====================================
+
+* Handle multiple expressions in a file (Lars Damerow)
+* Add spawn_sync and spawn_async actions to start processes (David Decotigny)
+* Add println, str, hex, and expand print (DD)
+* Add window_xid matcher (DD)
+
+
 Devil's Pie "Sell Sell Sell" 0.19
 ================================
 

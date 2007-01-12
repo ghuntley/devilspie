@@ -1,5 +1,11 @@
 2007-01-12  Ross Burton  <ross@burtonini.com>
 
+	* configure.in:
+	* NEWS:
+	Version 0.20.
+
+2007-01-12  Ross Burton  <ross@burtonini.com>
+
 	* src/e-sexp.c:
 	* src/parser.[ch]:
 	* src/devilspie.c:

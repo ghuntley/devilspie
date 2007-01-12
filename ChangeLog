@@ -1,5 +1,10 @@
 2007-01-12  Ross Burton  <ross@burtonini.com>
 
+	* src/sexp-test.c:
+	Update to new API so the checks pass.
+
+2007-01-12  Ross Burton  <ross@burtonini.com>
+
 	* configure.in:
 	* NEWS:
 	Version 0.20.

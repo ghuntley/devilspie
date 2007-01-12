@@ -51,7 +51,7 @@ int main(int argc, char **argv)
   while ((name = g_dir_read_name (dir)) != NULL) {
     char *filepath;
     gboolean expected;
-    ESExp *sexp;
+    GList *s;
     ESExpResult *result;
     
     if (!g_str_has_suffix (name, ".ds"))
@@ -67,21 +67,25 @@ int main(int argc, char **argv)
     }
     
     filepath = g_build_filename (testpath, name, NULL);
-    sexp = load_configuration_file (filepath);
+    s= load_configuration_file (filepath);
     g_free (filepath);
-    
-    result = e_sexp_eval(sexp);
-    if (result->type != ESEXP_RES_BOOL) {
-      g_printerr("Invalid result type for test %s\n", name);
-      return 1;
+
+    for (; s; s = s->next) {
+      ESExp *sexp = s->data;
+      
+      result = e_sexp_eval(sexp);
+      if (result->type != ESEXP_RES_BOOL) {
+        g_printerr("Invalid result type for test %s\n", name);
+        return 1;
+      }
+      if (result->value.bool != expected) {
+        g_printerr("Incorrect result for test %s\n", name);
+        return 1;
+      }
+      
+      g_print(".");
+      count++;
     }
-    if (result->value.bool != expected) {
-      g_printerr("Incorrect result for test %s\n", name);
-      return 1;
-    }
-    
-    g_print(".");
-    count++;
   }
   g_dir_close (dir);
 

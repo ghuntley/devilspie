@@ -1,5 +1,11 @@
 2007-01-29  Ross Burton  <ross@burtonini.com>
 
+	* configure.in:
+	* NEWS:
+	Version 0.20.2.
+
+2007-01-29  Ross Burton  <ross@burtonini.com>
+
 	* src/matches.c:
 	Fix window_workspace (thanks Andrew Yates).
 

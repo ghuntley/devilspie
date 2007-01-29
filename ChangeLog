@@ -1,5 +1,14 @@
 2007-01-29  Ross Burton  <ross@burtonini.com>
 
+	* src/devilspie.[ch]:
+	Make the GMainLoop publically available.
+	
+	* src/actions.[ch]:
+	* src/parser.c:
+	Add a quit action, thanks Leon Zhang.
+
+2007-01-29  Ross Burton  <ross@burtonini.com>
+
 	* configure.in:
 	* NEWS:
 	Version 0.20.2.

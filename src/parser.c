@@ -82,6 +82,7 @@ static const struct {
   { "opacity", func_opacity, FALSE },
   { "spawn_sync", func_spawn_sync, FALSE },
   { "spawn_async", func_spawn_async, FALSE },
+  { "quit", func_quit, FALSE},
 };
 
 /**

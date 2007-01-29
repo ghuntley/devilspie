@@ -39,3 +39,8 @@ typedef struct {
  * Matching context
  */
 extern Context context;
+
+/**
+ * The main loop.
+ */
+extern GMainLoop *loop;

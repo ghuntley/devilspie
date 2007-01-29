@@ -58,6 +58,11 @@ static gboolean apply_to_existing = FALSE;
 static char **files = NULL;
 
 /**
+ * The main loop.
+ */
+GMainLoop *loop = NULL;
+
+/**
  * Evaluate a s-expression.
  */
 static void run_sexp(ESExp * sexp, WnckWindow *window) {
@@ -99,7 +104,7 @@ int main(int argc, char **argv) {
     { G_OPTION_REMAINING, '\0', 0, G_OPTION_ARG_FILENAME_ARRAY, &files, N_("Configuration files to use"), NULL },
     { NULL }
   };
-  GMainLoop *loop;
+
   GError *error = NULL;
   GOptionContext *context;
 

@@ -63,4 +63,6 @@ ESExpResult *func_opacity(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_spawn_sync(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_spawn_async(ESExp *f, int argc, ESExpResult **argv, Context *c);
 
+ESExpResult *func_quit(ESExp *f, int argc, ESExpResult **argv, Context *c);
+
 #endif /* _ACTIONS_H */

@@ -114,7 +114,7 @@ ESExpResult *func_window_property(ESExp *f, int argc, ESExpResult **argv, Contex
 ESExpResult *func_window_workspace(ESExp *f, int argc, ESExpResult **argv, Context *c) {
  ESExpResult *r;
 	r = e_sexp_result_new(f, ESEXP_RES_INT);
- r->value.number = my_wnck_get_cardinal (wnck_window_get_xid (c->window), my_wnck_atom_get("_WIN_WORKSPACE"));
+ r->value.number = my_wnck_get_cardinal (wnck_window_get_xid (c->window), my_wnck_atom_get("_NET_WM_DESKTOP"));
 	/* set_workspace numbers the workspaces starting from 1, not 0 */
 	r->value.number++;
 	return r;

@@ -1,3 +1,8 @@
+2007-01-29  Ross Burton  <ross@burtonini.com>
+
+	* src/matches.c:
+	Fix window_workspace (thanks Andrew Yates).
+
 2007-01-12  Ross Burton  <ross@burtonini.com>
 
 	* configure.in:

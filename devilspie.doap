@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+  
+<Project xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns="http://usefulinc.com/ns/doap#">
+  
+  <name>Devil's Pie</name>
+  <shortname>devilspie</shortname>
+  <homepage rdf:resource="http://www.burtonini.com/blog/computers/devilspie"/>
+  <created>2002-08-14</created>
+  
+  <shortdesc>Find windows and perform actions on them</shortdesc>
+  <description>
+    Devil's Pie will find windows as they are created and perform actions on
+    them, such as resizing, moving to another workspace, or pinning them to all
+    workspaces.
+  </description>
+
+  <bug-database rdf:resource="http://bugzilla.gnome.org/browse.cgi?product=devilspie"/>
+  <programming-language>C</programming-language>
+  <os>Linux</os>
+  <license rdf:resource="http://usefulinc.com/doap/licenses/gpl"/>
+  <download-page rdf:resource="http://www.burtonini.com/blog/computers/devilspie"/>
+  
+  <category rdf:resource="http://labs.o-hand.com/doap/category/gnome"/>
+
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Ross Burton</foaf:name>
+      <foaf:mbox rdf:resource="mailto:ross@burtonini.com"/>
+    </foaf:Person>
+  </maintainer>
+
+  <repository>
+    <SVNRepository>
+      <browse rdf:resource="http://svn.gnome.org/viewcvs/devilspie/trunk"/>
+      <location rdf:resource="https://svn.gnome.org/svn/devilspie/trunk/"/>
+    </SVNRepository>
+  </repository>
+  
+  <release>
+    <Version>
+      <revision>0.20.2</revision>
+      <created>2007-01-29</created>
+      <file-release rdf:resource="http://burtonini.com/computing/devilspie-0.20.2.tar.gz"/>
+    </Version>
+  </release>
+
+  <release>
+    <Version>
+      <revision>0.20.1</revision>
+      <created>2007-01-12</created>
+      <file-release rdf:resource="http://burtonini.com/computing/devilspie-0.20.1.tar.gz"/>
+    </Version>
+  </release>
+
+  <release>
+    <Version>
+      <revision>0.20</revision>
+      <created>2007-01-12</created>
+      <file-release rdf:resource="http://burtonini.com/computing/devilspie-0.20.tar.gz"/>
+    </Version>
+  </release>
+
+  <release>
+    <Version>
+      <revision>0.19</revision>
+      <created>2006-12-01</created>
+      <file-release rdf:resource="http://burtonini.com/computing/devilspie-0.19.tar.gz"/>
+    </Version>
+  </release>
+
+  <release>
+    <Version>
+      <revision>0.18</revision>
+      <created>2006-10-20</created>
+      <file-release rdf:resource="http://burtonini.com/computing/devilspie-0.18.tar.gz"/>
+    </Version>
+  </release>
+
+  <release>
+    <Version>
+      <revision>0.17.1</revision>
+      <created>2006-03-07</created>
+      <file-release rdf:resource="http://burtonini.com/computing/devilspie-0.17.1.tar.gz"/>
+    </Version>
+  </release>
+
+  <release>
+    <Version>
+      <revision>0.17</revision>
+      <created>2006-03-06</created>
+      <file-release rdf:resource="http://burtonini.com/computing/devilspie-0.17.tar.gz"/>
+    </Version>
+  </release>
+
+  <release>
+    <Version>
+      <revision>0.16</revision>
+      <created>2005-11-02</created>
+      <file-release rdf:resource="http://burtonini.com/computing/devilspie-0.16.tar.gz"/>
+    </Version>
+  </release>
+
+  <release>
+    <Version>
+      <revision>0.15</revision>
+      <created>2005-10-20</created>
+      <file-release rdf:resource="http://burtonini.com/computing/devilspie-0.15.tar.gz"/>
+    </Version>
+  </release>
+
+  <release>
+    <Version>
+      <revision>0.14</revision>
+      <created>2005-10-17</created>
+      <file-release rdf:resource="http://burtonini.com/computing/devilspie-0.14.tar.gz"/>
+    </Version>
+  </release>
+
+  <release>
+    <Version>
+      <revision>0.13</revision>
+      <created>2005-09-27</created>
+      <file-release rdf:resource="http://burtonini.com/computing/devilspie-0.13.tar.gz"/>
+    </Version>
+  </release>
+
+</Project>

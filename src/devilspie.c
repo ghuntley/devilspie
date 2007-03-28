@@ -117,7 +117,7 @@ int main(int argc, char **argv) {
   gdk_init(&argc, &argv);
 
   /* Parse the arguments */
-  context = g_option_context_new ("- Devil's Pie");
+  context = g_option_context_new ("- Devil's Pie " VERSION);
   g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
   g_option_context_parse (context, &argc, &argv, &error);
 

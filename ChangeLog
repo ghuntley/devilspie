@@ -1,3 +1,12 @@
+2007-06-22  Ross Burton  <ross@burtonini.com>
+
+	* devilspie.1:
+	* src/actions.[ch]:
+	* src/parser.c:
+	Add "decorate" action, the opposite of "undecorate".
+
+	Thanks Galkin Vasily, #449634.
+
 2007-03-28  Ross Burton  <ross@burtonini.com>
 
 	* src/devilspie.c:

@@ -54,6 +54,7 @@ ESExpResult *func_skip_pager(ESExp *f, int argc, ESExpResult **argv, Context *c)
 ESExpResult *func_above(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_below(ESExp *f, int argc, ESExpResult **argv, Context *c);
 
+ESExpResult *func_decorate(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_undecorate(ESExp *f, int argc, ESExpResult **argv, Context *c);
 
 ESExpResult *func_wintype(ESExp *f, int argc, ESExpResult **argv, Context *c);

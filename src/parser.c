@@ -77,6 +77,7 @@ static const struct {
   { "skip_tasklist", func_skip_tasklist, FALSE },
   { "above", func_above, FALSE },
   { "below", func_below, FALSE },
+  { "decorate", func_decorate, FALSE },
   { "undecorate", func_undecorate, FALSE },
   { "wintype", func_wintype, FALSE },
   { "opacity", func_opacity, FALSE },

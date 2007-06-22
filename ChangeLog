@@ -1,5 +1,10 @@
 2007-06-22  Ross Burton  <ross@burtonini.com>
 
+	* src/actions.c:
+	Refactor decorate and undecorate.
+
+2007-06-22  Ross Burton  <ross@burtonini.com>
+
 	* devilspie.1:
 	* src/actions.[ch]:
 	* src/parser.c:

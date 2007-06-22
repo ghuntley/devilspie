@@ -526,10 +526,9 @@ ESExpResult *func_below(ESExp *f, int argc, ESExpResult **argv, Context *c) {
   return e_sexp_result_new_bool (f, TRUE);
 }
 
-/**
- * Remove the window manager decorations from the current window.
- */
-ESExpResult *func_undecorate(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+static void
+set_decorations (Context *c, gboolean decorate)
+{
 #define PROP_MOTIF_WM_HINTS_ELEMENTS 5
 #define MWM_HINTS_DECORATIONS (1L << 1)
   struct {
@@ -541,10 +540,8 @@ ESExpResult *func_undecorate(ESExp *f, int argc, ESExpResult **argv, Context *c)
   } hints = {0,};
 
   hints.flags = MWM_HINTS_DECORATIONS;
-  hints.decorations = 0;
+  hints.decorations = decorate ? 1 : 0;
 
-  my_wnck_error_trap_push ();
-  
   /* Set Motif hints, most window managers handle these */
   XChangeProperty(GDK_DISPLAY(), wnck_window_get_xid (c->window),
                   my_wnck_atom_get ("_MOTIF_WM_HINTS"), 
@@ -554,8 +551,18 @@ ESExpResult *func_undecorate(ESExp *f, int argc, ESExpResult **argv, Context *c)
   /* Apart from OpenBox, which doesn't respect it changing after mapping.
      Instead it has this workaround. */
   my_wnck_change_state (my_wnck_window_get_xscreen(c->window),
-                        wnck_window_get_xid(c->window), TRUE,
+                        wnck_window_get_xid(c->window), decorate,
                         my_wnck_atom_get ("_OB_WM_STATE_UNDECORATED"), 0);
+
+}
+
+/**
+ * Remove the window manager decorations from the current window.
+ */
+ESExpResult *func_undecorate(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+  my_wnck_error_trap_push ();
+
+  set_decorations (c, FALSE);
 
   if (my_wnck_error_trap_pop () != 0) {
     g_printerr(_("Removing decorations failed"));
@@ -571,30 +578,9 @@ ESExpResult *func_undecorate(ESExp *f, int argc, ESExpResult **argv, Context *c)
  * Add the window manager decorations to the current window.
  */
 ESExpResult *func_decorate(ESExp *f, int argc, ESExpResult **argv, Context *c) {
-  struct {
-    unsigned long flags;
-    unsigned long functions;
-    unsigned long decorations;
-    long inputMode;
-    unsigned long status;
-  } hints = {0,};
-
-  hints.flags = MWM_HINTS_DECORATIONS;
-  hints.decorations = 1;
-
   my_wnck_error_trap_push ();
   
-  /* Set Motif hints, most window managers handle these */
-  XChangeProperty(GDK_DISPLAY(), wnck_window_get_xid (c->window),
-                  my_wnck_atom_get ("_MOTIF_WM_HINTS"), 
-                  my_wnck_atom_get ("_MOTIF_WM_HINTS"), 32, PropModeReplace, 
-                  (unsigned char *)&hints, PROP_MOTIF_WM_HINTS_ELEMENTS);
-
-  /* Apart from OpenBox, which doesn't respect it changing after mapping.
-     Instead it has this workaround. */
-  my_wnck_change_state (my_wnck_window_get_xscreen(c->window),
-                        wnck_window_get_xid(c->window), FALSE,
-                        my_wnck_atom_get ("_OB_WM_STATE_UNDECORATED"), 0);
+  set_decorations (c, TRUE);
 
   if (my_wnck_error_trap_pop () != 0) {
     g_printerr(_("Adding decorations failed"));

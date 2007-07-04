@@ -1,3 +1,10 @@
+2007-07-04  Ross Burton  <ross@burtonini.com>
+
+	* src/actions.[ch]:
+	* src/parser.c:
+	Add change_workspace, to change the active workspace (#453464,
+        thanks Adam Więckowski).
+
 2007-06-22  Ross Burton  <ross@burtonini.com>
 
 	* src/actions.c:

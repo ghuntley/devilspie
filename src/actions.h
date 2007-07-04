@@ -46,6 +46,7 @@ ESExpResult *func_unpin(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_stick(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_unstick(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_set_workspace(ESExp *f, int argc, ESExpResult **argv, Context *c);
+ESExpResult *func_change_workspace(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_set_viewport(ESExp *f, int argc, ESExpResult **argv, Context *c);
 
 ESExpResult *func_skip_tasklist(ESExp *f, int argc, ESExpResult **argv, Context *c);

@@ -72,6 +72,7 @@ static const struct {
   { "stick", func_stick, FALSE },
   { "unstick", func_unstick, FALSE },
   { "set_workspace", func_set_workspace, FALSE },
+  { "change_workspace", func_change_workspace, FALSE },
   { "set_viewport", func_set_viewport, FALSE },
   { "skip_pager", func_skip_pager, FALSE },
   { "skip_tasklist", func_skip_tasklist, FALSE },

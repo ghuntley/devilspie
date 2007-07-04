@@ -439,6 +439,36 @@ ESExpResult *func_set_workspace(ESExp *f, int argc, ESExpResult **argv, Context 
 }
 
 /**
+ * Change current workspace, counting from 1
+ */
+ESExpResult *func_change_workspace(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+  WnckScreen *screen;
+  WnckWorkspace *workspace;
+  int num;
+  GTimeVal timestamp;
+
+  if (argc != 1 || argv[0]->type != ESEXP_RES_INT) {
+    g_printerr(_("change_workspace expects a single integer argument\n"));
+    return e_sexp_result_new_bool (f, FALSE);
+  }
+
+  num = argv[0]->value.number;
+
+  screen = wnck_window_get_screen(c->window);
+  /* Adjust for 0-offset in workspaces list */
+  workspace = wnck_screen_get_workspace(screen, num-1);
+  if (!workspace) {
+    g_warning(_("Workspace number %d does not exist"), num);
+    return e_sexp_result_new_bool (f, FALSE);
+  }
+  g_get_current_time(&timestamp);
+  wnck_workspace_activate(workspace, timestamp.tv_sec);
+
+  if (debug) g_printerr(_("Switching workspace to %d\n"), num);
+  return e_sexp_result_new_bool (f, TRUE);
+}
+
+/**
  * Move the window to a specific viewport number, counting from 1.
  */
 ESExpResult *func_set_viewport(ESExp *f, int argc, ESExpResult **argv, Context *c) {

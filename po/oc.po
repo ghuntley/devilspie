@@ -1,0 +1,392 @@
+# Occitan devilspie translation.
+# Copyright (C) 2002 Ross Burton
+# This file is distributed under the same license as the devilspie package.
+# Yannig MARCHEGAY (yannig@marchegay.org) - 2006-2007
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: devilspie CVS (HEAD)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-09-27 11:49+0100\n"
+"PO-Revision-Date: 2007-08-19 17:09+0200\n"
+"Last-Translator: Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>\n"
+"Language-Team: Occitan (post 1500) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);"
+
+#: ../src/actions.c:40
+#, c-format
+msgid "Window Title: '%s'; Application Name: '%s'; Geometry: %dx%d+%d+%d\n"
+msgstr ""
+
+#: ../src/actions.c:50
+msgid "Setting fullscreen\n"
+msgstr ""
+
+#: ../src/actions.c:56
+msgid "Maximising\n"
+msgstr ""
+
+#: ../src/actions.c:62
+msgid "Maximising vertically\n"
+msgstr ""
+
+#: ../src/actions.c:68
+msgid "Maximising horizontally\n"
+msgstr ""
+
+#: ../src/actions.c:74
+msgid "Minimising\n"
+msgstr ""
+
+#: ../src/actions.c:80
+msgid "Setting sticky\n"
+msgstr ""
+
+#: ../src/actions.c:86
+msgid "Unsetting sticky\n"
+msgstr ""
+
+#: ../src/actions.c:106
+#, c-format
+msgid "Workspace number %d does not exist"
+msgstr ""
+
+#: ../src/actions.c:110
+#, c-format
+msgid "Changing workspace to %d\n"
+msgstr ""
+
+#: ../src/actions.c:116
+msgid "Skipping tasklist\n"
+msgstr ""
+
+#: ../src/actions.c:122
+msgid "Skipping pager\n"
+msgstr ""
+
+#: ../src/actions.c:132
+msgid "Setting above\n"
+msgstr ""
+
+#: ../src/actions.c:142
+msgid "Setting below\n"
+msgstr ""
+
+#: ../src/actions.c:165
+msgid "Removed decorations\n"
+msgstr ""
+
+#: ../src/config-sexp.c:72 ../src/config-sexp.c:118 ../src/config-sexp.c:164
+#, c-format
+msgid "Loading %s\n"
+msgstr ""
+
+#: ../src/config-sexp.c:75
+#, c-format
+msgid "%s is not a normal file, skipping\n"
+msgstr ""
+
+#: ../src/config-sexp.c:84
+#, c-format
+msgid "Cannot open %s\n"
+msgstr ""
+
+#: ../src/config-sexp.c:100 ../src/config-sexp.c:143
+#, c-format
+msgid "Cannot parse %s: %s\n"
+msgstr ""
+
+#: ../src/config-sexp.c:121
+#, c-format
+msgid "Cannot open file %s: %s\n"
+msgstr ""
+
+#: ../src/config-sexp.c:167
+#, c-format
+msgid "%s doesn't exist\n"
+msgstr ""
+
+#: ../src/config-sexp.c:172
+#, c-format
+msgid "%s isn't a directory\n"
+msgstr ""
+
+#: ../src/config-sexp.c:178
+#, c-format
+msgid "Cannot open %s: %s\n"
+msgstr ""
+
+#: ../src/devilspie.c:90
+msgid "Apply to all existing windows instead of just new windows."
+msgstr ""
+
+#: ../src/devilspie.c:91
+msgid "Output debug information"
+msgstr ""
+
+#: ../src/devilspie.c:92
+msgid "Configuration files to use"
+msgstr ""
+
+#: ../src/devilspie.c:112
+#, c-format
+msgid "Devil's Pie %s starting...\n"
+msgstr ""
+
+#: ../src/devilspie.c:124
+msgid "No s-expressions loaded, quiting\n"
+msgstr ""
+
+#: ../src/logical.c:82
+#, c-format
+msgid "Invalid regular expression '%s': %s"
+msgstr ""
+
+#~ msgid "Attribute \"%s\" repeated twice on the same <%s> element"
+#~ msgstr "Das Attribut »%s« wurde im selben <%s>-Element mehrfach wiederholt"
+
+#~ msgid "Attribute \"%s\" is invalid on <%s> element in this context"
+#~ msgstr ""
+#~ "Das Attribut »%s« ist in diesem Zusammenhang ungültig, darf also nicht "
+#~ "auf das <%s>-Element angewandt werden"
+
+#~ msgid "Line %d character %d: %s"
+#~ msgstr "Zeile %d, Zeichen %d: %s"
+
+#~ msgid "No \"name\" attribute on element <%s>"
+#~ msgstr "Kein »name«-Attribut im Element <%s>"
+
+#~ msgid "No \"value\" attribute on element <%s>"
+#~ msgstr "Kein »value«-Attribut im Element <%s>"
+
+#~ msgid "Requested type %s is not a known Matcher"
+#~ msgstr "Der angeforderte Typ %s ist keine bekannte Bedingung"
+
+#~ msgid "Could not parse attributes of <%s>"
+#~ msgstr "Die Attribute von »%s« konnten nicht verarbeitet werden"
+
+#~ msgid "Requested type %s is not a known Action"
+#~ msgstr "Der angeforderte Typ %s ist keine bekannte Aktion"
+
+#~ msgid "Outermost element in config files must be <devilspie> not <%s>"
+#~ msgstr ""
+#~ "Das äußerste Element in Konfigurationsdateien muss <devilspie> sein, "
+#~ "nicht <%s>"
+
+#~ msgid "Only <flurb> elements are allowed inside <devilspie> not <%s>"
+#~ msgstr ""
+#~ "In <devilspie>-Elementen sind ausschließlich <flurb>-Elemente erlaubt, "
+#~ "keine <%s>-Elemente"
+
+#~ msgid ""
+#~ "Only <matchers> and <actions> elements are allowed inside <blurb> not <%s>"
+#~ msgstr ""
+#~ "In <blurb>-Elementen sind ausschließlich <matchers>- und <actions>-"
+#~ "Elemente erlaubt, keine <%s>-Elemente"
+
+#~ msgid "Only <matcher> elements are allowed inside <matchers> not <%s>"
+#~ msgstr ""
+#~ "In <matchers>-Elementen sind ausschließlich <matcher>-Elemente erlaubt, "
+#~ "keine <%s>-Elemente"
+
+#~ msgid "Only <property> elements are allowed inside <matcher> not <%s>"
+#~ msgstr ""
+#~ "In <matcher>-Elementen sind ausschließlich <property>-Elemente erlaubt, "
+#~ "keine <%s>-Elemente"
+
+#~ msgid "Element <%s> is not allowed inside <property>"
+#~ msgstr "Im <property>-Element ist das <%s>-Element nicht erlaubt"
+
+#~ msgid "Only <action> elements are allowed inside <actions> not <%s>"
+#~ msgstr ""
+#~ "Im <actions>-Element sind ausschließlich <action>-Elemente erlaubt, keine "
+#~ "<%s>-Elemente"
+
+#~ msgid "Only <property> elements are allowed inside <action> not <%s>"
+#~ msgstr ""
+#~ "Im <action>-Element sind ausschließlich <property>-Elemente erlaubt, "
+#~ "keine <%s>-Elemente"
+
+#~ msgid "Can not close element <%s> outside of the root element"
+#~ msgstr ""
+#~ "Element <%s> darf nicht außerhalb des Wurzelelements geschlossen werden"
+
+#~ msgid "No text is allowed inside element <%d>"
+#~ msgstr "Im Element <%d> ist kein Text erlaubt"
+
+#~ msgid "Decorated windows"
+#~ msgstr "Dekorierte Fenster"
+
+#~ msgid "Window is decorated (OpenBox + Motif WM hints)"
+#~ msgstr "Fenster ist dekoriert (OpenBox + Motif WM Hinweise)"
+
+#~ msgid "Command to execute"
+#~ msgstr "Auszuführender Befehl"
+
+#~ msgid ""
+#~ "This command and any arguments will be run.  The title of the window and "
+#~ "the window ID will be passed to the command as the first and second "
+#~ "arguments"
+#~ msgstr ""
+#~ "Dieser Befehl wird mit allen Argumenten ausgeführt. Der Titel des "
+#~ "Fensters und die Fensterkennung werden dem Befehl als erstes und zweites "
+#~ "Argument übergeben."
+
+#~ msgid "Window does not appear in the pager"
+#~ msgstr "Fenster erscheint nicht im Arbeitsflächen-Umschalter"
+
+#~ msgid "Window does not appear in the task list"
+#~ msgstr "Fenster erscheint nicht in der Fensterliste"
+
+#~ msgid "Above windows?"
+#~ msgstr "Vor den Fenstern?"
+
+#~ msgid "Window is above all others"
+#~ msgstr "Fenster befindet sich vor allen anderen"
+
+#~ msgid "Window is maximized on the screen"
+#~ msgstr "Fenster wird auf dem Bildschirm maximiert"
+
+#~ msgid "Window is maximized horizontally on the screen"
+#~ msgstr "Fenster wird auf dem Bildschirm horizontal maximiert"
+
+#~ msgid "Window is minimized vertically on the screen"
+#~ msgstr "Fenster wird auf dem Bildschirm vertikal minimiert"
+
+#~ msgid "Window is minimized"
+#~ msgstr "Fenster wird minimiert"
+
+#~ msgid "Window fills the screen"
+#~ msgstr "Fenster füllt den ganzen Bildschirm"
+
+#~ msgid "Window %s geometry changed"
+#~ msgstr "Geometrie des Fensters %s geändert"
+
+#~ msgid "Window %s closed"
+#~ msgstr "Fenster %s geschlossen"
+
+#~ msgid "Starting SaveGeometry action"
+#~ msgstr "Aktion »SaveGeometry« wird gestartet"
+
+#~ msgid "X offset"
+#~ msgstr "X-Versatz"
+
+#~ msgid "Horizontal offset of the window"
+#~ msgstr "Horizontaler Versatz des Fensters"
+
+#~ msgid "Y offset"
+#~ msgstr "Y-Versatz"
+
+#~ msgid "Vertical offset of the window"
+#~ msgstr "Vertikaler Versatz des Fensters"
+
+#~ msgid "Width"
+#~ msgstr "Breite"
+
+#~ msgid "Width of the window"
+#~ msgstr "Breite des Fensters"
+
+#~ msgid "Height"
+#~ msgstr "Höhe"
+
+#~ msgid "Height of the window"
+#~ msgstr "Höhe des Fensters"
+
+#~ msgid "Window type hint"
+#~ msgstr "Fenstertyp-Hinweis"
+
+#~ msgid "The window type hint"
+#~ msgstr "Der Fenstertyp-Hinweis"
+
+#~ msgid "Pinned"
+#~ msgstr "Auf allen Arbeitsflächen"
+
+#~ msgid "Window is pinned on all workspaces, aka sticky"
+#~ msgstr "Fenster wird auf alle Arbeitsflächen gelegt"
+
+#~ msgid "Workspace"
+#~ msgstr "Arbeitsfläche"
+
+#~ msgid "Which workspace to move this window to (numbered)"
+#~ msgstr ""
+#~ "Auf welche Arbeitsfläche soll dieses Fenster verschoben werden "
+#~ "(durchgezählt)?"
+
+#~ msgid "Window title regexp"
+#~ msgstr "Regulärer Ausdruck im Fenstertitel"
+
+#~ msgid "The regular expression that should match the window title"
+#~ msgstr "Der reguläre Ausdruck, der im Fenstertitel vorkommen muss"
+
+#~ msgid "Application name regexp"
+#~ msgstr "Regulärer Ausdruck im Anwendungsnamen"
+
+#~ msgid ""
+#~ "The regular expression that should match the name of the application (as "
+#~ "determined by libwnck)"
+#~ msgstr ""
+#~ "Der reguläre Ausdruck, der im Namen der Anwendung vorkommen muss (dieser "
+#~ "wird von libwnck ermittelt)"
+
+#~ msgid "Window role regexp"
+#~ msgstr "Regulärer Ausdruck in der Fensterrolle"
+
+#~ msgid ""
+#~ "The regular expression that should match the role of the window (set by "
+#~ "WM_WINDOW_ROLE atom)"
+#~ msgstr ""
+#~ "Der Reguläre Ausdruck, der in der Rolle des Fensters vorkommen muss "
+#~ "(diese wird mittels des WM_WINDOW_ROLE-Atoms festgelegt)"
+
+#~ msgid "*"
+#~ msgstr "*"
+
+#~ msgid "Add a new window action"
+#~ msgstr "Eine neue Fensteraktion hinzufügen"
+
+#~ msgid "Edit Window Action"
+#~ msgstr "Fensteraktion bearbeiten"
+
+#~ msgid "Edit the selected window action"
+#~ msgstr "Die ausgewhlte Fensteraktion bearbeiten"
+
+#~ msgid "Remove the selected window action"
+#~ msgstr "Die ausgewhlte Fensteraktion entfernen"
+
+#~ msgid "Window _Actions:"
+#~ msgstr "Fenster_aktionen:"
+
+#~ msgid "_Actions (rename)"
+#~ msgstr "A_ktionen (umbenennen)"
+
+#~ msgid "_Actions:"
+#~ msgstr "A_ktionen:"
+
+#~ msgid "_Add..."
+#~ msgstr "_Hinzufügen..."
+
+#~ msgid "_Edit..."
+#~ msgstr "_Bearbeiten"
+
+#~ msgid "_Matchers (rename)"
+#~ msgstr "_Bedingungen (umbenennen)"
+
+#~ msgid "_Matchers:"
+#~ msgstr "_Bedingungen"
+
+#~ msgid "_Name:"
+#~ msgstr "_Name:"
+
+#~ msgid "treeview_matchers"
+#~ msgstr "Baumansicht_Bedingungen"
+
+#~ msgid ""
+#~ "Usage: devilspie [configuration file]\n"
+#~ "If no configuration file is specified, ~/.devilspie.xml is used.\n"
+#~ msgstr ""
+#~ "Verwendung: devilspie [Konfigurationsdatei]\n"
+#~ "Falls Sie keine Konfigurationsdatei übergeben, wird ~/.devilspie.xml "
+#~ "verwendet.\n"

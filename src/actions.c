@@ -226,35 +226,39 @@ ESExpResult *func_geometry(ESExp *f, int argc, ESExpResult **argv, Context *c) {
  * Center position of current window.
  */
 ESExpResult *func_center(ESExp *f, int argc, ESExpResult **argv, Context *c) {
-  gint xoffset, yoffset, window_width, window_height,
-    workspace_width, workspace_height;
-  int new_xoffset, new_yoffset;
-
-  /* read in window geometry */
-  wnck_window_get_geometry (c->window,
-                            &xoffset, &yoffset, &window_width, &window_height);
-
-  /* read in workspace geometry */
+  int xoffset, yoffset, window_width, window_height, workspace_width, workspace_height;
   WnckScreen *screen;
   WnckWorkspace *workspace;
-  screen           = wnck_window_get_screen (c->window);
-  workspace        = wnck_screen_get_active_workspace (screen);
-  workspace_width  = wnck_workspace_get_width  (workspace);
+
+  /* Read in window geometry */
+  wnck_window_get_geometry (c->window, NULL, NULL, &window_width, &window_height);
+
+  /* Read in workspace geometry */
+  screen = wnck_window_get_screen (c->window);
+  
+  workspace = wnck_screen_get_active_workspace (screen);
+  if (workspace == NULL)
+    workspace = wnck_screen_get_workspace (screen, 0);
+  if (workspace == NULL) {
+    g_printerr (_("Cannot get workspace\n"));
+    return e_sexp_result_new_bool (f, FALSE);
+  }
+
+  workspace_width = wnck_workspace_get_width (workspace);
   workspace_height = wnck_workspace_get_height (workspace);
 
-  /* calculate offset for upper left corner */
-  new_xoffset = (workspace_width - window_width) / 2;
-  new_yoffset = (workspace_height - window_height) / 2;
+  /* Calculate offset for upper left corner */
+  xoffset = (workspace_width - window_width) / 2;
+  yoffset = (workspace_height - window_height) / 2;
 
-  /* try to set new position.. */
+  /* Try to set new position.. */
   my_wnck_error_trap_push ();
   XMoveWindow (gdk_display,
                wnck_window_get_xid (c->window),
-               new_xoffset, new_yoffset);
+               xoffset, yoffset);
 
   if (my_wnck_error_trap_pop ()) {
-    g_printerr (_("Centering '%s' failed\n"),
-               argv[0]->value.string);
+    g_printerr (_("Centering '%s' failed\n"), argv[0]->value.string);
     return e_sexp_result_new_bool (f, FALSE);
   }
 

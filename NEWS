@@ -1,3 +1,12 @@
+Devil's Pie "A Love Supreme" 0.21
+=================================
+
+* Add change_workspace action (#453464, thanks Adam Więckowski)
+* Add decorate action (#449634, thanks Galkin Vasily)
+* Add quit action (thanks Leon Zhang)
+* Handle wnck_screen_get_active_workspace() failing (#343546)
+
+
 Devil's Pie "Wearing That Dress" 0.20.2
 =======================================
 

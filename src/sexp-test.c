@@ -26,6 +26,7 @@
 GList *sexps = NULL;
 gboolean debug = FALSE;
 Context context = {NULL};
+GMainLoop *loop = NULL;
 
 int main(int argc, char **argv)
 {

@@ -1,3 +1,8 @@
+2007-10-08  Ross Burton  <ross@burtonini.com>
+
+	* devilspie.1:
+	Fix typos spotted by Loïc Minier.
+
 2007-09-23  Ross Burton  <ross@burtonini.com>
 
 	* configure.in:

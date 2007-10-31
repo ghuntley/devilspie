@@ -585,7 +585,7 @@ set_decorations (Context *c, gboolean decorate)
   /* Apart from OpenBox, which doesn't respect it changing after mapping.
      Instead it has this workaround. */
   my_wnck_change_state (my_wnck_window_get_xscreen(c->window),
-                        wnck_window_get_xid(c->window), decorate,
+                        wnck_window_get_xid(c->window), !decorate,
                         my_wnck_atom_get ("_OB_WM_STATE_UNDECORATED"), 0);
 
 }

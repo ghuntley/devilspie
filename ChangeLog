@@ -1,3 +1,8 @@
+2007-10-31  Ross Burton  <ross@burtonini.com>
+
+	* src/actions.c:
+	Fix decorate/undecorate actions with OpenBox (thanks Rafał Mużyło)
+
 2007-10-08  Ross Burton  <ross@burtonini.com>
 
 	* devilspie.1:

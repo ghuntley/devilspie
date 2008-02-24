@@ -1,3 +1,9 @@
+2008-02-24  Ross Burton  <ross@burtonini.com>
+
+	* src/actions.[ch]:
+	* src/parser.c:
+	Add unfullscreen action, thanks Mathias Dahl.
+
 2007-11-24  Ross Burton  <ross@burtonini.com>
 
 	* configure.in:

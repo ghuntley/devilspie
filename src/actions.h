@@ -29,6 +29,7 @@ ESExpResult *func_hex(ESExp *f, int argc, ESExpResult **argv, Context *c);
 
 ESExpResult *func_geometry(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_fullscreen(ESExp *f, int argc, ESExpResult **argv, Context *c);
+ESExpResult *func_unfullscreen(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_focus(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_center(ESExp *f, int argc, ESExpResult **argv, Context *c);
 ESExpResult *func_maximize(ESExp *f, int argc, ESExpResult **argv, Context *c);

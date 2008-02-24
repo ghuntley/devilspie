@@ -278,6 +278,16 @@ ESExpResult *func_fullscreen(ESExp *f, int argc, ESExpResult **argv, Context *c)
 }
 
 /**
+ * Make the current window not fullscreen.
+ */
+
+ESExpResult *func_unfullscreen(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+  wnck_window_set_fullscreen (c->window, FALSE);
+  if (debug) g_printerr(_("Unsetting fullscreen\n"));
+  return e_sexp_result_new_bool (f, TRUE);
+}
+
+/**
  * Focus the current window.
  */
 ESExpResult *func_focus(ESExp *f, int argc, ESExpResult **argv, Context *c) {

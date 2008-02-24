@@ -56,6 +56,7 @@ static const struct {
   { "hex", func_hex, FALSE },
   { "geometry", func_geometry, FALSE },
   { "fullscreen", func_fullscreen, FALSE },
+  { "unfullscreen", func_unfullscreen, FALSE },
   { "focus", func_focus, FALSE },
   { "center", func_center, FALSE },
   { "maximize", func_maximize, FALSE },

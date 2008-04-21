@@ -1,3 +1,8 @@
+2008-04-21  Ross Burton  <ross@burtonini.com>
+
+	* configure.ac:
+	Remove obsolete macros.
+
 2008-02-24  Ross Burton  <ross@burtonini.com>
 
 	* src/actions.[ch]:

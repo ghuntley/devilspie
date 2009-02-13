@@ -167,6 +167,21 @@ my_wnck_get_string_property_latin1 (Window  xwindow,
           g_free (prop_names);
         }
     }
+  else if (type == XA_CARDINAL && nitems == 1)
+    {
+       switch(format)
+         {
+               case 32:
+                       retval = g_strdup_printf("%lu",*(unsigned long*)property);
+                       break;
+               case 16:
+                       retval = g_strdup_printf("%u",*(unsigned int*)property);
+                       break;
+               case 8:
+                       retval = g_strdup_printf("%c",*(unsigned char*)property);
+                       break;
+         }
+    }
   
   XFree (property);
   return retval;

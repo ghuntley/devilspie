@@ -2,6 +2,7 @@
   
 <Project xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:gnome="http://api.gnome.org/doap-extensions#"
   xmlns="http://usefulinc.com/ns/doap#">
   
   <name>Devil's Pie</name>
@@ -27,17 +28,11 @@
   <maintainer>
     <foaf:Person>
       <foaf:name>Ross Burton</foaf:name>
+      <gnome:userid>rburton</gnome:userid>
       <foaf:mbox rdf:resource="mailto:ross@burtonini.com"/>
     </foaf:Person>
   </maintainer>
 
-  <repository>
-    <SVNRepository>
-      <browse rdf:resource="http://svn.gnome.org/viewcvs/devilspie/trunk"/>
-      <location rdf:resource="https://svn.gnome.org/svn/devilspie/trunk/"/>
-    </SVNRepository>
-  </repository>
-  
   <release>
     <Version>
       <revision>0.20.2</revision>

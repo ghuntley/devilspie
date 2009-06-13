@@ -1,0 +1,511 @@
+# Spanish translation of devilspie.
+# Copyright (C) 2009 devilspie's COPYRIGHT HOLDER
+# This file is distributed under the same license as the devilspie package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Juan Alfredo Salas Santillana <jsantillana@aqpglug.org.pe>, 2009.
+# Jorge González <jorgegonz@svn.gnome.org>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: devilspie master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=devilspie&component=general\n"
+"POT-Creation-Date: 2009-06-01 09:36+0000\n"
+"PO-Revision-Date: 2009-06-13 16:38+0200\n"
+"Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
+"Language-Team: Español <gnome-es-list@gnome.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../src/actions.c:46
+#, c-format
+msgid ""
+"Window Title: '%s'; Application Name: '%s'; Class: '%s'; Geometry: %dx%d+%d+%"
+"d\n"
+msgstr ""
+"Título de la ventana: «%s»; nombre de la aplicación: «%s»; clase: «%s»; "
+"geometría: %dx%d+%d+%d\n"
+
+#: ../src/actions.c:90
+#, c-format
+msgid "(array pointer: %p)\n"
+msgstr "(puntero array: %p)\n"
+
+#: ../src/actions.c:96
+#, c-format
+msgid "Cannot convert element into a string\n"
+msgstr "No se puede convertir el elemento a una cadena\n"
+
+#: ../src/actions.c:214
+#, c-format
+msgid "Setting geometry '%s' failed\n"
+msgstr "Falló al establecer la geometría «%s»\n"
+
+#: ../src/actions.c:220
+#, c-format
+msgid "Setting geometry '%s'\n"
+msgstr "Estableciendo la geometría «%s»\n"
+
+#: ../src/actions.c:243
+#, c-format
+msgid "Cannot get workspace\n"
+msgstr "No se pudo obtener el área de trabajo\n"
+
+#: ../src/actions.c:261
+#, c-format
+msgid "Centering '%s' failed\n"
+msgstr "Falló al centrar «%s»\n"
+
+#: ../src/actions.c:266
+#, c-format
+msgid "Centering\n"
+msgstr "Centrando\n"
+
+#: ../src/actions.c:276
+#, c-format
+msgid "Setting fullscreen\n"
+msgstr "Estableciendo a pantalla completa\n"
+
+#: ../src/actions.c:286
+#, c-format
+msgid "Unsetting fullscreen\n"
+msgstr "Desestableciendo la pantalla completa\n"
+
+#: ../src/actions.c:299
+#, c-format
+msgid "Focusing\n"
+msgstr "Enfocando\n"
+
+#: ../src/actions.c:308
+#, c-format
+msgid "Maximising\n"
+msgstr "Maximizando\n"
+
+#: ../src/actions.c:317
+#, c-format
+msgid "Maximising vertically\n"
+msgstr "Maximizando verticalmente\n"
+
+#: ../src/actions.c:326
+#, c-format
+msgid "Maximising horizontally\n"
+msgstr "Maximizando horizontalmente\n"
+
+#: ../src/actions.c:335
+#, c-format
+msgid "Un-maximising\n"
+msgstr "Desmaximizando\n"
+
+#: ../src/actions.c:344
+#, c-format
+msgid "Minimising\n"
+msgstr "Minimizando\n"
+
+#: ../src/actions.c:357
+#, c-format
+msgid "Un-minimising\n"
+msgstr "Desminimizando\n"
+
+#: ../src/actions.c:366
+#, c-format
+msgid "Shaded\n"
+msgstr "Sombreado\n"
+
+#: ../src/actions.c:375
+#, c-format
+msgid "Unshaded\n"
+msgstr "Sin sombrear\n"
+
+#: ../src/actions.c:388
+#, c-format
+msgid "Closed\n"
+msgstr "Cerrado\n"
+
+#: ../src/actions.c:397
+#, c-format
+msgid "Setting pinned\n"
+msgstr "Estableciendo como fijado\n"
+
+#: ../src/actions.c:406
+#, c-format
+msgid "Unsetting pinned\n"
+msgstr "Estableciendo como no fijado\n"
+
+# Traduccion difusa
+#: ../src/actions.c:415
+#, c-format
+msgid "Setting sticky\n"
+msgstr "Estableciendo como pegajoso\n"
+
+#: ../src/actions.c:424
+#, c-format
+msgid "Unsetting sticky\n"
+msgstr "Estableciendo como no pegajoso\n"
+
+#: ../src/actions.c:437
+#, c-format
+msgid "set_workspace expects a single integer argument\n"
+msgstr "set_workspace espera un único argumento entero\n"
+
+#: ../src/actions.c:447 ../src/actions.c:475
+#, c-format
+msgid "Workspace number %d does not exist\n"
+msgstr "El área de trabajo número %d no existe\n"
+
+#: ../src/actions.c:451
+#, c-format
+msgid "Changing workspace to %d\n"
+msgstr "Cambiando al área de trabajo %d\n"
+
+#: ../src/actions.c:465
+#, c-format
+msgid "change_workspace expects a single integer argument\n"
+msgstr "change_workspace espera un único argumento entero\n"
+
+#: ../src/actions.c:481
+#, c-format
+msgid "Switching workspace to %d\n"
+msgstr "Cambiando el área de trabajo a %d\n"
+
+#: ../src/actions.c:493
+#, c-format
+msgid "set_viewport expects a single integer argument\n"
+msgstr "set_viewport espera un único argumento entero\n"
+
+#: ../src/actions.c:500
+#, c-format
+msgid "set_viewport expects an integer greater than 0\n"
+msgstr "set_viewport espera un número entero mayor que 0\n"
+
+#: ../src/actions.c:510
+#, c-format
+msgid "could not find current viewport\n"
+msgstr "No se pudo encontrar el puerto de vista correcto\n"
+
+#: ../src/actions.c:521
+#, c-format
+msgid "Setting viewport failed\n"
+msgstr "Falló al establecer el puerto de vista\n"
+
+#: ../src/actions.c:525
+#, c-format
+msgid "Changing viewport to %d\n"
+msgstr "Cambiando puerto de vista a %d\n"
+
+#: ../src/actions.c:534
+#, c-format
+msgid "Skipping tasklist\n"
+msgstr "Saltando la lista de tareas\n"
+
+#: ../src/actions.c:543
+#, c-format
+msgid "Skipping pager\n"
+msgstr "Saltando el paginador\n"
+
+#: ../src/actions.c:556
+#, c-format
+msgid "Setting above\n"
+msgstr "Configuración por encima\n"
+
+#: ../src/actions.c:569
+#, c-format
+msgid "Setting below\n"
+msgstr "Configuración por debajo\n"
+
+#: ../src/actions.c:612
+#, c-format
+msgid "Removing decorations failed\n"
+msgstr "Falló al quitar la decoración\n"
+
+#: ../src/actions.c:616
+#, c-format
+msgid "Removed decorations\n"
+msgstr "Decoraciones quitadas\n"
+
+#: ../src/actions.c:630
+#, c-format
+msgid "Adding decorations failed\n"
+msgstr "Falló al añadir la decoración\n"
+
+#: ../src/actions.c:634
+#, c-format
+msgid "Added decorations\n"
+msgstr "Decoraciones añadidas\n"
+
+#: ../src/actions.c:649
+#, c-format
+msgid "wintype expects a single string argument\n"
+msgstr "wintype espera un único argumento entero\n"
+
+#: ../src/actions.c:671
+#, c-format
+msgid "Unknown window type '%s'\n"
+msgstr "Tipo de ventana «%s» desconocido\n"
+
+#: ../src/actions.c:677
+#, c-format
+msgid "Set wintype\n"
+msgstr "Establecer el tipo de ventana\n"
+
+#: ../src/actions.c:690
+#, c-format
+msgid "opacity expects a single integer argument\n"
+msgstr "la opacidad espera un único argumento entero\n"
+
+#: ../src/actions.c:695
+#, c-format
+msgid "opacity expects a single integer argument between 0 and 100\n"
+msgstr "la opacidad espera un único argumento entero entre 0 y 100\n"
+
+#: ../src/actions.c:725
+#, c-format
+msgid "spawn_sync(string)\n"
+msgstr "spawn_sync(cadena)\n"
+
+#: ../src/actions.c:727
+#, c-format
+msgid "spawn_sync: Command parameter is not a string\n"
+msgstr "spawn_sync: el parámetro del comando no es una cadena\n"
+
+#: ../src/actions.c:740
+#, c-format
+msgid "spawn_sync(list)\n"
+msgstr "spawn_sync(lista)\n"
+
+#: ../src/actions.c:747
+#, c-format
+msgid "spawn_sync: Command parameter %d is not a string\n"
+msgstr "spawn_sync: el parámetro del comando %d no es una cadena\n"
+
+#: ../src/actions.c:764
+#, c-format
+msgid "Error spawning child process (fg): %s\n"
+msgstr "Error al crear proceso hijo (fg): %s\n"
+
+#: ../src/actions.c:766
+#, c-format
+msgid "Error spawning child process (fg).\n"
+msgstr "Error al crear proceso hijo (fg).\n"
+
+#: ../src/actions.c:769
+#, c-format
+msgid "Warning: child process returned %d\n"
+msgstr "Advertencia: el proceso hijo devolvió %d\n"
+
+#: ../src/actions.c:793
+#, c-format
+msgid "spawn_async(string)\n"
+msgstr "spawn_async(cadena)\n"
+
+#: ../src/actions.c:795
+#, c-format
+msgid "spawn_async: Command parameter is not a string\n"
+msgstr "spawn_async: el parámetro del comando no es una cadena\n"
+
+#: ../src/actions.c:807
+#, c-format
+msgid "spawn_async(list)\n"
+msgstr "spawn_async(lista)\n"
+
+#: ../src/actions.c:814
+#, c-format
+msgid "spawn_async: Command parameter %d is not a string\n"
+msgstr "spawn_async: el parámetro del comando %d no es una cadena\n"
+
+#: ../src/actions.c:827
+#, c-format
+msgid "Spawned pid %u (bg)\n"
+msgstr "Creando pid %u (bg)\n"
+
+#: ../src/actions.c:833
+#, c-format
+msgid "Error spawning child process (bg): %s\n"
+msgstr "Error al crear proceso hijo (bg): %s\n"
+
+#: ../src/actions.c:835
+#, c-format
+msgid "Error spawning child process (bg).\n"
+msgstr "Error al crear proceso hijo (bg).\n"
+
+#: ../src/actions.c:846
+#, c-format
+msgid "Quiting...\n"
+msgstr "Saliendo...\n"
+
+#: ../src/devilspie.c:102
+msgid "Apply to all existing windows instead of just new windows.\n"
+msgstr ""
+"Aplicar a todas las ventanas existentes en lugar de sólo a las ventanas "
+"nuevas.\n"
+
+#: ../src/devilspie.c:103
+msgid "Output debug information\n"
+msgstr "Mostrar la información de depuración\n"
+
+#: ../src/devilspie.c:104
+msgid "Configuration files to use\n"
+msgstr "Archivos de configuración que usar\n"
+
+#: ../src/devilspie.c:124
+#, c-format
+msgid "Devil's Pie %s starting...\n"
+msgstr "cargando Devil's Pie %s...\n"
+
+#: ../src/devilspie.c:140
+#, c-format
+msgid "No s-expressions loaded, quiting\n"
+msgstr "No existen expresiones «s» cargadas, saliendo\n"
+
+#: ../src/e-sexp.c:271
+msgid "Invalid types in AND\n"
+msgstr "Tipos no válidos en AND\n"
+
+#: ../src/e-sexp.c:327
+msgid "Invalid types in OR\n"
+msgstr "Tipos no válidos en OR\n"
+
+#: ../src/e-sexp.c:389
+msgid "Incompatible types in compare <\n"
+msgstr "Tipos incompatibles en la comparación <\n"
+
+#: ../src/e-sexp.c:421
+msgid "Incompatible types in compare >\n"
+msgstr "Tipos incompatibles en la comparación >\n"
+
+#: ../src/e-sexp.c:483
+msgid "Invalid types in (+ ints)\n"
+msgstr "Tipos no válidos en (+ ints)\n"
+
+#: ../src/e-sexp.c:495
+msgid "Invalid types in (+ strings)\n"
+msgstr "Tipos no válidos en (+ strings)\n"
+
+#: ../src/e-sexp.c:511
+msgid "Invalid types in (+ time_t)\n"
+msgstr "Tipos no válidos en (+ time_t)\n"
+
+#: ../src/e-sexp.c:544
+msgid "Invalid types in -\n"
+msgstr "Tipos no válidos en -\n"
+
+#: ../src/e-sexp.c:559
+msgid "Invalid types in (- time_t)\n"
+msgstr "Tipos no válidos en (- time_t)\n"
+
+#: ../src/e-sexp.c:582
+msgid "Incorrect argument count to (int )\n"
+msgstr "Argumento de conteo (int ) incorrecto\n"
+
+#: ../src/e-sexp.c:597
+msgid "Invalid type in (cast-int )\n"
+msgstr "Tipos no válidos en (cast-int)\n"
+
+#: ../src/e-sexp.c:610
+msgid "Incorrect argument count to (cast-string )\n"
+msgstr "Argumento de conteo (cast-string) incorrecto\n"
+
+#: ../src/e-sexp.c:625
+msgid "Invalid type in (int )\n"
+msgstr "Tipos no válidos en (int)\n"
+
+#: ../src/e-sexp.c:718
+#, c-format
+msgid "Unknown type in parse tree: %d\n"
+msgstr "Tipo de sintaxis en el árbol desconocida: %d\n"
+
+#: ../src/e-sexp.c:908
+msgid "Invalid format for a integer value\n"
+msgstr "Formato para valor entero no válido\n"
+
+#: ../src/e-sexp.c:924 ../src/e-sexp.c:932
+msgid "Invalid format for a boolean value\n"
+msgstr "Formato para valor booleano no válido\n"
+
+#: ../src/e-sexp.c:955
+#, c-format
+msgid "Invalid symbol type: %s: %d\n"
+msgstr "Tipo de símbolo no válido: %s: %d\n"
+
+#: ../src/e-sexp.c:959 ../src/e-sexp.c:1004
+#, c-format
+msgid "Unknown identifier: %s\n"
+msgstr "Identificador desconocido: %s\n"
+
+#: ../src/e-sexp.c:965 ../src/e-sexp.c:1007
+#, c-format
+msgid "Unexpected token encountered: %d\n"
+msgstr "Se encontró un token inesperado: %d\n"
+
+#: ../src/e-sexp.c:1000
+#, c-format
+msgid "Trying to call variable as function: %s\n"
+msgstr "Intentando llamar a una variable como una función: %s\n"
+
+#: ../src/e-sexp.c:1011
+msgid "Missing ')'\n"
+msgstr "Falta «)»\n"
+
+#: ../src/e-sexp.c:1014
+msgid "Missing '('\n"
+msgstr "Falta «(»\n"
+
+#: ../src/logical.c:38
+#, c-format
+msgid "is expects two string arguments\n"
+msgstr "«is» espera dos argumentos de cadena\n"
+
+#: ../src/logical.c:55
+#, c-format
+msgid "contains expects two string arguments\n"
+msgstr "«contains» espera dos argumentos de cadena\n"
+
+#: ../src/logical.c:76
+#, c-format
+msgid "matches expects two string arguments\n"
+msgstr "«matches» espera dos argumentos de cadena\n"
+
+#: ../src/logical.c:87
+#, c-format
+msgid "Invalid regular expression '%s': %s\n"
+msgstr "Expreción regular no valida «%s»: %s\n"
+
+#: ../src/matchers.c:100
+#, c-format
+msgid "window_property expects one string argument\n"
+msgstr "«window_property» espera un argumento de cadena\n"
+
+#: ../src/parser.c:106 ../src/parser.c:175
+#, c-format
+msgid "Loading %s\n"
+msgstr "Cargando %s\n"
+
+#: ../src/parser.c:109
+#, c-format
+msgid "%s is not a normal file, skipping\n"
+msgstr "%s no es un archivo normal, omitiendo\n"
+
+#: ../src/parser.c:115
+#, c-format
+msgid "Cannot open %s\n"
+msgstr "No se puede abrir %s\n"
+
+#: ../src/parser.c:149
+#, c-format
+msgid "Cannot parse %s: %s\n"
+msgstr "No se puede analizar %s: %s\n"
+
+#: ../src/parser.c:178
+#, c-format
+msgid "%s doesn't exist\n"
+msgstr "%s no existe\n"
+
+#: ../src/parser.c:183
+#, c-format
+msgid "%s isn't a directory\n"
+msgstr "%s no es un directorio\n"
+
+#: ../src/parser.c:189
+#, c-format
+msgid "Cannot open %s: %s\n"
+msgstr "No se puede abrir %s: %s\n"

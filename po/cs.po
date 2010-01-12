@@ -1,0 +1,513 @@
+# Czech translation for devilspie.
+# Copyright (C) 2009 devilspie's COPYRIGHT HOLDER
+# This file is distributed under the same license as the devilspie package.
+# Marek Černocký <marek@manet.cz>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: devilspie master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-13 00:00+0100\n"
+"PO-Revision-Date: 2009-12-23 20:48+0100\n"
+"Last-Translator: Marek Černocký <marek@manet.cz>\n"
+"Language-Team: Czech <gnome-cs-list@gnome.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: ../src/actions.c:46
+#, c-format
+msgid ""
+"Window Title: '%s'; Application Name: '%s'; Class: '%s'; Geometry: %dx%d+%d+%"
+"d\n"
+msgstr ""
+"Záhlaví okna: „%s“; Název aplikace: „%s“; Třída: „%s“; Rozměry a umístění: %"
+"d×%d+%d+%d\n"
+
+#: ../src/actions.c:90
+#, c-format
+msgid "(array pointer: %p)"
+msgstr "(ukazatel na pole: %p)"
+
+#: ../src/actions.c:96
+#, c-format
+msgid "Cannot convert element into a string"
+msgstr "Element nelze převést na řetězec"
+
+#: ../src/actions.c:214
+#, c-format
+msgid "Setting geometry '%s' failed\n"
+msgstr "Nastavení rozměrů a umístění „%s“ selhalo\n"
+
+#: ../src/actions.c:220
+#, c-format
+msgid "Setting geometry '%s'\n"
+msgstr "Nastavují se rozměry a umístění: „%s“\n"
+
+#: ../src/actions.c:243
+#, c-format
+msgid "Cannot get workspace\n"
+msgstr "Nelze získat pracovní plochu\n"
+
+#: ../src/actions.c:261
+#, c-format
+msgid "Centering '%s' failed\n"
+msgstr "Vystředění „%s“ selhalo\n"
+
+#: ../src/actions.c:266
+#, c-format
+msgid "Centering\n"
+msgstr "Vystřeďuje se\n"
+
+#: ../src/actions.c:276
+#, c-format
+msgid "Setting fullscreen\n"
+msgstr "Nastavuje se zobrazení přes celou obrazovku\n"
+
+#: ../src/actions.c:286
+#, c-format
+msgid "Unsetting fullscreen\n"
+msgstr "Ruší se zobrazení přes celou obrazovku\n"
+
+#: ../src/actions.c:299
+#, c-format
+msgid "Focusing\n"
+msgstr "Zaměřuje se\n"
+
+#: ../src/actions.c:308
+#, c-format
+msgid "Maximising\n"
+msgstr "Maximalizuje se\n"
+
+#: ../src/actions.c:317
+#, c-format
+msgid "Maximising vertically\n"
+msgstr "Maximalizuje se svisle\n"
+
+#: ../src/actions.c:326
+#, c-format
+msgid "Maximising horizontally\n"
+msgstr "Maximalizuje se vodorovně\n"
+
+#: ../src/actions.c:335
+#, c-format
+msgid "Un-maximising\n"
+msgstr "Ruší se maximalizace\n"
+
+#: ../src/actions.c:344
+#, c-format
+msgid "Minimising\n"
+msgstr "Minimalizuje se\n"
+
+#: ../src/actions.c:357
+#, c-format
+msgid "Un-minimising\n"
+msgstr "Ruší se minimalizace\n"
+
+#: ../src/actions.c:366
+#, c-format
+msgid "Shaded\n"
+msgstr "Vystínováno\n"
+
+#: ../src/actions.c:375
+#, c-format
+msgid "Unshaded\n"
+msgstr "Vystínování zrušeno\n"
+
+#: ../src/actions.c:388
+#, c-format
+msgid "Closed\n"
+msgstr "Zavřeno\n"
+
+#: ../src/actions.c:397
+#, c-format
+msgid "Setting pinned\n"
+msgstr "Nastavuje se přišpendlení\n"
+
+#: ../src/actions.c:406
+#, c-format
+msgid "Unsetting pinned\n"
+msgstr "Ruší se přišpendlení\n"
+
+#: ../src/actions.c:415
+#, c-format
+msgid "Setting sticky\n"
+msgstr "Nastavuje se přichytávání\n"
+
+#: ../src/actions.c:424
+#, c-format
+msgid "Unsetting sticky\n"
+msgstr "Ruší se přichytávání\n"
+
+#: ../src/actions.c:437
+#, c-format
+msgid "set_workspace expects a single integer argument\n"
+msgstr ""
+"set_workspace (nastavení pracovní plochy) očekává jako argument jedno celé "
+"číslo\n"
+
+#: ../src/actions.c:447 ../src/actions.c:475
+#, c-format
+msgid "Workspace number %d does not exist"
+msgstr "Pracovní plocha číslo %d neexistuje"
+
+#: ../src/actions.c:451
+#, c-format
+msgid "Changing workspace to %d\n"
+msgstr "Mění se pracovní plocha na %d\n"
+
+#: ../src/actions.c:465
+#, c-format
+msgid "change_workspace expects a single integer argument\n"
+msgstr ""
+"change_workspace (změna pracovní plochy) očekává jako argument jedno celé "
+"číslo\n"
+
+#: ../src/actions.c:481
+#, c-format
+msgid "Switching workspace to %d\n"
+msgstr "Přepíná se pracovní plocha na %d\n"
+
+#: ../src/actions.c:493
+#, c-format
+msgid "set_viewport expects a single integer argument\n"
+msgstr ""
+"set_viewport (nastavení pohledu) očekává jako argument jedno celé číslo\n"
+
+#: ../src/actions.c:500
+#, c-format
+msgid "set_viewport expects an integer greater than 0\n"
+msgstr "set_viewport (nastavení pohledu) očekává celé číslo větší než 0\n"
+
+#: ../src/actions.c:510
+#, c-format
+msgid "could not find current viewport\n"
+msgstr "nelze najít současný pohled\n"
+
+#: ../src/actions.c:521
+#, c-format
+msgid "Setting viewport failed\n"
+msgstr "Nastavení pohledu selhalo\n"
+
+#: ../src/actions.c:525
+#, c-format
+msgid "Changing viewport to %d\n"
+msgstr "Mění se pohled na %d\n"
+
+#: ../src/actions.c:534
+#, c-format
+msgid "Skipping tasklist\n"
+msgstr "Přeskakuje se seznam úloh\n"
+
+#: ../src/actions.c:543
+#, c-format
+msgid "Skipping pager\n"
+msgstr "Přeskakuje se stránkovač\n"
+
+#: ../src/actions.c:556
+#, c-format
+msgid "Setting above\n"
+msgstr "Nastavuje se předchozí\n"
+
+#: ../src/actions.c:569
+#, c-format
+msgid "Setting below\n"
+msgstr "Nastavuje se následující\n"
+
+#: ../src/actions.c:612
+#, c-format
+msgid "Removing decorations failed"
+msgstr "Odstranění dekorací selhalo"
+
+#: ../src/actions.c:616
+#, c-format
+msgid "Removed decorations\n"
+msgstr "Odstraněny dekorace\n"
+
+#: ../src/actions.c:630
+#, c-format
+msgid "Adding decorations failed"
+msgstr "Přidání dekorací selhalo"
+
+#: ../src/actions.c:634
+#, c-format
+msgid "Added decorations\n"
+msgstr "Přidány dekorace\n"
+
+#: ../src/actions.c:649
+#, c-format
+msgid "wintype expects a single string argument\n"
+msgstr "wintype (typ okna) očekává jako argument jeden řetězec\n"
+
+#: ../src/actions.c:671
+#, c-format
+msgid "Unknown window type '%s'"
+msgstr "Neznámý typ okna „%s“"
+
+#: ../src/actions.c:677
+#, c-format
+msgid "Set wintype\n"
+msgstr "Nastaven typ okna\n"
+
+#: ../src/actions.c:690
+#, c-format
+msgid "opacity expects a single integer argument\n"
+msgstr "opacity (neprůhlednost) očekává jeden argument typu celé číslo\n"
+
+#: ../src/actions.c:695
+#, c-format
+msgid "opacity expects a single integer argument between 0 and 100\n"
+msgstr ""
+"opacity (neprůhlednost) očekává jeden argument typu celé číslo v rozmezí 0 "
+"až 100\n"
+
+#: ../src/actions.c:725
+#, c-format
+msgid "spawn_sync(string)\n"
+msgstr "spawn_sync(řetězec)\n"
+
+#: ../src/actions.c:727
+#, c-format
+msgid "spawn_sync: Command parameter is not a string"
+msgstr "spawn_sync: Parametr příkazu není řetězec"
+
+#: ../src/actions.c:740
+#, c-format
+msgid "spawn_sync(list)\n"
+msgstr "spawn_sync(seznam)\n"
+
+#: ../src/actions.c:747
+#, c-format
+msgid "spawn_sync: Command parameter %d is not a string"
+msgstr "spawn_sync: Parametr příkazu %d není řetězec"
+
+#: ../src/actions.c:764
+#, c-format
+msgid "Error spawning child process (fg): %s\n"
+msgstr "Chyba vytváření procesu potomka (popředí): %s\n"
+
+#: ../src/actions.c:766
+#, c-format
+msgid "Error spawning child process (fg).\n"
+msgstr "Chyba vytváření procesu potomka (popředí).\n"
+
+#: ../src/actions.c:769
+#, c-format
+msgid "Warning: child process returned %d\n"
+msgstr "Varování: proces potomka vrátil %d\n"
+
+#: ../src/actions.c:793
+#, c-format
+msgid "spawn_async(string)\n"
+msgstr "spawn_async(řetězec)\n"
+
+#: ../src/actions.c:795
+#, c-format
+msgid "spawn_async: Command parameter is not a string"
+msgstr "spawn_async: Parametr příkazu není řetězec"
+
+#: ../src/actions.c:807
+#, c-format
+msgid "spawn_async(list)\n"
+msgstr "spawn_async(seznam)\n"
+
+#: ../src/actions.c:814
+#, c-format
+msgid "spawn_async: Command parameter %d is not a string"
+msgstr "spawn_async: Parametr příkazu %d není řetězec"
+
+#: ../src/actions.c:827
+#, c-format
+msgid "Spawned pid %u (bg)\n"
+msgstr "Vytvořen proces pid %u (pozadí)\n"
+
+#: ../src/actions.c:833
+#, c-format
+msgid "Error spawning child process (bg): %s\n"
+msgstr "Chyba vytváření procesu potomka (pozadí): %s\n"
+
+#: ../src/actions.c:835
+#, c-format
+msgid "Error spawning child process (bg).\n"
+msgstr "Chyba vytváření procesu potomka (pozadí)\n"
+
+#: ../src/actions.c:846
+#, c-format
+msgid "Quiting...\n"
+msgstr "Ukončuje se…\n"
+
+#: ../src/devilspie.c:102
+msgid "Apply to all existing windows instead of just new windows."
+msgstr "Použít na všechna existující okna a ne jen na nová"
+
+#: ../src/devilspie.c:103
+msgid "Output debug information"
+msgstr "Vypisovat ladicí informace"
+
+#: ../src/devilspie.c:104
+msgid "Configuration files to use"
+msgstr "Soubory nastavení, které se použijí"
+
+#: ../src/devilspie.c:124
+#, c-format
+msgid "Devil's Pie %s starting...\n"
+msgstr "Spouští se Devil's Pie %s…\n"
+
+#: ../src/devilspie.c:140
+#, c-format
+msgid "No s-expressions loaded, quiting\n"
+msgstr "Nenačteny žádné s-výrazy, končí se\n"
+
+#: ../src/e-sexp.c:271
+msgid "Invalid types in AND"
+msgstr "Neplatné typy v operaci AND"
+
+#: ../src/e-sexp.c:327
+msgid "Invalid types in OR"
+msgstr "Neplatné typy v operaci OR"
+
+#: ../src/e-sexp.c:389
+msgid "Incompatible types in compare <"
+msgstr "Nekompatibilní typy v porovnání <"
+
+#: ../src/e-sexp.c:421
+msgid "Incompatible types in compare >"
+msgstr "Nekompatibilní typy v porovnání <"
+
+#: ../src/e-sexp.c:483
+msgid "Invalid types in (+ ints)"
+msgstr "Neplatné typy v operaci (+ ints)"
+
+#: ../src/e-sexp.c:495
+msgid "Invalid types in (+ strings)"
+msgstr "Neplatné typy v operaci (+ strings)"
+
+#: ../src/e-sexp.c:511
+msgid "Invalid types in (+ time_t)"
+msgstr "Neplatné typy v operaci (+ time_t)"
+
+#: ../src/e-sexp.c:544
+msgid "Invalid types in -"
+msgstr "Neplatné typy v operaci -"
+
+#: ../src/e-sexp.c:559
+msgid "Invalid types in (- time_t)"
+msgstr "Neplatné typy v operaci (- time_t)"
+
+#: ../src/e-sexp.c:582
+msgid "Incorrect argument count to (int )"
+msgstr "Nesprávný počet argumentů pro (int )"
+
+#: ../src/e-sexp.c:597
+msgid "Invalid type in (cast-int )"
+msgstr "Neplatné typy v operaci (cast-int )"
+
+#: ../src/e-sexp.c:610
+msgid "Incorrect argument count to (cast-string )"
+msgstr "Nesprávný počet argumentů pro (cast-string )"
+
+#: ../src/e-sexp.c:625
+msgid "Invalid type in (int )"
+msgstr "Neplatné typy v (int )"
+
+#: ../src/e-sexp.c:718
+#, c-format
+msgid "Unknown type in parse tree: %d"
+msgstr "Neznámý typ v analyzovaném stromu: %d"
+
+#: ../src/e-sexp.c:908
+msgid "Invalid format for a integer value"
+msgstr "Neplatný formát pro celočíselnou hodnotu"
+
+#: ../src/e-sexp.c:924 ../src/e-sexp.c:932
+msgid "Invalid format for a boolean value"
+msgstr "Neplatný formát pro pravdivostní hodnotu"
+
+#: ../src/e-sexp.c:955
+#, c-format
+msgid "Invalid symbol type: %s: %d"
+msgstr "Neplatný typ symbolu: %s: %d"
+
+#: ../src/e-sexp.c:959 ../src/e-sexp.c:1004
+#, c-format
+msgid "Unknown identifier: %s"
+msgstr "Neznámý identifikátor: %s"
+
+#: ../src/e-sexp.c:965 ../src/e-sexp.c:1007
+#, c-format
+msgid "Unexpected token encountered: %d"
+msgstr "Vyskytl se neočekávaný znak: %d"
+
+#: ../src/e-sexp.c:1000
+#, c-format
+msgid "Trying to call variable as function: %s"
+msgstr "Pokus o volání proměnné jako funkce: %s"
+
+#: ../src/e-sexp.c:1011
+msgid "Missing ')'"
+msgstr "Schází „)“"
+
+#: ../src/e-sexp.c:1014
+msgid "Missing '('"
+msgstr "Schází „(“"
+
+#: ../src/logical.c:38
+#, c-format
+msgid "is expects two string arguments\n"
+msgstr "is (je) očekává dva argumenty typu řetězec\n"
+
+#: ../src/logical.c:55
+#, c-format
+msgid "contains expects two string arguments\n"
+msgstr "contains (obsahuje) očekává jako argument dva řetězce\n"
+
+#: ../src/logical.c:76
+#, c-format
+msgid "matches expects two string arguments\n"
+msgstr "matches (shoduje se) očekává jako argument dva řetězce\n"
+
+#: ../src/logical.c:87
+#, c-format
+msgid "Invalid regular expression '%s': %s"
+msgstr "Neplatný regulární výraz „%s“: %s"
+
+#: ../src/matchers.c:100
+#, c-format
+msgid "window_property expects one string argument\n"
+msgstr "window_property (vlastnost okna) očekává jako argument jeden řetězec\n"
+
+#: ../src/parser.c:106 ../src/parser.c:175
+#, c-format
+msgid "Loading %s\n"
+msgstr "Načítá se %s\n"
+
+#: ../src/parser.c:109
+#, c-format
+msgid "%s is not a normal file, skipping\n"
+msgstr "%s není normální soubor, vynechává se\n"
+
+#: ../src/parser.c:115
+#, c-format
+msgid "Cannot open %s\n"
+msgstr "Nelze otevřít %s\n"
+
+#: ../src/parser.c:149
+#, c-format
+msgid "Cannot parse %s: %s\n"
+msgstr "Nelze analyzovat %s: %s\n"
+
+#: ../src/parser.c:178
+#, c-format
+msgid "%s doesn't exist\n"
+msgstr "%s neexistuje\n"
+
+#: ../src/parser.c:183
+#, c-format
+msgid "%s isn't a directory\n"
+msgstr "%s není složka\n"
+
+#: ../src/parser.c:189
+#, c-format
+msgid "Cannot open %s: %s\n"
+msgstr "Nelze otevřít %s: %s\n"

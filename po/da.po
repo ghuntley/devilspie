@@ -1,0 +1,532 @@
+# Danish translation for devilspie.
+# Copyright (C) 2009 devilspie & Joe Hansen.
+# This file is distributed under the same license as the devilspie package.
+# Joe Hansen <joedalton2@yahoo.dk>, 2009.
+#
+# boolean -> boolesk (et er ikke min hjemmebane, men jeg mener at Erik 
+#          en gang oplyste at boolean kommer fra en mand ved navn Boole, 
+#          og derfor hedder det "boolesk værdi" Tjekket på RO (Kenneth).
+# match -> søgeresultat (men er i tvivl om det er det korrekte her
+#          der er kun 1 streng, så ikke nem at gennemskue.)
+# pager -> skrivebordsvælger (hentet fra KDE)
+# workspace -> arbejdsområde
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: devilspie master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-30 23:01+0100\n"
+"PO-Revision-Date: 2009-12-14 22:00+0200\n"
+"Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../src/actions.c:46
+#, c-format
+msgid ""
+"Window Title: '%s'; Application Name: '%s'; Class: '%s'; Geometry: %dx%d+%d+%"
+"d\n"
+msgstr ""
+"Vinduestitel: '%s'; Programnavn: '%s'; Klasse: '%s'; Geometri: %dx%d+%d+%d\n"
+
+#: ../src/actions.c:90
+#, c-format
+msgid "(array pointer: %p)"
+msgstr "(tabelpeger: %p)"
+
+#: ../src/actions.c:96
+#, c-format
+msgid "Cannot convert element into a string"
+msgstr "Kan ikke konvertere element til en streng"
+
+#: ../src/actions.c:214
+#, c-format
+msgid "Setting geometry '%s' failed\n"
+msgstr "Kunne ikke indstille geometrien '%s'\n"
+
+#: ../src/actions.c:220
+#, c-format
+msgid "Setting geometry '%s'\n"
+msgstr "Indstil geometri '%s'\n"
+
+# i tvivl om hvad der reelt menes her!
+# Devilspie er et program til at ændre p hvordan vinduer ser ud og 
+# på hvilke skriveborde de ligger, så jeg tror at det der mener her 
+# at at den beder et program om information om hvilket skrive bord
+# den ligger på.
+#: ../src/actions.c:243
+#, c-format
+msgid "Cannot get workspace\n"
+msgstr "Kunne ikke indhente arbejdsområde\n"
+
+#: ../src/actions.c:261
+#, c-format
+msgid "Centering '%s' failed\n"
+msgstr "Kunne ikke centrere '%s'\n"
+
+# Centrere, centrerer eller centrering
+# ved ændring husk også focusing\n
+#: ../src/actions.c:266
+#, c-format
+msgid "Centering\n"
+msgstr "Centrere\n"
+
+# eller er det indstille fuldskærm, den næste
+# tyder på nedenstående oversættelse.
+#: ../src/actions.c:276
+#, c-format
+msgid "Setting fullscreen\n"
+msgstr "Slå fuldskærm til\n"
+
+#: ../src/actions.c:286
+#, c-format
+msgid "Unsetting fullscreen\n"
+msgstr "Slå fuldskærm fra\n"
+
+# hænger sammen med centering, ændres den skal den her
+# eventuelt også ændres.
+#: ../src/actions.c:299
+#, c-format
+msgid "Focusing\n"
+msgstr "Fokusere\n"
+
+#: ../src/actions.c:308
+#, c-format
+msgid "Maximising\n"
+msgstr "Maksimere\n"
+
+#: ../src/actions.c:317
+#, c-format
+msgid "Maximising vertically\n"
+msgstr "Maksimere vertikalt\n"
+
+#: ../src/actions.c:326
+#, c-format
+msgid "Maximising horizontally\n"
+msgstr "Maksimere horisontalt\n"
+
+#: ../src/actions.c:335
+#, c-format
+msgid "Un-maximising\n"
+msgstr "Slå maksimering fra\n"
+
+#: ../src/actions.c:344
+#, c-format
+msgid "Minimising\n"
+msgstr "Minimere\n"
+
+#: ../src/actions.c:357
+#, c-format
+msgid "Un-minimising\n"
+msgstr "Slå minimering fra\n"
+
+# skygget, skyggelagt, oprullet, rullet op
+#: ../src/actions.c:366
+#, c-format
+msgid "Shaded\n"
+msgstr "Skyggelagt\n"
+
+#: ../src/actions.c:375
+#, c-format
+msgid "Unshaded\n"
+msgstr "Uden skygge\n"
+
+#: ../src/actions.c:388
+#, c-format
+msgid "Closed\n"
+msgstr "Lukket\n"
+
+#: ../src/actions.c:397
+#, c-format
+msgid "Setting pinned\n"
+msgstr "Sat til fastlåst\n"
+
+#: ../src/actions.c:406
+#, c-format
+msgid "Unsetting pinned\n"
+msgstr "Nulstille fastlåst\n"
+
+#: ../src/actions.c:415
+#, c-format
+msgid "Setting sticky\n"
+msgstr "Sat til klæbrig\n"
+
+#: ../src/actions.c:424
+#, c-format
+msgid "Unsetting sticky\n"
+msgstr "Nulstille klæbrig\n"
+
+#: ../src/actions.c:437
+#, c-format
+msgid "set_workspace expects a single integer argument\n"
+msgstr "set_workspace forventer et enkelt heltalsargument\n"
+
+#: ../src/actions.c:447 ../src/actions.c:475
+#, c-format
+msgid "Workspace number %d does not exist"
+msgstr "Arbejdsområdenummer %d eksisterer ikke"
+
+#: ../src/actions.c:451
+#, c-format
+msgid "Changing workspace to %d\n"
+msgstr "Ændre arbejdsområde til %d\n"
+
+#: ../src/actions.c:465
+#, c-format
+msgid "change_workspace expects a single integer argument\n"
+msgstr "change_workspace forventer et enkelt heltalsargument\n"
+
+#: ../src/actions.c:481
+#, c-format
+msgid "Switching workspace to %d\n"
+msgstr "Skifte arbejdsområde til %d\n"
+
+#: ../src/actions.c:493
+#, c-format
+msgid "set_viewport expects a single integer argument\n"
+msgstr "set_viewport forventer et enkelt heltalsargument\n"
+
+#: ../src/actions.c:500
+#, c-format
+msgid "set_viewport expects an integer greater than 0\n"
+msgstr "set_viewport forventer et heltal større end 0\n"
+
+#: ../src/actions.c:510
+#, c-format
+msgid "could not find current viewport\n"
+msgstr "kunne ikke finde nuværende viewport\n"
+
+#: ../src/actions.c:521
+#, c-format
+msgid "Setting viewport failed\n"
+msgstr "Kunne ikke indstille viewport\n"
+
+#: ../src/actions.c:525
+#, c-format
+msgid "Changing viewport to %d\n"
+msgstr "Ændre viewport til %d\n"
+
+#: ../src/actions.c:534
+#, c-format
+msgid "Skipping tasklist\n"
+msgstr "Springe opgaveliste over\n"
+
+#: ../src/actions.c:543
+#, c-format
+msgid "Skipping pager\n"
+msgstr "Springe skrivebordsvælger over\n"
+
+#: ../src/actions.c:556
+#, c-format
+msgid "Setting above\n"
+msgstr "Indstille over\n"
+
+#: ../src/actions.c:569
+#, c-format
+msgid "Setting below\n"
+msgstr "Indstille under\n"
+
+#: ../src/actions.c:612
+#, c-format
+msgid "Removing decorations failed"
+msgstr "Kunne ikke fjerne dekorationer"
+
+#: ../src/actions.c:616
+#, c-format
+msgid "Removed decorations\n"
+msgstr "Fjernede dekorationer\n"
+
+#: ../src/actions.c:630
+#, c-format
+msgid "Adding decorations failed"
+msgstr "Kunne ikke tilføje dekorationer"
+
+#: ../src/actions.c:634
+#, c-format
+msgid "Added decorations\n"
+msgstr "Tilføjede dekorationer\n"
+
+#: ../src/actions.c:649
+#, c-format
+msgid "wintype expects a single string argument\n"
+msgstr "wintype forventer en enkelt streng som argument\n"
+
+#: ../src/actions.c:671
+#, c-format
+msgid "Unknown window type '%s'"
+msgstr "Ukendt vinduetype '%s'"
+
+#: ../src/actions.c:677
+#, c-format
+msgid "Set wintype\n"
+msgstr "Angiv wintype\n"
+
+#: ../src/actions.c:690
+#, c-format
+msgid "opacity expects a single integer argument\n"
+msgstr "ugennemsigtighed forventer et enkelt heltalsargument\n"
+
+#: ../src/actions.c:695
+#, c-format
+msgid "opacity expects a single integer argument between 0 and 100\n"
+msgstr "ugennemsigtighed forventer et enkelt heltalsargument mellem 0 og 100\n"
+
+# msgfmt brokker sig ikke over at string er oversat!
+# men skal den være det?
+#: ../src/actions.c:725
+#, c-format
+msgid "spawn_sync(string)\n"
+msgstr "spawn_sync(streng)\n"
+
+#: ../src/actions.c:727
+#, c-format
+msgid "spawn_sync: Command parameter is not a string"
+msgstr "spawn_sync: Kommandoparameter er ikke en streng"
+
+#: ../src/actions.c:740
+#, c-format
+msgid "spawn_sync(list)\n"
+msgstr "spawn_sync(liste)\n"
+
+#: ../src/actions.c:747
+#, c-format
+msgid "spawn_sync: Command parameter %d is not a string"
+msgstr "spawn_sync: Kommandoparameter %d er ikke en streng"
+
+#: ../src/actions.c:764
+#, c-format
+msgid "Error spawning child process (fg): %s\n"
+msgstr "Fejl under opstart af underproces (fg): %s\n"
+
+#: ../src/actions.c:766
+#, c-format
+msgid "Error spawning child process (fg).\n"
+msgstr "Fejl under opstart af underproces (fg).\n"
+
+#: ../src/actions.c:769
+#, c-format
+msgid "Warning: child process returned %d\n"
+msgstr "Advarsel: Underproces returnerede %d\n"
+
+#: ../src/actions.c:793
+#, c-format
+msgid "spawn_async(string)\n"
+msgstr "spawn_async(streng)\n"
+
+#: ../src/actions.c:795
+#, c-format
+msgid "spawn_async: Command parameter is not a string"
+msgstr "spawn_async: Kommandoparameter er ikke en streng"
+
+#: ../src/actions.c:807
+#, c-format
+msgid "spawn_async(list)\n"
+msgstr "spawn_async(liste)\n"
+
+#: ../src/actions.c:814
+#, c-format
+msgid "spawn_async: Command parameter %d is not a string"
+msgstr "spawn_async: Kommandoparameter %d er ikke en streng"
+
+#: ../src/actions.c:827
+#, c-format
+msgid "Spawned pid %u (bg)\n"
+msgstr "Opstarter pid %u (bg)\n"
+
+#: ../src/actions.c:833
+#, c-format
+msgid "Error spawning child process (bg): %s\n"
+msgstr "Fejl under opstart af underproces (bg): %s\n"
+
+#: ../src/actions.c:835
+#, c-format
+msgid "Error spawning child process (bg).\n"
+msgstr "Fejl under opstart af underproces (bg).\n"
+
+#: ../src/actions.c:846
+#, c-format
+msgid "Quiting...\n"
+msgstr "Afslutter...\n"
+
+#: ../src/devilspie.c:102
+msgid "Apply to all existing windows instead of just new windows."
+msgstr "Anvend på alle eksisterende vinduer frem for kun på nye vinduer."
+
+#: ../src/devilspie.c:103
+msgid "Output debug information"
+msgstr "Giv fejlsøgningsinformation som uddata"
+
+#: ../src/devilspie.c:104
+msgid "Configuration files to use"
+msgstr "Konfigurationsfiler der skal bruges"
+
+#: ../src/devilspie.c:124
+#, c-format
+msgid "Devil's Pie %s starting...\n"
+msgstr "Devils Pie %s starter...\n"
+
+#: ../src/devilspie.c:140
+#, c-format
+msgid "No s-expressions loaded, quiting\n"
+msgstr "Ingen s-udtryk indlæst, afslutter\n"
+
+#: ../src/e-sexp.c:271
+msgid "Invalid types in AND"
+msgstr "Ugyldige typer i OG"
+
+#: ../src/e-sexp.c:327
+msgid "Invalid types in OR"
+msgstr "Ugyldige typer i ELLER"
+
+#: ../src/e-sexp.c:389
+msgid "Incompatible types in compare <"
+msgstr "Typer der ikke er kompatible i sammenlign <"
+
+#: ../src/e-sexp.c:421
+msgid "Incompatible types in compare >"
+msgstr "Typer der ikke er kompatible i sammenlign >"
+
+# bør nedenstående ( ) oversættes?
+#: ../src/e-sexp.c:483
+msgid "Invalid types in (+ ints)"
+msgstr "Ugyldige typer i (+ ints)"
+
+#: ../src/e-sexp.c:495
+msgid "Invalid types in (+ strings)"
+msgstr "Ugyldige typer i (+ strings)"
+
+#: ../src/e-sexp.c:511
+msgid "Invalid types in (+ time_t)"
+msgstr "Ugyldige typer i (+ time_t)"
+
+#: ../src/e-sexp.c:544
+msgid "Invalid types in -"
+msgstr "Ugyldige typer i -"
+
+#: ../src/e-sexp.c:559
+msgid "Invalid types in (- time_t)"
+msgstr "Ugyldige typer i (- time_t)"
+
+#: ../src/e-sexp.c:582
+msgid "Incorrect argument count to (int )"
+msgstr "Ukorrekt argumentsantal til (int )"
+
+#: ../src/e-sexp.c:597
+msgid "Invalid type in (cast-int )"
+msgstr "Ugyldig type i (cast-int )"
+
+#: ../src/e-sexp.c:610
+msgid "Incorrect argument count to (cast-string )"
+msgstr "Ukorrekt argumentsantal til (cast-string )"
+
+#: ../src/e-sexp.c:625
+msgid "Invalid type in (int )"
+msgstr "Ugyldig type i (int )"
+
+#: ../src/e-sexp.c:718
+#, c-format
+msgid "Unknown type in parse tree: %d"
+msgstr "Ukendt type i tolkningstræ (parse tree): %d"
+
+#: ../src/e-sexp.c:908
+msgid "Invalid format for a integer value"
+msgstr "Ugyldigt format for et heltal"
+
+#: ../src/e-sexp.c:924 ../src/e-sexp.c:932
+msgid "Invalid format for a boolean value"
+msgstr "Ugyldig format for en boolesk værdi"
+
+#: ../src/e-sexp.c:955
+#, c-format
+msgid "Invalid symbol type: %s: %d"
+msgstr "Ugyldig symboltype: %s: %d"
+
+#: ../src/e-sexp.c:959 ../src/e-sexp.c:1004
+#, c-format
+msgid "Unknown identifier: %s"
+msgstr "Ukendt identifikator: %s"
+
+#: ../src/e-sexp.c:965 ../src/e-sexp.c:1007
+#, c-format
+msgid "Unexpected token encountered: %d"
+msgstr "Mødte et uventet tegn: %d"
+
+#: ../src/e-sexp.c:1000
+#, c-format
+msgid "Trying to call variable as function: %s"
+msgstr "Forsøger at kalde variabel som funktion: %s"
+
+#: ../src/e-sexp.c:1011
+msgid "Missing ')'"
+msgstr "Mangler ')'"
+
+#: ../src/e-sexp.c:1014
+msgid "Missing '('"
+msgstr "Mangler '('"
+
+# noget af en sætningskonstruktion. Er den engelske korrekt?
+# er forventet to-strengsargumenter
+#: ../src/logical.c:38
+#, c-format
+msgid "is expects two string arguments\n"
+msgstr "er forventer to-strengsargumenter\n"
+
+# noget af en sætningskonstruktion. Er den engelske korrekt?
+# indeholdelse forventer to-strengsargumenter
+#: ../src/logical.c:55
+#, c-format
+msgid "contains expects two string arguments\n"
+msgstr "indeholder forventer to-strengsargumenter\n"
+
+#: ../src/logical.c:76
+#, c-format
+msgid "matches expects two string arguments\n"
+msgstr "søgeresultater forventer to-strengsargumenter\n"
+
+#: ../src/logical.c:87
+#, c-format
+msgid "Invalid regular expression '%s': %s"
+msgstr "Ugyldigt regulært udtryk '%s': %s"
+
+#: ../src/matchers.c:100
+#, c-format
+msgid "window_property expects one string argument\n"
+msgstr "window_property forventer en streng som argument\n"
+
+#: ../src/parser.c:106 ../src/parser.c:175
+#, c-format
+msgid "Loading %s\n"
+msgstr "Indlæser %s\n"
+
+#: ../src/parser.c:109
+#, c-format
+msgid "%s is not a normal file, skipping\n"
+msgstr "%s er ikke en normal fil, springer over\n"
+
+#: ../src/parser.c:115
+#, c-format
+msgid "Cannot open %s\n"
+msgstr "Kan ikke åbne %s\n"
+
+#: ../src/parser.c:149
+#, c-format
+msgid "Cannot parse %s: %s\n"
+msgstr "Kan ikke tolke (parse) %s: %s\n"
+
+#: ../src/parser.c:178
+#, c-format
+msgid "%s doesn't exist\n"
+msgstr "%s eksisterer ikke\n"
+
+#: ../src/parser.c:183
+#, c-format
+msgid "%s isn't a directory\n"
+msgstr "%s er ikke en mappe\n"
+
+#: ../src/parser.c:189
+#, c-format
+msgid "Cannot open %s: %s\n"
+msgstr "Kan ikke åbne %s: %s\n"

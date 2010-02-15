@@ -4,19 +4,20 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Juan Alfredo Salas Santillana <jsantillana@aqpglug.org.pe>, 2009.
-# Jorge González <jorgegonz@svn.gnome.org>, 2009.
+# Jorge González <jorgegonz@svn.gnome.org>, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: devilspie master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=devilspie&component=general\n"
-"POT-Creation-Date: 2009-06-01 09:36+0000\n"
-"PO-Revision-Date: 2009-06-13 16:38+0200\n"
+"POT-Creation-Date: 2009-08-01 19:10+0000\n"
+"PO-Revision-Date: 2010-02-15 21:38+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/actions.c:46
 #, c-format
@@ -29,13 +30,15 @@ msgstr ""
 
 #: ../src/actions.c:90
 #, c-format
-msgid "(array pointer: %p)\n"
-msgstr "(puntero array: %p)\n"
+#| msgid "(array pointer: %p)\n"
+msgid "(array pointer: %p)"
+msgstr "(puntero array: %p)"
 
 #: ../src/actions.c:96
 #, c-format
-msgid "Cannot convert element into a string\n"
-msgstr "No se puede convertir el elemento a una cadena\n"
+#| msgid "Cannot convert element into a string\n"
+msgid "Cannot convert element into a string"
+msgstr "No se puede convertir el elemento a una cadena"
 
 #: ../src/actions.c:214
 #, c-format
@@ -150,8 +153,9 @@ msgstr "set_workspace espera un único argumento entero\n"
 
 #: ../src/actions.c:447 ../src/actions.c:475
 #, c-format
-msgid "Workspace number %d does not exist\n"
-msgstr "El área de trabajo número %d no existe\n"
+#| msgid "Workspace number %d does not exist\n"
+msgid "Workspace number %d does not exist"
+msgstr "El área de trabajo número %d no existe"
 
 #: ../src/actions.c:451
 #, c-format
@@ -215,8 +219,9 @@ msgstr "Configuración por debajo\n"
 
 #: ../src/actions.c:612
 #, c-format
-msgid "Removing decorations failed\n"
-msgstr "Falló al quitar la decoración\n"
+#| msgid "Removing decorations failed\n"
+msgid "Removing decorations failed"
+msgstr "Falló al quitar la decoración"
 
 #: ../src/actions.c:616
 #, c-format
@@ -225,8 +230,9 @@ msgstr "Decoraciones quitadas\n"
 
 #: ../src/actions.c:630
 #, c-format
-msgid "Adding decorations failed\n"
-msgstr "Falló al añadir la decoración\n"
+#| msgid "Adding decorations failed\n"
+msgid "Adding decorations failed"
+msgstr "Falló al añadir la decoración"
 
 #: ../src/actions.c:634
 #, c-format
@@ -240,8 +246,9 @@ msgstr "wintype espera un único argumento entero\n"
 
 #: ../src/actions.c:671
 #, c-format
-msgid "Unknown window type '%s'\n"
-msgstr "Tipo de ventana «%s» desconocido\n"
+#| msgid "Unknown window type '%s'\n"
+msgid "Unknown window type '%s'"
+msgstr "Tipo de ventana «%s» desconocido"
 
 #: ../src/actions.c:677
 #, c-format
@@ -265,8 +272,9 @@ msgstr "spawn_sync(cadena)\n"
 
 #: ../src/actions.c:727
 #, c-format
-msgid "spawn_sync: Command parameter is not a string\n"
-msgstr "spawn_sync: el parámetro del comando no es una cadena\n"
+#| msgid "spawn_sync: Command parameter is not a string\n"
+msgid "spawn_sync: Command parameter is not a string"
+msgstr "spawn_sync: el parámetro del comando no es una cadena"
 
 #: ../src/actions.c:740
 #, c-format
@@ -275,8 +283,9 @@ msgstr "spawn_sync(lista)\n"
 
 #: ../src/actions.c:747
 #, c-format
-msgid "spawn_sync: Command parameter %d is not a string\n"
-msgstr "spawn_sync: el parámetro del comando %d no es una cadena\n"
+#| msgid "spawn_sync: Command parameter %d is not a string\n"
+msgid "spawn_sync: Command parameter %d is not a string"
+msgstr "spawn_sync: el parámetro del comando %d no es una cadena"
 
 #: ../src/actions.c:764
 #, c-format
@@ -300,8 +309,9 @@ msgstr "spawn_async(cadena)\n"
 
 #: ../src/actions.c:795
 #, c-format
-msgid "spawn_async: Command parameter is not a string\n"
-msgstr "spawn_async: el parámetro del comando no es una cadena\n"
+#| msgid "spawn_async: Command parameter is not a string\n"
+msgid "spawn_async: Command parameter is not a string"
+msgstr "spawn_async: el parámetro del comando no es una cadena"
 
 #: ../src/actions.c:807
 #, c-format
@@ -310,8 +320,9 @@ msgstr "spawn_async(lista)\n"
 
 #: ../src/actions.c:814
 #, c-format
-msgid "spawn_async: Command parameter %d is not a string\n"
-msgstr "spawn_async: el parámetro del comando %d no es una cadena\n"
+#| msgid "spawn_async: Command parameter %d is not a string\n"
+msgid "spawn_async: Command parameter %d is not a string"
+msgstr "spawn_async: el parámetro del comando %d no es una cadena"
 
 #: ../src/actions.c:827
 #, c-format
@@ -334,18 +345,21 @@ msgid "Quiting...\n"
 msgstr "Saliendo...\n"
 
 #: ../src/devilspie.c:102
-msgid "Apply to all existing windows instead of just new windows.\n"
+#| msgid "Apply to all existing windows instead of just new windows.\n"
+msgid "Apply to all existing windows instead of just new windows."
 msgstr ""
 "Aplicar a todas las ventanas existentes en lugar de sólo a las ventanas "
-"nuevas.\n"
+"nuevas."
 
 #: ../src/devilspie.c:103
-msgid "Output debug information\n"
-msgstr "Mostrar la información de depuración\n"
+#| msgid "Output debug information\n"
+msgid "Output debug information"
+msgstr "Mostrar la información de depuración"
 
 #: ../src/devilspie.c:104
-msgid "Configuration files to use\n"
-msgstr "Archivos de configuración que usar\n"
+#| msgid "Configuration files to use\n"
+msgid "Configuration files to use"
+msgstr "Archivos de configuración que usar"
 
 #: ../src/devilspie.c:124
 #, c-format
@@ -358,97 +372,119 @@ msgid "No s-expressions loaded, quiting\n"
 msgstr "No existen expresiones «s» cargadas, saliendo\n"
 
 #: ../src/e-sexp.c:271
-msgid "Invalid types in AND\n"
-msgstr "Tipos no válidos en AND\n"
+#| msgid "Invalid types in AND\n"
+msgid "Invalid types in AND"
+msgstr "Tipos no válidos en AND"
 
 #: ../src/e-sexp.c:327
-msgid "Invalid types in OR\n"
-msgstr "Tipos no válidos en OR\n"
+#| msgid "Invalid types in OR\n"
+msgid "Invalid types in OR"
+msgstr "Tipos no válidos en OR"
 
 #: ../src/e-sexp.c:389
-msgid "Incompatible types in compare <\n"
-msgstr "Tipos incompatibles en la comparación <\n"
+#| msgid "Incompatible types in compare <\n"
+msgid "Incompatible types in compare <"
+msgstr "Tipos incompatibles en la comparación <"
 
 #: ../src/e-sexp.c:421
-msgid "Incompatible types in compare >\n"
-msgstr "Tipos incompatibles en la comparación >\n"
+#| msgid "Incompatible types in compare >\n"
+msgid "Incompatible types in compare >"
+msgstr "Tipos incompatibles en la comparación >"
 
 #: ../src/e-sexp.c:483
-msgid "Invalid types in (+ ints)\n"
-msgstr "Tipos no válidos en (+ ints)\n"
+#| msgid "Invalid types in (+ ints)\n"
+msgid "Invalid types in (+ ints)"
+msgstr "Tipos no válidos en (+ ints)"
 
 #: ../src/e-sexp.c:495
-msgid "Invalid types in (+ strings)\n"
-msgstr "Tipos no válidos en (+ strings)\n"
+#| msgid "Invalid types in (+ strings)\n"
+msgid "Invalid types in (+ strings)"
+msgstr "Tipos no válidos en (+ strings)"
 
 #: ../src/e-sexp.c:511
-msgid "Invalid types in (+ time_t)\n"
-msgstr "Tipos no válidos en (+ time_t)\n"
+#| msgid "Invalid types in (+ time_t)\n"
+msgid "Invalid types in (+ time_t)"
+msgstr "Tipos no válidos en (+ time_t)"
 
 #: ../src/e-sexp.c:544
-msgid "Invalid types in -\n"
-msgstr "Tipos no válidos en -\n"
+#| msgid "Invalid types in -\n"
+msgid "Invalid types in -"
+msgstr "Tipos no válidos en -"
 
 #: ../src/e-sexp.c:559
-msgid "Invalid types in (- time_t)\n"
-msgstr "Tipos no válidos en (- time_t)\n"
+#| msgid "Invalid types in (- time_t)\n"
+msgid "Invalid types in (- time_t)"
+msgstr "Tipos no válidos en (- time_t)"
 
 #: ../src/e-sexp.c:582
-msgid "Incorrect argument count to (int )\n"
-msgstr "Argumento de conteo (int ) incorrecto\n"
+#| msgid "Incorrect argument count to (int )\n"
+msgid "Incorrect argument count to (int )"
+msgstr "Argumento de conteo (int ) incorrecto"
 
 #: ../src/e-sexp.c:597
-msgid "Invalid type in (cast-int )\n"
-msgstr "Tipos no válidos en (cast-int)\n"
+#| msgid "Invalid type in (cast-int )\n"
+msgid "Invalid type in (cast-int )"
+msgstr "Tipos no válidos en (cast-int)"
 
 #: ../src/e-sexp.c:610
-msgid "Incorrect argument count to (cast-string )\n"
-msgstr "Argumento de conteo (cast-string) incorrecto\n"
+#| msgid "Incorrect argument count to (cast-string )\n"
+msgid "Incorrect argument count to (cast-string )"
+msgstr "Argumento de conteo (cast-string) incorrecto"
 
 #: ../src/e-sexp.c:625
-msgid "Invalid type in (int )\n"
-msgstr "Tipos no válidos en (int)\n"
+#| msgid "Invalid type in (int )\n"
+msgid "Invalid type in (int )"
+msgstr "Tipos no válidos en (int)"
 
 #: ../src/e-sexp.c:718
 #, c-format
-msgid "Unknown type in parse tree: %d\n"
-msgstr "Tipo de sintaxis en el árbol desconocida: %d\n"
+#| msgid "Unknown type in parse tree: %d\n"
+msgid "Unknown type in parse tree: %d"
+msgstr "Tipo de sintaxis en el árbol desconocida: %d"
 
 #: ../src/e-sexp.c:908
-msgid "Invalid format for a integer value\n"
-msgstr "Formato para valor entero no válido\n"
+#| msgid "Invalid format for a integer value\n"
+msgid "Invalid format for a integer value"
+msgstr "Formato para valor entero no válido"
 
 #: ../src/e-sexp.c:924 ../src/e-sexp.c:932
-msgid "Invalid format for a boolean value\n"
-msgstr "Formato para valor booleano no válido\n"
+#| msgid "Invalid format for a boolean value\n"
+msgid "Invalid format for a boolean value"
+msgstr "Formato para valor booleano no válido"
 
 #: ../src/e-sexp.c:955
 #, c-format
-msgid "Invalid symbol type: %s: %d\n"
-msgstr "Tipo de símbolo no válido: %s: %d\n"
+#| msgid "Invalid symbol type: %s: %d\n"
+msgid "Invalid symbol type: %s: %d"
+msgstr "Tipo de símbolo no válido: %s: %d"
 
 #: ../src/e-sexp.c:959 ../src/e-sexp.c:1004
 #, c-format
-msgid "Unknown identifier: %s\n"
-msgstr "Identificador desconocido: %s\n"
+#| msgid "Unknown identifier: %s\n"
+msgid "Unknown identifier: %s"
+msgstr "Identificador desconocido: %s"
 
 #: ../src/e-sexp.c:965 ../src/e-sexp.c:1007
 #, c-format
-msgid "Unexpected token encountered: %d\n"
-msgstr "Se encontró un token inesperado: %d\n"
+#| msgid "Unexpected token encountered: %d\n"
+msgid "Unexpected token encountered: %d"
+msgstr "Se encontró un token inesperado: %d"
 
 #: ../src/e-sexp.c:1000
 #, c-format
-msgid "Trying to call variable as function: %s\n"
-msgstr "Intentando llamar a una variable como una función: %s\n"
+#| msgid "Trying to call variable as function: %s\n"
+msgid "Trying to call variable as function: %s"
+msgstr "Intentando llamar a una variable como una función: %s"
 
 #: ../src/e-sexp.c:1011
-msgid "Missing ')'\n"
-msgstr "Falta «)»\n"
+#| msgid "Missing ')'\n"
+msgid "Missing ')'"
+msgstr "Falta «)»"
 
 #: ../src/e-sexp.c:1014
-msgid "Missing '('\n"
-msgstr "Falta «(»\n"
+#| msgid "Missing '('\n"
+msgid "Missing '('"
+msgstr "Falta «(»"
 
 #: ../src/logical.c:38
 #, c-format
@@ -467,8 +503,9 @@ msgstr "«matches» espera dos argumentos de cadena\n"
 
 #: ../src/logical.c:87
 #, c-format
-msgid "Invalid regular expression '%s': %s\n"
-msgstr "Expreción regular no valida «%s»: %s\n"
+#| msgid "Invalid regular expression '%s': %s\n"
+msgid "Invalid regular expression '%s': %s"
+msgstr "Expreción regular no valida «%s»: %s"
 
 #: ../src/matchers.c:100
 #, c-format

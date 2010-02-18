@@ -31,6 +31,18 @@ PKG_CHECK_MODULES(WNCK,
 AC_SUBST(WNCK_CFLAGS)
 AC_SUBST(WNCK_LIBS)
 
+AC_MSG_CHECKING([whether Unique support is requested])
+AC_ARG_ENABLE([unique],
+	[AS_HELP_STRING([--enable-unique],
+	[Enable Unique (single-instance application) support (default: disabled)])],
+	[], [enable_unique=no])
+AC_MSG_RESULT([$enable_unique])
+
+if test x"$enable_unique" = "xyes" ; then
+	PKG_CHECK_MODULES([UNIQUE], [unique-1.0 >= 1.1.2])
+	AC_DEFINE([ENABLE_UNIQUE], [1], [Define whether Unique support is enabled])
+fi
+
 # See if we have new libwnck with timestamp arguments
 PKG_CHECK_MODULES(WNCK_VER, libwnck-1.0 >= 2.9.92,
 		 wnck_new="yes", wnck_new="no")
@@ -59,3 +71,13 @@ src/Makefile
 po/Makefile.in
 tests/Makefile
 ])
+
+echo "
+Devilspie was configured with the following options:
+
+    Source code location:   : $srcdir
+    Compiler                : $CC
+    Prefix                  : $prefix
+
+    Unique support          : $enable_unique
+"

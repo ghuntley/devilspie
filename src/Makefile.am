@@ -36,6 +36,7 @@ sexp_test_SOURCES = \
 
 AM_CPPFLAGS = \
 	$(WNCK_CFLAGS) \
+	$(UNIQUE_CFLAGS) \
 	-DLOCALEDIR=\""$(datadir)/locale"\" \
 	-DSYSCONFDIR=\""$(sysconfdir)"\" \
 	-DDATADIR=\""$(datadir)"\" \
@@ -46,4 +47,4 @@ AM_CPPFLAGS = \
 
 AM_CFLAGS = @WARN_CFLAGS@
 
-LDADD = ${WNCK_LIBS}
+LDADD = ${WNCK_LIBS} ${UNIQUE_LIBS}

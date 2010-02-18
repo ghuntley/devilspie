@@ -28,6 +28,10 @@
 #include "devilspie.h"
 #include "parser.h"
 
+#ifdef ENABLE_UNIQUE
+#include <unique/unique.h>
+#endif /* ENABLE_UNIQUE */
+
 /* Global state */
 
 /**
@@ -98,6 +102,11 @@ static void init_screens(void) {
  * Dedicated to Vicky.
  */
 int main(int argc, char **argv) {
+
+#ifdef ENABLE_UNIQUE
+	UniqueApp *app;
+#endif /* ENABLE_UNIQUE */
+
   static const GOptionEntry options[] = {
     { "apply-to-existing", 'a', 0, G_OPTION_ARG_NONE, &apply_to_existing, N_("Apply to all existing windows instead of just new windows."), NULL },
     { "debug", 'd', 0, G_OPTION_ARG_NONE, &debug, N_("Output debug information"), NULL },
@@ -115,6 +124,15 @@ int main(int argc, char **argv) {
 
   /* Initialise GDK */
   gdk_init(&argc, &argv);
+
+#ifdef ENABLE_UNIQUE
+  app = unique_app_new ("org.gnome.devilspie", NULL);
+
+  if (unique_app_is_running (app)) {
+	  g_object_unref (app);
+	  return 0;
+  }
+#endif /* ENABLE_UNIQUE */
 
   /* Parse the arguments */
   context = g_option_context_new ("- Devil's Pie " VERSION);
@@ -147,6 +165,10 @@ int main(int argc, char **argv) {
   /* Go go go! */
   loop = g_main_loop_new (NULL, TRUE);
   g_main_loop_run (loop);
+
+#ifdef ENABLE_UNIQUE
+  g_object_unref (app);
+#endif /* ENABLE_UNIQUE */
 
   return 0;
 }

@@ -133,7 +133,7 @@ GList *load_configuration_file (const char *path)
       if (NULL == gs)
         gs = sexp->scanner;
 
-      for(i=0; i < sizeof(symbols)/sizeof(symbols[0]); i++) {
+      for(i=0; i < G_N_ELEMENTS(symbols); i++) {
         if (symbols[i].shortcut) {
           e_sexp_add_ifunction(sexp, 0, symbols[i].name, symbols[i].func, &context);
         } else {

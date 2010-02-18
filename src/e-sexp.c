@@ -1071,8 +1071,8 @@ e_sexp_init (ESExp *s)
 
 	s->scanner = g_scanner_new(&scanner_config);
 
-	/* load in builtin symbols? */
-	for(i=0;i<sizeof(symbols)/sizeof(symbols[0]);i++) {
+	/* Load builtin symbols */
+	for(i=0;i<G_N_ELEMENTS(symbols);i++) {
 		if (symbols[i].type == 1) {
 			e_sexp_add_ifunction(s, 0, symbols[i].name, (ESExpIFunc *)symbols[i].func, &symbols[i]);
 		} else {

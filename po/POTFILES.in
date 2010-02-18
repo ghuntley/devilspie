@@ -1,3 +1,4 @@
+data/devilspie.desktop.in
 src/actions.c
 src/devilspie.c
 src/e-sexp.c

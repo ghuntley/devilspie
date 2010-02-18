@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=Devilspie
-Comment=A Window Matching utility
+_Name=Devilspie
+_Comment=A Window Matching utility
 Exec=devilspie
 Categories=GNOME;GTK;Utility
 NoDisplay=true

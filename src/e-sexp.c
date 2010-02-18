@@ -108,7 +108,9 @@
 static ESExpTerm * parse_list(ESExp *f, int gotbrace);
 static ESExpTerm * parse_value(ESExp *f);
 
+#ifdef TESTER
 static void parse_dump_term(ESExpTerm *t, int depth);
+#endif
 
 static GObjectClass *parent_class = NULL;
 
@@ -760,7 +762,6 @@ eval_dump_result(ESExpResult *r, int depth)
 	}
 	g_print("\n");
 }
-#endif
 
 void
 parse_dump_term(ESExpTerm *t, int depth)
@@ -808,6 +809,7 @@ parse_dump_term(ESExpTerm *t, int depth)
 
 	g_print("\n");
 }
+#endif
 
 /*
   PARSER

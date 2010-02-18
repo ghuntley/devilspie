@@ -11,18 +11,16 @@ m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 # Honor aclocal flags
 ACLOCAL="$ACLOCAL $ACLOCAL_FLAGS"
 
-# Do the gettext/i18n stuff
-GETTEXT_PACKAGE=devilspie
-AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [The name of the gettext package.])
-AC_SUBST(GETTEXT_PACKAGE)
-
 AC_PROG_CC
 AM_PROG_CC_STDC
 
 GNOME_COMPILE_WARNINGS(yes)
 
-AC_PROG_INTLTOOL([0.20])
-ALL_LINGUAS="de"
+# Do the gettext/i18n stuff
+AC_PROG_INTLTOOL([0.40])
+GETTEXT_PACKAGE=devilspie
+AC_SUBST([GETTEXT_PACKAGE])
+AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE],["$GETTEXT_PACKAGE"],[Gettext package])
 AM_GLIB_GNU_GETTEXT
 
 # Check that we actually have the libraries required to build
@@ -56,6 +54,7 @@ AC_CHECK_HEADERS([sys/types.h regex.h])
 AC_OUTPUT([
 devilspie.spec
 Makefile
+data/Makefile
 src/Makefile
 po/Makefile.in
 tests/Makefile

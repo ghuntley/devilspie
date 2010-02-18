@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Devilspie
+Comment=A Window Matching utility
+Exec=devilspie
+Categories=GNOME;GTK;Utility
+NoDisplay=true
+X-GNOME-Autostart-enable=false
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=devilspie
+X-GNOME-Bugzilla-Component=general

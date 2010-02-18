@@ -1,4 +1,4 @@
-SUBDIRS = po src tests
+SUBDIRS = data po src tests
 
 man_MANS = devilspie.1
 
